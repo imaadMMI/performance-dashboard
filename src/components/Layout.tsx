@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-200 p-8 fixed h-full">
+      <aside className="w-80 bg-white border-r border-gray-200 p-8 fixed h-full">
         <div className="space-y-10">
           {/* Logo */}
           <div className="text-4xl font-sans text-gray-500">nada</div>
@@ -58,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 ml-64 p-8 bg-white">
+      <main className="flex-1 ml-80 p-8 bg-white">
         <div className="max-w-[94rem] mx-auto">{children}</div>
       </main>
     </div>

@@ -64,14 +64,14 @@ export default function Home() {
 
         {/* Practice Session */}
         <div className="bg-[#F5F5F5] p-6 rounded-lg">
-          <p className="font-sans text-lg mb-4">
-            Start a focused practice session on:
-          </p>
-          <div className="flex gap-4">
-            <button className="bg-[#c68f00] text-white px-6 py-3 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-sans">
+          <div className="flex items-center gap-8">
+            <p className="font-sans text-lg">
+              Start a focused practice session on:
+            </p>
+            <button className="bg-[#c68f00] text-white px-8 py-3 rounded-full hover:bg-[#c68f00]/80 transition-colors font-sans">
               Retention strategies
             </button>
-            <button className="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-sans">
+            <button className="bg-gray-500 text-white px-8 py-3 rounded-full hover:bg-gray-600 transition-colors font-sans">
               General session
             </button>
           </div>
