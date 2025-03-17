@@ -27,15 +27,63 @@ const CategoryList: React.FC<CategoryListProps> = ({
   const getIcon = (name: string) => {
     switch (name) {
       case "identified strengths":
-        return "💪";
+        return (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 4l-1.41 1.41C7.88 8.12 6 10.28 6 12.5c0 2.76 2.24 5 5 5s5-2.24 5-5c0-2.22-1.88-4.38-4.59-7.09L12 4z"
+              fill="currentColor"
+            />
+          </svg>
+        );
       case "suggested focus":
-        return "🎯";
+        return (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="8" fill="currentColor" />
+          </svg>
+        );
       case "emotional trends":
-        return "📈";
+        return (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="4" y="12" width="4" height="8" fill="currentColor" />
+            <rect x="10" y="8" width="4" height="12" fill="currentColor" />
+            <rect x="16" y="4" width="4" height="16" fill="currentColor" />
+          </svg>
+        );
       case "communication style":
-        return "💬";
+        return (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 2h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-2l-4 4-4-4H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2z"
+              fill="currentColor"
+            />
+          </svg>
+        );
       default:
-        return "•";
+        return null;
     }
   };
 
@@ -63,13 +111,13 @@ const CategoryList: React.FC<CategoryListProps> = ({
             onClick={() => toggleCategory(index)}
           >
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{getIcon(category.name)}</span>
+              <span className="text-black">{getIcon(category.name)}</span>
               <span className="font-sans text-black text-lg">
                 {category.name}
               </span>
             </div>
             <span
-              className={`transform transition-transform text-[#868e96]/70 ${
+              className={`transform transition-transform text-black ${
                 category.expanded ? "rotate-180" : ""
               }`}
             >

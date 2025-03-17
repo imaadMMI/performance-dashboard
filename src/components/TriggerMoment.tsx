@@ -32,28 +32,28 @@ const TriggerMoment: React.FC<TriggerMomentProps> = ({
           </button>
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-[#868e96] text-xl whitespace-nowrap">
+              <span className="font-sans text-black text-2xl whitespace-nowrap">
                 Customer trigger:
               </span>
-              <span className="font-sans text-[#868e96] text-xl">
+              <span className="font-sans text-[#868e96] text-2xl">
                 {customerTrigger}
               </span>
             </div>
           </div>
-          <div className="text-base text-[#868e96] font-sans whitespace-nowrap">
+          <div className="text-sm text-[#868e96] font-sans whitespace-nowrap">
             1/7 trigger opportunities
           </div>
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-start gap-2 pl-[120px]">
+          <div className="flex items-start gap-2 pl-4">
             <span className="font-sans text-[#868e96] whitespace-nowrap">
               Actual response:
             </span>
             <span className="font-sans text-[#868e96]">{actualResponse}</span>
           </div>
 
-          <div className="flex items-start gap-2 pl-[120px]">
+          <div className="flex items-start gap-2 pl-4">
             <span className="font-sans text-[#c68f00] whitespace-nowrap">
               Optimal response:
             </span>

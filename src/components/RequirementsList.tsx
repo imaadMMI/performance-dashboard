@@ -27,7 +27,7 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
   type,
 }) => {
   return (
-    <>
+    <div className="flex flex-col h-full">
       <div className="relative -mt-10 mb-6">
         <div className="bg-gray-100 p-3 rounded-lg w-11/12 mx-auto">
           <div className="flex items-center justify-between">
@@ -64,12 +64,12 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
           </div>
         ))}
       </div>
-      <div className="mt-4 text-right">
+      <div className="mt-auto pt-4 text-right">
         <button className="text-[#c68f00] text-base font-sans hover:underline">
           view more
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -23,7 +23,7 @@ export default function Home() {
         {/* Requirements and Categories Row */}
         <div className="grid grid-cols-3 gap-6">
           {/* Compliance Requirements */}
-          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg">
+          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg h-full">
             <RequirementsList
               title="Compliance requirement met"
               header={dashboardData.complianceRequirements.header}
@@ -33,7 +33,7 @@ export default function Home() {
           </div>
 
           {/* Best Practices */}
-          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg">
+          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg h-full">
             <RequirementsList
               title="Best-practices missed"
               header={dashboardData.bestPractices.header}
