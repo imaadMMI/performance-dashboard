@@ -9,38 +9,78 @@
       "description": "Overall conversation score percentage"
     },
     "complianceRequirements": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the compliance requirement"
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title for the identified strengths section"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description for the identified strengths section"
+            }
           },
-          "status": {
-            "type": "boolean",
-            "description": "Whether the requirement is met"
-          }
+          "required": ["title", "description"]
         },
-        "required": ["name", "status"]
-      }
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the compliance requirement"
+              },
+              "status": {
+                "type": "boolean",
+                "description": "Whether the requirement is met"
+              }
+            },
+            "required": ["name", "status"]
+          }
+        }
+      },
+      "required": ["header", "items"]
     },
     "bestPractices": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the best practice"
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title for the missed opportunities section"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description for the missed opportunities section"
+            }
           },
-          "description": {
-            "type": "string",
-            "description": "Detailed description of the missed opportunity"
-          }
+          "required": ["title", "description"]
         },
-        "required": ["name", "description"]
-      }
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the best practice"
+              },
+              "description": {
+                "type": "string",
+                "description": "Detailed description of the missed opportunity"
+              }
+            },
+            "required": ["name", "description"]
+          }
+        }
+      },
+      "required": ["header", "items"]
     },
     "keyTriggerMoments": {
       "type": "array",

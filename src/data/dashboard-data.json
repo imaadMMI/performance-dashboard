@@ -1,29 +1,41 @@
 {
   "overallScore": 78,
-  "complianceRequirements": [
-    {
-      "name": "KYC Verification Protocol",
-      "status": true
+  "complianceRequirements": {
+    "header": {
+      "title": "identified strengths",
+      "description": "The key compliance requirements and best-practices you fulfilled on the call"
     },
-    {
-      "name": "Customer Name Usage",
-      "status": true
+    "items": [
+      {
+        "name": "KYC Verification Protocol",
+        "status": true
+      },
+      {
+        "name": "Customer Name Usage",
+        "status": true
+      },
+      {
+        "name": "Call documentation",
+        "status": true
+      }
+    ]
+  },
+  "bestPractices": {
+    "header": {
+      "title": "missed opportunities",
+      "description": "The key compliance requirements and best-practices left unfulfilled"
     },
-    {
-      "name": "Call documentation",
-      "status": true
-    }
-  ],
-  "bestPractices": [
-    {
-      "name": "KYC Verification Protocol",
-      "description": "Failed to verify customer identity according to protocol"
-    },
-    {
-      "name": "Retention strategies",
-      "description": "Failed to employ required retention techniques for redemption calls (draw chances, profit calculations)."
-    }
-  ],
+    "items": [
+      {
+        "name": "KYC Verification Protocol",
+        "description": "Failed to verify customer identity according to protocol"
+      },
+      {
+        "name": "Retention strategies",
+        "description": "Failed to employ required retention techniques for redemption calls (draw chances, profit calculations)."
+      }
+    ]
+  },
   "keyTriggerMoments": [
     {
       "category": "Retention",
