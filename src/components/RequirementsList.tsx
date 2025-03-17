@@ -36,17 +36,17 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
             }`}
           >
             <div className="flex justify-between items-center">
-              <span className="font-architects-daughter text-[#868e96]">
+              <span className="font-architects-daughter text-white">
                 {item.name}
               </span>
               {type === "compliance" ? (
-                <span className="text-[#91cdc5] text-xl">✓</span>
+                <span className="text-white text-xl">✓</span>
               ) : (
-                <span className="text-[#e8878b] text-xl">✕</span>
+                <span className="text-white text-xl">✕</span>
               )}
             </div>
             {item.description && (
-              <p className="text-sm font-architects-daughter text-[#868e96] mt-2 leading-relaxed">
+              <p className="text-sm font-architects-daughter text-white mt-2 leading-relaxed">
                 {item.description}
               </p>
             )}
