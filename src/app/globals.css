@@ -23,4 +23,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  font-size: 1.65rem; /* Increase base font size by 65% */
+}
+
+/* Adjust relative text sizes */
+.text-xs {
+  font-size: 1.15rem;
+}
+
+.text-sm {
+  font-size: 1.3rem;
+}
+
+.text-base {
+  font-size: 1.65rem;
+}
+
+.text-lg {
+  font-size: 1.8rem;
+}
+
+.text-xl {
+  font-size: 2rem;
+}
+
+.text-2xl {
+  font-size: 2.4rem;
 }

@@ -63,8 +63,10 @@ const CategoryList: React.FC<CategoryListProps> = ({
             onClick={() => toggleCategory(index)}
           >
             <div className="flex items-center gap-3">
-              <span className="text-xl">{getIcon(category.name)}</span>
-              <span className="font-sans text-[#868e96]">{category.name}</span>
+              <span className="text-2xl">{getIcon(category.name)}</span>
+              <span className="font-sans text-[#868e96] text-lg">
+                {category.name}
+              </span>
             </div>
             <span
               className={`transform transition-transform text-[#868e96]/70 ${
@@ -75,8 +77,8 @@ const CategoryList: React.FC<CategoryListProps> = ({
             </span>
           </div>
           {category.expanded && (
-            <div className="mt-3 pl-8 border-l-2 border-[#e9ecef]">
-              <p className="font-sans text-[#868e96] text-sm leading-relaxed">
+            <div className="mt-4 pl-10 border-l-2 border-[#e9ecef]">
+              <p className="font-sans text-[#868e96] text-base leading-relaxed">
                 {getContent(category.name)}
               </p>
             </div>

@@ -31,20 +31,20 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
       <div className="relative -mt-10 mb-6">
         <div className="bg-gray-100 p-3 rounded-lg w-11/12 mx-auto">
           <div className="flex items-center justify-between">
-            <span className="font-sans text-base">{header.title}</span>
+            <span className="font-sans text-lg">{header.title}</span>
             <span className="text-gray-500">▲</span>
           </div>
-          <p className="text-xs font-sans mt-1 text-gray-600">
+          <p className="text-sm font-sans mt-2 text-gray-600">
             {header.description}
           </p>
         </div>
       </div>
-      <h3 className="font-sans text-lg mb-4">{title}</h3>
-      <div className="space-y-2">
+      <h3 className="font-sans text-xl mb-6">{title}</h3>
+      <div className="space-y-4">
         {items.map((item, index) => (
           <div
             key={index}
-            className={`p-3 rounded ${
+            className={`p-4 rounded ${
               type === "compliance" ? "bg-[#91cdc5]" : "bg-[#e8878b]"
             }`}
           >
@@ -57,7 +57,7 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
               )}
             </div>
             {item.description && (
-              <p className="text-sm font-sans text-white mt-2 leading-relaxed">
+              <p className="text-base font-sans text-white mt-3 leading-relaxed">
                 {item.description}
               </p>
             )}
@@ -65,7 +65,7 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
         ))}
       </div>
       <div className="mt-4 text-right">
-        <button className="text-[#c68f00] text-sm font-sans hover:underline">
+        <button className="text-[#c68f00] text-base font-sans hover:underline">
           view more
         </button>
       </div>
