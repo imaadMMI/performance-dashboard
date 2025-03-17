@@ -59,7 +59,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main content */}
       <main className="flex-1 ml-64 p-8 bg-white">
-        <div className="max-w-6xl mx-auto">{children}</div>
+        <div className="max-w-[94rem] mx-auto">{children}</div>
       </main>
     </div>
   );
