@@ -64,7 +64,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
           >
             <div className="flex items-center gap-3">
               <span className="text-2xl">{getIcon(category.name)}</span>
-              <span className="font-sans text-[#868e96] text-lg">
+              <span className="font-sans text-black text-lg">
                 {category.name}
               </span>
             </div>
@@ -78,7 +78,13 @@ const CategoryList: React.FC<CategoryListProps> = ({
           </div>
           {category.expanded && (
             <div className="mt-4 pl-10 border-l-2 border-[#e9ecef]">
-              <p className="font-sans text-[#868e96] text-base leading-relaxed">
+              <p
+                className={`font-sans text-sm leading-relaxed ${
+                  category.name === "identified strengths"
+                    ? "text-black"
+                    : "text-[#868e96]"
+                }`}
+              >
                 {getContent(category.name)}
               </p>
             </div>
