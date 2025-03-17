@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const gothamBook = localFont({
+  src: "../fonts/GothamSSm-Book.otf",
+  variable: "--font-gotham",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const gothamMedium = localFont({
+  src: "../fonts/GothamSSm-Medium.otf",
+  variable: "--font-gotham-medium",
+});
+
+const gothamBold = localFont({
+  src: "../fonts/GothamSSm-Bold.otf",
+  variable: "--font-gotham-bold",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${gothamBook.variable} ${gothamMedium.variable} ${gothamBold.variable} antialiased`}
       >
         {children}
       </body>
