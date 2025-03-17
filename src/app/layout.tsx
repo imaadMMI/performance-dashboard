@@ -2,19 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const gothamBook = localFont({
-  src: "../fonts/GothamSSm-Book.otf",
-  variable: "--font-gotham",
+const strangewaysRegular = localFont({
+  src: "../fonts/strangeways_regular_sample.otf",
+  variable: "--font-strangeways",
 });
 
-const gothamMedium = localFont({
-  src: "../fonts/GothamSSm-Medium.otf",
-  variable: "--font-gotham-medium",
-});
-
-const gothamBold = localFont({
-  src: "../fonts/GothamSSm-Bold.otf",
-  variable: "--font-gotham-bold",
+const strangewaysBold = localFont({
+  src: "../fonts/strangeways_bold_sample.otf",
+  variable: "--font-strangeways-bold",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${gothamBook.variable} ${gothamMedium.variable} ${gothamBold.variable} antialiased`}
+        className={`${strangewaysRegular.variable} ${strangewaysBold.variable} antialiased`}
       >
         {children}
       </body>

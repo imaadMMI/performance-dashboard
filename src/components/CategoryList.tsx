@@ -64,9 +64,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
           >
             <div className="flex items-center gap-3">
               <span className="text-xl">{getIcon(category.name)}</span>
-              <span className="font-architects-daughter text-[#868e96]">
-                {category.name}
-              </span>
+              <span className="font-sans text-[#868e96]">{category.name}</span>
             </div>
             <span
               className={`transform transition-transform text-[#868e96]/70 ${
@@ -78,7 +76,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
           </div>
           {category.expanded && (
             <div className="mt-3 pl-8 border-l-2 border-[#e9ecef]">
-              <p className="font-architects-daughter text-[#868e96] text-sm leading-relaxed">
+              <p className="font-sans text-[#868e96] text-sm leading-relaxed">
                 {getContent(category.name)}
               </p>
             </div>
