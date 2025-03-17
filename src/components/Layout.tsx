@@ -40,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </Link>
             <Link
               href="/feedback"
-              className="block font-architects-daughter text-lg text-amber-600 hover:text-amber-700"
+              className="block font-architects-daughter text-lg text-[#c68f00] hover:text-[#c68f00]/80"
             >
               feedback
             </Link>
@@ -53,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
 
           {/* Speak to nada button */}
-          <button className="w-full bg-amber-600 text-white py-3 px-4 rounded-lg hover:bg-amber-700 transition-colors font-architects-daughter text-lg">
+          <button className="w-full bg-[#c68f00] text-white py-3 px-4 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-architects-daughter text-lg">
             Speak to nada
           </button>
         </div>

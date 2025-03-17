@@ -66,7 +66,7 @@ export default function Home() {
             Start a focused practice session on:
           </p>
           <div className="flex gap-4">
-            <button className="bg-amber-600 text-white px-6 py-3 rounded-lg hover:bg-amber-700 transition-colors font-architects-daughter">
+            <button className="bg-[#c68f00] text-white px-6 py-3 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-architects-daughter">
               Retention strategies
             </button>
             <button className="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-architects-daughter">

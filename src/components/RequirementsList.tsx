@@ -23,7 +23,7 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
     <>
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-architects-daughter text-lg">{title}</h3>
-        <button className="text-amber-600 text-sm font-architects-daughter hover:underline">
+        <button className="text-[#c68f00] text-sm font-architects-daughter hover:underline">
           view more
         </button>
       </div>
@@ -32,21 +32,21 @@ const RequirementsList: React.FC<RequirementsListProps> = ({
           <div
             key={index}
             className={`p-3 rounded ${
-              type === "compliance" ? "bg-[#B8E1DD]" : "bg-[#FFB6B6]"
+              type === "compliance" ? "bg-[#91cdc5]" : "bg-[#e8878b]"
             }`}
           >
             <div className="flex justify-between items-center">
-              <span className="font-architects-daughter text-gray-700">
+              <span className="font-architects-daughter text-[#868e96]">
                 {item.name}
               </span>
               {type === "compliance" ? (
-                <span className="text-[#2A9187] text-xl">✓</span>
+                <span className="text-[#91cdc5] text-xl">✓</span>
               ) : (
-                <span className="text-[#FF5757] text-xl">✕</span>
+                <span className="text-[#e8878b] text-xl">✕</span>
               )}
             </div>
             {item.description && (
-              <p className="text-sm font-architects-daughter text-gray-600 mt-2 leading-relaxed">
+              <p className="text-sm font-architects-daughter text-[#868e96] mt-2 leading-relaxed">
                 {item.description}
               </p>
             )}
