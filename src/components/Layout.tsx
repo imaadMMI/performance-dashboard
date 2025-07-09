@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,11 +15,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <aside className="w-70 bg-white border-r border-gray-200 p-8 fixed h-full shadow-sm">
         <div className="space-y-16">
           {/* Logo */}
-          <div className="space-y-2">
-            <div className="text-4xl font-bold text-[#b68d2e]">
-              National Bonds Dashboard
-            </div>
-            {/* <div className="text-sm text-[#58595b] font-medium">Dashboard</div> */}
+          <div className="flex justify-center px-1">
+            <Image
+              src="/NB logo.png"
+              alt="National Bonds"
+              width={300}
+              height={150}
+              className="object-contain w-full max-w-[270px]"
+              priority
+            />
           </div>
 
           {/* Navigation */}
@@ -60,8 +65,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
 
           {/* Primary Action Button */}
-          <button className="w-full bg-[#b68d2e] text-white py-4 px-6 rounded-lg hover:bg-[#a67d29] transition-colors duration-200 font-sans text-lg font-medium shadow-md">
-            Speak to nada
+          <button
+            onClick={() => (window.location.href = "/conversation")}
+            className="w-full bg-[#b68d2e] text-white py-4 px-6 rounded-lg hover:bg-[#a67d29] transition-colors duration-200 font-sans text-lg font-medium shadow-md"
+          >
+            Speak to Nada
           </button>
         </div>
       </aside>

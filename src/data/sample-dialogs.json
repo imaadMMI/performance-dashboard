@@ -1,0 +1,161 @@
+{
+  "scenarios": {
+    "account_closure": {
+      "scenario": {
+        "id": "account_closure",
+        "title": "Account Closure Request",
+        "description": "Customer wants to close their National Bonds account",
+        "difficulty": "intermediate"
+      },
+      "conversation": [
+        {
+          "speaker": "ai",
+          "message": "Hello, I've been thinking about this for a while and I'd like to close my National Bonds account today. I'm just not happy with the returns.",
+          "emotion": "disappointed",
+          "pause": 2000
+        },
+        {
+          "speaker": "user",
+          "expected_response": "I understand your concern about the returns. I'd be happy to help you explore your options. May I ask what specific aspects of the returns you're concerned about?",
+          "hints": [
+            "Show empathy",
+            "Gather information",
+            "Don't immediately try to retain",
+            "Ask open-ended questions"
+          ],
+          "scoring_criteria": [
+            "empathy_shown",
+            "information_gathering",
+            "professional_tone"
+          ]
+        },
+        {
+          "speaker": "ai",
+          "message": "Well, I've had the account for two years and the returns seem lower than what I expected when I signed up. I thought I'd be earning more by now.",
+          "emotion": "frustrated",
+          "pause": 1500
+        },
+        {
+          "speaker": "user",
+          "expected_response": "I can understand your frustration. Let me take a look at your account to better understand your situation. The Mudaraba returns can vary based on market conditions, but I'd like to review your specific case.",
+          "hints": [
+            "Acknowledge feelings",
+            "Offer to investigate",
+            "Explain market factors",
+            "Show willingness to help"
+          ],
+          "scoring_criteria": [
+            "acknowledgment",
+            "proactive_assistance",
+            "product_knowledge"
+          ]
+        }
+      ]
+    },
+    "retention_basic": {
+      "scenario": {
+        "id": "retention_basic",
+        "title": "Customer Retention - Basic",
+        "description": "Practice retaining customers who express dissatisfaction",
+        "difficulty": "beginner"
+      },
+      "conversation": [
+        {
+          "speaker": "ai",
+          "message": "Hi, I'm calling because I'm not very satisfied with my National Bonds experience. I'm considering switching to another provider.",
+          "emotion": "neutral",
+          "pause": 2000
+        },
+        {
+          "speaker": "user",
+          "expected_response": "I'm sorry to hear you're not satisfied with your experience. I'd really like to understand what's been concerning you so we can work together to address it.",
+          "hints": [
+            "Apologize for dissatisfaction",
+            "Show genuine interest",
+            "Use collaborative language",
+            "Ask for specifics"
+          ],
+          "scoring_criteria": [
+            "genuine_concern",
+            "collaborative_approach",
+            "information_seeking"
+          ]
+        },
+        {
+          "speaker": "ai",
+          "message": "It's mainly the customer service. When I call, I often have to wait a long time, and sometimes I don't feel like my questions are properly answered.",
+          "emotion": "disappointed",
+          "pause": 1500
+        },
+        {
+          "speaker": "user",
+          "expected_response": "I sincerely apologize for those experiences. Long wait times and incomplete answers are definitely not the service standard we aim for. Thank you for bringing this to my attention - it helps us improve.",
+          "hints": [
+            "Sincere apology",
+            "Acknowledge specific issues",
+            "Thank for feedback",
+            "Show commitment to improvement"
+          ],
+          "scoring_criteria": [
+            "sincere_apology",
+            "specific_acknowledgment",
+            "grateful_for_feedback"
+          ]
+        }
+      ]
+    },
+    "product_explanation": {
+      "scenario": {
+        "id": "product_explanation",
+        "title": "Mudaraba Product Explanation",
+        "description": "Explain Shari'a-compliant saving products to interested customers",
+        "difficulty": "beginner"
+      },
+      "conversation": [
+        {
+          "speaker": "ai",
+          "message": "Hello, I've heard about National Bonds and I'm interested in learning more. Can you explain how your Shari'a-compliant savings work?",
+          "emotion": "curious",
+          "pause": 2000
+        },
+        {
+          "speaker": "user",
+          "expected_response": "I'd be happy to explain our Mudaraba-based savings scheme. It's designed to be fully Shari'a-compliant, which means your money is invested according to Islamic principles without any interest-based returns.",
+          "hints": [
+            "Show enthusiasm",
+            "Use clear language",
+            "Mention Shari'a compliance",
+            "Avoid jargon"
+          ],
+          "scoring_criteria": [
+            "enthusiasm",
+            "clarity",
+            "accurate_information",
+            "customer_focused"
+          ]
+        },
+        {
+          "speaker": "ai",
+          "message": "That sounds interesting. How exactly does the Mudaraba system work? I want to make sure I understand it properly.",
+          "emotion": "engaged",
+          "pause": 1500
+        },
+        {
+          "speaker": "user",
+          "expected_response": "Great question! In our Mudaraba system, you provide the capital and we act as the manager, investing your funds in Shari'a-compliant business activities. Any profits generated are shared between you and National Bonds according to a pre-agreed ratio.",
+          "hints": [
+            "Praise the question",
+            "Explain roles clearly",
+            "Mention profit-sharing",
+            "Use simple terms"
+          ],
+          "scoring_criteria": [
+            "clear_explanation",
+            "accurate_details",
+            "engaging_delivery"
+          ]
+        }
+      ]
+    }
+  }
+}
