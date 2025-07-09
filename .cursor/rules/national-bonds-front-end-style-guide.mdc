@@ -1,0 +1,351 @@
+# National Bonds Frontend Style Guide
+
+**Version:** 2020 Version 1A  
+**Source:** National Bonds Corporate Identity Guideline 2020  
+**Last Updated:** 2024-12-19
+
+---
+
+## 1. Brand Overview
+
+### Brand Identity
+- **Name:** National Bonds / National Sukuk
+- **Description:** Financial saving company with 12+ years of success in UAE
+- **Positioning:** First Shari'a compliant Mudaraba-based saving scheme in the world
+- **Customer Base:** 800,000+ satisfied customers
+
+### Brand Attributes
+- Trustworthy
+- Confident
+- Caring
+- Secure
+- Financial saving focused
+
+### Target Audiences
+- **Corporate (B2B):** Corporate communications and business applications
+- **Families:** Consumer-facing applications
+- **Young People:** B2C digital applications
+- **Mature Audience:** B2C communications
+
+---
+
+## 2. Logo System
+
+### Logo Concept
+The logo captures the **moment of saving** - a lustrous gold and nickel coin semi-inserted in a coin-slot, representing the act of saving money.
+
+### Construction
+- **Brandmark:** Contemporary coin and coin-slot design
+- **Wordmark:** Sans serif typeface inspired by the brandmark
+- **Proportions:** Based on golden ratio for perfect alignment
+- **Symbolism:** English 'o' and Arabic 'ة' resemble the semi-inserted coin
+
+### Logo Variations
+
+#### Primary Logo (Recommended)
+- **Usage:** All applications
+- **Layout:** Brandmark on left, wordmark on right
+- **Languages:** Dual language (Arabic + English)
+- **Alignment:** Horizontal
+
+#### Secondary Logo (Exceptional cases only)
+- **Usage:** Limited space applications
+- **Applications:** Small web banners, mini promotional items
+- **Languages:** Dual language
+
+#### Tertiary Logo (Single language)
+- **Usage:** Extremely limited spaces, maximum legibility
+- **Variants:** Arabic only OR English only
+
+### Logo Specifications
+
+#### Clear Space
+- **Measurement:** 6.5X on each side
+- **Reference:** X = width of English letter "I"
+
+#### Minimum Sizes
+- **Brandmark alone (print):** 0.8cm × 0.8cm
+- **Brandmark alone (digital):** 40px × 40px
+- **Applications:** Small promotional items, digital icons
+
+#### Business Stream Logos
+- **Spacing:** 1.5X exclusion zone
+- **Reference:** Height of wordmark
+- **Alignment:** Well-defined positioning with primary logo
+
+---
+
+## 3. Color Palette
+
+### Primary Colors
+
+#### Gold
+- **Pantone:** 7556 Coated / 117 Uncoated
+- **CMYK:** C28 M42 Y100 K5
+- **RGB:** R182 G141 B46
+- **HEX:** #b68d2e
+- **Usage:** Corporate communications, B2B applications, branding, stationery
+- **Symbolism:** Prosperity, confidence, strength, stability
+
+#### Nickel
+- **Pantone:** Cool Grey 11 Coated / Black 6 Uncoated
+- **CMYK:** C0 M0 Y0 K80
+- **RGB:** R88 G89 B91
+- **HEX:** #58595b
+- **Usage:** Corporate communications, B2B applications, branding, stationery
+- **Symbolism:** Prosperity, confidence, strength, stability
+
+### Secondary Colors (B2C Applications)
+*Friendly, welcoming, and fresh colors for consumer applications*
+
+#### Secondary Red
+- **CMYK:** C0 M56 Y28 K0
+- **HEX:** #ff7084
+
+#### Secondary Purple
+- **CMYK:** C52 M59 Y14.5 K0
+- **HEX:** #8668a8
+
+#### Secondary Blue
+- **CMYK:** C74 M17 Y18 K0
+- **HEX:** #4a9fce
+
+#### Secondary Green
+- **CMYK:** C70 M2 Y33 K0
+- **HEX:** #4db892
+
+### Supporting Colors
+
+#### Supporting Blue
+- **CMYK:** C74 M17 Y18 K0
+- **HEX:** #4a9fce
+
+#### Supporting Yellow
+- **CMYK:** C2 M4.5 Y77 K0
+- **HEX:** #fef04a
+
+### Color Usage Guidelines
+
+#### Full Color (Recommended)
+- **Usage:** All purposes
+- **Colors:** Gold + Nickel
+
+#### Mono Color (Exceptional cases only)
+- **Usage:** Rubber stamps, engraving, embossing, vinyl artworks, dark promotional items
+- **Color:** Single color or black
+
+#### Reverse (Exceptional cases only)
+- **Usage:** Dark backgrounds, secondary color applications
+- **Color:** White/reversed
+
+---
+
+## 4. Typography
+
+### Arabic Typography
+**Font Family:** GE SS TWO
+
+#### Characteristics
+- Contemporary sans serif
+- Similar to Gotham fonts
+- Optimized for digital usage
+- Does not pixelate
+- Easily legible in small points
+
+#### Font Weights
+- **Light (300):** Body text, captions
+- **Medium (500):** Subheadings, emphasis
+- **Bold (700):** Headlines, titles
+
+### English Typography
+**Font Family:** Gotham
+
+#### Characteristics
+- Contemporary style matching brand identity
+- Best suited for online and digital displays
+- Does not distort on digital screens
+- Displays details properly
+
+#### Font Weights
+- **Light (300):** Body text, captions
+- **Book (400):** Regular body text
+- **Medium (500):** Subheadings, emphasis
+- **Bold (700):** Headlines, titles
+
+### Typography Hierarchy
+- **Primary Heading:** GE SS TWO Bold / Gotham Bold
+- **Secondary Heading:** GE SS TWO Medium / Gotham Medium
+- **Body Text:** GE SS TWO Light / Gotham Book
+- **Captions:** GE SS TWO Light / Gotham Light
+
+---
+
+## 5. Stationery Specifications
+
+### Business Cards
+- **Size:** 9cm × 5cm
+- **Colors:** Pantone 7556 Coated, Pantone Cool Grey 11 Coated
+- **Front:** Primary logo with dual language
+- **Back:** Brandmark top right, contact details with mirror effect
+- **Typography:**
+  - Name: GE SS Two Medium 7.5pt / Gotham Medium 7.5pt
+  - Title: GE SS Two Book 7pt / Gotham Book 7pt
+  - Initials: Gotham Medium 6.5pt
+  - Contact: Gotham Book 6.5pt
+
+### Letterheads
+- **Size:** A4 (21cm × 29.7cm)
+- **Colors:** Pantone 7556 Coated, Pantone Cool Grey 11 Coated
+- **Logo:** Primary logo positioned top left corner
+- **Contact:** Positioned diagonally bottom right above coin-slot
+- **Typography:**
+  - Initials: Gotham Medium 6.5pt
+  - Contact: Gotham Book 6.5pt
+
+### Envelopes
+**Available Sizes:**
+- C4: 32.5cm × 23cm
+- A4 Horizontal: 32.5cm × 23cm
+- A4 Vertical: 23cm × 30.5cm
+- DL: 22cm × 11cm
+- A3: 45.8cm × 32.4cm
+- A5: 22.9cm × 16.2cm
+
+**Typography:**
+- Initials: Gotham Medium 6.5pt
+- Contact: Gotham Book 6.5pt
+
+### Folders
+- **Size:** 22.2cm × 31cm (closed), 44.4cm × 31cm (open)
+- **Features:** Customized design with business card pocket
+- **Colors:** Pantone 7556 Coated, Pantone Cool Grey 11 Coated
+
+### Notepads
+- **A4:** 21cm × 29.7cm
+- **A5:** 14.8cm × 21cm
+- **Cover:** Primary logo top left, website bottom right above coin-slot
+- **Inside:** Primary logo only
+
+---
+
+## 6. Graphic Elements
+
+### Coin-slot Element
+- **Description:** Prominent graphic element symbolizing money saving box
+- **Usage:** Used throughout stationery and communications
+- **Positioning:** Below or above typography to give idea of saving
+- **Applications:** Business cards, letterheads, envelopes, folders, notepads
+
+### Mirror Effect
+- **Description:** Dynamic mirror effect for visual interest
+- **Application:** Back side of business cards
+
+---
+
+## 7. Design Principles
+
+### Consistency
+- Brand elements and positions consistently maintained across all materials
+- Unified visual language throughout all communications
+
+### Golden Ratio
+- Logo proportions and alignment based on golden ratio
+- Ensures mathematical precision and visual harmony
+
+### Saving Culture
+- All designs should instill the culture of saving
+- Common brand objective across all communications
+
+### Versatility
+- Adaptable color palette for different audiences
+- Corporate vs. consumer communication flexibility
+
+---
+
+## 8. Usage Guidelines
+
+### Logo Don'ts
+❌ **Never:**
+- Distort the shape
+- Change the colors
+- Change the size relationships
+- Change the position
+- Alter the clear space
+- Swap the wordmarks
+- Add any effects
+- Remove any elements
+- Add backgrounds
+- Place logo close to boundaries
+
+### Color Applications
+- **Corporate/B2B:** Use primary colors (gold and nickel)
+- **B2C:** Use secondary and supporting color palettes
+- **Digital:** All color variations suitable for digital screens
+
+### Typography Applications
+- **Digital:** Both font families optimized for digital usage
+- **Print:** Suitable for all print applications
+- **Legibility:** Maintains details in small point sizes
+
+---
+
+## 9. File Formats & Technical Specifications
+
+### Print Applications
+- **Colors:** CMYK and Pantone specifications
+- **Resolution:** High resolution for print quality
+- **Formats:** Vector formats preferred
+
+### Digital Applications
+- **Colors:** RGB specifications provided
+- **Formats:** Optimized for digital displays
+- **Resolution:** Scalable for various screen sizes
+
+---
+
+## 10. Brand Extensions
+
+### National Sukuk
+- **Market:** Saudi Arabia extension
+- **Variation:** Same brand identity with name change to 'National Sukuk'
+- **Guidelines:** Retains family look and same guidelines as National Bonds
+
+---
+
+## 11. Frontend Development Guidelines
+
+### CSS Color Variables
+```css
+:root {
+  /* Primary Colors */
+  --nb-gold: #b68d2e;
+  --nb-nickel: #58595b;
+  
+  /* Secondary Colors */
+  --nb-secondary-red: #ff7084;
+  --nb-secondary-purple: #8668a8;
+  --nb-secondary-blue: #4a9fce;
+  --nb-secondary-green: #4db892;
+  
+  /* Supporting Colors */
+  --nb-supporting-blue: #4a9fce;
+  --nb-supporting-yellow: #fef04a;
+}
+```
+
+### Font Family Declarations
+```css
+:root {
+  --font-arabic: 'GE SS TWO', sans-serif;
+  --font-english: 'Gotham', sans-serif;
+}
+```
+
+### Component Spacing
+- Use coin-slot element as a consistent design motif
+- Maintain 6.5X clear space around logo elements
+- Apply golden ratio proportions where possible
+
+---
+
+*This style guide ensures consistent brand application across all National Bonds frontend development projects.*

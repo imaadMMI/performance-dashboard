@@ -1,0 +1,410 @@
+{
+  "project": {
+    "name": "National Bonds Frontend",
+    "version": "1.0.0",
+    "description": "Comprehensive design system and style guide for National Bonds application",
+    "lastUpdated": "2024-12-19"
+  },
+  "brand": {
+    "name": "nada",
+    "tagline": "National Bonds Application",
+    "voice": "Professional, trustworthy, accessible"
+  },
+  "typography": {
+    "primary": {
+      "family": "Strangeways",
+      "fallback": "sans-serif",
+      "variants": {
+        "regular": {
+          "fontFamily": "var(--font-strangeways)",
+          "fontWeight": "400",
+          "files": [
+            "strangeways_regular_sample.otf",
+            "strangeways_regular_sample.ttf"
+          ]
+        },
+        "bold": {
+          "fontFamily": "var(--font-strangeways-bold)",
+          "fontWeight": "700",
+          "files": [
+            "strangeways_bold_sample.otf",
+            "strangeways_bold_sample.ttf"
+          ]
+        }
+      }
+    },
+    "scale": {
+      "xs": {
+        "fontSize": "1.15rem",
+        "description": "Extra small text"
+      },
+      "sm": {
+        "fontSize": "1.3rem",
+        "description": "Small text"
+      },
+      "base": {
+        "fontSize": "1.65rem",
+        "description": "Body text - 65% larger than browser default"
+      },
+      "lg": {
+        "fontSize": "1.8rem",
+        "description": "Large text"
+      },
+      "xl": {
+        "fontSize": "2rem",
+        "description": "Extra large text"
+      },
+      "2xl": {
+        "fontSize": "2.4rem",
+        "description": "Heading text"
+      },
+      "5xl": {
+        "fontSize": "3rem",
+        "description": "Large headings and scores"
+      },
+      "6xl": {
+        "fontSize": "3.75rem",
+        "description": "Logo and brand text"
+      }
+    },
+    "usage": {
+      "body": "text-base font-sans",
+      "heading": "text-2xl font-sans",
+      "subheading": "text-xl font-sans",
+      "caption": "text-sm font-sans",
+      "button": "text-lg font-sans",
+      "navigation": "text-2xl font-sans",
+      "logo": "text-6xl font-sans"
+    }
+  },
+  "colors": {
+    "primary": {
+      "brand": {
+        "hex": "#c68f00",
+        "rgb": "rgb(198, 143, 0)",
+        "hsl": "hsl(43, 100%, 39%)",
+        "description": "Primary brand color - golden amber",
+        "usage": ["buttons", "links", "highlights", "scores", "CTAs"]
+      },
+      "brandHover": {
+        "hex": "#c68f00cc",
+        "rgb": "rgba(198, 143, 0, 0.8)",
+        "description": "Primary brand color hover state",
+        "usage": ["button hover states", "interactive elements"]
+      }
+    },
+    "neutral": {
+      "white": {
+        "hex": "#ffffff",
+        "description": "Pure white background",
+        "usage": ["main backgrounds", "card content", "text on dark backgrounds"]
+      },
+      "gray50": {
+        "hex": "#f9fafb",
+        "description": "Lightest gray"
+      },
+      "gray100": {
+        "hex": "#f3f4f6",
+        "description": "Very light gray background"
+      },
+      "gray200": {
+        "hex": "#e5e7eb",
+        "description": "Light gray borders"
+      },
+      "gray300": {
+        "hex": "#d1d5db",
+        "description": "Medium gray borders"
+      },
+      "gray400": {
+        "hex": "#9ca3af",
+        "description": "Medium gray text"
+      },
+      "gray500": {
+        "hex": "#6b7280",
+        "description": "Dark gray text and navigation",
+        "usage": ["navigation text", "secondary text", "inactive states"]
+      },
+      "gray600": {
+        "hex": "#4b5563",
+        "description": "Darker gray text"
+      },
+      "gray700": {
+        "hex": "#374151",
+        "description": "Very dark gray"
+      },
+      "backgroundLight": {
+        "hex": "#F5F5F5",
+        "description": "Light background for cards and sections",
+        "usage": ["card backgrounds", "section backgrounds", "content areas"]
+      },
+      "borderLight": {
+        "hex": "#e9ecef",
+        "description": "Light border color",
+        "usage": ["dividers", "card borders", "content separation"]
+      },
+      "textSecondary": {
+        "hex": "#868e96",
+        "description": "Secondary text color",
+        "usage": ["descriptions", "captions", "metadata", "subtitles"]
+      }
+    },
+    "semantic": {
+      "success": {
+        "primary": {
+          "hex": "#91cdc5",
+          "description": "Success state - teal green",
+          "usage": ["compliance met", "positive indicators", "completed items"]
+        },
+        "text": {
+          "hex": "#ffffff",
+          "description": "Text on success backgrounds"
+        }
+      },
+      "error": {
+        "primary": {
+          "hex": "#e8878b",
+          "description": "Error/warning state - coral red",
+          "usage": ["missed opportunities", "negative indicators", "failed items"]
+        },
+        "text": {
+          "hex": "#ffffff",
+          "description": "Text on error backgrounds"
+        }
+      },
+      "info": {
+        "primary": {
+          "hex": "#60a5fa",
+          "description": "Information state - blue"
+        }
+      },
+      "warning": {
+        "primary": {
+          "hex": "#fbbf24",
+          "description": "Warning state - yellow"
+        }
+      }
+    },
+    "darkMode": {
+      "background": "#0a0a0a",
+      "foreground": "#ededed",
+      "description": "Dark mode color scheme (optional)",
+      "usage": ["dark theme support"]
+    }
+  },
+  "spacing": {
+    "scale": {
+      "0": "0px",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem",
+      "32": "8rem",
+      "36": "9rem",
+      "40": "10rem",
+      "80": "20rem"
+    },
+    "usage": {
+      "componentGap": "space-y-6",
+      "cardPadding": "p-6",
+      "sectionPadding": "p-8",
+      "buttonPadding": "py-4 px-6",
+      "smallButtonPadding": "py-3 px-6",
+      "listItemSpacing": "space-y-4",
+      "navigationSpacing": "space-y-6",
+      "largeSpacing": "space-y-20"
+    }
+  },
+  "layout": {
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "sidebar": {
+      "width": "20rem",
+      "background": "#ffffff",
+      "border": "border-r border-gray-200",
+      "padding": "p-8",
+      "position": "fixed",
+      "height": "h-full"
+    },
+    "mainContent": {
+      "marginLeft": "ml-80",
+      "padding": "p-8",
+      "maxWidth": "max-w-[94rem]",
+      "background": "#ffffff"
+    },
+    "grid": {
+      "threeColumn": "grid grid-cols-3 gap-6",
+      "twoColumn": "grid grid-cols-2 gap-6",
+      "responsive": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    }
+  },
+  "components": {
+    "cards": {
+      "base": {
+        "classes": "bg-[#F5F5F5] p-6 rounded-lg",
+        "description": "Standard card styling"
+      },
+      "withTopPadding": {
+        "classes": "bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg h-full",
+        "description": "Card with extended top padding for headers"
+      },
+      "white": {
+        "classes": "bg-white p-6 rounded-lg",
+        "description": "White background card"
+      }
+    },
+    "buttons": {
+      "primary": {
+        "classes": "bg-[#c68f00] text-white py-4 px-6 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-sans text-2xl",
+        "description": "Primary action button"
+      },
+      "secondary": {
+        "classes": "bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-sans",
+        "description": "Secondary action button"
+      },
+      "tertiary": {
+        "classes": "text-[#c68f00] text-base font-sans hover:underline",
+        "description": "Text link button"
+      },
+      "categoryCompliance": {
+        "classes": "px-8 py-4 rounded-lg bg-[#91cdc5] text-white font-sans text-lg",
+        "description": "Compliance category button"
+      }
+    },
+    "navigation": {
+      "link": {
+        "default": "block font-sans text-2xl text-gray-500 hover:text-gray-700",
+        "active": "block font-sans text-2xl text-[#c68f00] hover:text-[#c68f00]/80",
+        "description": "Navigation link styling"
+      }
+    },
+    "lists": {
+      "requirement": {
+        "compliance": {
+          "classes": "p-4 rounded bg-[#91cdc5]",
+          "icon": "✓",
+          "textColor": "text-white"
+        },
+        "practices": {
+          "classes": "p-4 rounded bg-[#e8878b]",
+          "icon": "✕",
+          "textColor": "text-white"
+        }
+      }
+    },
+    "forms": {
+      "input": {
+        "classes": "w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c68f00]",
+        "description": "Standard form input"
+      },
+      "checkbox": {
+        "classes": "w-4 h-4 text-[#c68f00] border-gray-300 rounded focus:ring-[#c68f00]",
+        "description": "Checkbox input"
+      }
+    }
+  },
+  "iconography": {
+    "style": "Custom SVG icons",
+    "colors": ["currentColor", "#c68f00", "#91cdc5", "#e8878b"],
+    "sizes": {
+      "sm": "16px",
+      "md": "24px",
+      "lg": "32px",
+      "xl": "48px"
+    },
+    "categories": {
+      "identifiedStrengths": "Heart/drop shape icon",
+      "suggestedFocus": "Circle icon",
+      "emotionalTrends": "Bar chart icon",
+      "communicationStyle": "Speech bubble icon"
+    }
+  },
+  "animations": {
+    "transitions": {
+      "default": "transition-colors",
+      "transform": "transition-transform",
+      "all": "transition-all"
+    },
+    "durations": {
+      "fast": "150ms",
+      "normal": "300ms",
+      "slow": "500ms"
+    },
+    "effects": {
+      "hover": "hover:scale-105",
+      "focus": "focus:ring-2 focus:ring-[#c68f00]",
+      "rotate": "rotate-180"
+    }
+  },
+  "accessibility": {
+    "contrast": {
+      "primary": "AAA compliant",
+      "secondary": "AA compliant"
+    },
+    "focusStates": {
+      "outline": "focus:outline-none focus:ring-2 focus:ring-[#c68f00]",
+      "description": "Clear focus indicators for keyboard navigation"
+    },
+    "semanticMarkup": {
+      "headings": "Proper heading hierarchy (h1, h2, h3)",
+      "landmarks": "Main, nav, aside elements",
+      "buttons": "Semantic button elements for actions"
+    }
+  },
+  "responsive": {
+    "approach": "Mobile-first design",
+    "breakpoints": {
+      "mobile": "< 640px",
+      "tablet": "640px - 1024px",
+      "desktop": "> 1024px"
+    },
+    "patterns": {
+      "sidebar": "Fixed on desktop, collapsible on mobile",
+      "grid": "Single column on mobile, multi-column on larger screens",
+      "typography": "Scales appropriately across devices"
+    }
+  },
+  "codeStandards": {
+    "cssFramework": "Tailwind CSS v4",
+    "customProperties": {
+      "--font-strangeways": "Strangeways regular font",
+      "--font-strangeways-bold": "Strangeways bold font",
+      "--background": "Dynamic background color",
+      "--foreground": "Dynamic foreground color"
+    },
+    "conventions": {
+      "componentStructure": "Functional React components with TypeScript",
+      "styling": "Tailwind utility classes with semantic naming",
+      "stateManagement": "useState for component state",
+      "propsInterface": "TypeScript interfaces for all component props"
+    }
+  },
+  "fileStructure": {
+    "fonts": "/src/fonts/",
+    "components": "/src/components/",
+    "styles": "/src/app/globals.css",
+    "assets": "/public/",
+    "data": "/src/data/",
+    "documentation": "/docs/"
+  },
+  "examples": {
+    "cardComponent": "bg-[#F5F5F5] p-6 rounded-lg",
+    "primaryButton": "bg-[#c68f00] text-white py-4 px-6 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-sans",
+    "navigationLink": "block font-sans text-2xl text-gray-500 hover:text-gray-700",
+    "successState": "p-4 rounded bg-[#91cdc5] text-white",
+    "errorState": "p-4 rounded bg-[#e8878b] text-white",
+    "typography": "font-sans text-base text-black"
+  }
+}

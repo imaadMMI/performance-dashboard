@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* National Bonds Brand Colors */
+  --nb-gold: #b68d2e;
+  --nb-gold-hover: #a67d29;
+  --nb-nickel: #58595b;
+  --nb-nickel-hover: #6a6b6d;
+  --nb-background-neutral: #f8f9fa;
+  --nb-card-background: #ffffff;
 }
 
 @theme inline {
@@ -10,6 +18,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-strangeways);
   --font-bold: var(--font-strangeways-bold);
+
+  /* National Bonds Custom Colors */
+  --color-nb-gold: var(--nb-gold);
+  --color-nb-gold-hover: var(--nb-gold-hover);
+  --color-nb-nickel: var(--nb-nickel);
+  --color-nb-nickel-hover: var(--nb-nickel-hover);
+  --color-nb-bg-neutral: var(--nb-background-neutral);
+  --color-nb-card-bg: var(--nb-card-background);
 }
 
 @media (prefers-color-scheme: dark) {

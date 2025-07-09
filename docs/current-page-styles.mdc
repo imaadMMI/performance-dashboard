@@ -1,0 +1,94 @@
+# Current Page Styles Documentation
+
+## Layout Structure
+
+- **Sidebar**: Fixed width 320px (w-80), full height, white background with gray border
+- **Main Content**: Flexible width with left margin 320px (ml-80), padding 32px
+- **Container**: Max width 94rem with centered alignment
+
+## Color Palette (Current)
+
+- **Background**: White (#ffffff)
+- **Card Backgrounds**: Light gray (#F5F5F5)
+- **Primary Accent**: Gold (#c68f00) - used for buttons and active links
+- **Text Colors**:
+  - Primary: Gray-500 for navigation and headers
+  - Secondary: Gray-700 for hover states
+  - Active: Gold (#c68f00) for selected/featured elements
+
+## Typography
+
+- **Font Family**: Strangeways (regular and bold variants)
+- **Base Font Size**: 1.65rem (65% larger than default)
+- **Navigation**: 2xl (2.4rem) for sidebar links
+- **Logo**: 6xl for "nada" branding
+- **Body Text**: lg (1.8rem) for content areas
+- **Buttons**: 2xl for primary actions
+
+## Component Styling
+
+### Cards
+
+- **Background**: #F5F5F5
+- **Padding**: 24px (p-6)
+- **Border Radius**: 8px (rounded-lg)
+- **Spacing**: 24px gap between cards (space-y-6)
+
+### Buttons
+
+- **Primary Button**:
+  - Background: #c68f00 (gold)
+  - Text: White
+  - Padding: 12px 24px (py-3 px-6)
+  - Border Radius: 8px
+  - Hover: 80% opacity
+- **Secondary Button**:
+  - Background: Gray-500
+  - Text: White
+  - Same padding and radius as primary
+
+### Grid Layout
+
+- **Three-column grid**: grid-cols-3 with 24px gaps
+- **Score card**: Full width section
+- **Requirements**: Two columns for compliance and best practices
+- **Categories**: Third column with stacked cards
+
+### Sidebar Navigation
+
+- **Logo**: Large "nada" text at top
+- **Links**: Vertical list with hover effects
+- **Spacing**: Large gaps (20px, 36px) between sections
+- **Active State**: Gold color for selected items
+
+### Interactive Elements
+
+- **Hover Effects**: Opacity changes and color transitions
+- **Transition**: Smooth color transitions on all interactive elements
+- **Link States**: Gray-500 default, gray-700 hover, gold for active
+
+## Layout Spacing
+
+- **Container Padding**: 32px (p-8)
+- **Component Spacing**: 24px vertical gaps (space-y-6)
+- **Card Padding**: 24px internal padding
+- **Grid Gaps**: 24px between columns
+
+## Font Weights and Sizes
+
+- **Regular Text**: Strangeways regular
+- **Emphasis**: Strangeways bold (via --font-bold variable)
+- **Size Scale**: Custom scaled up by 65% from default Tailwind sizes
+
+## Component-Specific Styles
+
+- **Score Card**: Light gray background with prominent display
+- **Requirements Lists**: Matched height cards with top padding
+- **Category Cards**: Stacked layout with individual backgrounds
+- **Trigger Moments**: Full-width informational cards
+- **Practice Session**: Horizontal button layout with gap spacing
+  description:
+  globs:
+  alwaysApply: false
+
+---

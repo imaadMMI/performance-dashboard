@@ -11,9 +11,9 @@ import dashboardData from "@/data/dashboard-data.json";
 export default function Home() {
   return (
     <Layout>
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* Score Card */}
-        <div className="bg-[#F5F5F5] p-6 rounded-lg">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
           <ScoreCard
             score={dashboardData.overallScore}
             subtitle="weighted scoring system across six performance categories"
@@ -21,9 +21,9 @@ export default function Home() {
         </div>
 
         {/* Requirements and Categories Row */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-8">
           {/* Compliance Requirements */}
-          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg h-full">
+          <div className="bg-white pt-12 px-8 pb-8 rounded-xl shadow-sm border border-gray-100 h-full">
             <RequirementsList
               title="Compliance requirement met"
               header={dashboardData.complianceRequirements.header}
@@ -33,7 +33,7 @@ export default function Home() {
           </div>
 
           {/* Best Practices */}
-          <div className="bg-[#F5F5F5] pt-12 px-6 pb-6 rounded-lg h-full">
+          <div className="bg-white pt-12 px-8 pb-8 rounded-xl shadow-sm border border-gray-100 h-full">
             <RequirementsList
               title="Best-practices missed"
               header={dashboardData.bestPractices.header}
@@ -43,9 +43,12 @@ export default function Home() {
           </div>
 
           {/* Performance Categories */}
-          <div className="space-y-2">
+          <div className="space-y-4">
             {dashboardData.performanceCategories.map((category, index) => (
-              <div key={index} className="bg-[#F5F5F5] p-6 rounded-lg">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+              >
                 <CategoryList categories={[category]} />
               </div>
             ))}
@@ -53,7 +56,7 @@ export default function Home() {
         </div>
 
         {/* Key Trigger Moments */}
-        <div className="bg-[#F5F5F5] p-6 rounded-lg">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
           <TriggerMoment
             category={dashboardData.keyTriggerMoments[0].category}
             customerTrigger={dashboardData.keyTriggerMoments[0].customerTrigger}
@@ -63,15 +66,15 @@ export default function Home() {
         </div>
 
         {/* Practice Session */}
-        <div className="bg-[#F5F5F5] p-6 rounded-lg">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
           <div className="flex items-center gap-8">
-            <p className="font-sans text-lg">
+            <p className="font-sans text-lg text-[#58595b] font-medium">
               Start a focused practice session on:
             </p>
-            <button className="bg-[#c68f00] text-white px-6 py-3 rounded-lg hover:bg-[#c68f00]/80 transition-colors font-sans">
+            <button className="bg-[#b68d2e] text-white px-8 py-3 rounded-lg hover:bg-[#a67d29] transition-colors duration-200 font-sans font-medium shadow-sm">
               Retention strategies
             </button>
-            <button className="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-sans">
+            <button className="bg-[#58595b] text-white px-8 py-3 rounded-lg hover:bg-[#6a6b6d] transition-colors duration-200 font-sans font-medium shadow-sm">
               General session
             </button>
           </div>
