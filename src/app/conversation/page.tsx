@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Suspense } from "react";
 import VoiceOrb from "@/components/VoiceOrb";
 import CollapsibleSidebar from "@/components/CollapsibleSidebar";
 import ConversationControls from "@/components/ConversationControls";
 import { useSearchParams } from "next/navigation";
 
-export default function ConversationPage() {
+function ConversationContent() {
   const searchParams = useSearchParams();
   const selectedScene =
     searchParams.get("scene") || "No preference. Let's just talk.";
@@ -26,13 +26,8 @@ export default function ConversationPage() {
   const analyserRef = useRef<AnalyserNode | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
 
-  // Initialize microphone on component mount (since we start in conversation mode)
-  React.useEffect(() => {
-    initMicrophone();
-  }, []);
-
   // Initialize microphone access
-  const initMicrophone = async () => {
+  const initMicrophone = React.useCallback(async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
@@ -52,7 +47,12 @@ export default function ConversationPage() {
     } catch (error) {
       console.error("Microphone access denied:", error);
     }
-  };
+  }, []);
+
+  // Initialize microphone on component mount (since we start in conversation mode)
+  React.useEffect(() => {
+    initMicrophone();
+  }, [initMicrophone]);
 
   // Monitor audio level for voice orb animation
   const monitorAudioLevel = () => {
@@ -252,5 +252,13 @@ export default function ConversationPage() {
         )}
       </main>
     </div>
+  );
+}
+
+export default function ConversationPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConversationContent />
+    </Suspense>
   );
 }
