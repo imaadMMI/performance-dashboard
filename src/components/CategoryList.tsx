@@ -103,21 +103,21 @@ const CategoryList: React.FC<CategoryListProps> = ({
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       {categories.map((category, index) => (
         <div key={index}>
           <div
-            className="flex items-center justify-between cursor-pointer"
+            className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200"
             onClick={() => toggleCategory(index)}
           >
             <div className="flex items-center gap-3">
-              <span className="text-black">{getIcon(category.name)}</span>
-              <span className="font-sans text-black text-lg">
+              <span className="text-[#b68d2e]">{getIcon(category.name)}</span>
+              <span className="font-medium text-[#58595b] text-sm">
                 {category.name}
               </span>
             </div>
             <span
-              className={`transform transition-transform text-black ${
+              className={`transform transition-transform text-[#58595b]/60 ${
                 category.expanded ? "rotate-180" : ""
               }`}
             >
@@ -125,12 +125,12 @@ const CategoryList: React.FC<CategoryListProps> = ({
             </span>
           </div>
           {category.expanded && (
-            <div className="mt-4 pl-10 border-l-2 border-[#e9ecef]">
+            <div className="mt-4 pl-10 border-l-2 border-[#b68d2e]/20">
               <p
-                className={`font-sans text-sm leading-relaxed ${
+                className={`text-xs leading-relaxed font-light ${
                   category.name === "identified strengths"
-                    ? "text-black"
-                    : "text-[#868e96]"
+                    ? "text-[#58595b]"
+                    : "text-[#58595b]/80"
                 }`}
               >
                 {getContent(category.name)}

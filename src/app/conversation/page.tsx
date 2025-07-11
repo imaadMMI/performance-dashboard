@@ -4,17 +4,21 @@ import React, { useState, useRef } from "react";
 import VoiceOrb from "@/components/VoiceOrb";
 import CollapsibleSidebar from "@/components/CollapsibleSidebar";
 import ConversationControls from "@/components/ConversationControls";
-import PathwaySelector from "@/components/PathwaySelector";
+import { useSearchParams } from "next/navigation";
 
 export default function ConversationPage() {
+  const searchParams = useSearchParams();
+  const selectedScene =
+    searchParams.get("scene") || "No preference. Let's just talk.";
+
   const [isConversationActive, setIsConversationActive] = useState(true);
   const [isListening, setIsListening] = useState(false);
-  const [showPathwaySelector, setShowPathwaySelector] = useState(false);
+
   const [showTranscript, setShowTranscript] = useState(false);
   const [audioLevel, setAudioLevel] = useState(0);
   const [transcript] = useState("");
   const [currentMessage] = useState(
-    "Welcome to your general practice session. I'm here to help guide our conversation."
+    `Welcome to your general practice session. I'm here to help guide our conversation.`
   );
 
   // Audio context for microphone input
@@ -103,33 +107,14 @@ export default function ConversationPage() {
       <CollapsibleSidebar />
 
       <main className="flex-1 p-8 flex flex-col items-center justify-center relative">
-        {/* Chat Icon for Pathway Selection */}
-        <button
-          onClick={() => setShowPathwaySelector(true)}
-          className="fixed bottom-8 right-8 bg-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200 z-20"
-          aria-label="Set conversation direction"
-        >
-          <svg
-            className="w-6 h-6 text-[#58595b]"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-
         {/* Main Content */}
         <div className="text-center space-y-8 max-w-2xl">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-2xl font-medium text-[#58595b]">
+              <h2 className="text-lg font-medium text-[#58595b]">
                 Set the direction
               </h2>
-              <p className="text-lg text-[#58595b]/80">
+              <p className="text-sm text-[#58595b]/80">
                 If there&apos;s something on your mind, then choose an option to
                 help me guide our <strong>conversation</strong>
               </p>
@@ -152,8 +137,14 @@ export default function ConversationPage() {
             {/* Current AI Message */}
             {currentMessage && (
               <div className="bg-[#b68d2e]/5 p-6 rounded-xl border border-[#b68d2e]/20 max-w-lg mx-auto">
-                <p className="text-[#58595b] leading-relaxed">
+                <p className="text-[#58595b] leading-relaxed text-sm">
                   {currentMessage}
+                </p>
+                <p className="text-[#58595b] leading-relaxed text-sm mt-2">
+                  The chosen scene is:
+                </p>
+                <p className="text-[#58595b] leading-relaxed text-sm font-extrabold">
+                  {selectedScene}
                 </p>
               </div>
             )}
@@ -168,17 +159,6 @@ export default function ConversationPage() {
             />
           </div>
         </div>
-
-        {/* Pathway Selector Modal */}
-        {showPathwaySelector && (
-          <PathwaySelector
-            onClose={() => setShowPathwaySelector(false)}
-            onSelectScenario={() => {
-              setShowPathwaySelector(false);
-              startConversation();
-            }}
-          />
-        )}
 
         {/* Transcript Modal */}
         {showTranscript && (

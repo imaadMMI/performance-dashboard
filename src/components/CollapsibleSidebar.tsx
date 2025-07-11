@@ -3,12 +3,42 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import PathwaySelector from "./PathwaySelector";
+
+interface PathwayOption {
+  id: string;
+  text: string;
+}
 
 const CollapsibleSidebar: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showPathwaySelector, setShowPathwaySelector] = useState(false);
+  const pathname = usePathname();
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
+  const handleSceneSelection = () => {
+    setShowPathwaySelector(true);
+  };
+
+  const handleSelectScenario = (selectedOption?: PathwayOption) => {
+    setShowPathwaySelector(false);
+    // Navigate to conversation page with selected scene
+    const sceneText = selectedOption?.text || "No preference. Let's just talk.";
+    window.location.href = `/conversation?scene=${encodeURIComponent(
+      sceneText
+    )}`;
+  };
+
+  const handleCloseDialog = () => {
+    setShowPathwaySelector(false);
   };
 
   return (
@@ -69,7 +99,9 @@ const CollapsibleSidebar: React.FC = () => {
         <nav className="space-y-2">
           <Link
             href="/"
-            className="flex items-center rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200 px-3 py-2"
+            className={`flex items-center rounded-lg transition-colors duration-200 px-3 py-2 ${
+              isActive("/") ? "bg-[#b68d2e]/10" : "hover:bg-[#b68d2e]/5"
+            }`}
           >
             <div className="w-6 h-6 flex-shrink-0">
               <svg
@@ -81,15 +113,21 @@ const CollapsibleSidebar: React.FC = () => {
               </svg>
             </div>
             {isExpanded && (
-              <span className="ml-3 text-[#58595b] hover:text-[#b68d2e] font-medium">
+              <span
+                className={`ml-3 font-medium text-sm whitespace-nowrap ${
+                  isActive("/")
+                    ? "text-[#b68d2e]"
+                    : "text-[#58595b] hover:text-[#b68d2e]"
+                }`}
+              >
                 Home
               </span>
             )}
           </Link>
 
-          <Link
-            href="/profile"
-            className="flex items-center rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200 px-3 py-2"
+          <button
+            onClick={handleSceneSelection}
+            className="flex items-center rounded-lg transition-colors duration-200 px-3 py-2 hover:bg-[#b68d2e]/5 w-full"
           >
             <div className="w-6 h-6 flex-shrink-0">
               <svg
@@ -105,15 +143,17 @@ const CollapsibleSidebar: React.FC = () => {
               </svg>
             </div>
             {isExpanded && (
-              <span className="ml-3 text-[#58595b] hover:text-[#b68d2e] font-medium">
-                My Profile
+              <span className="ml-3 font-medium text-sm whitespace-nowrap text-[#58595b] hover:text-[#b68d2e]">
+                Scene Selection Page
               </span>
             )}
-          </Link>
+          </button>
 
           <Link
             href="/history"
-            className="flex items-center rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200 px-3 py-2"
+            className={`flex items-center rounded-lg transition-colors duration-200 px-3 py-2 ${
+              isActive("/history") ? "bg-[#b68d2e]/10" : "hover:bg-[#b68d2e]/5"
+            }`}
           >
             <div className="w-6 h-6 flex-shrink-0">
               <svg
@@ -129,7 +169,13 @@ const CollapsibleSidebar: React.FC = () => {
               </svg>
             </div>
             {isExpanded && (
-              <span className="ml-3 text-[#58595b] hover:text-[#b68d2e] font-medium">
+              <span
+                className={`ml-3 font-medium text-sm whitespace-nowrap ${
+                  isActive("/history")
+                    ? "text-[#b68d2e]"
+                    : "text-[#58595b] hover:text-[#b68d2e]"
+                }`}
+              >
                 Session History
               </span>
             )}
@@ -137,11 +183,15 @@ const CollapsibleSidebar: React.FC = () => {
 
           <Link
             href="/feedback"
-            className="flex items-center rounded-lg bg-[#b68d2e]/10 transition-colors duration-200 px-3 py-2"
+            className={`flex items-center rounded-lg transition-colors duration-200 px-3 py-2 ${
+              isActive("/feedback") ? "bg-[#b68d2e]/10" : "hover:bg-[#b68d2e]/5"
+            }`}
           >
             <div className="w-6 h-6 flex-shrink-0">
               <svg
-                className="w-6 h-6 text-[#b68d2e]"
+                className={`w-6 h-6 ${
+                  isActive("/feedback") ? "text-[#b68d2e]" : "text-[#58595b]"
+                }`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -150,16 +200,26 @@ const CollapsibleSidebar: React.FC = () => {
               </svg>
             </div>
             {isExpanded && (
-              <span className="ml-3 text-[#b68d2e] font-medium">Feedback</span>
+              <span
+                className={`ml-3 font-medium text-sm whitespace-nowrap ${
+                  isActive("/feedback")
+                    ? "text-[#b68d2e]"
+                    : "text-[#58595b] hover:text-[#b68d2e]"
+                }`}
+              >
+                Feedback
+              </span>
             )}
           </Link>
         </nav>
 
         {/* Settings at bottom */}
-        <div className="pt-8">
+        <div className="pt-8 space-y-4">
           <Link
             href="/settings"
-            className="flex items-center rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200 px-3 py-2"
+            className={`flex items-center rounded-lg transition-colors duration-200 px-3 py-2 ${
+              isActive("/settings") ? "bg-[#b68d2e]/10" : "hover:bg-[#b68d2e]/5"
+            }`}
           >
             <div className="w-6 h-6 flex-shrink-0">
               <svg
@@ -175,13 +235,51 @@ const CollapsibleSidebar: React.FC = () => {
               </svg>
             </div>
             {isExpanded && (
-              <span className="ml-3 text-[#58595b] hover:text-[#b68d2e] font-medium">
+              <span
+                className={`ml-3 font-medium text-sm whitespace-nowrap ${
+                  isActive("/settings")
+                    ? "text-[#b68d2e]"
+                    : "text-[#58595b] hover:text-[#b68d2e]"
+                }`}
+              >
                 Settings
               </span>
             )}
           </Link>
+
+          {/* Primary Action Button */}
+          {isExpanded ? (
+            <button
+              onClick={() => (window.location.href = "/conversation")}
+              className="w-full bg-[#b68d2e] text-white py-3 px-4 rounded-lg hover:bg-[#a67d29] transition-colors duration-200 font-medium shadow-md text-sm whitespace-nowrap"
+            >
+              Speak to Nada
+            </button>
+          ) : (
+            <button
+              onClick={() => (window.location.href = "/conversation")}
+              className="w-full bg-[#b68d2e] text-white p-3 rounded-lg hover:bg-[#a67d29] transition-colors duration-200 shadow-md flex items-center justify-center"
+              title="Speak to Nada"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Pathway Selector Modal */}
+      {showPathwaySelector && (
+        <PathwaySelector
+          onClose={handleCloseDialog}
+          onSelectScenario={handleSelectScenario}
+        />
+      )}
     </aside>
   );
 };

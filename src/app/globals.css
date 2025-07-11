@@ -4,28 +4,52 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* National Bonds Brand Colors */
+  /* National Bonds Primary Colors */
   --nb-gold: #b68d2e;
   --nb-gold-hover: #a67d29;
   --nb-nickel: #58595b;
   --nb-nickel-hover: #6a6b6d;
   --nb-background-neutral: #f8f9fa;
   --nb-card-background: #ffffff;
+
+  /* National Bonds Secondary Colors (B2C Applications) */
+  --nb-secondary-red: #ff7084;
+  --nb-secondary-purple: #8668a8;
+  --nb-secondary-blue: #4a9fce;
+  --nb-secondary-green: #4db892;
+
+  /* National Bonds Supporting Colors */
+  --nb-supporting-blue: #4a9fce;
+  --nb-supporting-yellow: #fef04a;
+
+  /* Font Families */
+  --font-arabic: "GE SS TWO", sans-serif;
+  --font-english: "Gotham", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-strangeways);
-  --font-bold: var(--font-strangeways-bold);
+  --font-sans: var(--font-english);
+  --font-bold: var(--font-english);
 
-  /* National Bonds Custom Colors */
+  /* National Bonds Primary Colors */
   --color-nb-gold: var(--nb-gold);
   --color-nb-gold-hover: var(--nb-gold-hover);
   --color-nb-nickel: var(--nb-nickel);
   --color-nb-nickel-hover: var(--nb-nickel-hover);
   --color-nb-bg-neutral: var(--nb-background-neutral);
   --color-nb-card-bg: var(--nb-card-background);
+
+  /* National Bonds Secondary Colors */
+  --color-nb-secondary-red: var(--nb-secondary-red);
+  --color-nb-secondary-purple: var(--nb-secondary-purple);
+  --color-nb-secondary-blue: var(--nb-secondary-blue);
+  --color-nb-secondary-green: var(--nb-secondary-green);
+
+  /* National Bonds Supporting Colors */
+  --color-nb-supporting-blue: var(--nb-supporting-blue);
+  --color-nb-supporting-yellow: var(--nb-supporting-yellow);
 }
 
 @media (prefers-color-scheme: dark) {

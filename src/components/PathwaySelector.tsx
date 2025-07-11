@@ -40,14 +40,20 @@ const PathwaySelector: React.FC<PathwaySelectorProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+    <div
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl max-w-md w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="p-6 pb-4">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <div className="p-6 pb-4 text-center">
+          <h2 className="text-lg font-bold text-[#58595b] mb-2">
             Pick a pathway
           </h2>
-          <p className="text-sm text-gray-600">
+          <p className="text-xs text-[#58595b]/80 font-light">
             If there&apos;s something on your mind, then choose an option to
             help me guide our conversation.
           </p>
@@ -59,7 +65,7 @@ const PathwaySelector: React.FC<PathwaySelectorProps> = ({
             {pathwayOptions.map((option) => (
               <button
                 key={option.id}
-                className="w-full text-left p-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 border border-transparent hover:border-gray-200"
+                className="w-full text-left p-4 text-[#58595b] bg-[#58595b]/5 hover:bg-[#b68d2e]/10 rounded-lg transition-colors duration-200 border border-[#58595b]/10 hover:border-[#b68d2e]/30 hover:text-[#58595b] font-medium text-sm"
                 onClick={() => handleSelection(option)}
               >
                 {option.text}
@@ -69,12 +75,12 @@ const PathwaySelector: React.FC<PathwaySelectorProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t border-gray-200">
+        <div className="px-6 py-4 border-t border-[#58595b]/10">
           <div className="text-center">
-            <span className="text-sm text-gray-500 font-medium">OR</span>
+            <span className="text-xs text-[#58595b]/60 font-medium">OR</span>
           </div>
           <button
-            className="w-full mt-3 p-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 text-left"
+            className="w-full mt-3 p-4 text-[#58595b] bg-[#58595b]/5 hover:bg-[#b68d2e]/10 rounded-lg transition-colors duration-200 text-left border border-[#58595b]/10 hover:border-[#b68d2e]/30 hover:text-[#58595b] font-medium text-sm"
             onClick={() => handleSelection()}
           >
             No preference. Let&apos;s just talk.
