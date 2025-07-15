@@ -274,12 +274,11 @@ const CollapsibleSidebar: React.FC = () => {
       </div>
 
       {/* Pathway Selector Modal */}
-      {showPathwaySelector && (
-        <PathwaySelector
-          onClose={handleCloseDialog}
-          onSelectScenario={handleSelectScenario}
-        />
-      )}
+      <PathwaySelector
+        open={showPathwaySelector}
+        onClose={handleCloseDialog}
+        onSelectScenario={handleSelectScenario}
+      />
     </aside>
   );
 };

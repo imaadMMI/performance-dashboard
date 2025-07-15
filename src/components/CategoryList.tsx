@@ -1,6 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 interface Category {
   name: string;
@@ -105,39 +110,43 @@ const CategoryList: React.FC<CategoryListProps> = ({
   return (
     <div className="space-y-3">
       {categories.map((category, index) => (
-        <div key={index}>
-          <div
-            className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-[#b68d2e]/5 transition-colors duration-200"
-            onClick={() => toggleCategory(index)}
-          >
-            <div className="flex items-center gap-3">
-              <span className="text-[#b68d2e]">{getIcon(category.name)}</span>
-              <span className="font-medium text-[#58595b] text-sm">
-                {category.name}
+        <Collapsible
+          key={index}
+          open={category.expanded}
+          onOpenChange={() => toggleCategory(index)}
+        >
+          <CollapsibleTrigger className="w-full">
+            <div className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-nb-gold/5 transition-colors duration-200">
+              <div className="flex items-center gap-3">
+                <span className="text-nb-gold">{getIcon(category.name)}</span>
+                <span className="font-medium text-nb-nickel text-sm">
+                  {category.name}
+                </span>
+              </div>
+              <span
+                className={`transform transition-transform text-nb-nickel/60 ${
+                  category.expanded ? "rotate-180" : ""
+                }`}
+              >
+                ▼
               </span>
             </div>
-            <span
-              className={`transform transition-transform text-[#58595b]/60 ${
-                category.expanded ? "rotate-180" : ""
-              }`}
-            >
-              ▼
-            </span>
-          </div>
-          {category.expanded && (
-            <div className="mt-4 pl-10 border-l-2 border-[#b68d2e]/20">
+          </CollapsibleTrigger>
+
+          <CollapsibleContent>
+            <div className="mt-4 pl-10 border-l-2 border-nb-gold/20">
               <p
                 className={`text-xs leading-relaxed font-light ${
                   category.name === "identified strengths"
-                    ? "text-[#58595b]"
-                    : "text-[#58595b]/80"
+                    ? "text-nb-nickel"
+                    : "text-nb-nickel/80"
                 }`}
               >
                 {getContent(category.name)}
               </p>
             </div>
-          )}
-        </div>
+          </CollapsibleContent>
+        </Collapsible>
       ))}
     </div>
   );

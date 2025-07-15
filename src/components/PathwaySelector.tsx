@@ -1,6 +1,15 @@
 "use client";
 
 import React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
 
 interface PathwayOption {
   id: string;
@@ -8,11 +17,13 @@ interface PathwayOption {
 }
 
 interface PathwaySelectorProps {
+  open: boolean;
   onClose: () => void;
   onSelectScenario: (option?: PathwayOption) => void;
 }
 
 const PathwaySelector: React.FC<PathwaySelectorProps> = ({
+  open,
   onClose,
   onSelectScenario,
 }) => {
@@ -20,6 +31,7 @@ const PathwaySelector: React.FC<PathwaySelectorProps> = ({
     onSelectScenario(option);
     onClose();
   };
+
   const pathwayOptions: PathwayOption[] = [
     {
       id: "career_journey",
@@ -40,54 +52,48 @@ const PathwaySelector: React.FC<PathwaySelectorProps> = ({
   ];
 
   return (
-    <div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-2xl shadow-2xl max-w-md w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="p-6 pb-4 text-center">
-          <h2 className="text-lg font-bold text-[#58595b] mb-2">
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="max-w-md w-full">
+        <DialogHeader className="text-center">
+          <DialogTitle className="text-lg font-bold text-nb-nickel mb-2">
             Pick a pathway
-          </h2>
-          <p className="text-xs text-[#58595b]/80 font-light">
+          </DialogTitle>
+          <DialogDescription className="text-xs text-nb-nickel/80 font-light">
             If there&apos;s something on your mind, then choose an option to
             help me guide our conversation.
-          </p>
-        </div>
+          </DialogDescription>
+        </DialogHeader>
 
         {/* Content */}
-        <div className="px-6 pb-4">
-          <div className="space-y-3">
-            {pathwayOptions.map((option) => (
-              <button
-                key={option.id}
-                className="w-full text-left p-4 text-[#58595b] bg-[#58595b]/5 hover:bg-[#b68d2e]/10 rounded-lg transition-colors duration-200 border border-[#58595b]/10 hover:border-[#b68d2e]/30 hover:text-[#58595b] font-medium text-sm"
-                onClick={() => handleSelection(option)}
-              >
-                {option.text}
-              </button>
-            ))}
-          </div>
+        <div className="space-y-3">
+          {pathwayOptions.map((option) => (
+            <Button
+              key={option.id}
+              variant="outline"
+              className="w-full text-left p-4 h-auto text-nb-nickel bg-nb-nickel/5 hover:bg-nb-gold/10 rounded-lg transition-colors duration-200 border border-nb-nickel/10 hover:border-nb-gold/30 hover:text-nb-nickel font-medium text-sm justify-start"
+              onClick={() => handleSelection(option)}
+            >
+              {option.text}
+            </Button>
+          ))}
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t border-[#58595b]/10">
-          <div className="text-center">
-            <span className="text-xs text-[#58595b]/60 font-medium">OR</span>
+        <div className="pt-4">
+          <Separator className="mb-4" />
+          <div className="text-center mb-3">
+            <span className="text-xs text-nb-nickel/60 font-medium">OR</span>
           </div>
-          <button
-            className="w-full mt-3 p-4 text-[#58595b] bg-[#58595b]/5 hover:bg-[#b68d2e]/10 rounded-lg transition-colors duration-200 text-left border border-[#58595b]/10 hover:border-[#b68d2e]/30 hover:text-[#58595b] font-medium text-sm"
+          <Button
+            variant="outline"
+            className="w-full p-4 h-auto text-nb-nickel bg-nb-nickel/5 hover:bg-nb-gold/10 rounded-lg transition-colors duration-200 border border-nb-nickel/10 hover:border-nb-gold/30 hover:text-nb-nickel font-medium text-sm justify-start"
             onClick={() => handleSelection()}
           >
             No preference. Let&apos;s just talk.
-          </button>
+          </Button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 
