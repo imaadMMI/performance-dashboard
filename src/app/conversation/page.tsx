@@ -55,22 +55,15 @@ function ConversationContent() {
 
     const updateLevel = () => {
       analyserRef.current!.getByteFrequencyData(dataArray);
-
-      // Calculate average volume
-      let sum = 0;
-      for (let i = 0; i < bufferLength; i++) {
-        sum += dataArray[i];
-      }
-      const average = sum / bufferLength;
-
-      // Normalize to 0-1 range
-      const normalizedLevel = Math.min(average / 128, 1);
-      setAudioLevel(normalizedLevel);
+      const average = dataArray.reduce((a, b) => a + b) / dataArray.length;
+      // Amplify the audio level for better sensitivity (multiply by 2.5)
+      const amplifiedLevel = Math.min(average * 2.5, 255);
+      setAudioLevel(amplifiedLevel);
 
       // Set listening state based on audio level
       // When user speaks (audio level > 0.1), user is speaking so isListening = false
       // When no audio input, AI might be speaking so isListening = true
-      setIsListening(normalizedLevel <= 0.1);
+      setIsListening(amplifiedLevel <= 0.1);
 
       requestAnimationFrame(updateLevel);
     };

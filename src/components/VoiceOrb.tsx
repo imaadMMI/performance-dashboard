@@ -16,43 +16,38 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
   const [orbSize, setOrbSize] = useState(200);
   const [pulseAnimation, setPulseAnimation] = useState(false);
 
-  // Calculate orb size based on audio level
+  // Calculate orb size based on audio level - only when active
   useEffect(() => {
-    if (isActive) {
-      // When call is active, always modulate size based on audio
-      const baseSize = 200;
-      const maxIncrease = 200; // Increased from 100 for much bigger size changes (max 400px)
-      // audioLevel is already normalized to 0-1 range in conversation page
-      // Amplify the audio level for more sensitivity
-      const amplifiedLevel = Math.min(audioLevel * 2, 1);
-      const newSize = baseSize + amplifiedLevel * maxIncrease;
-
-      // Debug: Log audio level and size changes
-      if (audioLevel > 0.01) {
-        console.log(
-          "Audio Level:",
-          audioLevel,
-          "Amplified:",
-          amplifiedLevel,
-          "Size:",
-          newSize
-        );
-      }
-
-      setOrbSize(newSize);
+    if (!isActive) {
+      // When inactive, set static state and don't respond to changes
+      setOrbSize(200);
       setPulseAnimation(false);
+      return;
+    }
+
+    if (isActive && !isListening) {
+      // User is speaking - modulate size based on audio
+      const baseSize = 200;
+      const maxIncrease = 100; // Increased from 60 for more dramatic size changes
+      const normalizedLevel = Math.min(audioLevel / 30, 1); // Reduced from 100 to 30 for higher sensitivity
+      const newSize = baseSize + normalizedLevel * maxIncrease;
+      setOrbSize(newSize);
+    } else if (isListening) {
+      // AI is speaking - gentle pulse animation
+      setPulseAnimation(true);
+      setOrbSize(220);
     } else {
-      // Default state when call is inactive
+      // Default active state
       setOrbSize(200);
       setPulseAnimation(false);
     }
-  }, [audioLevel, isActive]);
+  }, [audioLevel, isListening, isActive]);
 
   const getOrbColor = () => {
     if (!isActive) {
       return "bg-gradient-to-br from-gray-300 to-gray-400";
     } else {
-      // When call is active, always show gold color regardless of listening state
+      // When call is active, always stay gold regardless of listening state
       return `bg-gradient-to-br from-[#b68d2e] to-[#a67d29]`;
     }
   };
@@ -60,18 +55,17 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
   const getGlowEffect = () => {
     if (!isActive) return "";
 
-    if (isListening) {
-      return "shadow-lg shadow-[#58595b]/20";
-    } else {
-      return `shadow-lg shadow-[#b68d2e]/40`;
-    }
+    // When call is active, always show gold glow
+    return `shadow-lg shadow-[#b68d2e]/40`;
   };
 
   return (
     <div className="flex items-center justify-center">
       <div
         className={`
-          rounded-full transition-all duration-100 ease-in-out
+          rounded-full ${
+            isActive ? "transition-all duration-200 ease-in-out" : ""
+          }
           ${getOrbColor()}
           ${getGlowEffect()}
           ${pulseAnimation ? "animate-pulse" : ""}
@@ -85,7 +79,9 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
         {/* Inner circle with subtle animation */}
         <div
           className={`
-            rounded-full bg-white/10 transition-all duration-150
+            rounded-full bg-white/10 ${
+              isActive ? "transition-all duration-300" : ""
+            }
             ${isActive ? "opacity-100" : "opacity-50"}
           `}
           style={{
@@ -121,7 +117,7 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
         </div>
 
         {/* Audio visualization rings for active speaking */}
-        {isActive && audioLevel > 5 && (
+        {isActive && !isListening && audioLevel > 5 && (
           <>
             <div
               className="absolute rounded-full border-2 border-white/30 animate-ping"

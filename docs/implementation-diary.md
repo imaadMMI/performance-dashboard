@@ -858,3 +858,106 @@
 - Better integration with overall page design
 - Brand-compliant color usage throughout interface
 - Improved visual hierarchy and readability
+
+### Latest Update: VoiceOrb Restored to Original Implementation
+
+#### Changes Made
+
+**VoiceOrb Component (`src/components/VoiceOrb.tsx`):**
+
+- **Logic Restoration**: Restored original `isListening` state-based behavior from commit ad1bee34
+- **Size Calculation**: User speaking = dynamic size based on audio; AI speaking = fixed 220px with pulse
+- **Color Logic**: Gold when user speaks, nickel/grey when AI speaks, grey when inactive
+- **Icon Logic**: Microphone when user speaks, eye when AI speaks, microphone when inactive
+- **Audio Normalization**: Back to `audioLevel / 30` for proper sensitivity
+- **Transition Timing**: Restored to `duration-200` and `duration-300` for smooth animations
+- **Visualization Rings**: Only appear when user is speaking (`!isListening` and `audioLevel > 5`)
+
+**Audio Processing (`src/app/conversation/page.tsx`):**
+
+- **FFT Size**: Restored to 256 for stable audio analysis
+- **Audio Calculation**: Simple average with 2.5x amplification (no frequency filtering)
+- **Level Processing**: `dataArray.reduce((a, b) => a + b) / dataArray.length * 2.5`
+- **Listening State**: `amplifiedLevel <= 0.1` for isListening detection
+
+**Original Behavior Restored:**
+
+- User speaking: Gold orb, microphone icon, size changes with volume, visualization rings
+- AI speaking: Grey orb, eye icon, fixed size with pulse animation
+- Inactive: Grey orb, microphone icon, static size
+- Proper state transitions and visual feedback
+
+**Impact:**
+
+- Restored original working VoiceOrb behavior from stable commit
+- Proper visual feedback for speaking/listening states
+- Correct audio level processing and normalization
+- Smooth transitions and animations as originally designed
+- Fixed weird behavior with consistent state management
+
+### Latest Update: VoiceOrb Always Gold During Active Calls
+
+#### Changes Made
+
+**VoiceOrb Color Logic (`src/components/VoiceOrb.tsx`):**
+
+- **Color Consistency**: Modified `getOrbColor()` to always return gold when call is active
+- **Removed Listening State Colors**: Eliminated grey/nickel color when `isListening = true`
+- **Simplified Logic**: `!isActive` → grey, `isActive` → gold (regardless of volume)
+- **Icon Consistency**: Always show microphone icon when call is active
+- **Glow Effect**: Always show gold glow when call is active
+
+**Problem Fixed:**
+
+- **Issue**: VoiceOrb was turning grey when volume was low (when `isListening = true`)
+- **Root Cause**: `isListening` state was triggering grey color and eye icon
+- **Solution**: Ignore `isListening` state for color/icon, only use it for size behavior
+
+**Updated Behavior:**
+
+- **Call Active**: Always gold orb with microphone icon and gold glow
+- **Call Inactive**: Grey orb with microphone icon
+- **Size Changes**: Still react to volume when user speaks (`!isListening`)
+- **Visual Rings**: Still appear when speaking with high volume
+
+**Impact:**
+
+- Consistent gold appearance throughout active call
+- No more unwanted grey color when volume is low
+- Cleaner visual feedback - color indicates call state, size indicates volume
+- Better user experience with persistent visual identity during calls
+- Maintains volume reactivity while ensuring consistent branding
+
+### Latest Update: VoiceOrb Made Completely Static When Inactive
+
+#### Changes Made
+
+**VoiceOrb Component (`src/components/VoiceOrb.tsx`):**
+
+- **Static Behavior**: Modified useEffect to return early when `!isActive`, preventing state updates
+- **Transition Removal**: Removed transitions when call is inactive:
+  - Main orb: Only applies `transition-all duration-200` when `isActive = true`
+  - Inner circle: Only applies `transition-all duration-300` when `isActive = true`
+- **Early Return Logic**: When `isActive = false`, sets static state (size 200px, no pulse) and returns
+- **Complete Stillness**: When inactive and grey, orb is 100% static with no animations or state changes
+
+**Problem Fixed:**
+
+- **Issue**: VoiceOrb was still applying transitions and responding to audio changes when inactive
+- **Root Cause**: useEffect was running even when `isActive = false`
+- **Solution**: Early return when inactive + conditional transitions
+
+**Updated Behavior:**
+
+- **Call Inactive**: Completely static - no transitions, no animations, no state updates
+- **Call Active**: Full responsiveness - transitions, size changes, animations
+- **Performance**: Reduced unnecessary state updates when call is ended
+- **User Experience**: Clean, professional static state when call is inactive
+
+**Impact:**
+
+- VoiceOrb is now 100% static when inactive and grey as requested
+- No unwanted animations or transitions when call is not active
+- Better performance with early returns preventing unnecessary processing
+- Professional appearance with completely still interface when inactive
+- Maintains all dynamic behavior when call is active
