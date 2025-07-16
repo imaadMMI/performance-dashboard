@@ -7,7 +7,6 @@ interface ConversationControlsProps {
   onEndConversation: () => void;
   onStartConversation: () => void;
   onToggleMute: () => void;
-  onShowTranscript: () => void;
   isActive: boolean;
 }
 
@@ -15,7 +14,6 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
   onEndConversation,
   onStartConversation,
   onToggleMute,
-  onShowTranscript,
   isActive,
 }) => {
   const [isMuted, setIsMuted] = useState(false);
@@ -26,7 +24,7 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-6 bg-white/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg border border-gray-200">
+    <div className="flex items-center justify-center space-x-3 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200 w-fit mx-auto">
       {/* Mute/Unmute Button */}
       <Button
         onClick={handleToggleMute}
@@ -74,8 +72,8 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
           p-3 rounded-full text-white transition-all duration-200 shadow-md
           ${
             isActive
-              ? "bg-green-500 hover:bg-green-600"
-              : "bg-red-500 hover:bg-red-600"
+              ? "bg-red-500 hover:bg-red-600"
+              : "bg-green-500 hover:bg-green-600"
           }
         `}
         aria-label={isActive ? "End conversation" : "Start conversation"}
@@ -84,25 +82,6 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
         </svg>
       </Button>
-
-      {/* Transcript Button - Only show when call is finished */}
-      {!isActive && (
-        <Button
-          onClick={onShowTranscript}
-          variant="secondary"
-          size="icon"
-          className="p-3 rounded-full bg-gray-500 hover:bg-gray-600 text-white transition-all duration-200 shadow-md"
-          aria-label="Show conversation transcript"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </Button>
-      )}
     </div>
   );
 };

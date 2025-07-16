@@ -2,7 +2,167 @@
 
 ## Date: Current Session
 
-### Latest Update: Enhanced Voice Orb Microphone Sensitivity
+### Latest Update: Interactive Call History with Transcript Page
+
+#### Changes Made
+
+**Main Page Call History Enhancement (`src/app/page.tsx`):**
+
+- **Hover Effects**: Added `hover:bg-nb-gold/10 hover:border-nb-gold/20 transition-colors` to Call #1013 card
+- **Interactive Link**: Wrapped entire card in Link component pointing to `/call/1013`
+- **Cursor Pointer**: Added `cursor-pointer` class for visual feedback
+- **Scene-like Behavior**: Call history now reacts to mouse hover just like practice scene cards
+
+**New Call Transcript Page (`src/app/call/[id]/page.tsx`):**
+
+- **Dynamic Route**: Created dynamic route to handle different call IDs
+- **Wide Layout**: Changed to `max-w-[95vw]` for much wider page layout
+- **Grid Layout**: Changed from 3-column to 2-column layout (50/50 split)
+- **Layout Structure**:
+  - Header with breadcrumb navigation (Dashboard / Call #1013)
+  - Left content area (50% width) with conversation analysis
+  - Right sidebar (50% width) with actual chat transcript
+- **Content Sections**:
+  - Overall conversation score (79 with up arrow)
+  - Detailed feedback text about pricing discussion
+  - Opportunities stats (6 opportunities, 4 taken)
+  - Identified Strengths section with green checkmark
+  - Missed Opportunities section with red warning icon
+  - KYC Verification Protocol cards with "Show in transcript" buttons
+
+**Right Sidebar Chat Transcript:**
+
+- **Facebook Messenger Style**: Designed to look like chat interface
+- **Message Bubbles**: Alternating customer and agent messages
+- **Avatar Circles**: Small circular avatars with "C" and "A" initials
+- **Color Coding**: Customer messages in grey, Agent messages in gold tint
+- **Realistic Conversation**: Full conversation flow about account opening and pricing
+- **Scrollable Interface**: Overflow handling for long conversations
+- **Professional Header**: "Call Transcript" header with grey background
+
+**Impact:**
+
+- Call history is now interactive and navigable
+- Complete conversation analysis page matching provided design
+- Much wider layout utilizing full screen width
+- Realistic chat transcript interface resembling Facebook Messenger
+- Professional layout for reviewing past call performance
+- Enhanced user experience with proper conversation flow visualization
+
+---
+
+### Previous Update: Right Sidebar Grey Container Layout
+
+#### Changes Made
+
+**Right Sidebar Layout Enhancement (`src/app/conversation/page.tsx`):**
+
+- **Grey Container Wrapper**: Added `bg-gray-100 p-4 rounded-lg` wrapper around all right sidebar content
+- **White Box Updates**: Changed previously grey boxes to white backgrounds:
+  - **Best Practices boxes**: Changed from `bg-gray-50` to `bg-white`
+  - **Live Transcript box**: Changed from `bg-gray-50` to `bg-white`
+- **Visual Hierarchy**: Created clear separation between white sidebar background and grey content area
+- **Consistent Styling**: Maintained rounded corners and padding for cohesive appearance
+
+**Spacing Fix (`src/app/conversation/page.tsx`):**
+
+- **Flex Layout**: Added `flex flex-col` to white sidebar container
+- **Equal Margins**: Added `flex-1` to grey container to fill available space
+- **Result**: Grey container now has equal margins on all 4 sides (24px from p-6 padding)
+
+**Impact:**
+
+- Right sidebar now has a clearly defined grey content area within the white sidebar
+- White boxes stand out clearly against the grey background
+- Enhanced visual hierarchy and content organization
+- Perfect spacing with equal margins on all sides
+- Maintains consistent National Bonds styling and spacing
+
+---
+
+### Previous Update: Enhanced Voice Orb Sensitivity and Size
+
+#### Changes Made
+
+**Voice Orb Sensitivity Enhancement (`src/components/VoiceOrb.tsx`):**
+
+- **Size Range**: Increased `maxIncrease` from 100px to 200px (max size now 400px instead of 300px)
+- **Sensitivity**: Added audio level amplification (multiply by 2) for more responsive behavior
+- **Animation Speed**: Reduced transition duration from 200ms to 100ms for faster response
+- **Inner Circle**: Reduced inner circle transition from 300ms to 150ms for smoother scaling
+- **Debug**: Enhanced logging to show original and amplified audio levels
+
+**Impact:**
+
+- Voice orb now scales from 200px (base) to 400px (max volume) - 100% larger size range
+- Much more sensitive to quiet sounds due to 2x amplification
+- Faster, more responsive animation (half the transition time)
+- Smoother visual feedback with quicker size changes
+
+---
+
+### Previous Update: Fixed Voice Orb Volume Sensitivity (Double Normalization Issue)
+
+#### Changes Made
+
+**Voice Orb Volume Sensitivity Fix (`src/components/VoiceOrb.tsx`):**
+
+- **CRITICAL BUG FIX**: Fixed double normalization issue causing orb to be unresponsive to volume
+- **Issue**: Audio level was being normalized twice - once in conversation page (/128) and again in VoiceOrb (/30)
+- **Fix**: Removed `/30` division since audioLevel is already normalized to 0-1 range in conversation page
+- **Result**: Voice orb now properly responds to audio volume changes
+- **Debug**: Added temporary console logging to monitor audio levels
+
+**Impact:**
+
+- Voice orb size now changes dramatically based on audio volume
+- Removed double normalization that was causing extremely small values
+- Orb remains gold with microphone symbol throughout active call
+- Size properly modulates from 200px (base) to 300px (max volume)
+
+---
+
+### Previous Update: Fixed Voice Orb to Always Show Gold Color and Microphone When Active
+
+#### Changes Made
+
+**Voice Orb Color Logic Fix (`src/components/VoiceOrb.tsx`):**
+
+- **CRITICAL BUG FIX**: Simplified color logic so orb is always gold when call is active
+- **Issue**: Orb was switching between gold and gray colors during active call based on audio levels
+- **Fix**: Removed `isListening` condition from color logic - when `isActive = true`, always show gold color
+- **Result**: Voice orb maintains consistent gold color throughout entire active call
+
+**Voice Orb Icon Logic Fix (`src/components/VoiceOrb.tsx`):**
+
+- **Issue**: Microphone icon was disappearing and switching to eye icon during active call
+- **Fix**: Removed `isListening` condition from icon logic - when `isActive = true`, always show microphone icon
+- **Result**: Microphone symbol remains visible throughout entire active call
+
+**Voice Orb Size Logic Fix (`src/components/VoiceOrb.tsx`):**
+
+- **CRITICAL BUG FIX**: Restored volume sensitivity by removing `isListening` condition from size logic
+- **Issue**: Size modulation was dependent on `isListening` state, reducing volume sensitivity
+- **Fix**: Simplified size logic to always respond to audio levels when call is active
+- **Result**: Voice orb now properly increases diameter based on audio volume during entire active call
+
+**Audio Visualization Rings Fix (`src/components/VoiceOrb.tsx`):**
+
+- **Issue**: Animation rings were only appearing when `!isListening` condition was met
+- **Fix**: Removed `isListening` condition from rings logic - now appear when `isActive && audioLevel > 5`
+- **Result**: Animation rings now appear consistently when there's sufficient audio input
+
+**Impact:**
+
+- Voice orb is now consistently gold with microphone symbol during entire active call
+- Size properly modulates based on audio volume with full sensitivity restored
+- Animation rings appear when audio level is sufficient, regardless of listening state
+- Gray color and inactive microphone only appear when call is completely ended
+- Proper visual feedback: gold = active call, gray = inactive/ended call
+
+---
+
+### Previous Update: Enhanced Voice Orb Microphone Sensitivity
 
 #### Changes Made
 
@@ -497,3 +657,204 @@
 - **Accessibility**: Proper ARIA labels and close functionality
 
 **Result**: Complete conversation lifecycle - users can now view detailed transcripts of finished calls through intuitive dialog cloud icon
+
+### Latest Update: Width Adjustment for Call Transcript Page
+
+#### Changes Made
+
+**Call Transcript Page Width (`src/app/call/[id]/page.tsx`):**
+
+- **Width Adjustment**: Changed from `max-w-[95vw]` to `max-w-[1600px]`
+- **Sizing Logic**: Made page 40% wider than standard container width
+- **Previous State**: Was using 95% viewport width which was too excessive
+- **New Balance**: 1600px provides good balance between readability and screen utilization
+
+**Impact:**
+
+- More reasonable width that's not overwhelming
+- Better balance between content and white space
+- Improved readability while maintaining wider layout
+- Consistent with user's request for 40% wider than original
+
+### Latest Update: Transcript Section Reorganization
+
+#### Changes Made
+
+**Call Transcript Layout (`src/app/call/[id]/page.tsx`):**
+
+- **Container Background**: Changed from white Card to grey container (`bg-gray-200`)
+- **Header**: Centered "Call #1013 Transcript" title matching dynamic callId
+- **Message Layout**: Completely reorganized message structure:
+  - Customer messages: White containers on left side (`justify-start`)
+  - Agent messages: White containers on right side (`justify-end`)
+  - Removed avatar circles and replaced with simple text labels
+  - Labels positioned appropriately (left for customer, right for agent)
+- **Message Styling**: All messages now use `bg-white` with `p-4` padding
+- **Green Checkmarks**: Added green checkmark icons after some agent messages
+- **Responsive Width**: Messages max-width 70% to prevent full-width spanning
+- **Clean Design**: Matches provided image with grey background and white message bubbles
+
+**Visual Changes:**
+
+- Removed Facebook Messenger-style avatars
+- Simplified to clean white message bubbles
+- Customer messages flow from left
+- Agent messages flow from right
+- Green validation checkmarks for successful responses
+- Professional grey container background
+
+**Impact:**
+
+- Clean, professional transcript interface
+- Better visual hierarchy with left/right message alignment
+- Consistent with user's provided design reference
+- Enhanced readability with white messages on grey background
+- Proper spacing and typography for professional appearance
+
+### Latest Update: Transcript Container Height Fix
+
+#### Changes Made
+
+**Call Transcript Container (`src/app/call/[id]/page.tsx`):**
+
+- **Height Constraint Removed**: Removed `max-h-[600px]` limitation from transcript content area
+- **Full Height Utilization**: Container now uses full available height with `flex-1` and `overflow-y-auto`
+- **Container Structure**:
+  - Outer container: `h-full flex flex-col`
+  - Header: Fixed height with centered title
+  - Content area: `flex-1` takes remaining space, scrollable when needed
+
+**Issue Resolved:**
+
+- Previous: Container was artificially limited to 600px height
+- Fixed: Now utilizes full available viewport height
+- Result: Maximum space available for transcript text viewing
+
+**Impact:**
+
+- Full transcript container height utilization
+- Better space efficiency for long conversations
+- Natural scrolling behavior when content exceeds container
+- No artificial height restrictions limiting readability
+
+### Latest Update: Green Checkmark Removal
+
+#### Changes Made
+
+**Call Transcript Styling (`src/app/call/[id]/page.tsx`):**
+
+- **Green Checkmarks Removed**: Removed all green checkmark SVG icons from agent messages
+- **Cleaner Design**: Eliminated visual clutter from transcript interface
+- **Simplified Layout**: Agent messages now have consistent styling without validation icons
+- **Removed Elements**:
+  - SVG checkmark icons (`text-green-500`)
+  - Container divs with `flex justify-end mt-2`
+  - Visual validation indicators
+
+**Impact:**
+
+- Cleaner, more professional transcript appearance
+- Consistent message styling across all agent responses
+- Reduced visual noise in conversation flow
+- Simplified interface focusing on message content
+- Better readability without distracting icons
+
+### Latest Update: Score Display Styling Consistency
+
+#### Changes Made
+
+**Overall Score Section (`src/app/call/[id]/page.tsx`):**
+
+- **Font Size Consistency**: Changed score "79" from `text-3xl font-bold` to `text-2xl font-medium`
+- **Icon Update**: Replaced star SVG icon with up-arrow character `↑`
+- **Color Matching**: Applied `text-nb-secondary-green text-xl` to up-arrow (same as main page)
+- **Layout Simplification**:
+  - Removed nested div structure
+  - Reduced gap from `gap-4` to `gap-2` for tighter spacing
+  - Inline layout: text + score + arrow in single flex container
+- **Consistency**: Now matches main page styling exactly
+
+**Styling Changes:**
+
+- Score: `text-2xl font-medium text-nb-nickel` (same size as heading)
+- Arrow: `text-nb-secondary-green text-xl` (green up-arrow)
+- Layout: Simplified inline flex structure
+
+**Impact:**
+
+- Visual consistency between main page and call transcript page
+- Better typography hierarchy with equal font sizes
+- Professional appearance with proper up-arrow indicator
+- Cleaner, more streamlined layout
+- Unified design language across application pages
+
+### Latest Update: Page Header Text Removed (Container Header Kept)
+
+#### Changes Made
+
+**Page Header Section (`src/app/call/[id]/page.tsx`):**
+
+- **Page Header Text Removed**: Eliminated "Call #1013 Transcript" from page header section
+- **Container Header Preserved**: Kept "Call #1013 Transcript" header inside grey transcript container
+- **Clean Navigation**: Page header now shows only breadcrumb "Dashboard / Call #1013"
+- **Proper Organization**:
+  - Page level: Simple breadcrumb navigation
+  - Container level: Transcript section with its own header
+  - Clear separation of concerns
+
+**Impact:**
+
+- Cleaner page header without redundant text
+- Proper section identification within transcript container
+- Better visual hierarchy with single transcript title
+- Enhanced user experience with clear navigation
+- Professional layout with appropriate header placement
+
+### Latest Update: Transcript Message Background Colors
+
+#### Changes Made
+
+**Call Transcript Message Styling (`src/app/call/[id]/page.tsx`):**
+
+- **Agent Messages**: Changed from `bg-white` to `bg-nb-gold/10` (very light gold)
+- **Customer Messages**: Changed from `bg-white` to `bg-nb-secondary-green/10` (very light green)
+- **Brand Color Compliance**: Used official National Bonds brand colors:
+  - Gold: #b68d2e (primary brand color)
+  - Secondary Green: #4db892 (secondary brand color for consumer applications)
+- **Opacity Level**: Applied 10% opacity for very light background tints
+- **Consistent Application**: All message bubbles updated across entire transcript
+
+**Brand Guidelines Followed:**
+
+- Referenced National Bonds Corporate Identity Guideline 2020
+- Used primary gold color for agent (business/professional context)
+- Used secondary green color for customer (consumer-friendly context)
+- Maintained proper contrast and readability
+- Preserved National Bonds visual identity
+
+**Impact:**
+
+- Enhanced visual distinction between agent and customer messages
+- Brand-compliant color scheme throughout transcript
+- Professional appearance aligned with National Bonds identity
+- Better user experience with clear message differentiation
+- Improved readability with subtle background colors
+
+### Latest Update: Transcript Container Background Lightening
+
+#### Changes Made
+
+**Call Transcript Container Background (`src/app/call/[id]/page.tsx`):**
+
+- **Background Color**: Changed from `bg-gray-200` to `bg-nb-nickel/5`
+- **Consistency**: Now matches other containers on the page (like card backgrounds)
+- **Visual Harmony**: All containers now use the same light grey background
+- **Brand Compliance**: Uses National Bonds nickel color with 5% opacity instead of generic grey
+
+**Impact:**
+
+- Consistent visual appearance across all page containers
+- Lighter, more professional grey background
+- Better integration with overall page design
+- Brand-compliant color usage throughout interface
+- Improved visual hierarchy and readability

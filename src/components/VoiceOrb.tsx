@@ -18,31 +18,41 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
 
   // Calculate orb size based on audio level
   useEffect(() => {
-    if (isActive && !isListening) {
-      // User is speaking - modulate size based on audio
+    if (isActive) {
+      // When call is active, always modulate size based on audio
       const baseSize = 200;
-      const maxIncrease = 100; // Increased from 60 for more dramatic size changes
-      const normalizedLevel = Math.min(audioLevel / 30, 1); // Reduced from 100 to 30 for higher sensitivity
-      const newSize = baseSize + normalizedLevel * maxIncrease;
+      const maxIncrease = 200; // Increased from 100 for much bigger size changes (max 400px)
+      // audioLevel is already normalized to 0-1 range in conversation page
+      // Amplify the audio level for more sensitivity
+      const amplifiedLevel = Math.min(audioLevel * 2, 1);
+      const newSize = baseSize + amplifiedLevel * maxIncrease;
+
+      // Debug: Log audio level and size changes
+      if (audioLevel > 0.01) {
+        console.log(
+          "Audio Level:",
+          audioLevel,
+          "Amplified:",
+          amplifiedLevel,
+          "Size:",
+          newSize
+        );
+      }
+
       setOrbSize(newSize);
-    } else if (isListening) {
-      // AI is speaking - gentle pulse animation
-      setPulseAnimation(true);
-      setOrbSize(220);
+      setPulseAnimation(false);
     } else {
-      // Default state
+      // Default state when call is inactive
       setOrbSize(200);
       setPulseAnimation(false);
     }
-  }, [audioLevel, isListening, isActive]);
+  }, [audioLevel, isActive]);
 
   const getOrbColor = () => {
     if (!isActive) {
       return "bg-gradient-to-br from-gray-300 to-gray-400";
-    } else if (isListening) {
-      return "bg-gradient-to-br from-[#58595b] to-[#6a6b6d]";
     } else {
-      // User is speaking
+      // When call is active, always show gold color regardless of listening state
       return `bg-gradient-to-br from-[#b68d2e] to-[#a67d29]`;
     }
   };
@@ -61,7 +71,7 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
     <div className="flex items-center justify-center">
       <div
         className={`
-          rounded-full transition-all duration-200 ease-in-out
+          rounded-full transition-all duration-100 ease-in-out
           ${getOrbColor()}
           ${getGlowEffect()}
           ${pulseAnimation ? "animate-pulse" : ""}
@@ -75,7 +85,7 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
         {/* Inner circle with subtle animation */}
         <div
           className={`
-            rounded-full bg-white/10 transition-all duration-300
+            rounded-full bg-white/10 transition-all duration-150
             ${isActive ? "opacity-100" : "opacity-50"}
           `}
           style={{
@@ -96,19 +106,6 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
                   <path d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4z" />
                   <path d="M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5H10.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
                 </svg>
-              ) : isListening ? (
-                <svg
-                  className="w-8 h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M.458 10C1.732 5. 943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
               ) : (
                 <svg
                   className="w-8 h-8"
@@ -124,7 +121,7 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
         </div>
 
         {/* Audio visualization rings for active speaking */}
-        {isActive && !isListening && audioLevel > 5 && (
+        {isActive && audioLevel > 5 && (
           <>
             <div
               className="absolute rounded-full border-2 border-white/30 animate-ping"
