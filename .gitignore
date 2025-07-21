@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/NADA Dashboard Interface
+/NADA_Dashboard_Interface_Original
 
 # next.js
 /.next/
