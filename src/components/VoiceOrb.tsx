@@ -15,6 +15,13 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
 }) => {
   const [orbSize, setOrbSize] = useState(200);
   const [pulseAnimation, setPulseAnimation] = useState(false);
+  const [testMode, setTestMode] = useState(false);
+
+  // Test mode - click orb to test wave animation
+  const handleOrbClick = () => {
+    setTestMode(!testMode);
+    console.log("Test mode:", !testMode);
+  };
 
   // Calculate orb size based on audio level - only when active
   useEffect(() => {
@@ -43,99 +50,109 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
     }
   }, [audioLevel, isListening, isActive]);
 
-  const getOrbColor = () => {
-    if (!isActive) {
-      return "bg-gradient-to-br from-gray-300 to-gray-400";
-    } else {
-      // When call is active, always stay gold regardless of listening state
-      return `bg-gradient-to-br from-[#b68d2e] to-[#a67d29]`;
+  // Generate wave heights based only on audio volume
+  const getWaveHeight = (baseHeight: number, sensitivity: number = 1) => {
+    // Debug: log audio levels (remove this later)
+    if (audioLevel > 0) {
+      console.log(
+        "Audio Level:",
+        audioLevel,
+        "Active:",
+        isActive,
+        "Listening:",
+        isListening
+      );
     }
+
+    // Test mode - simulate audio levels
+    if (testMode) {
+      const testLevel = Math.sin(Date.now() * 0.01) * 30 + 30;
+      const audioMultiplier = (testLevel / 50) * 40 * sensitivity;
+      return Math.min(baseHeight + audioMultiplier, baseHeight * 3);
+    }
+
+    if (!isActive) return baseHeight;
+
+    // More sensitive to any audio input
+    if (audioLevel <= 0.5) return baseHeight;
+
+    // Much more sensitive scaling - respond to very low audio levels
+    const audioMultiplier = (audioLevel / 30) * 50 * sensitivity; // Even more sensitive
+    return Math.min(baseHeight + audioMultiplier, baseHeight * 4); // Allow taller waves
+  };
+
+  const getOrbColor = () => {
+    // Match the "Speak to NADA" circle from left sidebar
+    return "rounded-full shadow-xl";
   };
 
   const getGlowEffect = () => {
-    if (!isActive) return "";
-
-    // When call is active, always show gold glow
-    return `shadow-lg shadow-[#b68d2e]/40`;
+    // Match the exact shadow from the sidebar circle
+    return {
+      backgroundColor: "#EEE4C8",
+      boxShadow: "0 8px 16px rgba(139, 69, 19, 0.6)",
+    };
   };
 
   return (
     <div className="flex items-center justify-center">
       <div
         className={`
-          rounded-full ${
-            isActive ? "transition-all duration-200 ease-in-out" : ""
-          }
           ${getOrbColor()}
-          ${getGlowEffect()}
           ${pulseAnimation ? "animate-pulse" : ""}
-          flex items-center justify-center
+          flex items-center justify-center relative cursor-pointer
         `}
         style={{
           width: `${orbSize}px`,
           height: `${orbSize}px`,
+          ...getGlowEffect(),
         }}
+        onClick={handleOrbClick}
+        title="Click to test wave animation"
       >
-        {/* Inner circle with subtle animation */}
-        <div
-          className={`
-            rounded-full bg-white/10 ${
-              isActive ? "transition-all duration-300" : ""
-            }
-            ${isActive ? "opacity-100" : "opacity-50"}
-          `}
-          style={{
-            width: `${orbSize * 0.6}px`,
-            height: `${orbSize * 0.6}px`,
-          }}
-        >
-          {/* Core */}
-          <div className="rounded-full bg-white/20 w-full h-full flex items-center justify-center">
-            {/* Microphone icon or status indicator */}
-            <div className="text-white/80 text-2xl">
-              {!isActive ? (
-                <svg
-                  className="w-8 h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4z" />
-                  <path d="M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5H10.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
-                </svg>
-              ) : (
-                <svg
-                  className="w-8 h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4z" />
-                  <path d="M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5H10.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
-                </svg>
-              )}
-            </div>
-          </div>
+        {/* Audio-Responsive Sound Wave Bars */}
+        <div className="flex items-center justify-center space-x-2">
+          {/* Wave Bar 1 - Low sensitivity */}
+          <div
+            className="bg-amber-700 rounded-full"
+            style={{
+              width: "4px",
+              height: `${getWaveHeight(20, 0.6)}px`,
+            }}
+          />
+          {/* Wave Bar 2 - Medium sensitivity */}
+          <div
+            className="bg-amber-700 rounded-full"
+            style={{
+              width: "4px",
+              height: `${getWaveHeight(35, 0.8)}px`,
+            }}
+          />
+          {/* Wave Bar 3 - Center (highest sensitivity) */}
+          <div
+            className="bg-amber-700 rounded-full"
+            style={{
+              width: "4px",
+              height: `${getWaveHeight(50, 1.0)}px`,
+            }}
+          />
+          {/* Wave Bar 4 - Medium sensitivity */}
+          <div
+            className="bg-amber-700 rounded-full"
+            style={{
+              width: "4px",
+              height: `${getWaveHeight(35, 0.8)}px`,
+            }}
+          />
+          {/* Wave Bar 5 - Low sensitivity */}
+          <div
+            className="bg-amber-700 rounded-full"
+            style={{
+              width: "4px",
+              height: `${getWaveHeight(20, 0.6)}px`,
+            }}
+          />
         </div>
-
-        {/* Audio visualization rings for active speaking */}
-        {isActive && !isListening && audioLevel > 5 && (
-          <>
-            <div
-              className="absolute rounded-full border-2 border-white/30 animate-ping"
-              style={{
-                width: `${orbSize + 20}px`,
-                height: `${orbSize + 20}px`,
-              }}
-            />
-            <div
-              className="absolute rounded-full border border-white/20 animate-ping"
-              style={{
-                width: `${orbSize + 40}px`,
-                height: `${orbSize + 40}px`,
-                animationDelay: "0.2s",
-              }}
-            />
-          </>
-        )}
       </div>
     </div>
   );

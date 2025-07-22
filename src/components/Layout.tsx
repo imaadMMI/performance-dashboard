@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import CollapsibleSidebar from "./CollapsibleSidebar";
+import { NADALeftSidebar } from "./NADALeftSidebar";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex min-h-screen bg-[#f8f9fa]">
-      <CollapsibleSidebar />
+      <NADALeftSidebar />
 
       {/* Main content */}
       <main className="flex-1 ml-20 p-8">

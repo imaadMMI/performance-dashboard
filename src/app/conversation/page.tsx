@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, Suspense } from "react";
 import VoiceOrb from "@/components/VoiceOrb";
-import CollapsibleSidebar from "@/components/CollapsibleSidebar";
+import { NADALeftSidebar } from "@/components/NADALeftSidebar";
 import ConversationControls from "@/components/ConversationControls";
 import { useSearchParams } from "next/navigation";
 
@@ -105,65 +105,40 @@ function ConversationContent() {
     }
   };
 
-  const getScenarioDescription = (scene: string) => {
-    switch (scene) {
-      case "Objection Handling":
-        return "Respond to a customer questioning cost vs. competitors";
-      case "Compliance Training":
-        return "Walk a customer through the mandatory information";
-      case "Upselling":
-        return "Inform a customer about upgrades without introducing pressure";
-      case "Customer Retention":
-        return "Handle a customer who wants to cancel their policy";
-      default:
-        return "Open conversation practice session";
-    }
-  };
-
   return (
-    <div className="flex min-h-screen bg-[#f8f9fa]">
-      <CollapsibleSidebar />
+    <div className="flex min-h-screen bg-white">
+      <NADALeftSidebar />
 
       <main className="flex-1 flex">
         {/* Main Content - Left Side */}
-        <div className="flex-1 p-8 flex flex-col items-center justify-center relative">
-          <div className="text-center space-y-8 max-w-2xl">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-lg font-medium text-[#58595b]">
-                  Set the direction
-                </h2>
-                <p className="text-sm text-[#58595b]/80">
-                  If there&apos;s something on your mind, then choose an option
-                  to help me guide our <strong>conversation</strong>
-                </p>
+        <div className="flex-1 relative bg-white">
+          {/* Absolutely positioned header text - stable */}
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-full text-center">
+            <h2 className="text-lg font-medium text-[#58595b]">
+              Designing the scenes...
+            </h2>
+          </div>
+
+          {/* Centered Voice Orb Area */}
+          <div className="h-full flex flex-col items-center justify-center">
+            {/* Voice Orb */}
+            <VoiceOrb
+              audioLevel={audioLevel}
+              isListening={isListening}
+              isActive={isConversationActive}
+            />
+
+            {/* Live Transcript - only show if there's actual content */}
+            {transcript && (
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-lg mx-auto mt-8">
+                <p className="text-[#58595b] leading-relaxed">{transcript}</p>
               </div>
+            )}
 
-              {/* Voice Orb */}
-              <VoiceOrb
-                audioLevel={audioLevel}
-                isListening={isListening}
-                isActive={isConversationActive}
-              />
-
-              {/* Conversation Controls */}
-              <ConversationControls
-                onEndConversation={endConversation}
-                onStartConversation={startConversation}
-                onToggleMute={toggleMute}
-                isActive={isConversationActive}
-              />
-
-              {/* Live Transcript */}
-              {transcript && (
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-lg mx-auto">
-                  <p className="text-[#58595b] leading-relaxed">{transcript}</p>
-                </div>
-              )}
-
-              {/* Current AI Message */}
-              {currentMessage && (
-                <div className="bg-[#b68d2e]/5 p-6 rounded-xl border border-[#b68d2e]/20 max-w-lg mx-auto">
+            {/* Current AI Message - only show if there's actual content */}
+            {currentMessage &&
+              currentMessage !== "Building the conversation." && (
+                <div className="bg-[#b68d2e]/5 p-6 rounded-xl border border-[#b68d2e]/20 max-w-lg mx-auto mt-8">
                   <p className="text-[#58595b] leading-relaxed text-sm">
                     {currentMessage}
                   </p>
@@ -175,59 +150,93 @@ function ConversationContent() {
                   </p>
                 </div>
               )}
-            </div>
+          </div>
+
+          {/* Absolutely positioned bottom controls - stable */}
+          <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2 translate-y-full text-center">
+            <ConversationControls
+              onEndConversation={endConversation}
+              onStartConversation={startConversation}
+              onToggleMute={toggleMute}
+              isActive={isConversationActive}
+            />
           </div>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="w-[576px] bg-white p-6 shadow-lg border-l border-gray-200 flex flex-col">
-          {/* Grey Container Wrapper */}
-          <div className="bg-gray-100 p-4 rounded-lg flex-1">
-            {/* Timer */}
-            <div className="flex items-center justify-end mb-6">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <span className="text-gray-600 font-mono text-sm">00:00</span>
-              </div>
+        {/* Right Sidebar - Match main page design */}
+        <div className="w-208 bg-[var(--color-nb-cream)] p-12 flex flex-col">
+          {/* Timer */}
+          <div className="flex items-center justify-end mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+              <span className="text-[var(--color-nb-nickel)] font-mono text-sm">
+                00:43
+              </span>
             </div>
+          </div>
 
-            {/* Scenario Info */}
-            <div className="mb-6">
-              <h2 className="text-lg font-medium text-gray-900 mb-2">
-                {selectedScene === "No preference. Let's just talk."
-                  ? "General Session"
-                  : selectedScene}
-              </h2>
-              <p className="text-sm text-gray-600">
-                {getScenarioDescription(selectedScene)}
-              </p>
-            </div>
+          {/* Live Transcript Section */}
+          <div className="mb-8">
+            <h3 className="font-gotham-bold text-[var(--color-nb-nickel)] text-sm mb-4">
+              Live transcript:
+            </h3>
+            <p className="text-xs text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4">
+              You can read the conversation, along with your emotion
+              measurements, as it unfolds here...
+            </p>
 
-            {/* Best Practices */}
-            <div className="mb-6">
-              <h3 className="text-md font-medium text-gray-900 mb-3">
-                Best Practices
-              </h3>
-              <div className="space-y-3">
-                <div className="bg-white p-3 rounded-lg h-20"></div>
-                <div className="bg-white p-3 rounded-lg h-20"></div>
-              </div>
-            </div>
-
-            {/* Live Transcript */}
-            <div>
-              <h3 className="text-md font-medium text-gray-900 mb-3">
-                LIVE TRANSCRIPT:
-              </h3>
-              <div className="bg-white p-3 rounded-lg min-h-[200px]">
-                <p className="text-sm text-gray-600">
-                  You can read the transcript of the conversation here once it
-                  begins
+            {/* Conversation bubbles */}
+            <div className="space-y-4">
+              {/* Customer message - left aligned */}
+              <div className="flex flex-col items-start">
+                <p className="text-xs text-[var(--color-nb-nickel)] opacity-60 font-gotham-book mb-2">
+                  Customer
                 </p>
-                {transcript && (
-                  <div className="mt-3 text-sm text-gray-800">{transcript}</div>
-                )}
+                <div className="bg-white p-6 rounded-lg h-20 border border-gray-200 w-[60%]">
+                  {/* Empty white box */}
+                </div>
               </div>
+
+              {/* Agent message - right aligned */}
+              <div className="flex flex-col items-end">
+                <p className="text-xs text-[var(--color-nb-nickel)] opacity-60 font-gotham-book mb-2">
+                  Agent
+                </p>
+                <div className="bg-white p-6 rounded-lg h-20 border border-gray-200 w-[60%]">
+                  {/* Empty white box */}
+                </div>
+              </div>
+
+              {/* Another customer message - left aligned */}
+              <div className="flex flex-col items-start">
+                <p className="text-xs text-[var(--color-nb-nickel)] opacity-60 font-gotham-book mb-2">
+                  Customer
+                </p>
+                <div className="bg-white p-6 rounded-lg h-20 border border-gray-200 w-[60%]">
+                  {/* Empty white box */}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider line */}
+          <div className="border-t border-gray-300 mb-8"></div>
+
+          {/* NADA's corner section */}
+          <div className="flex-1">
+            <h3 className="font-gotham-bold text-[var(--color-nb-nickel)] text-sm mb-4">
+              NADA&apos;s corner:
+            </h3>
+            <p className="text-xs text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4">
+              Read helpful advice, and special reminders from Nada as you walk
+              through the scene...
+            </p>
+
+            {/* NADA's advice area */}
+            <div className="bg-white p-6 rounded-lg min-h-[200px] flex items-center justify-center">
+              <p className="text-sm text-[var(--color-nb-nickel)] opacity-60 font-gotham-book text-center">
+                NADA&apos;s advice will appear here during the conversation
+              </p>
             </div>
           </div>
         </div>

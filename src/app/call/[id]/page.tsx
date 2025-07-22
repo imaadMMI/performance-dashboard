@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 
 import { Button } from "@/components/ui/button";
-import CollapsibleSidebar from "@/components/CollapsibleSidebar";
+import { NADALeftSidebar } from "@/components/NADALeftSidebar";
 
 export default function CallTranscriptPage() {
   const params = useParams();
@@ -14,7 +14,7 @@ export default function CallTranscriptPage() {
 
   return (
     <div className="flex min-h-screen bg-[#f8f9fa]">
-      <CollapsibleSidebar />
+      <NADALeftSidebar />
 
       <main className="flex-1 p-8">
         <div className="max-w-[1600px] mx-auto">
