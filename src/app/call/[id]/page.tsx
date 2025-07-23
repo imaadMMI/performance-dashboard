@@ -122,7 +122,7 @@ export default function CallTranscriptPage() {
               <h4 className="font-gotham-bold text-[var(--color-nb-nickel)] mb-3 text-sm">
                 Opportunity:
               </h4>
-              <p className="text-sm text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4 leading-relaxed">
+              <p className="text-xs text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4 leading-relaxed">
                 This is a 2-3 sentence summary of what was practiced in that
                 session: the key opportunity, the consultant response and
                 NADA&apos;s feedback delving into all the key details to do
@@ -159,7 +159,7 @@ export default function CallTranscriptPage() {
               <h4 className="font-gotham-bold text-[var(--color-nb-nickel)] mb-3 text-sm">
                 Opportunity:
               </h4>
-              <p className="text-sm text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4 leading-relaxed">
+              <p className="text-xs text-[var(--color-nb-nickel)] opacity-75 font-gotham-book mb-4 leading-relaxed">
                 This is a 2-3 sentence summary of what was practiced in that
                 session: the key opportunity, the consultant response and
                 NADA&apos;s feedback delving into all the key details to do
@@ -196,7 +196,7 @@ export default function CallTranscriptPage() {
                 Customer
               </p>
               <div className="bg-white p-6 rounded-lg border border-gray-200 w-[60%]">
-                <p className="text-sm text-[var(--color-nb-nickel)] font-gotham-book">
+                <p className="text-xs text-[var(--color-nb-nickel)] font-gotham-book">
                   Hi, I&apos;m interested in opening a National Bonds account.
                   Can you help me with that?
                 </p>
@@ -209,7 +209,7 @@ export default function CallTranscriptPage() {
                 Agent
               </p>
               <div className="bg-white p-6 rounded-lg border border-gray-200 w-[60%]">
-                <p className="text-sm text-[var(--color-nb-nickel)] font-gotham-book">
+                <p className="text-xs text-[var(--color-nb-nickel)] font-gotham-book">
                   Absolutely! I&apos;d be happy to help you open a National
                   Bonds account. First, I&apos;ll need to verify your identity
                   through our KYC process.
@@ -223,7 +223,7 @@ export default function CallTranscriptPage() {
                 Customer
               </p>
               <div className="bg-white p-6 rounded-lg border border-gray-200 w-[60%]">
-                <p className="text-sm text-[var(--color-nb-nickel)] font-gotham-book">
+                <p className="text-xs text-[var(--color-nb-nickel)] font-gotham-book">
                   Sure, what information do you need from me? I heard that your
                   rates are higher than competitors. Is that true?
                 </p>
@@ -236,7 +236,7 @@ export default function CallTranscriptPage() {
                 Agent
               </p>
               <div className="bg-white p-6 rounded-lg border border-gray-200 w-[60%]">
-                <p className="text-sm text-[var(--color-nb-nickel)] font-gotham-book">
+                <p className="text-xs text-[var(--color-nb-nickel)] font-gotham-book">
                   I understand your concern about pricing. While our rates might
                   seem higher initially, our long-term ROI is significantly
                   better.
@@ -250,7 +250,7 @@ export default function CallTranscriptPage() {
                 Customer
               </p>
               <div className="bg-white p-6 rounded-lg border border-gray-200 w-[60%]">
-                <p className="text-sm text-[var(--color-nb-nickel)] font-gotham-book">
+                <p className="text-xs text-[var(--color-nb-nickel)] font-gotham-book">
                   That sounds reasonable. Can you walk me through the account
                   opening process?
                 </p>

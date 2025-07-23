@@ -144,7 +144,7 @@ export function NADAMainContent() {
                           {call.date}
                         </span>
                       </div>
-                      <p className="text-sm text-[var(--color-nb-nickel)] opacity-90 font-gotham-book leading-relaxed">
+                      <p className="text-xs text-[var(--color-nb-nickel)] opacity-90 font-gotham-book leading-relaxed">
                         {call.summary}
                       </p>
                     </div>
