@@ -15,13 +15,6 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
 }) => {
   const [orbSize, setOrbSize] = useState(200);
   const [pulseAnimation, setPulseAnimation] = useState(false);
-  const [testMode, setTestMode] = useState(false);
-
-  // Test mode - click orb to test wave animation
-  const handleOrbClick = () => {
-    setTestMode(!testMode);
-    console.log("Test mode:", !testMode);
-  };
 
   // Calculate orb size based on audio level - only when active
   useEffect(() => {
@@ -52,24 +45,7 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
 
   // Generate wave heights based only on audio volume
   const getWaveHeight = (baseHeight: number, sensitivity: number = 1) => {
-    // Debug: log audio levels (remove this later)
-    if (audioLevel > 0) {
-      console.log(
-        "Audio Level:",
-        audioLevel,
-        "Active:",
-        isActive,
-        "Listening:",
-        isListening
-      );
-    }
 
-    // Test mode - simulate audio levels
-    if (testMode) {
-      const testLevel = Math.sin(Date.now() * 0.01) * 30 + 30;
-      const audioMultiplier = (testLevel / 50) * 40 * sensitivity;
-      return Math.min(baseHeight + audioMultiplier, baseHeight * 3);
-    }
 
     if (!isActive) return baseHeight;
 
@@ -87,9 +63,9 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
   };
 
   const getGlowEffect = () => {
-    // Match the exact shadow from the sidebar circle
+    // Use design system tokens for consistency
     return {
-      backgroundColor: "#EEE4C8",
+      backgroundColor: "#EEE4C8", // Keep original brand color
       boxShadow: "0 8px 16px rgba(139, 69, 19, 0.6)",
     };
   };
@@ -107,47 +83,50 @@ const VoiceOrb: React.FC<VoiceOrbProps> = ({
           height: `${orbSize}px`,
           ...getGlowEffect(),
         }}
-        onClick={handleOrbClick}
-        title="Click to test wave animation"
       >
         {/* Audio-Responsive Sound Wave Bars */}
-        <div className="flex items-center justify-center space-x-2">
+        <div className="flex items-center justify-center gap-2">
           {/* Wave Bar 1 - Low sensitivity */}
           <div
-            className="bg-amber-700 rounded-full"
+            className="rounded-full"
             style={{
+              backgroundColor: "#92400e", // Using amber-700 equivalent
               width: "4px",
               height: `${getWaveHeight(20, 0.6)}px`,
             }}
           />
           {/* Wave Bar 2 - Medium sensitivity */}
           <div
-            className="bg-amber-700 rounded-full"
+            className="rounded-full"
             style={{
+              backgroundColor: "#92400e", // Using amber-700 equivalent
               width: "4px",
               height: `${getWaveHeight(35, 0.8)}px`,
             }}
           />
           {/* Wave Bar 3 - Center (highest sensitivity) */}
           <div
-            className="bg-amber-700 rounded-full"
+            className="rounded-full"
             style={{
+              backgroundColor: "#92400e", // Using amber-700 equivalent
               width: "4px",
               height: `${getWaveHeight(50, 1.0)}px`,
             }}
           />
           {/* Wave Bar 4 - Medium sensitivity */}
           <div
-            className="bg-amber-700 rounded-full"
+            className="rounded-full"
             style={{
+              backgroundColor: "#92400e", // Using amber-700 equivalent
               width: "4px",
               height: `${getWaveHeight(35, 0.8)}px`,
             }}
           />
           {/* Wave Bar 5 - Low sensitivity */}
           <div
-            className="bg-amber-700 rounded-full"
+            className="rounded-full"
             style={{
+              backgroundColor: "#92400e", // Using amber-700 equivalent
               width: "4px",
               height: `${getWaveHeight(20, 0.6)}px`,
             }}

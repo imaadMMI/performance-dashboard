@@ -1,21 +1,21 @@
 "use client";
 
 import React from "react";
-import { NADALeftSidebar } from "@/components/NADALeftSidebar";
-import { NADAMainContent } from "@/components/NADAMainContent";
-import { NADARightSidebar } from "@/components/NADARightSidebar";
+import { LeftSidebar } from "@/components/NADALeftSidebar";
+import { MainContent } from "@/components/NADAMainContent";
+import { RightSidebar } from "@/components/NADARightSidebar";
 
 export default function Home() {
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex bg-brand-white">
       {/* Left Navigation Sidebar */}
-      <NADALeftSidebar />
+      <LeftSidebar />
 
       {/* Main Content Area */}
-      <NADAMainContent />
+      <MainContent />
 
       {/* Right Sidebar - Speak to NADA */}
-      <NADARightSidebar />
+      <RightSidebar />
     </div>
   );
 }

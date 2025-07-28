@@ -24,17 +24,17 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-center space-x-6 bg-[var(--color-nb-cream)] rounded-full px-8 py-4 shadow-lg w-fit mx-auto">
-      {/* Phone/Call Button (Red) */}
+    <div className="flex items-center justify-center rounded-full w-fit mx-auto gap-4 bg-brand-light px-6 py-3 shadow-lg">
+      {/* Phone/Call Button */}
       <Button
         onClick={isActive ? onEndConversation : onStartConversation}
         variant="secondary"
         size="icon"
-        className="rounded-full bg-white text-red-400 hover:text-red-500 transition-all duration-200 shadow-md border-0 w-20 h-20 flex items-center justify-center"
+        className="rounded-full border-0 flex items-center justify-center transition-all bg-brand-white text-red-500 w-16 h-16 shadow-md hover:text-red-600 duration-200"
         aria-label={isActive ? "End conversation" : "Start conversation"}
       >
         <svg
-          style={{ width: "36px", height: "36px" }}
+          className="w-9 h-9"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -42,16 +42,16 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
         </svg>
       </Button>
 
-      {/* Microphone Button (Gray) */}
+      {/* Microphone Button */}
       <Button
         onClick={handleToggleMute}
         variant="secondary"
         size="icon"
-        className="rounded-full bg-white text-gray-500 hover:text-gray-600 transition-all duration-200 shadow-md border-0 w-20 h-20 flex items-center justify-center"
+        className="rounded-full border-0 flex items-center justify-center transition-all bg-brand-white text-gray-400 w-16 h-16 shadow-md hover:text-gray-600 duration-200"
         aria-label={isMuted ? "Unmute microphone" : "Mute microphone"}
       >
         <svg
-          style={{ width: "36px", height: "36px" }}
+          className="w-9 h-9"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -60,15 +60,15 @@ const ConversationControls: React.FC<ConversationControlsProps> = ({
         </svg>
       </Button>
 
-      {/* User/Chat Button (Teal) */}
+      {/* User/Chat Button */}
       <Button
         variant="secondary"
         size="icon"
-        className="rounded-full bg-white text-teal-500 hover:text-teal-600 transition-all duration-200 shadow-md border-0 w-20 h-20 flex items-center justify-center"
+        className="rounded-full border-0 flex items-center justify-center transition-all bg-brand-white text-brand-green w-16 h-16 shadow-md hover:text-green-600 duration-200"
         aria-label="User options"
       >
         <svg
-          style={{ width: "36px", height: "36px" }}
+          className="w-9 h-9"
           fill="currentColor"
           viewBox="0 0 24 24"
         >

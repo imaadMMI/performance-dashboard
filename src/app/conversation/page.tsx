@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, Suspense } from "react";
 import VoiceOrb from "@/components/VoiceOrb";
-import { NADALeftSidebar } from "@/components/NADALeftSidebar";
+import { LeftSidebar } from "@/components/NADALeftSidebar";
 import ConversationControls from "@/components/ConversationControls";
 import { useSearchParams } from "next/navigation";
 
@@ -107,7 +107,7 @@ function ConversationContent() {
 
   return (
     <div className="flex min-h-screen bg-white">
-      <NADALeftSidebar />
+      <LeftSidebar />
 
       <main className="flex-1 flex">
         {/* Main Content - Left Side */}

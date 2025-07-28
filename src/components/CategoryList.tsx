@@ -108,7 +108,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       {categories.map((category, index) => (
         <Collapsible
           key={index}
@@ -116,32 +116,28 @@ const CategoryList: React.FC<CategoryListProps> = ({
           onOpenChange={() => toggleCategory(index)}
         >
           <CollapsibleTrigger className="w-full">
-            <div className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-nb-gold/5 transition-colors duration-200">
+            <div className="flex items-center justify-between cursor-pointer rounded-lg transition-colors hover:opacity-80 p-2 hover:bg-brand-gold hover:bg-opacity-5 duration-200">
               <div className="flex items-center gap-3">
-                <span className="text-nb-gold">{getIcon(category.name)}</span>
-                <span className="font-medium text-nb-nickel text-sm">
+                <span className="text-brand-gold">{getIcon(category.name)}</span>
+                <span className="font-medium text-sm text-brand-black">
                   {category.name}
                 </span>
               </div>
-              <span
-                className={`transform transition-transform text-nb-nickel/60 ${
-                  category.expanded ? "rotate-180" : ""
-                }`}
-              >
+              <span className={`transform transition-transform duration-200 text-brand-black opacity-60 ${
+                category.expanded ? "rotate-180" : ""
+              }`}>
                 ▼
               </span>
             </div>
           </CollapsibleTrigger>
 
           <CollapsibleContent>
-            <div className="mt-4 pl-10 border-l-2 border-nb-gold/20">
-              <p
-                className={`text-xs leading-relaxed font-light ${
-                  category.name === "identified strengths"
-                    ? "text-nb-nickel"
-                    : "text-nb-nickel/80"
-                }`}
-              >
+            <div className="border-l-2 mt-3 pl-8 border-brand-gold border-opacity-20">
+              <p className={`text-xs leading-relaxed font-light ${
+                category.name === "identified strengths" 
+                  ? "text-brand-black" 
+                  : "text-brand-black opacity-80"
+              }`}>
                 {getContent(category.name)}
               </p>
             </div>

@@ -4,68 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-size: 14px;
+  /* Brand Colors */
+  --brand-white: #FFFFFF;
+  --brand-light: #F5F5F5;
+  --brand-black: #000000;
+  --brand-orange: #FF8A00;
+  --brand-gold: #C58E02;
+  --brand-green: #8BAF20;
 
-  /* National Bonds Primary Colors */
-  --nb-gold: #b68d2e;
-  --nb-gold-hover: #a67d29;
-  --nb-nickel: #58595b;
-  --nb-nickel-hover: #6a6b6d;
-  --nb-background-neutral: #f8f9fa;
-  --nb-card-background: #ffffff;
-
-  /* National Bonds Secondary Colors (B2C Applications) */
-  --nb-secondary-red: #ff7084;
-  --nb-secondary-purple: #8668a8;
-  --nb-secondary-blue: #4a9fce;
-  --nb-secondary-green: #4db892;
-
-  /* National Bonds Supporting Colors */
-  --nb-supporting-blue: #4a9fce;
-  --nb-supporting-yellow: #fef04a;
-
-  /* National Bonds Brand Colors - Exact Figma */
-  --nb-gold: #c08d29;
-  --nb-nickel: #58595b;
-  --nb-teal: #00a99d;
-  --nb-teal-light: #00b5a9;
-  --nb-pink: #f17193;
-  --nb-cream: #f3f3ec;
-  --nb-green: #4caf50;
-
-  /* NADA Dashboard Colors */
-  --color-nb-cream: #f3f3ec;
-  --color-nb-nickel: #58595b;
-  --color-nb-green: #4caf50;
-  --color-nb-pink: #f17193;
-
-  /* Font Families */
-  --font-arabic: "GE SS TWO", sans-serif;
-  --font-english: "Gotham", sans-serif;
-  --radius: 0.25rem; /* Sharp corners - 4px */
-  --background: #f6f4ec; /* Light Cream */
-  --foreground: #58595b; /* National Bonds Nickel */
-  --card: #ffffff;
-  --card-foreground: #58595b;
-  --popover: oklch(1 0 0);
-  --popover-foreground: #58595b;
-  --primary: #c08d29; /* National Bonds Gold */
-  --primary-foreground: #ffffff;
-  --secondary: oklch(0.95 0.0058 264.53);
+  /* System variables */
+  --radius: 0.375rem;
+  --background: var(--brand-white);
+  --foreground: var(--brand-black);
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-black);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-black);
+  --primary: var(--brand-orange);
+  --primary-foreground: var(--brand-white);
+  --secondary: var(--brand-light);
   --secondary-foreground: #58595b;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #58595b;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --muted: var(--brand-light);
+  --muted-foreground: #6b7280;
+  --accent: #f8f9fa;
+  --accent-foreground: var(--brand-orange);
+  --destructive: #ef4444;
+  --destructive-foreground: var(--brand-white);
+  --border: #e5e7eb;
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
+  --ring: var(--brand-orange);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -73,7 +40,7 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: #58595b;
-  --sidebar-primary: #c08d29;
+  --sidebar-primary: var(--brand-gold);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -100,8 +67,6 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-input-background: var(--input-background);
-  --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -120,98 +85,13 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: var(--font-english);
-  --font-bold: var(--font-english);
-
-  /* National Bonds Primary Colors */
-  --color-nb-gold: var(--nb-gold);
-  --color-nb-gold-hover: var(--nb-gold-hover);
-  --color-nb-nickel: var(--nb-nickel);
-  --color-nb-nickel-hover: var(--nb-nickel-hover);
-  --color-nb-bg-neutral: var(--nb-background-neutral);
-  --color-nb-card-bg: var(--nb-card-background);
-
-  /* National Bonds Secondary Colors */
-  --color-nb-secondary-red: var(--nb-secondary-red);
-  --color-nb-secondary-purple: var(--nb-secondary-purple);
-  --color-nb-secondary-blue: var(--nb-secondary-blue);
-  --color-nb-secondary-green: var(--nb-secondary-green);
-
-  /* National Bonds Supporting Colors */
-  --color-nb-supporting-blue: var(--nb-supporting-blue);
-  --color-nb-supporting-yellow: var(--nb-supporting-yellow);
-
-  /* National Bonds Brand Colors - Exact Figma */
-  --color-nb-gold: var(--nb-gold);
-  --color-nb-nickel: var(--nb-nickel);
-  --color-nb-teal: var(--nb-teal);
-  --color-nb-teal-light: var(--nb-teal-light);
-  --color-nb-pink: var(--nb-pink);
-  --color-nb-cream: var(--nb-cream);
-  --color-nb-green: var(--nb-green);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: system-ui, -apple-system, sans-serif;
 }
 
 body {
-  font-family: var(--font-sans), sans-serif;
-  font-size: 1.925rem; /* 1.1rem * 1.75 = 1.925rem */
-}
-
-/* Scaled up text sizes by 75% */
-.text-xs {
-  font-size: 1.4rem; /* 0.8rem * 1.75 = 1.4rem */
-}
-
-.text-sm {
-  font-size: 1.575rem; /* 0.9rem * 1.75 = 1.575rem */
-}
-
-.text-base {
-  font-size: 1.925rem; /* 1.1rem * 1.75 = 1.925rem */
-}
-
-.text-lg {
-  font-size: 2.275rem; /* 1.3rem * 1.75 = 2.275rem */
-}
-
-.text-xl {
-  font-size: 2.625rem; /* 1.5rem * 1.75 = 2.625rem */
-}
-
-.text-2xl {
-  font-size: 2.975rem; /* 1.7rem * 1.75 = 2.975rem */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .dark {
@@ -221,14 +101,14 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #b68d2e;
-  --primary-foreground: #ffffff;
+  --primary: var(--brand-orange);
+  --primary-foreground: var(--brand-white);
   --secondary: #58595b;
-  --secondary-foreground: #ffffff;
+  --secondary-foreground: var(--brand-white);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: #4a9fce;
-  --accent-foreground: #ffffff;
+  --accent-foreground: var(--brand-white);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -240,46 +120,27 @@ body {
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: #b68d2e;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: var(--brand-white);
   --sidebar-accent: #4a9fce;
-  --sidebar-accent-foreground: #ffffff;
+  --sidebar-accent-foreground: var(--brand-white);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Custom Gotham font weight classes */
 @layer utilities {
-  .font-gotham-bold {
-    font-weight: 700;
+  .shadow-brand {
+    box-shadow: 0 8px 16px rgba(139, 69, 19, 0.6);
   }
-
-  .font-gotham-medium {
-    font-weight: 500;
-  }
-
-  .font-gotham-book {
-    font-weight: 325; /* Exact Figma value */
-  }
-
-  /* Custom width for scaled up sidebar */
-  .w-29 {
-    width: 10.5rem; /* 6rem * 1.75 = 10.5rem */
-  }
-}
-
-html {
-  font-size: var(--font-size); /* Exact Figma value */
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Gotham", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
   }
 }

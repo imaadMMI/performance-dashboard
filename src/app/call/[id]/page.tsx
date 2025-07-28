@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { NADALeftSidebar } from "@/components/NADALeftSidebar";
+import { LeftSidebar } from "@/components/NADALeftSidebar";
 
 export default function CallTranscriptPage() {
   const params = useParams();
@@ -11,7 +11,7 @@ export default function CallTranscriptPage() {
 
   return (
     <div className="h-screen flex">
-      <NADALeftSidebar />
+      <LeftSidebar />
 
       {/* Main Content */}
       <main className="flex-1 bg-white overflow-auto">

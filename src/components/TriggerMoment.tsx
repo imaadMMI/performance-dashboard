@@ -17,55 +17,81 @@ const TriggerMoment: React.FC<TriggerMomentProps> = ({
   optimalResponse,
 }) => {
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6">
       <div>
-        <h3 className="font-bold text-lg text-nb-nickel">
+        <h3 
+          className="font-bold text-lg text-brand-black"
+        >
           Key trigger moments
         </h3>
-        <p className="text-sm text-nb-nickel/80 font-light">
+        <p 
+          className="text-sm font-light"
+          style={{ color: "#000000CC" }} // 80% opacity
+        >
           The key compliance requirements and best-practices you fulfilled on
           the call
         </p>
       </div>
 
-      <Card className="bg-white border-nb-nickel/10 shadow-sm">
+      <Card 
+        className="shadow-sm"
+        style={{
+          backgroundColor: "#FFFFFF",
+          borderColor: "#0000001A" // 10% opacity
+        }}
+      >
         <CardHeader className="pb-4">
           <div className="flex items-center gap-6">
-            <Badge className="px-6 py-3 bg-nb-secondary-green text-white text-sm font-medium hover:bg-nb-secondary-green">
+            <Badge 
+              className="text-sm font-medium hover:opacity-90"
+              style={{
+                padding: "0.75rem 1.5rem",
+                backgroundColor: "#10B981",
+                color: "#FFFFFF"
+              }}
+            >
               {category}
             </Badge>
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <span className="text-nb-nickel font-medium whitespace-nowrap text-sm">
+                <span 
+                  className="font-medium whitespace-nowrap text-sm text-brand-black"
+                >
                   Customer trigger:
                 </span>
-                <span className="text-nb-nickel/80 font-light text-sm">
+                <span 
+                  className="font-light text-sm"
+                  style={{ color: "#000000CC" }} // 80% opacity
+                >
                   Can I transfer from 70 to [Trump Suku product]?
                 </span>
               </div>
             </div>
-            <div className="text-xs text-nb-nickel/70 font-light whitespace-nowrap">
+            <div 
+              className="text-xs font-light whitespace-nowrap"
+              style={{ color: "#000000B3" }} // 70% opacity
+            >
               1/7 trigger opportunities
             </div>
           </div>
         </CardHeader>
 
         <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-start gap-2 pl-4">
-              <span className="text-nb-nickel/80 font-medium whitespace-nowrap text-sm">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-start gap-2 pl-3">
+              <span className="font-medium whitespace-nowrap text-sm text-brand-black opacity-80">
                 Actual response:
               </span>
-              <span className="text-nb-nickel/80 font-light text-sm">
+              <span className="font-light text-sm text-brand-black opacity-80">
                 {actualResponse}
               </span>
             </div>
 
-            <div className="flex items-start gap-2 pl-4">
-              <span className="text-nb-gold font-medium whitespace-nowrap text-sm">
+            <div className="flex items-start gap-2 pl-3">
+              <span className="font-medium whitespace-nowrap text-sm text-brand-gold">
                 Optimal response:
               </span>
-              <span className="text-nb-gold font-light text-sm">
+              <span className="font-light text-sm text-brand-gold">
                 {optimalResponse}
               </span>
             </div>
@@ -76,7 +102,7 @@ const TriggerMoment: React.FC<TriggerMomentProps> = ({
       <div className="text-right">
         <Button
           variant="link"
-          className="text-nb-gold text-sm font-medium hover:text-nb-gold-hover transition-colors duration-200 p-0"
+          className="text-sm font-medium p-0 transition-colors text-brand-gold hover:text-brand-orange duration-200"
         >
           view more
         </Button>
