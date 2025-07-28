@@ -13,12 +13,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 export function NADALeftSidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
-
   const navigationItems = [
     { href: "/", icon: Home, label: "Home", isActive: true },
     {
@@ -33,35 +27,16 @@ export function NADALeftSidebar() {
 
   return (
     <div
-      className={`${
-        isCollapsed ? "w-29" : "w-80"
-      } bg-[var(--color-nb-cream)] flex flex-col py-9 transition-all duration-300 ease-in-out`}
+      className={"w-29 bg-[var(--color-nb-cream)] flex flex-col py-9 transition-all duration-300 ease-in-out"}
     >
-      {/* Toggle Button */}
-      <div
-        className={`${
-          isCollapsed ? "flex justify-center" : "flex justify-end pr-6"
-        } mb-6`}
-      >
-        <button
-          onClick={toggleSidebar}
-          title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-          className="w-8 h-8 text-[var(--color-nb-nickel)] hover:bg-white hover:bg-opacity-50 flex items-center justify-center transition-colors rounded"
-        >
-          {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
-        </button>
-      </div>
-
       {/* National Bonds Logo - Centered horizontally only */}
       <div className="mb-10 flex items-center justify-center">
         <div
-          className={`${
-            isCollapsed ? "w-28 h-28" : "w-80 h-40"
-          } flex items-center justify-center`}
+          className={"w-28 h-28 flex items-center justify-center"}
         >
           <ImageWithFallback
-            src={isCollapsed ? "/NB small logo.png" : "/NB logo.png"}
-            alt="National Bonds Logo"
+            src={"/logo.png"}
+            alt="OES Logo"
             className="w-full h-full object-contain"
           />
         </div>
@@ -75,28 +50,18 @@ export function NADALeftSidebar() {
             return (
               <Link key={index} href={item.href}>
                 <div
-                  className={`flex ${
-                    isCollapsed ? "justify-center" : "justify-start pl-6"
-                  }`}
+                  className={`flex ${"justify-center"
+                    }`}
                 >
                   <button
                     aria-label={item.label}
-                    className={`${
-                      isCollapsed
-                        ? "w-19 h-19 justify-center"
-                        : "w-auto h-12 justify-start px-4 gap-4 rounded-lg"
-                    } ${
-                      item.isActive
+                    className={`${"w-19 h-19 justify-center"
+                      } ${item.isActive
                         ? "bg-white text-[var(--color-nb-nickel)]"
                         : "text-[var(--color-nb-nickel)] hover:bg-white hover:bg-opacity-50"
-                    } flex items-center transition-colors`}
+                      } flex items-center transition-colors`}
                   >
                     <IconComponent size={39} />
-                    {!isCollapsed && (
-                      <span className="font-gotham-medium text-sm text-[var(--color-nb-nickel)]">
-                        {item.label}
-                      </span>
-                    )}
                   </button>
                 </div>
               </Link>
@@ -107,9 +72,7 @@ export function NADALeftSidebar() {
 
       {/* Bottom Gold Circle - Links to Speak to NADA */}
       <div
-        className={`${
-          isCollapsed ? "flex justify-center" : "flex justify-center px-6"
-        }`}
+        className={"flex justify-center"}
       >
         <Link href="/conversation?scene=No preference. Let's just talk.">
           <div
