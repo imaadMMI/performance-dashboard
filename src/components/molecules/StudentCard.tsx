@@ -20,20 +20,23 @@ export function StudentCard({
   quote,
 }: StudentCardProps) {
   return (
-    <div className="bg-white shadow-xl rounded-2xl p-6 w-full flex flex-col space-y-6">
+    <div className="bg-white shadow-xl rounded-2xl p-6 h-11/12 w-96 flex-shrink-0 flex flex-col space-y-6">
       {/* Tier */}
-      <span className="text-md text-gray-500 font-bold flex flex-row justify-between items-center"><h1>Tier {tier}</h1> <h1 className="text-2xl">0{tier}</h1></span>
+      <span className="text-md text-gray-500 font-bold flex flex-row justify-between items-center">
+        <h1>Tier {tier}</h1>
+        <h1 className="text-2xl">0{tier}</h1>
+      </span>
 
       {/* Heading */}
-      <h3 className="text-2xl w-2/3 font-bold">{heading}</h3>
+      <h3 className="text-2xl font-bold">{heading}</h3>
 
       {/* Profile + Success Rates */}
       <div className="flex flex-row items-center space-x-6">
         <Image
           src={profileImage}
           alt="Profile"
-          width={120}
-          height={120}
+          width={100}
+          height={100}
           className="rounded-full object-cover"
         />
         <div className="flex flex-col space-y-1">
@@ -48,7 +51,6 @@ export function StudentCard({
           <span className="text-lg font-semibold">Retention Probability</span>
           <span className="text-3xl font-bold text-yellow-500">{retentionRate}%</span>
         </div>
-        {/* Circular donut chart placeholder */}
         <div className="relative w-20 h-20">
           <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" stroke="#E5E7EB" strokeWidth="10" fill="none" />

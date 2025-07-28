@@ -3,7 +3,7 @@ import { StudentCard } from './molecules/StudentCard';
 
 export function MainContent() {
   return (
-    <main className="p-20 flex flex-col space-y-16">
+    <main className="p-20 w-11/12 flex flex-col space-y-16">
       {/* First Row */}
       <section className="flex flex-row w-full justify-between items-center">
         <div className="flex flex-col justify-between h-18">
@@ -30,44 +30,54 @@ export function MainContent() {
       </section>
 
       {/* Third Row: Student Cards */}
-      <section className="flex flex-row pb-10 w-full gap-12 overflow-x-scroll">
-        <StudentCard
-          tier={1}
-          heading="Supported Problem Solver"
-          profileImage="/profile.jpg"
-          successRate="92%"
-          secondaryRate="Stable over 6 months"
-          retentionRate={87}
-          quote="I feel confident working through problems now that I’ve got the support I need."
-        />
-        <StudentCard
-          tier={2}
-          heading="Emerging Collaborator"
-          profileImage="/profile.jpg"
-          successRate="78%"
-          secondaryRate="Inconsistent but improving"
-          retentionRate={61}
-          quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
-        />
-        <StudentCard
-          tier={2}
-          heading="Emerging Collaborator"
-          profileImage="/profile.jpg"
-          successRate="78%"
-          secondaryRate="Inconsistent but improving"
-          retentionRate={61}
-          quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
-        />
-        <StudentCard
-          tier={2}
-          heading="Emerging Collaborator"
-          profileImage="/profile.jpg"
-          successRate="78%"
-          secondaryRate="Inconsistent but improving"
-          retentionRate={61}
-          quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
-        />
-        {/* Add more <StudentCard /> components as needed */}
+      <section className="flex flex-row gap-6 h-full overflow-x-auto no-scrollbar scrollbar-thumb-gray-400 scrollbar-track-transparent">
+        <div className="flex flex-nowrap gap-6">
+          <StudentCard
+            tier={1}
+            heading="Supported Problem Solver"
+            profileImage="/profile.jpg"
+            successRate="92%"
+            secondaryRate="Stable over 6 months"
+            retentionRate={87}
+            quote="I feel confident working through problems now that I’ve got the support I need."
+          />
+          <StudentCard
+            tier={2}
+            heading="Emerging Collaborator"
+            profileImage="/profile.jpg"
+            successRate="78%"
+            secondaryRate="Inconsistent but improving"
+            retentionRate={61}
+            quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
+          />
+          <StudentCard
+            tier={2}
+            heading="Emerging Collaborator"
+            profileImage="/profile.jpg"
+            successRate="78%"
+            secondaryRate="Inconsistent but improving"
+            retentionRate={61}
+            quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
+          />
+          <StudentCard
+            tier={2}
+            heading="Emerging Collaborator"
+            profileImage="/profile.jpg"
+            successRate="78%"
+            secondaryRate="Inconsistent but improving"
+            retentionRate={61}
+            quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
+          />
+          <StudentCard
+            tier={2}
+            heading="Emerging Collaborator"
+            profileImage="/profile.jpg"
+            successRate="78%"
+            secondaryRate="Inconsistent but improving"
+            retentionRate={61}
+            quote="Teamwork used to scare me. Now, I enjoy tackling group assignments!"
+          />
+        </div>
       </section>
     </main>
   );
