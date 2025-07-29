@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, Suspense } from "react";
 import VoiceOrb from "@/components/VoiceOrb";
-import { LeftSidebar } from "@/components/NADALeftSidebar";
+import { LeftSidebar } from "@/components/LeftSidebar";
 import ConversationControls from "@/components/ConversationControls";
 import { useSearchParams } from "next/navigation";
 

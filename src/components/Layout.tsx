@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LeftSidebar } from "./NADALeftSidebar";
+import { LeftSidebar } from "./LeftSidebar";
 
 interface LayoutProps {
   children: React.ReactNode;

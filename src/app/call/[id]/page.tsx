@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { LeftSidebar } from "@/components/NADALeftSidebar";
+import { LeftSidebar } from "@/components/LeftSidebar";
 
 export default function CallTranscriptPage() {
   const params = useParams();

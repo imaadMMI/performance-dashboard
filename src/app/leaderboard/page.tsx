@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { LeftSidebar } from "@/components/NADALeftSidebar";
-import { MainContent } from "@/components/NADAMainContent";
+import { LeftSidebar } from "@/components/LeftSidebar";
+import { MainContent } from "./StudentsContent";
 
 export default function LeaderBoard() {
   return (

@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 const tiles = [
   {
     title: "Student Archetypes",
-    href: "/archetypes",
+    href: "/leaderboard",
     stat: "918 Calls completed this week",
   },
   {
