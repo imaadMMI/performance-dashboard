@@ -1,5 +1,5 @@
 import { ArrowUp } from 'lucide-react';
-import { StudentCard } from './molecules/StudentCard';
+import { StudentCard } from './molecules';
 
 export function MainContent() {
   return (

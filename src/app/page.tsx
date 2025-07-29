@@ -13,9 +13,6 @@ export default function Home() {
 
       {/* Main Content Area */}
       <MainContent />
-
-      {/* Right Sidebar - Speak to NADA */}
-      <RightSidebar />
     </div>
   );
 }

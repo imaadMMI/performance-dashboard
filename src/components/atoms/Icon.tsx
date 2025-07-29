@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
@@ -151,6 +152,48 @@ export const MenuIcon = React.forwardRef<SVGSVGElement, Omit<IconProps, 'childre
     </Icon>
   )
 );
+
+export function IconButton({
+  href,
+  Icon,
+  label,
+  isActive,
+}: {
+  href: string;
+  Icon: React.ElementType;
+  label: string;
+  isActive: boolean;
+}) {
+  return (
+    <Link href={href}>
+      <div className="group relative flex justify-center">
+        <button
+          aria-label={label}
+          className={`
+            flex items-center justify-center w-12 h-12 rounded-md
+            transition-all duration-200 text-brand-black
+            ${isActive
+              ? "bg-(--brand-white) shadow-md"
+              : "hover:bg-opacity-20"}
+            group-hover:scale-105
+          `}
+        >
+          <Icon size={30} />
+        </button>
+
+        {/* Tooltip on hover */}
+        <div className="
+          absolute left-full ml-3 top-1/2 -translate-y-1/2 
+          bg-(--brand-light) text-white text-xs font-medium px-2 py-1 rounded shadow-lg
+          opacity-0 group-hover:opacity-100 group-hover:translate-x-1 
+          transition-all duration-200 pointer-events-none whitespace-nowrap
+        ">
+          {label}
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 ChevronDownIcon.displayName = "ChevronDownIcon";
 ChevronUpIcon.displayName = "ChevronUpIcon";

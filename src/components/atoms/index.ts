@@ -3,7 +3,7 @@ export { Button, buttonVariants } from './Button';
 export { Text, textVariants } from './Text';
 export { Input, inputVariants } from './Input';
 export { 
-  Icon, 
+  IconButton, 
   iconVariants,
   ChevronDownIcon,
   ChevronUpIcon,

@@ -1,135 +1,83 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import Image from 'next/image';
 
-const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground shadow-md",
-  {
-    variants: {
-      variant: {
-        default: "border-border",
-        elevated: "border-border shadow-lg",
-        outlined: "border-2 border-border shadow-none",
-        ghost: "border-transparent shadow-none bg-transparent",
-      },
-      size: {
-        sm: "p-4",
-        default: "p-6",
-        lg: "p-8",
-        xl: "p-12",
-      },
-      hover: {
-        true: "hover:shadow-lg transition-shadow duration-200",
-        false: "",
-      },
-      clickable: {
-        true: "cursor-pointer hover:shadow-lg transition-shadow duration-200",
-        false: "",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-      hover: false,
-      clickable: false,
-    },
-  }
-);
-
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {
-  children: React.ReactNode;
+interface StudentCardProps {
+  tier: number;
+  heading: string;
+  profileImage: string;
+  successRate: string;
+  secondaryRate: string;
+  retentionRate: number;
+  quote: string;
 }
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, size, hover, clickable, children, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(cardVariants({ variant, size, hover, clickable, className }))}
-        {...props}
-      >
-        {children}
+export function StudentCard({
+  tier,
+  heading,
+  profileImage,
+  successRate,
+  secondaryRate,
+  retentionRate,
+  quote,
+}: StudentCardProps) {
+  return (
+    <div className="bg-white shadow-xl rounded-2xl p-6 h-11/12 w-96 flex-shrink-0 flex flex-col space-y-6">
+      {/* Tier */}
+      <span className="text-md text-gray-500 font-bold flex flex-row justify-between items-center">
+        <h1>Tier {tier}</h1>
+        <h1 className="text-2xl">0{tier}</h1>
+      </span>
+
+      {/* Heading */}
+      <h3 className="text-2xl font-bold">{heading}</h3>
+
+      {/* Profile + Success Rates */}
+      <div className="flex flex-row items-center space-x-6">
+        <Image
+          src={profileImage}
+          alt="Profile"
+          width={100}
+          height={100}
+          className="rounded-full object-cover"
+        />
+        <div className="flex flex-col space-y-1">
+          <span className="text-md font-semibold">Success Rate: {successRate}</span>
+          <span className="text-md text-gray-500">Consistency: {secondaryRate}</span>
+        </div>
       </div>
-    );
-  }
-);
 
-Card.displayName = "Card";
+      {/* Retention */}
+      <div className="flex flex-row items-center justify-between mt-4">
+        <div className="flex flex-col">
+          <span className="text-lg font-semibold">Retention Probability</span>
+          <span className="text-3xl font-bold text-yellow-500">{retentionRate}%</span>
+        </div>
+        <div className="relative w-20 h-20">
+          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" stroke="#E5E7EB" strokeWidth="10" fill="none" />
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              stroke="#C58E02"
+              strokeWidth="10"
+              fill="none"
+              strokeDasharray={`${retentionRate} ${100 - retentionRate}`}
+              strokeDashoffset="25"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold">
+            {retentionRate}%
+          </div>
+        </div>
+      </div>
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5", className)}
-    {...props}
-  />
-));
+      {/* Quote */}
+      <blockquote className="italic text-gray-700 mt-4 border-l-4 border-gray-300 pl-4">
+        "{quote}"
+      </blockquote>
+    </div>
+  );
+}
 
-CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, children, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </h3>
-));
-
-CardTitle.displayName = "CardTitle";
-
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-text-muted", className)}
-    {...props}
-  />
-));
-
-CardDescription.displayName = "CardDescription";
-
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("pt-0", className)} {...props} />
-));
-
-CardContent.displayName = "CardContent";
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center pt-6", className)}
-    {...props}
-  />
-));
-
-CardFooter.displayName = "CardFooter";
-
-export { 
-  Card, 
-  CardHeader, 
-  CardFooter, 
-  CardTitle, 
-  CardDescription, 
-  CardContent,
-  cardVariants 
-};

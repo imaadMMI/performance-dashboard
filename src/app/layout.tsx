@@ -13,8 +13,8 @@ const strangewaysBold = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "National Bonds",
-  description: "National Bonds Application",
+  title: "OES",
+  description: "OES Sales Dashboard",
 };
 
 export default function RootLayout({
