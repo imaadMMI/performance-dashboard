@@ -9,14 +9,12 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex min-h-screen bg-brand-white">
+    <div className="flex h-screen bg-brand-white">
       <LeftSidebar />
 
       {/* Main content */}
-      <main className="flex-1 ml-16 p-6">
-        <div className="mx-auto max-w-7xl">
-          {children}
-        </div>
+      <main className="w-full">
+        {children}
       </main>
     </div>
   );
