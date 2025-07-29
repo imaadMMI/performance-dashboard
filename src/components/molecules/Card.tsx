@@ -31,7 +31,7 @@ export function StudentCard({
       <h3 className="text-2xl font-bold">{heading}</h3>
 
       {/* Profile + Success Rates */}
-      <div className="flex flex-row items-center space-x-6">
+      <a className="flex flex-row items-center space-x-6" href="/students/0439">
         <Image
           src={profileImage}
           alt="Profile"
@@ -43,7 +43,7 @@ export function StudentCard({
           <span className="text-md font-semibold">Success Rate: {successRate}</span>
           <span className="text-md text-gray-500">Consistency: {secondaryRate}</span>
         </div>
-      </div>
+      </a>
 
       {/* Retention */}
       <div className="flex flex-row items-center justify-between mt-4">
