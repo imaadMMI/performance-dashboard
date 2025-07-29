@@ -11,7 +11,7 @@ const navigationItems = [
   { href: "/", icon: Home, label: "Home" },
   { href: "/history", icon: RotateCcw, label: "Session History" },
   { href: "/settings", icon: User, label: "Settings" },
-  { href: "/leaderboard", icon: Users, label: "LeaderBoard" },
+  { href: "/students", icon: Users, label: "LeaderBoard" },
 ];
 
 export function LeftSidebar() {

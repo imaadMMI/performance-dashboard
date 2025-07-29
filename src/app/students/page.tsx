@@ -4,6 +4,7 @@ import React from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
 import { ArrowUp } from 'lucide-react';
 import { StudentCard } from '@/components/molecules';
+import FilterSelect from "@/components/molecules/FilterSelector";
 
 export default function StudentsContent() {
   return (
@@ -25,17 +26,7 @@ export default function StudentsContent() {
           </div>
         </section>
 
-        {/* Second Row: Filter */}
-        <section className="flex flex-row items-center space-x-12">
-          <label className="flex items-center space-x-4">
-            <input type="checkbox" className="w-5 h-5" />
-            <span className="text-lg font-medium">Successful Students</span>
-          </label>
-          <label className="flex items-center space-x-4">
-            <input type="checkbox" className="w-5 h-5" />
-            <span className="text-lg font-medium">High-Risk Students</span>
-          </label>
-        </section>
+        <FilterSelect />
 
         {/* Third Row: Student Cards */}
         <section className="flex flex-row gap-6 h-full overflow-x-auto no-scrollbar scrollbar-thumb-gray-400 scrollbar-track-transparent">
