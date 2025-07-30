@@ -20,7 +20,7 @@ export function StudentCard({
   quote,
 }: StudentCardProps) {
   return (
-    <div className="bg-white shadow-xl rounded-2xl p-6 h-11/12 w-96 flex-shrink-0 flex flex-col space-y-6">
+    <div className="bg-white shadow-xl rounded-2xl p-6 h-fit w-96 flex-shrink-0 flex flex-col space-y-6">
       {/* Tier */}
       <span className="text-md text-gray-500 font-bold flex flex-row justify-between items-center">
         <h1>Tier {tier}</h1>
