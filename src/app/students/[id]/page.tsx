@@ -1,96 +1,187 @@
 "use client";
 
 import React from "react";
-import Layout from "@/components/Layout";
+import { LeftSidebar } from "@/components/LeftSidebar";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp } from "lucide-react";
+import { ChevronLeft, ArrowUp } from "lucide-react";
 import Image from "next/image";
-import ArchetypeCharts from "@/components/ArchetypeCharts";
 
 export default function StudentProfile() {
   return (
-    <Layout>
-      <div className="flex flex-col min-h-screen p-32 gap-6">
-        {/* Back Button */}
-        <div>
+    <div className="min-h-screen flex bg-gray-50">
+      {/* Left Navigation Sidebar */}
+      <LeftSidebar />
+
+      <main className="flex-1 px-12 py-8">
+        {/* Breadcrumb */}
+        <div className="mb-8">
           <Link href="/students">
-            <button className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors">
-              <ArrowLeft size={20} /> Back to Students
+            <button className="flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors text-sm">
+              <ChevronLeft size={16} />
+              Dashboard / Successful archetypes
             </button>
           </Link>
         </div>
 
-        {/* Headline */}
-        <div className="w-full">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Time-Stretched Skeptic
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-12">
+          <h1 className="font-montserrat text-3xl font-bold text-gray-900">
+            Time-stretched skeptic:
           </h1>
-          <div className="flex items-center gap-2 mt-2 text-lg text-gray-600">
-            Retention Chance: <span className="font-semibold text-green-600">79%</span>
-            <TrendingUp className="text-green-600" size={20} />
+          <div className="flex items-center gap-2">
+            <span className="text-4xl font-bold">79</span>
+            <ArrowUp className="text-green-600" size={24} />
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="flex flex-row flex-1 gap-16">
-          {/* Left Box */}
-          <div className="w-1/2 flex flex-col gap-4">
-            {/* User Info */}
-            <div className="flex flex-row items-center p-6 gap-4">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-2 gap-8">
+          {/* Left Column */}
+          <div className="space-y-8">
+            {/* Profile Section */}
+            <div className="flex items-start gap-8">
               <Image
                 src="/profile.jpg"
                 alt="Student Avatar"
-                width={200}
-                height={200}
+                width={140}
+                height={140}
                 className="rounded-full object-cover"
               />
-              <div className="text-left">
-                <p className="text-md text-gray-800 border border-gray-200 p-2 mt-2 w-fit">33% of all students</p>
-                <p className="text-md text-gray-800 border border-gray-200 p-2 mt-2 w-fit">9% of high-risk students</p>
-                <p className="text-md text-gray-800 border border-gray-200 p-2 mt-2 w-fit">10 total students</p>
+              <div className="flex flex-col gap-3 pt-4">
+                <div className="text-gray-700 font-semibold border border-gray-300 rounded px-4 py-2 w-fit">33% of all students</div>
+                <div className="text-gray-700 font-semibold border border-gray-300 rounded px-4 py-2 w-fit">33% of high-risk students</div>
+                <div className="text-gray-700 font-semibold border border-gray-300 rounded px-4 py-2 w-fit">334 total students</div>
               </div>
             </div>
 
-            {/* Charts or Visual Summary */}
-            <div className="flex-1 p-6 border-3 border-(--brand-light)">
-              <ArchetypeCharts retention={79} />
+            {/* Successful Progression Cards */}
+            <div className="border border-gray-300 rounded-lg overflow-hidden">
+              <div className="grid grid-cols-2">
+                <div className="bg-white p-6 border-r border-gray-300">
+                  <p className="text-sm text-gray-600 mb-4">Successful progression</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-3xl font-bold">70.0%</p>
+                      <p className="text-sm text-gray-600">No withdrawal</p>
+                    </div>
+                    <div className="relative">
+                      <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="#e5e7eb" strokeWidth="8" fill="none" />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          stroke="#f59e0b"
+                          strokeWidth="8"
+                          fill="none"
+                          strokeDasharray="90 10"
+                          strokeDashoffset="25"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs font-medium">+90%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6">
+                  <p className="text-sm text-gray-600 mb-4">Successful progression</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-3xl font-bold">70.0%</p>
+                      <p className="text-sm text-gray-600">No withdrawal</p>
+                    </div>
+                    <div className="relative">
+                      <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="#e5e7eb" strokeWidth="8" fill="none" />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          stroke="#f59e0b"
+                          strokeWidth="8"
+                          fill="none"
+                          strokeDasharray="90 10"
+                          strokeDashoffset="25"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs font-medium">+90%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Next-best Interaction Behaviours */}
+            <div className="border border-gray-300 rounded-lg p-6 max-w-[500px]">
+              <h3 className="font-montserrat text-xl font-bold mb-6">Next-best interaction behaviours</h3>
+              <div className="space-y-0">
+                <div className="flex items-center justify-between py-3 px-4 bg-gray-50">
+                  <p className="text-gray-700 text-sm">Objection Flip: Show Realistic Success Blueprints to</p>
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded text-sm font-medium">Enrolment: +7%</span>
+                </div>
+                <div className="flex items-center justify-between py-3 px-4 bg-gray-50 border-t border-b border-gray-200">
+                  <p className="text-gray-700 text-sm">This shows systematic leveraging of prior</p>
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded text-sm font-medium">Enrolment: +7%</span>
+                </div>
+                <div className="flex items-center justify-between py-3 px-4 bg-gray-50">
+                  <p className="text-gray-700 text-sm">This shows systematic leveraging of prior</p>
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded text-sm font-medium">Enrolment: +7%</span>
+                </div>
+              </div>
+              <button className="mt-4 text-gray-500 text-sm hover:text-gray-700 transition-colors">view more</button>
             </div>
           </div>
 
-          {/* Archetype Description */}
-          <div className="w-1/2 p-12 border-3 border-(--brand-light) overflow-y-auto flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-gray-700">Signature Features</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis massa ut ligula elementum, vitae gravida massa mattis. 
-              Curabitur nec sapien ac eros facilisis placerat. Nulla facilisi. Integer non dapibus nisi. Suspendisse potenti. Praesent vel enim ac 
-              lacus convallis pulvinar. Sed at dictum nisl, a scelerisque magna. Pellentesque habitant morbi tristique senectus et netus et 
-              malesuada fames ac turpis egestas. Duis id semper nisi. Fusce nec lorem sed odio rutrum convallis. Vivamus nec feugiat tellus. 
-              Cras vel sodales mi. Curabitur viverra lectus vitae lorem lacinia congue.
-            </p>
+          {/* Right Column */}
+          <div className="space-y-8">
+            {/* Signature Features Section */}
+            <div className="border border-gray-300 rounded-lg p-6">
+              <h2 className="font-montserrat text-2xl font-bold mb-6">Signature features:</h2>
+              <p className="text-gray-700 leading-relaxed mb-8">
+                Students who build systematic educational portfolios through logical credential progression while demonstrating immediate action-taking behaviors. They engage in thoughtful exploration of options, maintain realistic self-assessment, and demonstrate emotional maturity in balancing excitement with practical concerns.
+              </p>
 
-            {/* Tags */}
-            <div className="flex gap-3 flex-wrap mt-2">
-              {["Analytical", "Time-Constrained", "Skeptical", "Self-Reliant"].map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="px-4 py-1 text-sm text-gray-700 border-2 border-(--brand-gold)"
-                >
-                  {tag}
-                </span>
-              ))}
+              {/* Tags */}
+              <div className="flex gap-4 mb-8">
+                <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded">Overwhelmed indicator</span>
+                <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded">Professional network support</span>
+              </div>
+
+              <div className="flex gap-4 mb-8">
+                <span className="px-4 py-2 border border-gray-300 text-gray-700 rounded">Professional network support</span>
+                <span className="px-4 py-2 border border-gray-300 text-gray-700 rounded">Emotional maturity</span>
+              </div>
+
+              {/* Divider Line */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 h-px bg-gray-300"></div>
+                <div className="w-8"></div>
+              </div>
+
+              {/* Numbered Section */}
+              <div>
+                <h3 className="font-montserrat font-bold mb-4">1. Overwhelmed indicator</h3>
+                <div className="border-l-4 border-yellow-400 pl-6 mb-8">
+                  <p className="text-gray-700 italic mb-4">
+                    "I did my Certificate IV in training and assessment as well... I have a diploma in leadership and management and a diploma in outdoor leadership... I do have 25 years of industry experience, and I have a graduate certificate in adult education"
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    This shows systematic leveraging of prior institutional relationships and strategic planning for educational advancement.
+                  </p>
+                </div>
+                <button className="text-gray-500 text-sm hover:text-gray-700 transition-colors">view more</button>
+              </div>
             </div>
-
-            {/* Separator */}
-            <hr className="my-4 border-gray-300 border-3" />
-
-            {/* Quote */}
-            <blockquote className="italic text-gray-600 border-l-4 border-(--brand-gold) pl-4">
-              “I don't just take things at face value. I need time to be sure something works for me before I commit.”
-            </blockquote>
           </div>
         </div>
-      </div>
-    </Layout>
+      </main>
+    </div>
   );
 }
 
