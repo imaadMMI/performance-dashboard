@@ -55,7 +55,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col items-start pb-8">
-                  <p className="text-2xl font-semibold text-gray-500">
+                  <p className="text-2xl font-semibold text-gray-500 group-hover:text-(--brand-gold)">
                     {tile.mainData}
                   </p>
                   <p className="text-1xl text-gray-500 font-semibold">
