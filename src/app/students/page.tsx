@@ -16,9 +16,9 @@ export default function StudentsContent() {
         {/* First Row */}
         <section className="flex flex-row w-full justify-between items-center">
           <div className="flex flex-col justify-between h-18">
-            <h2 className="font-bold text-3xl flex flex-row items-center justify-center">
+            <h2 className="font-semibold text-3xl flex flex-row items-center justify-center">
               MOL TP5 2025:
-              <span className="text-bold text-4xl ml-16 flex flex-row items-center justify-center">
+              <span className="font-semibold text-4xl ml-16 flex flex-row items-center justify-center">
                 79 <ArrowUp color="green" size={40} />
               </span>
             </h2>
