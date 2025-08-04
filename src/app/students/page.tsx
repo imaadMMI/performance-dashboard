@@ -75,7 +75,7 @@ export default function StudentsContent() {
 
         {/* Student Cards - Horizontal scroll */}
         <div className="relative">
-          <div className="flex gap-5 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide" style={{ width: 'calc(100vw - 200px)', maxWidth: '1600px' }}>
+          <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide" style={{ width: 'calc(100vw - 200px)', maxWidth: '1600px' }}>
           <StudentCard
             tier={2}
             rank="01"
