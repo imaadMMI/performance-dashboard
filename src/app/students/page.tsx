@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
+import { RightSidebar } from "@/components/RightSidebar";
 import { ArrowUp, ChevronDown, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { StudentCard } from '@/components/molecules';
 
@@ -199,62 +200,7 @@ export default function StudentsContent() {
       </main>
 
       {/* Right Sidebar */}
-      <div className={`fixed top-0 right-0 w-full sm:w-80 h-full bg-gray-100 p-4 sm:p-6 shadow-lg transform transition-transform duration-300 ${showSidebar ? 'translate-x-0' : 'translate-x-full'} z-50 border-l border-gray-300 overflow-y-auto`}>
-        <div className="text-right mb-6">
-          <button
-            onClick={() => setShowSidebar(false)}
-            className="text-yellow-600 font-semibold text-sm hover:text-yellow-700"
-          >
-            Collapse retention stats »
-          </button>
-        </div>
-
-        <div className="mb-8">
-          <h6 className="font-bold mb-4 text-gray-800">
-            Retention stats <span className="text-gray-500 text-sm font-normal">Monash TP5 2025</span>
-          </h6>
-          <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">Students</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">103</h5>
-            </div>
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">Enrolled</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">56</h5>
-            </div>
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">Retained</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">35</h5>
-            </div>
-          </div>
-          <div className="bg-white p-4 rounded mt-3 text-center shadow-sm">
-            <small className="font-semibold text-gray-700 text-xs">Successful progression</small>
-            <h5 className="text-xl sm:text-2xl font-bold mb-0 text-gray-800">70.0%</h5>
-            <small className="text-gray-500 text-xs">census retention</small>
-            <span className="inline-block bg-yellow-500 text-gray-900 px-2 py-1 rounded text-xs font-medium mt-2">+Avg</span>
-          </div>
-        </div>
-
-        <div>
-          <h6 className="font-bold mb-4 text-gray-800">
-            Archetype stats <span className="text-gray-500 text-sm font-normal">Monash TP5 2025</span>
-          </h6>
-          <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">Total</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">13</h5>
-            </div>
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">Success</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">06</h5>
-            </div>
-            <div className="bg-white p-3 sm:p-4 rounded text-center shadow-sm">
-              <small className="text-gray-600 text-xs">High-risk</small>
-              <h5 className="text-lg sm:text-xl font-bold text-gray-800">07</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+      <RightSidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </div>
   );
 }
