@@ -8,24 +8,28 @@ import { ArrowUpRight } from "lucide-react";
 
 const tiles = [
   {
-    title: "Student Archetypes",
+    title: "Student\narchetypes",
     href: "/students/",
-    stat: "918 Calls completed this week",
+    mainData: "MOL-TP5",
+    secondaryData: "13 Student archetypes",
   },
   {
-    title: "Sales Coaching",
+    title: "Sales\ncoaching",
     href: "/sales",
-    stat: "74 Coaching sessions delivered",
+    mainData: "2456",
+    secondaryData: "Calls processed",
   },
   {
-    title: "Service Insights",
+    title: "Service\ninsights",
     href: "/insights",
-    stat: "342 Reports generated",
+    mainData: "414 hours",
+    secondaryData: "Cumulative call duration",
   },
   {
-    title: "Propensity Modelling",
+    title: "Propensity\nmodelling",
     href: "/propensity",
-    stat: "61% Accuracy increase this month",
+    mainData: "93%",
+    secondaryData: "Predictive accuracy",
   },
 ];
 
@@ -37,20 +41,27 @@ export default function Home() {
           {tiles.map((tile, index) => (
             <Link key={index} href={tile.href}>
               <div
-                className="group bg-(--brand-light) p-6 aspect-square flex flex-col justify-between transition-transform hover:-translate-y-1"
+                className="group bg-(--brand-light) px-10 py-6 aspect-square flex flex-col justify-between transition-transform hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold transition-colors duration-200 group-hover:text-(--brand-gold)">
+                <div className="flex items-center justify-between pt-4">
+                  <h2 className="text-2xl font-semibold transition-colors duration-200 group-hover:text-(--brand-gold) whitespace-pre-line">
                     {tile.title}
                   </h2>
-                  <ArrowUpRight
-                    size={28}
-                    className="transition-colors duration-200 group-hover:text-(--brand-gold)"
-                  />
+                  <div className="bg-white rounded-full p-2 transition-all duration-200 group-hover:scale-110">
+                    <ArrowUpRight
+                      size={28}
+                      className="transition-colors duration-200 group-hover:text-(--brand-gold)"
+                    />
+                  </div>
                 </div>
-                <p className="text-sm text-gray-500 font-medium">
-                  {tile.stat}
-                </p>
+                <div className="flex flex-col items-start pb-8">
+                  <p className="text-2xl font-semibold text-gray-500">
+                    {tile.mainData}
+                  </p>
+                  <p className="text-1xl text-gray-500 font-semibold">
+                    {tile.secondaryData}
+                  </p>
+                </div>
               </div>
             </Link>
           ))}

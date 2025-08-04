@@ -184,7 +184,7 @@ export function IconButton({
         {/* Tooltip on hover */}
         <div className="
           absolute left-full ml-3 top-1/2 -translate-y-1/2 
-          bg-(--brand-light) text-white text-xs font-medium px-2 py-1 rounded shadow-lg
+          bg-(--brand-light) text-black text-xs font-medium px-2 py-1 rounded shadow-lg
           opacity-0 group-hover:opacity-100 group-hover:translate-x-1 
           transition-all duration-200 pointer-events-none whitespace-nowrap
         ">
