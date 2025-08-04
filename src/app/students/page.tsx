@@ -33,11 +33,13 @@ export default function StudentsContent() {
           {/* Center: Change Period */}
           <div className="w-full flex justify-start lg:justify-center">
             <div>
-              <button className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors font-medium text-base">
-                Change teaching period
+              <button className="inline-flex items-center gap-2 text-gray-600 hover:text-yellow-600 transition-colors font-medium text-base relative group">
+                <span className="relative">
+                  Change teaching period
+                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-colors group-hover:bg-yellow-400"></span>
+                </span>
                 <ChevronDown size={16} />
               </button>
-              <hr className="mt-2 w-56 border-gray-300" />
             </div>
           </div>
 

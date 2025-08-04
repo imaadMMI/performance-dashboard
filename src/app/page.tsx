@@ -43,7 +43,7 @@ export default function Home() {
                 className="group bg-(--brand-light) p-6 sm:px-8 sm:py-6 lg:px-10 lg:py-6 aspect-square flex flex-col justify-between transition-transform hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-semibold transition-colors duration-200 group-hover:text-(--brand-gold) whitespace-pre-line">
+                  <h2 className="text-xl sm:text-2xl font-bold transition-colors duration-200 group-hover:text-(--brand-gold) whitespace-pre-line">
                     {tile.title}
                   </h2>
                   <div className="bg-white rounded-full p-2 transition-all duration-200 group-hover:scale-110">
@@ -54,10 +54,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col items-start pb-4 sm:pb-8">
-                  <p className="text-xl sm:text-2xl font-semibold text-gray-500 group-hover:text-(--brand-gold)">
+                  <p className="text-xl sm:text-2xl font-bold text-gray-500 group-hover:text-(--brand-gold)">
                     {tile.mainData}
                   </p>
-                  <p className="text-sm sm:text-base text-gray-500 font-semibold">
+                  <p className="text-sm sm:text-base text-gray-500 font-bold">
                     {tile.secondaryData}
                   </p>
                 </div>

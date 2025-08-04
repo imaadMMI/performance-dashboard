@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-quicksand",
+});
 
 const strangewaysRegular = localFont({
   src: "../fonts/strangeways_regular_sample.otf",
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${strangewaysRegular.variable} ${strangewaysBold.variable} antialiased`}
+        className={`${quicksand.variable} ${strangewaysRegular.variable} ${strangewaysBold.variable} ${quicksand.className} antialiased`}
       >
         {children}
       </body>
