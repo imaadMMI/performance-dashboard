@@ -20,10 +20,10 @@ export default function StudentsContent() {
         <div className="flex flex-col space-y-6 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 mb-12 items-start">
           {/* Left: Stats */}
           <div className="w-full">
-            <h2 className="font-semibold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
+            <h2 className="font-bold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
               <span>MOL TP5 2025:</span>
               <span className="flex items-center gap-2 text-black">
-                <span className="text-3xl lg:text-4xl font-semibold">79</span>
+                <span className="text-3xl lg:text-4xl font-bold">79</span>
                 <ArrowUp color="green" size={28} />
               </span>
             </h2>
@@ -61,7 +61,7 @@ export default function StudentsContent() {
             <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
             </svg>
-            <span className="font-semibold text-gray-800 text-lg">Successful students</span>
+            <span className="font-bold text-gray-800 text-lg">Successful students</span>
           </div>
           
           <div className="flex items-center gap-3 opacity-50">
@@ -69,7 +69,7 @@ export default function StudentsContent() {
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
               <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
             </svg>
-            <span className="font-semibold text-gray-500 text-lg">High-risk students</span>
+            <span className="font-bold text-gray-500 text-lg">High-risk students</span>
           </div>
         </div>
 
