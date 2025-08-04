@@ -36,11 +36,7 @@ export default function StudentsContent() {
               <button className="inline-flex items-center gap-2 text-gray-600 font-medium text-base relative group">
                 <span className="relative">
                   Change teaching period
-                  <span className="absolute -bottom-1 left-0 flex w-full items-end">
-                    <span className="w-[40%] h-0.5 bg-gray-300 group-hover:h-1 group-hover:bg-yellow-400 transition-all duration-200"></span>
-                    <span className="w-[30%] h-0.5 bg-gray-300 group-hover:h-0.5 group-hover:bg-yellow-400 transition-all duration-200 delay-75"></span>
-                    <span className="w-[30%] h-0.5 bg-gray-300 group-hover:h-[1px] group-hover:bg-yellow-300 transition-all duration-200 delay-150"></span>
-                  </span>
+                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-all duration-200 group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-orange-300 group-hover:to-white"></span>
                 </span>
                 <ChevronDown size={16} />
               </button>
