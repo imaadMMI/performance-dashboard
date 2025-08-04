@@ -54,7 +54,7 @@ export function StudentCard({
       </div>
 
       {/* Heading */}
-      <h5 className="font-bold mb-5 text-[1.5rem]">{heading}</h5>
+      <h5 className="font-semibold mb-5 text-[1.5rem]">{heading}</h5>
 
       {/* Profile + Stats */}
       <div className="flex items-center mb-5">
