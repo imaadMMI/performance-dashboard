@@ -33,7 +33,7 @@ export function StudentCard({
       <div 
         className={`
           bg-white rounded p-6 
-          w-[300px] max-w-[300px] min-w-[300px]
+          w-[280px] max-w-[280px] min-w-[280px]
           flex-shrink-0 snap-start 
           shadow-sm
           transition-all duration-200 ease-in-out
