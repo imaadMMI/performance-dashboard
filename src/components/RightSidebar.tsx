@@ -10,21 +10,21 @@ interface RightSidebarProps {
 export function RightSidebar({ showSidebar, setShowSidebar }: RightSidebarProps) {
   return (
     <div className={`fixed top-0 right-0 w-full sm:w-[520px] h-full bg-gray-200 p-8 shadow-2xl transform transition-transform duration-300 ${showSidebar ? 'translate-x-0' : 'translate-x-full'} z-50 overflow-y-auto`}>
-      <div className="text-right mb-8">
+      <div className="text-left mb-8">
         <button
           onClick={() => setShowSidebar(false)}
-          className="text-orange-500 font-medium text-base hover:text-orange-600 inline-flex items-center gap-2"
+          className="text-gray-600 font-medium text-base hover:text-yellow-600 transition-colors duration-200 inline-flex items-center gap-2"
         >
           Collapse retention stats
-          <span className="text-orange-500">»</span>
+          <span className="transition-colors duration-200">»</span>
         </button>
       </div>
 
       {/* Retention Stats Section */}
       <div className="mb-12">
-        <div className="flex justify-between items-baseline mb-6">
+        <div className="flex items-baseline gap-15 mb-6">
           <h2 className="text-2xl font-semibold">Retention stats</h2>
-          <span className="text-gray-500 text-sm ml-2">Monash TP5 2025</span>
+          <span className="text-gray-500 text-sm font-semibold">Monash TP5 2025</span>
         </div>
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-white p-6 rounded-lg text-center">
@@ -72,9 +72,9 @@ export function RightSidebar({ showSidebar, setShowSidebar }: RightSidebarProps)
 
       {/* Archetype Stats Section */}
       <div>
-        <div className="flex justify-between items-baseline mb-6">
+        <div className="flex items-baseline gap-15 mb-6">
           <h2 className="text-2xl font-semibold">Archetype stats</h2>
-          <span className="text-gray-500 text-sm ml-2">Monash TP5 2025</span>
+          <span className="text-gray-500 text-sm font-semibold">Monash TP5 2025</span>
         </div>
         
         <div className="grid grid-cols-3 gap-4">
