@@ -20,7 +20,7 @@ export function RightSidebar({ showSidebar, setShowSidebar }: RightSidebarProps)
       )}
       
       {/* Sidebar */}
-      <div className={`fixed top-0 right-0 w-full sm:w-[520px] h-full bg-gray-200 p-8 shadow-2xl transform transition-transform duration-300 ${showSidebar ? 'translate-x-0' : 'translate-x-full'} z-50 overflow-y-auto`}>
+      <div className={`fixed top-0 right-0 w-full sm:w-[520px] h-full bg-[#F5F5F5] p-8 shadow-2xl transform transition-transform duration-300 ${showSidebar ? 'translate-x-0' : 'translate-x-full'} z-50 overflow-y-auto`}>
       <div className="text-left mb-8">
         <button
           onClick={() => setShowSidebar(false)}

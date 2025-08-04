@@ -66,11 +66,11 @@ export function StudentCard({
           className="rounded-full mr-5 object-cover"
         />
         <div className="flex flex-col gap-2">
-          <div className="border rounded px-5 py-3 flex items-center font-normal border-[#f1f1f1] w-[210px] text-[0.95rem]">
+          <div className="border rounded px-5 py-3 flex items-center font-semibold border-[#f1f1f1] w-[210px] text-[0.95rem]">
             <span className="mr-2">{successRate}</span>
             <span className="text-[#444]">of success</span>
           </div>
-          <div className="border rounded px-5 py-3 flex items-center font-normal border-[#f1f1f1] w-[210px] text-[0.95rem]">
+          <div className="border rounded px-5 py-3 flex items-center font-semibold border-[#f1f1f1] w-[210px] text-[0.95rem]">
             <span className="mr-2">{studentRate}</span>
             <span className="text-[#444]">of students</span>
           </div>
@@ -78,7 +78,7 @@ export function StudentCard({
       </div>
 
       {/* Progression */}
-      <div className="bg-gray-100 rounded p-5 mb-5">
+      <div className="bg-white border border-[#f1f1f1] rounded p-5 mb-5">
         <p className="font-semibold text-base mb-4">Successful progression</p>
         <div className="flex justify-between items-center">
           <div>
