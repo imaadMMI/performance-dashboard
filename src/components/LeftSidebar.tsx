@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Home, RotateCcw, User, Users } from "lucide-react";
@@ -18,7 +17,7 @@ export function LeftSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col w-32 bg-(--brand-light) py-6 transition-all duration-500 ease-in-out">
+    <div className="flex flex-col w-25 bg-(--brand-light) py-6 transition-all duration-500 ease-in-out">
       {/* Logo */}
       <div className="flex items-center justify-center mt-8">
         <div className="w-1/2">
@@ -52,4 +51,3 @@ export function LeftSidebar() {
     </div>
   );
 }
-

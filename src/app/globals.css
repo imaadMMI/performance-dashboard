@@ -9,6 +9,10 @@
 @utility no-scrollbar {
   @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }
+
+@utility scrollbar-hide {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme { 

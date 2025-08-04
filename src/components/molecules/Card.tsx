@@ -1,83 +1,110 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface StudentCardProps {
   tier: number;
+  rank: string;
   heading: string;
   profileImage: string;
   successRate: string;
-  secondaryRate: string;
-  retentionRate: number;
+  studentRate: string;
+  progressionRate: number;
   quote: string;
+  isActive?: boolean;
+  onClick?: () => void;
+  studentId?: string;
 }
 
 export function StudentCard({
   tier,
+  rank,
   heading,
   profileImage,
   successRate,
-  secondaryRate,
-  retentionRate,
+  studentRate,
+  progressionRate,
   quote,
+  isActive = false,
+  onClick,
+  studentId = "0439",
 }: StudentCardProps) {
   return (
-    <div className="bg-white shadow-xl rounded-2xl p-6 h-fit w-96 flex-shrink-0 flex flex-col space-y-6">
-      {/* Tier */}
-      <span className="text-md text-gray-500 font-bold flex flex-row justify-between items-center">
-        <h1>Tier {tier}</h1>
-        <h1 className="text-2xl">0{tier}</h1>
-      </span>
+    <Link href={`/students/${studentId}`} onClick={onClick}>
+      <div 
+        className={`
+          bg-white rounded p-6 
+          w-[300px] max-w-[300px] min-w-[300px]
+          flex-shrink-0 snap-start 
+          shadow-sm
+          transition-all duration-200 ease-in-out
+          opacity-40 hover:opacity-100
+          hover:shadow-lg hover:-translate-y-1.5
+          cursor-pointer
+        `}
+      >
+      {/* Tier and Rank */}
+      <div className="mb-2">
+        <div className="flex justify-between items-center mb-1">
+          <div>
+            <strong className="text-[14px] uppercase block font-bold">Tier {tier}</strong>
+            <hr className="my-1 w-10 border-t-2 border-black m-0" />
+          </div>
+          <span className="font-mono text-[22px] font-bold">{rank}</span>
+        </div>
+      </div>
 
       {/* Heading */}
-      <h3 className="text-2xl font-bold">{heading}</h3>
+      <h5 className="font-bold mb-3 text-[1.25rem]">{heading}</h5>
 
-      {/* Profile + Success Rates */}
-      <a className="flex flex-row items-center space-x-6" href="/students/0439">
+      {/* Profile + Stats */}
+      <div className="flex items-center mb-3">
         <Image
           src={profileImage}
           alt="Profile"
-          width={100}
-          height={100}
-          className="rounded-full object-cover"
+          width={65}
+          height={65}
+          className="rounded-full mr-4 object-cover"
         />
-        <div className="flex flex-col space-y-1">
-          <span className="text-md font-semibold">Success Rate: {successRate}</span>
-          <span className="text-md text-gray-500">Consistency: {secondaryRate}</span>
+        <div className="flex flex-col gap-2">
+          <div className="border rounded px-4 py-2 flex items-center font-bold border-[#f1f1f1] w-[170px] text-[0.85rem]">
+            <span className="mr-2">{successRate}</span>
+            <span className="text-[#444]">of success</span>
+          </div>
+          <div className="border rounded px-4 py-2 flex items-center font-bold border-[#f1f1f1] w-[170px] text-[0.85rem]">
+            <span className="mr-2">{studentRate}</span>
+            <span className="text-[#444]">of students</span>
+          </div>
         </div>
-      </a>
+      </div>
 
-      {/* Retention */}
-      <div className="flex flex-row items-center justify-between mt-4">
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">Retention Probability</span>
-          <span className="text-3xl font-bold text-yellow-500">{retentionRate}%</span>
-        </div>
-        <div className="relative w-20 h-20">
-          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" stroke="#E5E7EB" strokeWidth="10" fill="none" />
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              stroke="#C58E02"
-              strokeWidth="10"
-              fill="none"
-              strokeDasharray={`${retentionRate} ${100 - retentionRate}`}
-              strokeDashoffset="25"
-              strokeLinecap="round"
-            />
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold">
-            {retentionRate}%
+      {/* Progression */}
+      <div className="bg-gray-100 rounded p-3 mb-3">
+        <small className="font-semibold block mb-2">Successful progression</small>
+        <div className="flex justify-between items-center">
+          <div>
+            <strong>{progressionRate}.0%</strong><br />
+            <small className="text-gray-500">No withdrawal</small>
+          </div>
+          <div className="
+            w-[55px] h-[55px] 
+            rounded-full 
+            border-4 border-[#cc9900]
+            flex items-center justify-center
+            ml-3
+          ">
+            <small className="font-bold">+90%</small>
           </div>
         </div>
       </div>
 
       {/* Quote */}
-      <blockquote className="italic text-gray-700 mt-4 border-l-4 border-gray-300 pl-4">
-        "{quote}"
-      </blockquote>
-    </div>
+      <div className="bg-white rounded p-3 shadow-sm">
+        <small className="font-bold">
+          <span className="text-[#cc9900]">"My wife is really encouraging me to do this</span>
+          {' '}and said she'll take on more of the household responsibilities<span className="text-[#ffc107]">."</span>
+        </small>
+      </div>
+      </div>
+    </Link>
   );
 }
-
-
