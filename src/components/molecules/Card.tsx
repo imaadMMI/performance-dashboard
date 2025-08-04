@@ -32,6 +32,7 @@ export function StudentCard({
     <Link href={`/students/${studentId}`} onClick={onClick}>
       <div 
         className={`
+          font-quicksand
           bg-white rounded p-10 
           w-[380px] max-w-[380px] min-w-[380px]
           flex-shrink-0 snap-start 

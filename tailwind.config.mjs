@@ -4,4 +4,12 @@ export const content = [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 ];
+export const theme = {
+    extend: {
+        fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            quicksand: ['Quicksand', 'sans-serif'],
+        },
+    },
+};
 export const plugins = [];
