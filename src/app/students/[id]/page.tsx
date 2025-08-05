@@ -11,7 +11,7 @@ import { PieChart, Pie, Cell } from "recharts";
 export default function StudentProfile() {
   return (
     <Layout>
-      <div className="flex flex-col min-h-screen pt-10 px-32 pb-8 gap-4">
+      <div className="flex flex-col min-h-screen pt-16 px-32 pb-4 gap-6">
         {/* Back Button */}
         <div>
           <Link href="/students">
@@ -33,9 +33,9 @@ export default function StudentProfile() {
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-row flex-1 gap-4">
+        <div className="flex flex-row flex-1 gap-4 h-[calc(100vh-200px)]">
           {/* Left Box */}
-          <div className="w-1/2 flex flex-col gap-4">
+          <div className="w-1/2 flex flex-col gap-4 h-full">
             {/* User Info */}
             <div className="flex flex-row items-center p-6 gap-8">
               <Image
@@ -126,7 +126,7 @@ export default function StudentProfile() {
             </div>
 
             {/* Next-best Interaction Behaviours */}
-            <div className="p-4 bg-white border border-gray-200 rounded-[2px]" style={{width: '80%'}}>
+            <div className="p-4 bg-white border border-gray-200 rounded-[2px] flex-1 flex flex-col" style={{width: '80%'}}>
               <h3 className="text-xl font-semibold mb-4">Next-best interaction behaviours</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-4">
@@ -142,14 +142,16 @@ export default function StudentProfile() {
                   <span className="bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
                 </div>
               </div>
-              <button className="mt-4 text-gray-500 text-sm hover:text-[#C58E02] transition-colors float-right underline">view more</button>
+              <div className="mt-auto pt-4">
+                <button className="text-gray-500 text-sm hover:text-[#C58E02] transition-colors float-right underline">view more</button>
+              </div>
             </div>
           </div>
 
           {/* Signature Features */}
-          <div className="w-1/2 -ml-8 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Signature features:</h2>
-            <p className="text-gray-700 text-base leading-relaxed mb-6 font-semibold">
+          <div className="w-1/2 -ml-8 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto h-full flex flex-col">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-6">Signature features:</h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-8 font-semibold">
               Students who build systematic educational portfolios through logical credential progression while demonstrating immediate action-taking behaviors. They engage in thoughtful exploration of options, maintain realistic self-assessment, and demonstrate emotional maturity in balancing excitement with practical concerns.
             </p>
 
@@ -169,22 +171,24 @@ export default function StudentProfile() {
             <div className="border-t border-gray-200 mb-8"></div>
 
             {/* Numbered Section */}
-            <div>
-              <h3 className="font-semibold text-base mb-4 ">1. Overwhelmed indicator</h3>
+            <div className="flex-1 flex flex-col">
+              <h3 className="font-semibold text-lg mb-6 ">1. Overwhelmed indicator</h3>
               
               {/* Quote with gradient border */}
-              <div className="relative pl-4 mb-4 ml-6">
-                <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full" style={{background: 'linear-gradient(to bottom, #F5F5F5, #ad8f40, #c4961f, #C58E02)'}}></div>
-                <p className="text-gray-600 text-sm leading-relaxed font-semibold">
+              <div className="relative pl-4 mb-6 ml-6">
+                <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full" style={{background: 'linear-gradient(to bottom, #efefef, #dbcca7, #d0ad5b, #caa03c, #c49525, #ba8e29)'}}></div>
+                <p className="font-playwrite-magyarorszag text-gray-600 text-base leading-relaxed font-semibold">
                   "I did my Certificate IV in training and assessment as well... <span className="text-[#C58E02]">I have a diploma in leadership and management and a diploma in outdoor leadership...</span> I do have 25 years of industry experience, and I have a graduate certificate in adult education"
                 </p>
               </div>
 
-              <p className="text-gray-600 text-sm mb-6 font-semibold">
+              <p className="text-gray-600 text-base mb-8 font-semibold flex-1">
                 This shows systematic leveraging of prior institutional relationships and strategic planning for educational advancement.
               </p>
 
-              <button className="text-gray-500 text-sm hover:text-[#C58E02] transition-colors float-right underline">view more</button>
+              <div className="mt-auto">
+                <button className="text-gray-500 text-sm hover:text-[#C58E02] transition-colors float-right underline">view more</button>
+              </div>
             </div>
           </div>
         </div>
