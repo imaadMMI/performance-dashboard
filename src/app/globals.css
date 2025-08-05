@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Playwrite+PL:wght@100..400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 * {
    font-family: var(--font-quicksand), sans-serif;
+}
+
+.font-cursive {
+  font-family: 'Edu NSW ACT Cursive', cursive;
+}
+.font-playwrite {
+  font-family: 'Playwrite PL', serif;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-raleway {
+  font-family: 'Raleway', sans-serif;
 }
 
 @utility no-scrollbar {

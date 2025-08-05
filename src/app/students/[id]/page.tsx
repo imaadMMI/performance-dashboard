@@ -23,7 +23,7 @@ export default function StudentProfile() {
 
         {/* Headline */}
         <div className="w-full">
-          <h1 className="text-3xl font-semibold text-gray-900 flex items-center gap-8">
+          <h1 className="font-montserrat text-3xl font-semibold text-gray-900 flex items-center gap-8">
             Time-Stretched Skeptic:
             <span className="flex items-center gap-2">
               <span className="font-semibold text-3xl">79</span>
@@ -55,8 +55,8 @@ export default function StudentProfile() {
             {/* Progression Cards */}
             <div className="grid grid-cols-2 " style={{width: '80%'}}>
               {/* First Card */}
-              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4">
-                <p className="font-semibold text-base mb-3 ml-6">Successful progression</p>
+              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4 font-quicksand">
+                <p className="font-montserrat font-semibold text-base mb-3 ml-6">Successful progression</p>
                 <div className="flex items-center gap-10 ml-6">
                   <div>
                     <p className="text-2xl font-bold">70.0%</p>
@@ -90,8 +90,8 @@ export default function StudentProfile() {
               </div>
 
               {/* Second Card */}
-              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4">
-                <p className="font-semibold text-base mb-3 ml-6">Successful progression</p>
+              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4 font-quicksand">
+                <p className="font-montserrat font-semibold text-base mb-3 ml-6">Successful progression</p>
                 <div className="flex items-center gap-10 ml-6">
                   <div>
                     <p className="text-2xl font-bold">70.0%</p>
@@ -126,8 +126,8 @@ export default function StudentProfile() {
             </div>
 
             {/* Next-best Interaction Behaviours */}
-            <div className="p-4 bg-white border border-gray-200 rounded-[2px] flex-1 flex flex-col" style={{width: '80%'}}>
-              <h3 className="text-xl font-semibold mb-4">Next-best interaction behaviours</h3>
+            <div className="p-4 bg-white border border-gray-200 rounded-[2px] flex-1 flex flex-col font-quicksand" style={{width: '80%'}}>
+              <h3 className="font-montserrat text-xl font-semibold mb-4">Next-best interaction behaviours</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-4">
                   <p className="text-gray-700 text-sm font-semibold flex-1 bg-gray-50 rounded-[2px] py-3 px-4">Objection Flip: Show Realistic Success Blueprints to</p>
@@ -149,8 +149,8 @@ export default function StudentProfile() {
           </div>
 
           {/* Signature Features */}
-          <div className="w-1/2 -ml-8 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto h-full flex flex-col">
-            <h2 className="text-3xl font-semibold text-gray-900 mb-6">Signature features:</h2>
+          <div className="w-1/2 -ml-8 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto h-full flex flex-col font-quicksand">
+            <h2 className="font-montserrat text-3xl font-semibold text-gray-900 mb-6">Signature features:</h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-8 font-semibold">
               Students who build systematic educational portfolios through logical credential progression while demonstrating immediate action-taking behaviors. They engage in thoughtful exploration of options, maintain realistic self-assessment, and demonstrate emotional maturity in balancing excitement with practical concerns.
             </p>
@@ -172,13 +172,13 @@ export default function StudentProfile() {
 
             {/* Numbered Section */}
             <div className="flex-1 flex flex-col">
-              <h3 className="font-semibold text-lg mb-6 ">1. Overwhelmed indicator</h3>
+              <h3 className="font-montserrat font-semibold text-lg mb-6 ">1. Overwhelmed indicator</h3>
               
               {/* Quote with gradient border */}
               <div className="relative pl-4 mb-6 ml-6">
                 <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full" style={{background: 'linear-gradient(to bottom, #efefef, #dbcca7, #d0ad5b, #caa03c, #c49525, #ba8e29)'}}></div>
-                <p className="font-playwrite-magyarorszag text-gray-600 text-base leading-relaxed font-semibold">
-                  "I did my Certificate IV in training and assessment as well... <span className="text-[#C58E02]">I have a diploma in leadership and management and a diploma in outdoor leadership...</span> I do have 25 years of industry experience, and I have a graduate certificate in adult education"
+                <p className="font-raleway text-gray-600 text-base leading-relaxed font-semibold">
+                  "I did my Certificate IV in training and assessment as well... <span className='text-[#C58E02]'>I have a diploma in leadership and management and a diploma in outdoor leadership...</span> I do have 25 years of industry experience, and I have a graduate certificate in adult education"
                 </p>
               </div>
 

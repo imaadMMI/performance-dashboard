@@ -56,7 +56,7 @@ export function StudentCard({
       </div>
 
       {/* Heading */}
-      <h5 className="font-semibold mb-5 text-[1.5rem]">{heading}</h5>
+      <h5 className="font-montserrat font-semibold mb-5 text-[1.5rem]">{heading}</h5>
 
       {/* Profile + Stats */}
       <div className="flex items-center mb-5">
@@ -116,7 +116,7 @@ export function StudentCard({
 
       {/* Quote */}
       <div className="bg-white rounded p-5 shadow-sm">
-        <p className="font-semibold text-base">
+        <p className="font-raleway font-semibold text-base">
           <span className="text-[#cc9900]">"My wife is really encouraging me to do this</span>
           {' '}and said she'll take on more of the household responsibilities<span className="text-[#ffc107]">."</span>
         </p>
