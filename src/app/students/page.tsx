@@ -15,9 +15,9 @@ export default function StudentsContent() {
       {/* Left Navigation Sidebar */}
       <LeftSidebar />
 
-      <main className="flex-1 px-8 py-12 lg:px-16 lg:py-16 overflow-hidden">
+      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-hidden">
         {/* Header Row - Stack on mobile, grid on desktop */}
-        <div className="flex flex-col space-y-6 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 mb-12 items-start">
+        <div className="flex flex-col space-y-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 mb-8 items-start">
           {/* Left: Stats */}
           <div className="w-full">
             <h2 className="font-montserrat font-bold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
@@ -56,7 +56,7 @@ export default function StudentsContent() {
         </div>
 
         {/* Filter Tags - Stack on mobile */}
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 mb-10">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 mb-6">
           <div className="flex items-center gap-3">
             <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
@@ -75,7 +75,7 @@ export default function StudentsContent() {
 
         {/* Student Cards - Horizontal scroll */}
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide" style={{ width: 'calc(100vw - 200px)', maxWidth: '1600px' }}>
+          <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
           <StudentCard
             tier={2}
             rank="01"

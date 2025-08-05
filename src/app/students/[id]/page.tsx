@@ -11,7 +11,7 @@ import { PieChart, Pie, Cell } from "recharts";
 export default function StudentProfile() {
   return (
     <Layout>
-      <div className="flex flex-col min-h-screen pt-20 px-32 pb-32 gap-6">
+      <div className="flex flex-col min-h-screen pt-10 px-32 pb-8 gap-4">
         {/* Back Button */}
         <div>
           <Link href="/students">
@@ -55,8 +55,8 @@ export default function StudentProfile() {
             {/* Progression Cards */}
             <div className="grid grid-cols-2 " style={{width: '80%'}}>
               {/* First Card */}
-              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-6">
-                <p className="font-semibold text-base mb-4 ml-6">Successful progression</p>
+              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4">
+                <p className="font-semibold text-base mb-3 ml-6">Successful progression</p>
                 <div className="flex items-center gap-10 ml-6">
                   <div>
                     <p className="text-2xl font-bold">70.0%</p>
@@ -90,8 +90,8 @@ export default function StudentProfile() {
               </div>
 
               {/* Second Card */}
-              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-6">
-                <p className="font-semibold text-base mb-4 ml-6">Successful progression</p>
+              <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4">
+                <p className="font-semibold text-base mb-3 ml-6">Successful progression</p>
                 <div className="flex items-center gap-10 ml-6">
                   <div>
                     <p className="text-2xl font-bold">70.0%</p>
@@ -126,20 +126,20 @@ export default function StudentProfile() {
             </div>
 
             {/* Next-best Interaction Behaviours */}
-            <div className="p-6 bg-white border border-gray-200 rounded-[2px]" style={{width: '80%'}}>
-              <h3 className="text-xl font-semibold mb-6">Next-best interaction behaviours</h3>
+            <div className="p-4 bg-white border border-gray-200 rounded-[2px]" style={{width: '80%'}}>
+              <h3 className="text-xl font-semibold mb-4">Next-best interaction behaviours</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-4">
                   <p className="text-gray-700 text-sm font-semibold flex-1 bg-gray-50 rounded-[2px] py-3 px-4">Objection Flip: Show Realistic Success Blueprints to</p>
-                  <span className="bg-[#B3DCD6] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
+                  <span className="bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <p className="text-gray-700 text-sm font-semibold flex-1 bg-gray-50 rounded-[2px] py-3 px-4">This shows systematic leveraging of prior</p>
-                  <span className="bg-[#B3DCD6] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
+                  <span className="bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <p className="text-gray-700 text-sm font-semibold flex-1 bg-gray-50 rounded-[2px] py-3 px-4">This shows systematic leveraging of prior</p>
-                  <span className="bg-[#B3DCD6] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
+                  <span className="bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">Enrolment: +7%</span>
                 </div>
               </div>
               <button className="mt-4 text-gray-500 text-sm hover:text-[#C58E02] transition-colors float-right underline">view more</button>
@@ -147,8 +147,8 @@ export default function StudentProfile() {
           </div>
 
           {/* Signature Features */}
-          <div className="w-1/2 -ml-8 p-12 bg-white border border-gray-200 rounded-[2px] overflow-y-auto">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Signature features:</h2>
+          <div className="w-1/2 -ml-8 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Signature features:</h2>
             <p className="text-gray-700 text-base leading-relaxed mb-6 font-semibold">
               Students who build systematic educational portfolios through logical credential progression while demonstrating immediate action-taking behaviors. They engage in thoughtful exploration of options, maintain realistic self-assessment, and demonstrate emotional maturity in balancing excitement with practical concerns.
             </p>
@@ -162,7 +162,7 @@ export default function StudentProfile() {
             {/* Tags - Second Row */}
             <div className="flex gap-3 mb-8">
               <span className="px-4 py-2 text-sm text-gray-700 border-2 border-(--brand-light) rounded-[2px] font-semibold">Professional network support</span>
-              <span className="px-4 py-2 text-sm text-gray-700 border-2 border-[#B3DCD6] rounded-[2px] font-semibold">Emotional maturity</span>
+              <span className="px-4 py-2 text-sm text-gray-700 border-2 border-[#abd5ce] rounded-[2px] font-semibold">Emotional maturity</span>
             </div>
 
             {/* Separator */}
