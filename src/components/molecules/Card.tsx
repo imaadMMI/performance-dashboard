@@ -103,7 +103,7 @@ export function StudentCard({
                 paddingAngle={2}
                 dataKey="value"
               >
-                <Cell fill="#f59e0b" />
+                <Cell fill="#C58E02" />
                 <Cell fill="#e5e7eb" />
               </Pie>
             </PieChart>

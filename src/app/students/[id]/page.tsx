@@ -11,7 +11,7 @@ import { PieChart, Pie, Cell } from "recharts";
 export default function StudentProfile() {
   return (
     <Layout>
-      <div className="flex flex-col min-h-screen p-32 gap-6">
+      <div className="flex flex-col min-h-screen pt-20 px-32 pb-32 gap-6">
         {/* Back Button */}
         <div>
           <Link href="/students">
@@ -78,7 +78,7 @@ export default function StudentProfile() {
                         paddingAngle={2}
                         dataKey="value"
                       >
-                        <Cell fill="#f59e0b" />
+                        <Cell fill="#C58E02" />
                         <Cell fill="#e5e7eb" />
                       </Pie>
                     </PieChart>
@@ -113,7 +113,7 @@ export default function StudentProfile() {
                         paddingAngle={2}
                         dataKey="value"
                       >
-                        <Cell fill="#f59e0b" />
+                        <Cell fill="#C58E02" />
                         <Cell fill="#e5e7eb" />
                       </Pie>
                     </PieChart>
