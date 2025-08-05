@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { PieChart, Pie, Cell } from "recharts";
 
 interface StudentCardProps {
   tier: number;
@@ -86,14 +87,29 @@ export function StudentCard({
             <p className="text-2xl font-bold">{progressionRate}.0%</p>
             <p className="text-black-500 font-semibold text-sm">No withdrawal</p>
           </div>
-          <div className="
-            w-[70px] h-[70px] 
-            rounded-full 
-            border-4 border-[#cc9900]
-            flex items-center justify-center
-            ml-4
-          ">
-            <span className="font-bold text-base">+90%</span>
+          <div className="relative ml-4">
+            <PieChart width={70} height={70}>
+              <Pie
+                data={[
+                  { name: "Retention", value: 90 },
+                  { name: "Remaining", value: 10 },
+                ]}
+                cx="50%"
+                cy="50%"
+                innerRadius={20}
+                outerRadius={32}
+                startAngle={90}
+                endAngle={-270}
+                paddingAngle={2}
+                dataKey="value"
+              >
+                <Cell fill="#f59e0b" />
+                <Cell fill="#e5e7eb" />
+              </Pie>
+            </PieChart>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-bold text-base">+90%</span>
+            </div>
           </div>
         </div>
       </div>
