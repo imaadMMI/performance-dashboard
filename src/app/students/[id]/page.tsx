@@ -71,11 +71,11 @@ export default function StudentProfile() {
                         ]}
                         cx="50%"
                         cy="50%"
-                        innerRadius={18}
+                        innerRadius={21}
                         outerRadius={28}
                         startAngle={90}
                         endAngle={-270}
-                        paddingAngle={2}
+                        paddingAngle={0}
                         dataKey="value"
                       >
                         <Cell fill="#C58E02" />
@@ -83,7 +83,7 @@ export default function StudentProfile() {
                       </Pie>
                     </PieChart>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-sm">+90%</span>
+                      <span className="font-bold text-xs">+90%</span>
                     </div>
                   </div>
                 </div>
@@ -106,11 +106,11 @@ export default function StudentProfile() {
                         ]}
                         cx="50%"
                         cy="50%"
-                        innerRadius={18}
+                        innerRadius={21}
                         outerRadius={28}
                         startAngle={90}
                         endAngle={-270}
-                        paddingAngle={2}
+                        paddingAngle={0}
                         dataKey="value"
                       >
                         <Cell fill="#C58E02" />
@@ -118,7 +118,7 @@ export default function StudentProfile() {
                       </Pie>
                     </PieChart>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-sm">+90%</span>
+                      <span className="font-bold text-xs">+90%</span>
                     </div>
                   </div>
                 </div>

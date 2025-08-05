@@ -24,16 +24,16 @@ const DonutChart = ({ retention }: { retention: number }) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <h3 className="text-sm text-gray-600">Retention Chance</h3>
-      <PieChart width={160} height={160}>
+      <PieChart width={100} height={100}>
         <Pie
           data={data}
           cx="50%"
           cy="50%"
-          innerRadius={35}
-          outerRadius={70}
+          innerRadius={21}
+          outerRadius={45}
           startAngle={90}
           endAngle={-270}
-          paddingAngle={2}
+          paddingAngle={0}
           dataKey="value"
         >
           {data.map((_, index) => (
@@ -41,8 +41,8 @@ const DonutChart = ({ retention }: { retention: number }) => {
           ))}
         </Pie>
       </PieChart>
-      <span className="text-xl font-semibold text-(--brand-gold)">
-        {retention}%
+      <span className="text-base font-semibold text-gray-700">
+        +{retention}%
       </span>
     </div>
   );

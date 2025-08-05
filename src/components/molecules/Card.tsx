@@ -96,11 +96,11 @@ export function StudentCard({
                 ]}
                 cx="50%"
                 cy="50%"
-                innerRadius={20}
-                outerRadius={32}
+                innerRadius={21}
+                outerRadius={28}
                 startAngle={90}
                 endAngle={-270}
-                paddingAngle={2}
+                paddingAngle={0}
                 dataKey="value"
               >
                 <Cell fill="#C58E02" />
@@ -108,7 +108,7 @@ export function StudentCard({
               </Pie>
             </PieChart>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-bold text-base">+90%</span>
+              <span className="font-bold text-xs">+90%</span>
             </div>
           </div>
         </div>
