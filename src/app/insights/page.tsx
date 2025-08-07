@@ -57,11 +57,11 @@ export default function PickupRateDashboard() {
 
           {/* LLM Insights */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Trend Analysis
-                  <div className="my-1 w-35 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-35 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h3>
                 
                 <div className="bg-[#EEE4C8] rounded-full p-2">
@@ -99,11 +99,11 @@ export default function PickupRateDashboard() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Impact Assessment
-                  <div className="my-1 w-46 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-46 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertTriangle size={20} className="text-[#C58E02]" />
@@ -140,11 +140,11 @@ export default function PickupRateDashboard() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Recommendation
-                  <div className="my-1 w-42 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-42 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertCircle size={20} className="text-[#C58E02]" />
@@ -185,11 +185,11 @@ export default function PickupRateDashboard() {
           {/* University Performance Summary */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {/* Monash Card */}
-            <div className="bg-white rounded-lg shadow-sm border border-red-200 p-6 hover:shadow-md transition-all duration-200">
+            <div className="group bg-white rounded-lg shadow-sm border border-red-200 p-6 hover:shadow-md transition-all duration-200">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">Monash Performance
-                  <div className="my-1 w-48 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-48 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h3>
                 <School className="text-red-500" size={20} />
               </div>
@@ -206,11 +206,11 @@ export default function PickupRateDashboard() {
             </div>
 
             {/* SOL Card */}
-            <div className="bg-white rounded-lg shadow-sm border border-blue-200 p-6 hover:shadow-md transition-all duration-200">
+            <div className="group bg-white rounded-lg shadow-sm border border-blue-200 p-6 hover:shadow-md transition-all duration-200">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">SOL Performance
-                  <div className="my-1 w-40 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-40 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h3>
                 <School className="text-blue-500" size={20} />
               </div>
@@ -229,13 +229,13 @@ export default function PickupRateDashboard() {
 
 
           {/* 12-Week Trend Chart */}
-          <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-8">
                 <BarChart3 className="text-[#C58E02]" size={20} />
                 <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                   12-Week Pickup Rate Trend
-                  <div className="my-1 w-70 h-1 bg-gradient-to-r from-black to-white"></div>
+                  <div className="my-1 w-70 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
                 </h2>
               </div>
               <div className="flex gap-4 text-sm mb-4">
@@ -372,12 +372,12 @@ export default function PickupRateDashboard() {
           </div>
 
           {/* SECTION 4: Statistical Summary */}
-          <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-6">
               <AlertCircle className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                 Statistical Summary
-                <div className="my-1 w-50 h-1 bg-gradient-to-r from-black to-white"></div>
+                <div className="my-1 w-50 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
               </h2>
             </div>
 
