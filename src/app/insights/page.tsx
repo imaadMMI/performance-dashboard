@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
-import { TrendingDown, AlertTriangle, Calendar, School, BarChart3, AlertCircle, ChevronDown } from "lucide-react";
+import { TrendingDown, AlertTriangle, Calendar, School, BarChart3, AlertCircle, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 // Generate mock weekly data points for the rolling 12-week chart
@@ -38,6 +38,26 @@ const generateRolling12WeekData = () => {
 
 export default function PickupRateDashboard() {
   const chartData = generateRolling12WeekData();
+  const [currentStartIndex, setCurrentStartIndex] = useState(0);
+  const itemsPerView = 12; // Show 12 weeks at a time
+  const maxStartIndex = Math.max(0, chartData.length - itemsPerView);
+  
+  const visibleData = chartData.slice(currentStartIndex, currentStartIndex + itemsPerView);
+  
+  const canGoLeft = currentStartIndex > 0;
+  const canGoRight = currentStartIndex < maxStartIndex;
+  
+  const handlePrevious = () => {
+    if (canGoLeft) {
+      setCurrentStartIndex(Math.max(0, currentStartIndex - 6)); // Move 6 weeks at a time
+    }
+  };
+  
+  const handleNext = () => {
+    if (canGoRight) {
+      setCurrentStartIndex(Math.min(maxStartIndex, currentStartIndex + 6)); // Move 6 weeks at a time
+    }
+  };
 
   return (
     <div className="flex h-screen bg-brand-white">
@@ -271,7 +291,7 @@ export default function PickupRateDashboard() {
             <div className="h-96">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart
-                  data={chartData}
+                  data={visibleData}
                   margin={{ top: 10, right: 30, left: 40, bottom: 60 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f1f1" />
@@ -379,6 +399,39 @@ export default function PickupRateDashboard() {
                   />
                 </LineChart>
               </ResponsiveContainer>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="mt-4 flex items-center justify-center gap-4">
+              <button
+                onClick={handlePrevious}
+                disabled={!canGoLeft}
+                className={`p-2 rounded-full transition-all duration-200 ${
+                  canGoLeft
+                    ? "bg-[#C58E02] text-white hover:bg-[#FF8A00] hover:scale-105 shadow-md"
+                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                }`}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              
+              <div className="px-4 py-2 bg-gray-100 rounded-lg">
+                <span className="font-quicksand text-sm text-[#58595b]">
+                  Showing weeks {currentStartIndex + 1}-{Math.min(currentStartIndex + itemsPerView, chartData.length)} of {chartData.length}
+                </span>
+              </div>
+              
+              <button
+                onClick={handleNext}
+                disabled={!canGoRight}
+                className={`p-2 rounded-full transition-all duration-200 ${
+                  canGoRight
+                    ? "bg-[#C58E02] text-white hover:bg-[#FF8A00] hover:scale-105 shadow-md"
+                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                }`}
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
 
             <div className="mt-4 bg-gray-50 rounded-lg p-3">
