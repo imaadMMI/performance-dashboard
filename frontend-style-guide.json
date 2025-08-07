@@ -1,0 +1,488 @@
+{
+  "styleGuide": {
+    "version": "2.0.0",
+    "lastUpdated": "2025-01-07",
+    "description": "Comprehensive frontend style guide for OES UI based on entire application analysis"
+  },
+  "colors": {
+    "brand": {
+      "white": "#FFFFFF",
+      "light": "#F5F5F5",
+      "black": "#000000",
+      "orange": "#FF8A00",
+      "gold": "#C58E02",
+      "green": "#8BAF20",
+      "blue": "#abd5ce"
+    },
+    "neutral": {
+      "gray": {
+        "50": "#F9FAFB",
+        "100": "#F3F4F6",
+        "200": "#E5E7EB",
+        "300": "#D1D5DB",
+        "400": "#9CA3AF",
+        "500": "#6B7280",
+        "600": "#4B5563",
+        "700": "#374151",
+        "800": "#1F2937",
+        "900": "#111827"
+      },
+      "custom": {
+        "lightGray": "#f1f1f1",
+        "mediumGray": "#58595b",
+        "beige": "#EEE4C8"
+      }
+    },
+    "semantic": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    },
+    "emotions": {
+      "negative": {
+        "background": "#FEE2E2",
+        "border": "#FECACA",
+        "text": "#B91C1C"
+      },
+      "positive": {
+        "background": "#F3F4F6",
+        "border": "#E5E7EB",
+        "text": "#374151"
+      }
+    },
+    "gradients": {
+      "goldToWhite": "from-yellow-400 via-orange-300 to-white",
+      "brandGradient": "from-brand-gold to-brand-orange"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "primary": "Montserrat",
+      "secondary": "Quicksand",
+      "accent": "Raleway",
+      "display": "Strangeways",
+      "cursive": "Edu NSW ACT Cursive",
+      "alternative": "Playwrite PL",
+      "mono": "monospace"
+    },
+    "sizes": {
+      "h1": {
+        "base": "text-3xl",
+        "lg": "text-4xl",
+        "weight": "font-bold",
+        "font": "font-montserrat"
+      },
+      "h2": {
+        "base": "text-2xl",
+        "lg": "text-3xl",
+        "weight": "font-bold",
+        "font": "font-montserrat"
+      },
+      "h3": {
+        "base": "text-xl",
+        "lg": "text-2xl",
+        "weight": "font-semibold",
+        "font": "font-montserrat"
+      },
+      "h4": {
+        "base": "text-lg",
+        "lg": "text-xl",
+        "weight": "font-semibold"
+      },
+      "h5": {
+        "base": "text-base",
+        "lg": "text-lg",
+        "weight": "font-semibold"
+      },
+      "body": {
+        "large": "text-lg",
+        "default": "text-base",
+        "small": "text-sm",
+        "xsmall": "text-xs",
+        "font": "font-quicksand"
+      },
+      "label": {
+        "default": "text-sm font-medium",
+        "uppercase": "text-sm font-semibold uppercase tracking-wide"
+      },
+      "quote": {
+        "font": "font-raleway",
+        "style": "italic"
+      }
+    }
+  },
+  "spacing": {
+    "padding": {
+      "xs": "p-2",
+      "sm": "p-3",
+      "md": "p-4",
+      "lg": "p-6",
+      "xl": "p-8",
+      "2xl": "p-10"
+    },
+    "margin": {
+      "xs": "m-2",
+      "sm": "m-3",
+      "md": "m-4",
+      "lg": "m-6",
+      "xl": "m-8",
+      "2xl": "m-12"
+    },
+    "gap": {
+      "xs": "gap-2",
+      "sm": "gap-3",
+      "md": "gap-4",
+      "lg": "gap-6",
+      "xl": "gap-8"
+    },
+    "containerPadding": {
+      "horizontal": "px-4 lg:px-8",
+      "vertical": "py-6 lg:py-10",
+      "withSidebar": "pl-16 lg:pl-32 pr-4 lg:pr-8"
+    }
+  },
+  "components": {
+    "layout": {
+      "container": {
+        "base": "min-h-screen flex bg-gray-50",
+        "withSidebar": "h-screen flex bg-gray-50 overflow-hidden",
+        "main": "flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4",
+        "mainScrollable": "flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto",
+        "brandBackground": "flex h-screen bg-brand-white"
+      },
+      "sidebar": {
+        "left": {
+          "width": "w-25",
+          "background": "bg-(--brand-light)",
+          "padding": "py-6"
+        },
+        "right": {
+          "width": "w-208 sm:w-[520px]",
+          "background": "bg-white",
+          "border": "border-l border-gray-200"
+        }
+      }
+    },
+    "cards": {
+      "dashboard": {
+        "base": "bg-(--brand-light) p-6 sm:px-8 sm:py-6 lg:px-10 lg:py-6 aspect-square",
+        "hover": "transition-transform hover:-translate-y-1",
+        "grid": "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
+      },
+      "student": {
+        "base": "bg-white rounded p-10 w-[380px] max-w-[380px] min-w-[380px] flex-shrink-0 snap-start shadow-sm",
+        "hover": "opacity-40 hover:opacity-100 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-200 ease-in-out cursor-pointer"
+      },
+      "content": {
+        "base": "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+        "hover": "hover:shadow-md transition-shadow"
+      },
+      "metric": {
+        "base": "bg-white p-6 rounded text-left",
+        "grid": "grid grid-cols-1 md:grid-cols-3 gap-6"
+      }
+    },
+    "buttons": {
+      "variants": {
+        "primary": "bg-primary-orange text-white hover:bg-primary-gold",
+        "secondary": "bg-gray-200 text-gray-700 hover:bg-gray-300",
+        "outline": "border border-primary-orange bg-transparent text-primary-orange hover:bg-primary-orange hover:text-white",
+        "ghost": "hover:bg-background-secondary hover:text-text-primary",
+        "success": "bg-primary-green text-white hover:bg-primary-green/90",
+        "danger": "bg-error text-white hover:bg-error/90"
+      },
+      "sizes": {
+        "xs": "h-8 px-2 text-xs",
+        "sm": "h-9 px-3",
+        "default": "h-10 px-4 py-2",
+        "lg": "h-11 px-8",
+        "icon": "h-10 w-10"
+      },
+      "special": {
+        "navigation": "w-12 h-12 rounded-md transition-all hover:scale-105",
+        "conversationControl": "rounded-full w-16 h-16 shadow-md hover:shadow-lg transition-all",
+        "goldAction": "bg-brand-gold text-white hover:bg-brand-gold/90"
+      }
+    },
+    "inputs": {
+      "base": "flex w-full rounded-md border border-border bg-background-primary px-3 py-2",
+      "focus": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "error": "border-error focus-visible:ring-error",
+      "disabled": "disabled:cursor-not-allowed disabled:opacity-50",
+      "label": "text-sm font-medium leading-none text-gray-700",
+      "helperText": "text-sm text-gray-500 mt-1"
+    },
+    "badges": {
+      "status": {
+        "high": "bg-red-100 text-red-800",
+        "moderate": "bg-yellow-100 text-yellow-800",
+        "low": "bg-green-100 text-green-800"
+      },
+      "emotion": {
+        "negative": "bg-red-100 text-red-700",
+        "positive": "bg-green-100 text-green-700",
+        "neutral": "bg-gray-100 text-gray-700"
+      },
+      "base": "inline-flex px-2 py-1 text-xs font-medium rounded-full",
+      "stats": "border rounded px-5 py-3 flex items-center font-semibold border-[#f1f1f1] w-[210px] text-[0.95rem]"
+    },
+    "tables": {
+      "container": "overflow-x-auto",
+      "table": "w-full",
+      "header": {
+        "row": "border-b border-gray-200",
+        "cell": "text-left py-2 px-3 text-sm font-medium text-gray-700"
+      },
+      "body": {
+        "row": "border-b border-gray-100",
+        "cell": "py-3 px-3 text-sm text-gray-900",
+        "cellHighlight": "py-3 px-3 text-sm font-medium text-red-700"
+      }
+    },
+    "grids": {
+      "responsive": {
+        "twoColumns": "grid grid-cols-1 md:grid-cols-2 gap-6",
+        "threeColumns": "grid grid-cols-1 md:grid-cols-3 gap-6",
+        "threeColumnsLarge": "grid grid-cols-1 lg:grid-cols-3 gap-6",
+        "fiveColumns": "grid grid-cols-2 md:grid-cols-5 gap-3",
+        "dashboardTiles": "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
+      },
+      "stats": {
+        "3x3": "grid grid-cols-3 gap-3",
+        "2x2": "grid grid-cols-2 gap-2"
+      }
+    },
+    "progressBars": {
+      "container": "h-2 bg-gray-200 rounded-full overflow-hidden",
+      "fill": {
+        "orange": "h-full bg-orange-500",
+        "red": "h-full bg-red-500",
+        "green": "h-full bg-green-500",
+        "blue": "h-full bg-blue-500",
+        "gold": "h-full bg-brand-gold"
+      }
+    },
+    "icons": {
+      "sizes": {
+        "xs": 14,
+        "sm": 16,
+        "md": 20,
+        "lg": 24,
+        "xl": 28
+      },
+      "containers": {
+        "rounded": "bg-gray-100 rounded-full p-2",
+        "square": "bg-gray-100 rounded-md p-2",
+        "hover": "hover:scale-105 transition-all"
+      }
+    },
+    "quotes": {
+      "container": "bg-gray-50 rounded-lg p-4",
+      "timestamp": "text-xs text-gray-500 font-mono bg-white px-2 py-1 rounded",
+      "text": "flex-1 text-gray-700 italic font-raleway",
+      "highlight": {
+        "gold": "text-[#cc9900]",
+        "yellow": "text-[#ffc107]"
+      }
+    },
+    "navigation": {
+      "navItem": {
+        "base": "w-full flex items-center justify-start gap-3 p-3 rounded-md",
+        "active": "bg-(--brand-white) shadow-md",
+        "hover": "hover:bg-gray-100 hover:scale-105 transition-all"
+      },
+      "tooltip": {
+        "trigger": "group relative",
+        "content": "absolute left-12 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100"
+      }
+    }
+  },
+  "specialComponents": {
+    "voiceOrb": {
+      "colors": {
+        "primary": "#C58E02",
+        "secondary": "#8B4513"
+      },
+      "animation": "animate-pulse",
+      "audioReactive": true
+    },
+    "conversationControls": {
+      "container": "fixed bottom-4 flex gap-4",
+      "buttons": "rounded-full shadow-md hover:shadow-lg"
+    },
+    "studentCard": {
+      "dimensions": {
+        "width": "380px",
+        "padding": "p-10"
+      },
+      "sections": {
+        "tier": "text-[16px] uppercase font-bold",
+        "rank": "font-mono text-[30px] font-bold",
+        "profile": "rounded-full w-[85px] h-[85px]",
+        "stats": "border rounded px-5 py-3"
+      }
+    },
+    "transcript": {
+      "bubble": {
+        "user": "bg-blue-50 text-blue-900",
+        "assistant": "bg-gray-50 text-gray-900",
+        "system": "bg-yellow-50 text-yellow-900"
+      },
+      "speaker": "font-semibold text-sm mb-1"
+    }
+  },
+  "patterns": {
+    "dataVisualization": {
+      "emotionGrid": {
+        "container": "grid grid-cols-2 md:grid-cols-5 gap-3",
+        "negative": "p-3 rounded-lg bg-red-50 border border-red-200",
+        "positive": "p-3 rounded-lg bg-gray-50 border border-gray-200"
+      },
+      "metrics": {
+        "label": "text-sm text-gray-600 mb-1",
+        "value": "text-3xl font-bold text-gray-900",
+        "unit": "text-sm font-normal",
+        "trend": {
+          "up": "text-green-600",
+          "down": "text-red-600",
+          "neutral": "text-orange-600"
+        }
+      },
+      "charts": {
+        "pieChart": {
+          "colors": ["#C58E02", "#e5e7eb"],
+          "size": "width={70} height={70}"
+        }
+      }
+    },
+    "horizontalScroll": {
+      "container": "flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide",
+      "item": "snap-start flex-shrink-0"
+    },
+    "hoverEffects": {
+      "lift": {
+        "small": "hover:-translate-y-1",
+        "medium": "hover:-translate-y-1.5",
+        "large": "hover:-translate-y-2"
+      },
+      "shadow": {
+        "default": "hover:shadow-md",
+        "large": "hover:shadow-lg",
+        "xl": "hover:shadow-xl"
+      },
+      "opacity": {
+        "fadeIn": "opacity-40 hover:opacity-100",
+        "subtle": "opacity-80 hover:opacity-100"
+      },
+      "scale": {
+        "small": "hover:scale-105",
+        "medium": "hover:scale-110"
+      }
+    }
+  },
+  "animations": {
+    "transitions": {
+      "default": "transition-all duration-200",
+      "fast": "transition-all duration-150",
+      "slow": "transition-all duration-300",
+      "colors": "transition-colors duration-200",
+      "transform": "transition-transform duration-200",
+      "easeInOut": "transition-all duration-200 ease-in-out"
+    },
+    "loading": {
+      "spin": "animate-spin",
+      "pulse": "animate-pulse",
+      "bounce": "animate-bounce"
+    },
+    "underline": {
+      "animated": "absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-all duration-200 group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-orange-300 group-hover:to-white"
+    }
+  },
+  "breakpoints": {
+    "mobile": "default",
+    "sm": "640px",
+    "md": "768px", 
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  },
+  "accessibility": {
+    "focus": {
+      "visible": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "ring": {
+        "primary": "focus-visible:ring-primary-orange",
+        "error": "focus-visible:ring-error",
+        "success": "focus-visible:ring-success"
+      }
+    },
+    "disabled": {
+      "opacity": "disabled:opacity-50",
+      "cursor": "disabled:pointer-events-none",
+      "notAllowed": "disabled:cursor-not-allowed"
+    },
+    "screenReader": {
+      "visuallyHidden": "sr-only",
+      "focusable": "sr-only focus:not-sr-only"
+    }
+  },
+  "conventions": {
+    "naming": {
+      "components": "PascalCase",
+      "functions": "camelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "interfaces": "PascalCase with descriptive suffix (Props, Data, Info)",
+      "types": "PascalCase",
+      "props": "camelCase with 'Props' suffix for interface",
+      "cssVariables": "--brand-[name]"
+    },
+    "fileStructure": {
+      "pages": "src/app/[route]/page.tsx",
+      "components": "src/components/[ComponentName].tsx",
+      "atoms": "src/components/atoms/[AtomName].tsx",
+      "molecules": "src/components/molecules/[MoleculeName].tsx",
+      "utils": "src/lib/utils.ts"
+    },
+    "imports": {
+      "order": [
+        "use client directive",
+        "React and Next.js",
+        "Third-party libraries",
+        "Components",
+        "Utilities and helpers",
+        "Types and interfaces", 
+        "Styles"
+      ]
+    }
+  },
+  "bestPractices": {
+    "responsive": {
+      "mobileFirst": true,
+      "breakpointUsage": "Use sm:, md:, lg: prefixes progressively",
+      "containerQueries": "Consider for component-level responsiveness"
+    },
+    "components": {
+      "composition": "Prefer composition over inheritance",
+      "atomicDesign": "Use atoms -> molecules -> organisms pattern",
+      "reuseExisting": "Always check components/atoms and components/molecules first",
+      "clientComponents": "Use 'use client' directive when needed"
+    },
+    "performance": {
+      "images": "Use Next.js Image component with proper sizing",
+      "lazyLoading": "Use dynamic imports for heavy components",
+      "memoization": "Use React.memo for expensive renders",
+      "keys": "Always use stable, unique keys in lists"
+    },
+    "styling": {
+      "utility": "Use Tailwind utilities over custom CSS",
+      "consistency": "Follow established patterns in the codebase",
+      "semantic": "Use semantic color names from brand palette",
+      "customProperties": "Define CSS variables in globals.css for brand colors"
+    },
+    "stateManagement": {
+      "hooks": "Prefer hooks over class components",
+      "localFirst": "Use local state when possible",
+      "contextApi": "Use Context for cross-component state"
+    }
+  }
+}
