@@ -133,10 +133,10 @@ export default function SalesPage() {
   const negativeEmotions = currentAgent.topEmotions.filter(e => e.negative);
 
   return (
-    <div className="flex h-screen bg-brand-white">
+    <div className="flex h-screen bg-gray-50">
       <LeftSidebar />
       
-      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto bg-[#F5F5F5]">
+      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
         <div className="mb-8">
           <h1 className="font-montserrat font-bold text-3xl lg:text-4xl text-[#58595b] mb-8">
             LLM insights
