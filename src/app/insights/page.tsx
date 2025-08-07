@@ -82,7 +82,7 @@ export default function PickupRateDashboard() {
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Trend Analysis
                   <div className="my-1 w-35 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h3>
@@ -127,7 +127,7 @@ export default function PickupRateDashboard() {
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Impact Assessment
                   <div className="my-1 w-46 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h3>
@@ -171,7 +171,7 @@ export default function PickupRateDashboard() {
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Recommendation
                   <div className="my-1 w-42 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h3>
@@ -219,7 +219,7 @@ export default function PickupRateDashboard() {
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">Monash Performance
                   <div className="my-1 w-48 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h3>
@@ -243,7 +243,7 @@ export default function PickupRateDashboard() {
                 <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">SOL Performance
                   <div className="my-1 w-40 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h3>
@@ -271,7 +271,7 @@ export default function PickupRateDashboard() {
                 <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                   12-Week Pickup Rate Trend
                   <div className="my-1 w-70 h-1 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                   </div>
                 </h2>
@@ -449,7 +449,7 @@ export default function PickupRateDashboard() {
               <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                 Statistical Summary
                 <div className="my-1 w-50 h-1 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                 </div>
               </h2>

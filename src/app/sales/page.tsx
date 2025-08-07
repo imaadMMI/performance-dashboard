@@ -154,7 +154,7 @@ export default function SalesPage() {
                     <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                       {card.title}
                       <div className="my-1 w-32 h-1 relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                         <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                       </div>
                     </h3>
@@ -226,7 +226,7 @@ export default function SalesPage() {
           <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Top 10 Emotions - {currentAgent.name}
               <div className="my-1 w-60 h-1 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
               </div>
             </h2>
@@ -261,7 +261,7 @@ export default function SalesPage() {
               <AlertTriangle className="text-[#FF8A00]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Hesitancy Analysis
                 <div className="my-1 w-45 h-1 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                 </div>
               </h2>
@@ -313,7 +313,7 @@ export default function SalesPage() {
               <Gauge className="text-[#abd5ce]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Speech Pace Analysis
                 <div className="my-1 w-50 h-1 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                 </div>
               </h2>
@@ -356,7 +356,7 @@ export default function SalesPage() {
           <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Negative Emotions Analysis
               <div className="my-1 w-65 h-1 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
               </div>
             </h2>
@@ -402,7 +402,7 @@ export default function SalesPage() {
               <MessageSquare className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Peak Emotional Moment
                 <div className="my-1 w-60 h-1 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
                 </div>
               </h2>
