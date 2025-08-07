@@ -61,7 +61,10 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Trend Analysis
-                  <div className="my-1 w-35 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-35 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h3>
                 
                 <div className="bg-[#EEE4C8] rounded-full p-2">
@@ -103,7 +106,10 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Impact Assessment
-                  <div className="my-1 w-46 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-46 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertTriangle size={20} className="text-[#C58E02]" />
@@ -144,7 +150,10 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Recommendation
-                  <div className="my-1 w-42 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-42 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertCircle size={20} className="text-[#C58E02]" />
@@ -189,7 +198,10 @@ export default function PickupRateDashboard() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">Monash Performance
-                  <div className="my-1 w-48 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-48 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h3>
                 <School className="text-red-500" size={20} />
               </div>
@@ -210,7 +222,10 @@ export default function PickupRateDashboard() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">SOL Performance
-                  <div className="my-1 w-40 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-40 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h3>
                 <School className="text-blue-500" size={20} />
               </div>
@@ -235,7 +250,10 @@ export default function PickupRateDashboard() {
                 <BarChart3 className="text-[#C58E02]" size={20} />
                 <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                   12-Week Pickup Rate Trend
-                  <div className="my-1 w-70 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                  <div className="my-1 w-70 h-1 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                  </div>
                 </h2>
               </div>
               <div className="flex gap-4 text-sm mb-4">
@@ -377,7 +395,10 @@ export default function PickupRateDashboard() {
               <AlertCircle className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                 Statistical Summary
-                <div className="my-1 w-50 h-1 bg-gradient-to-r from-black to-white group-hover:from-[#FF8A00] group-hover:to-white transition-all duration-200"></div>
+                <div className="my-1 w-50 h-1 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-black to-white"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+                </div>
               </h2>
             </div>
 
