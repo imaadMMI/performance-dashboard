@@ -148,7 +148,7 @@ export default function SalesPage() {
               return (
                 <div
                   key={index}
-                  className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+                  className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
@@ -223,7 +223,7 @@ export default function SalesPage() {
           </div>
 
           {/* Top 10 Emotions */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Top 10 Emotions - {currentAgent.name}
               <div className="my-1 w-60 h-1 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
@@ -237,7 +237,7 @@ export default function SalesPage() {
                   className={`p-3 rounded-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer ${
                     item.negative 
                       ? "bg-red-50 border border-red-200 hover:shadow-md" 
-                      : "bg-[#F5F5F5] border border-[#f1f1f1] hover:shadow-md"
+                      : "bg-[#F5F5F5] border border-[#F0F0F0] hover:shadow-md"
                   }`}
                 >
                   <p className={`font-montserrat font-medium text-sm ${
@@ -256,7 +256,7 @@ export default function SalesPage() {
           </div>
 
           {/* Hesitancy Occurrences */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="text-[#FF8A00]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Hesitancy Analysis
@@ -308,7 +308,7 @@ export default function SalesPage() {
           </div>
 
           {/* Pace of Speech */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <Gauge className="text-[#abd5ce]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Speech Pace Analysis
@@ -353,7 +353,7 @@ export default function SalesPage() {
           </div>
 
           {/* Top Negative Emotions Detail */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Negative Emotions Analysis
               <div className="my-1 w-65 h-1 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-black to-white opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-out"></div>
@@ -397,7 +397,7 @@ export default function SalesPage() {
           </div>
 
           {/* Peak Emotional Moments */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <MessageSquare className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Peak Emotional Moment
@@ -407,7 +407,7 @@ export default function SalesPage() {
                 </div>
               </h2>
             </div>
-            <div className="bg-[#F5F5F5] rounded-lg p-5 mb-3 border border-[#f1f1f1]">
+            <div className="bg-[#F5F5F5] rounded-lg p-5 mb-3 border border-[#F0F0F0]">
               <div className="flex items-start gap-3 mb-3">
                 <span className="text-xs text-[#58595b] font-mono bg-white px-2 py-1 rounded border border-[#C58E02]">
                   {currentAgent.peakMoment.timestamp}

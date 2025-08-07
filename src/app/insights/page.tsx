@@ -77,7 +77,7 @@ export default function PickupRateDashboard() {
 
           {/* LLM Insights */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Trend Analysis
@@ -122,7 +122,7 @@ export default function PickupRateDashboard() {
               </div>
             </div>
 
-            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Impact Assessment
@@ -166,7 +166,7 @@ export default function PickupRateDashboard() {
               </div>
             </div>
 
-            <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
+            <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Recommendation
@@ -264,7 +264,7 @@ export default function PickupRateDashboard() {
 
 
           {/* 12-Week Trend Chart */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-8">
                 <BarChart3 className="text-[#C58E02]" size={20} />
@@ -325,7 +325,7 @@ export default function PickupRateDashboard() {
                       if (active && payload && payload.length && label) {
                         const data = payload[0].payload;
                         return (
-                          <div className="bg-white border border-[#f1f1f1] rounded-lg p-4 shadow-lg font-quicksand">
+                          <div className="bg-white border border-[#F0F0F0] rounded-lg p-4 shadow-lg font-quicksand">
                             <p className="font-montserrat font-semibold text-[#58595b] mb-3">{label}</p>
                             
                             {/* Monash Data */}
@@ -443,7 +443,7 @@ export default function PickupRateDashboard() {
           </div>
 
           {/* SECTION 4: Statistical Summary */}
-          <div className="group bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-md transition-all duration-200">
+          <div className="group bg-white rounded-lg shadow-sm border border-[#F0F0F0] p-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-6">
               <AlertCircle className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
