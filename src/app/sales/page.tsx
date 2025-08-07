@@ -133,7 +133,7 @@ export default function SalesPage() {
   const negativeEmotions = currentAgent.topEmotions.filter(e => e.negative);
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-brand-white">
       <LeftSidebar />
       
       <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
@@ -153,6 +153,7 @@ export default function SalesPage() {
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                       {card.title}
+                      <div className="my-1 w-32 h-1 bg-gradient-to-r from-black to-white"></div>
                     </h3>
                     <div className="bg-[#EEE4C8] rounded-full p-2">
                       <Icon size={20} className="text-[#C58E02]" />
@@ -220,7 +221,9 @@ export default function SalesPage() {
 
           {/* Top 10 Emotions */}
           <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
-            <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Top 10 Emotions - {currentAgent.name}</h2>
+            <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Top 10 Emotions - {currentAgent.name}
+              <div className="my-1 w-60 h-1 bg-gradient-to-r from-black to-white"></div>
+            </h2>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {currentAgent.topEmotions.map((item: Emotion, index: number) => (
                 <div
@@ -250,7 +253,9 @@ export default function SalesPage() {
           <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="text-[#FF8A00]" size={20} />
-              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Hesitancy Analysis</h2>
+              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Hesitancy Analysis
+                <div className="my-1 w-45 h-1 bg-gradient-to-r from-black to-white"></div>
+              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -297,7 +302,9 @@ export default function SalesPage() {
           <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <Gauge className="text-[#abd5ce]" size={20} />
-              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Speech Pace Analysis</h2>
+              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Speech Pace Analysis
+                <div className="my-1 w-50 h-1 bg-gradient-to-r from-black to-white"></div>
+              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -335,7 +342,9 @@ export default function SalesPage() {
 
           {/* Top Negative Emotions Detail */}
           <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 mb-6 hover:shadow-md transition-all duration-200">
-            <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Negative Emotions Analysis</h2>
+            <h2 className="font-montserrat text-xl font-semibold text-[#58595b] mb-4">Negative Emotions Analysis
+              <div className="my-1 w-65 h-1 bg-gradient-to-r from-black to-white"></div>
+            </h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -376,7 +385,9 @@ export default function SalesPage() {
           <div className="bg-white rounded-lg shadow-sm border border-[#f1f1f1] p-6 hover:shadow-md transition-all duration-200">
             <div className="flex items-center gap-2 mb-4">
               <MessageSquare className="text-[#C58E02]" size={20} />
-              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Peak Emotional Moment</h2>
+              <h2 className="font-montserrat text-xl font-semibold text-[#58595b]">Peak Emotional Moment
+                <div className="my-1 w-60 h-1 bg-gradient-to-r from-black to-white"></div>
+              </h2>
             </div>
             <div className="bg-[#F5F5F5] rounded-lg p-5 mb-3 border border-[#f1f1f1]">
               <div className="flex items-start gap-3 mb-3">

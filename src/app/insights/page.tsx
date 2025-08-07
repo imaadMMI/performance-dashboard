@@ -40,7 +40,7 @@ export default function PickupRateDashboard() {
   const chartData = generateRolling12WeekData();
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-brand-white">
       <LeftSidebar />
       
       <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
@@ -61,7 +61,7 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Trend Analysis
-                  <hr className="my-1 w-30 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-35 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h3>
                 
                 <div className="bg-[#EEE4C8] rounded-full p-2">
@@ -103,7 +103,7 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Impact Assessment
-                  <hr className="my-1 w-45 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-46 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertTriangle size={20} className="text-[#C58E02]" />
@@ -144,7 +144,7 @@ export default function PickupRateDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">
                   Recommendation
-                  <hr className="my-1 w-40 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-42 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h3>
                 <div className="bg-[#EEE4C8] rounded-full p-2">
                   <AlertCircle size={20} className="text-[#C58E02]" />
@@ -189,7 +189,7 @@ export default function PickupRateDashboard() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">Monash Performance
-                  <hr className="my-1 w-48 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-48 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h3>
                 <School className="text-red-500" size={20} />
               </div>
@@ -210,7 +210,7 @@ export default function PickupRateDashboard() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 <h3 className="font-montserrat text-lg font-semibold text-[#58595b]">SOL Performance
-                  <hr className="my-1 w-40 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-40 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h3>
                 <School className="text-blue-500" size={20} />
               </div>
@@ -235,7 +235,7 @@ export default function PickupRateDashboard() {
                 <BarChart3 className="text-[#C58E02]" size={20} />
                 <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                   12-Week Pickup Rate Trend
-                  <hr className="my-1 w-70 border-t-2 border-black m-0"></hr>
+                  <div className="my-1 w-70 h-1 bg-gradient-to-r from-black to-white"></div>
                 </h2>
               </div>
               <div className="flex gap-4 text-sm mb-4">
@@ -377,7 +377,7 @@ export default function PickupRateDashboard() {
               <AlertCircle className="text-[#C58E02]" size={20} />
               <h2 className="font-montserrat text-xl font-bold text-[#58595b]">
                 Statistical Summary
-                <hr className="my-1 w-50 border-t-2 border-black m-0"></hr>
+                <div className="my-1 w-50 h-1 bg-gradient-to-r from-black to-white"></div>
               </h2>
             </div>
 
