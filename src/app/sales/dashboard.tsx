@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { X, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
 import dashboardData from "./dashboard-data.json";
 
 interface ArchetypeChartProps {
@@ -114,8 +114,18 @@ interface ConsultantData {
 export default function Dashboard() {
   const behaviourData = dashboardData.MOL_TP1_2025.impact_on_enrolment_retention;
   const consultantData = dashboardData.MOL_TP1_2025.individual_potential_improvement;
+  const comparisonData = dashboardData.MOL_TP1_2025.support_mechanism_integration_patterns;
   const [selectedBehaviour, setSelectedBehaviour] = useState<BehaviourData | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+  const [selectedBehaviourFilter, setSelectedBehaviourFilter] = useState<string>("all");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  // Calculate dynamic team average from actual consultants (excluding "Team average" entry)
+  const actualConsultants = consultantData.consultants.filter((c: ConsultantData) => c.name !== "Team average");
+  const dynamicTeamAverage = (
+    actualConsultants.reduce((sum: number, consultant: ConsultantData) => 
+      sum + parseFloat(consultant.retention_rate), 0) / actualConsultants.length
+  ).toFixed(1);
   
   return (
     <div className="w-full relative">
@@ -215,7 +225,7 @@ export default function Dashboard() {
           <div className="text-right">
             <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Team Average</p>
             <p className="text-2xl font-bold text-[#FF8A00]">
-              {consultantData.consultants.find((c: ConsultantData) => c.name === "Team average")?.retention_rate || "75.8%"}
+              {dynamicTeamAverage}%
             </p>
           </div>
         </div>
@@ -298,6 +308,131 @@ export default function Dashboard() {
                 })}
             </tbody>
           </table>
+        </div>
+      </div>
+      
+      {/* Enhanced Comparison of Sales Behaviours Patterns Card */}
+      <div 
+        className="bg-white rounded-xl border border-[#F0F0F0] p-8 shadow-sm mt-6"
+        style={{ fontFamily: "'Quicksand', sans-serif" }}
+      >
+        {/* Title Section with Filter */}
+        <div className="mb-6 flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-[#282828] mb-2">
+              Enhanced Comparison of Sales Behaviours Patterns
+            </h1>
+            <p className="text-sm text-[#797A79]">
+              Analyze and compare different behavioural patterns across sales consultations
+            </p>
+          </div>
+          
+          {/* Dropdown Filter */}
+          <div className="ml-6">
+            <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
+              Filter by Behaviour
+            </label>
+            <div className="relative">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full md:w-80 px-4 py-3 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] focus:outline-none focus:border-[#B5DAD4] transition-colors duration-200 flex items-center justify-between"
+            >
+              <span className="text-base text-[#282828]">
+                {selectedBehaviourFilter === "all" 
+                  ? "All Behaviours" 
+                  : behaviourData.behaviours.find(b => b.name === selectedBehaviourFilter)?.name || "Select Behaviour"}
+              </span>
+              <ChevronDown 
+                size={20} 
+                className={`text-[#797A79] transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute z-10 w-full md:w-80 mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
+                <div className="max-h-64 overflow-y-auto">
+                  <button
+                    onClick={() => {
+                      setSelectedBehaviourFilter("all");
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-3 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
+                      selectedBehaviourFilter === "all" ? "bg-[#F5F5F5] font-semibold" : ""
+                    }`}
+                  >
+                    <span className="text-base text-[#282828]">All Behaviours</span>
+                  </button>
+                  {behaviourData.behaviours.map((behaviour: BehaviourData, index: number) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setSelectedBehaviourFilter(behaviour.name);
+                        setIsDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
+                        selectedBehaviourFilter === behaviour.name ? "bg-[#F5F5F5] font-semibold" : ""
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-base text-[#282828]">{behaviour.name}</span>
+                        <span className="text-xs text-[#8BAF20] font-semibold">{behaviour.impact_on_retention}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            </div>
+          </div>
+        </div>
+        
+        {/* Content Area - Comparison Data */}
+        <div className="bg-[#F5F5F5] rounded-lg border border-[#F0F0F0] p-6">
+          {selectedBehaviourFilter === "all" ? (
+            <div className="text-center py-8">
+              <p className="text-[#797A79] text-base">
+                Select a behaviour from the dropdown above to view detailed comparison patterns
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-[#282828] mb-4">
+                Pattern Analysis: {selectedBehaviourFilter}
+              </h3>
+              
+              {/* Display comparison data based on selected behaviour */}
+              <div className="space-y-4">
+                {comparisonData.comparison && comparisonData.comparison.map((item: any, index: number) => (
+                  <div key={index} className="bg-white rounded-lg p-6 border border-[#F0F0F0]">
+                    <div className="flex items-start gap-6">
+                      <div className="flex-shrink-0 w-40">
+                        <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${
+                          item.category === "Enrolled and Retained" ? "bg-[#8BAF20] text-white" :
+                          item.category === "Enrolled Not Retained" ? "bg-[#FF8A00] text-white" :
+                          "bg-[#D84D51] text-white"
+                        }`}>
+                          {item.category}
+                        </span>
+                      </div>
+                      <div className="flex-1 pl-4">
+                        <div className="mb-4">
+                          <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Score Range</p>
+                          <p className="text-sm font-semibold text-[#282828]">{item.score_range}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-[#797A79] uppercase tracking-wide mb-2">Sample Script</p>
+                          <p className="text-sm text-[#282828] italic leading-relaxed">
+                            "{item.consultant_script}"
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       

@@ -148,19 +148,19 @@
       "description": "Effective consultants strategically introduce relevant post-enrollment support services as integral parts of the educational planning process, clearly positioning these resources to address anticipated student needs.",
       "comparison": [
         {
-          "category": "Not_retained",
+          "category": "Not Enrolled",
           "score_range": "1-2",
           "consultant_script": "After enrollment, our Student Coaches can help you develop detailed weekly study schedules that work with your rotating shifts."
         },
         {
-          "category": "No_progression",
+          "category": "Enrolled Not Retained",
           "score_range": "3",
           "consultant_script": "Now the student advisors are available seven days a week, Monday to Friday. They can assist you with information questions, academic skills, study support, research writing, and technical support."
         },
         {
-          "category": "Retained",
+          "category": "Enrolled and Retained",
           "score_range": "4-5",
-          "consultant_script": "Moving forward as well, in terms of the support available to you, you’ll get your dedicated student advisor team who are here to support you. They’re available seven days a week via email, phone, and online learning. They’ll also reach out to you weekly. They will also check in with your learning needs and goals, and they will become a consistent support to you – essentially your teacher and they’ll be your first point of contact to assist with the classroom content and the assessment tasks. They’re also available seven days a week via email and Zoom."
+          "consultant_script": "Moving forward as well, in terms of the support available to you, you'll get your dedicated student advisor team who are here to support you. They're available seven days a week via email, phone, and online learning. They'll also reach out to you weekly. They will also check in with your learning needs and goals, and they will become a consistent support to you – essentially your teacher and they'll be your first point of contact to assist with the classroom content and the assessment tasks. They're also available seven days a week via email and Zoom."
         }
       ]
     }
