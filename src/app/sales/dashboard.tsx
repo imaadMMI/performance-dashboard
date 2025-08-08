@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { X, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 import dashboardData from "./dashboard-data.json";
-import { X } from "lucide-react";
 
 interface ArchetypeChartProps {
   value: number;
@@ -102,9 +102,19 @@ interface BehaviourData {
   description: string;
 }
 
+interface ConsultantData {
+  rank: number;
+  name: string;
+  average_score: number;
+  potential_increase_retention: string;
+  retention_rate: string;
+}
+
 export default function Dashboard() {
-  const data = dashboardData.MOL_TP1_2025.impact_on_enrolment_retention;
+  const behaviourData = dashboardData.MOL_TP1_2025.impact_on_enrolment_retention;
+  const consultantData = dashboardData.MOL_TP1_2025.individual_potential_improvement;
   const [selectedBehaviour, setSelectedBehaviour] = useState<BehaviourData | null>(null);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   
   return (
     <div className="w-full relative">
@@ -125,7 +135,7 @@ export default function Dashboard() {
         
         {/* Behaviour Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8">
-          {data.behaviours.map((behaviour: BehaviourData, index: number) => (
+          {behaviourData.behaviours.map((behaviour: BehaviourData, index: number) => (
             <div
               key={index}
               onClick={() => setSelectedBehaviour(behaviour)}
@@ -168,21 +178,125 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <p className="text-sm text-[#797A79] mb-1">Total Behaviours Tracked</p>
-              <p className="text-2xl font-bold text-[#282828]">{data.behaviours.length}</p>
+              <p className="text-2xl font-bold text-[#282828]">{behaviourData.behaviours.length}</p>
             </div>
             <div>
               <p className="text-sm text-[#797A79] mb-1">Average Impact</p>
               <p className="text-2xl font-bold text-[#8BAF20]">
-                +{(data.behaviours.reduce((acc, b) => acc + b.change_since_last_TP, 0) / data.behaviours.length).toFixed(1)}%
+                +{(behaviourData.behaviours.reduce((acc: number, b: BehaviourData) => acc + b.change_since_last_TP, 0) / behaviourData.behaviours.length).toFixed(1)}%
               </p>
             </div>
             <div>
               <p className="text-sm text-[#797A79] mb-1">Highest Impact</p>
               <p className="text-2xl font-bold text-[#FF8A00]">
-                +{Math.max(...data.behaviours.map(b => b.change_since_last_TP)).toFixed(1)}%
+                +{Math.max(...behaviourData.behaviours.map((b: BehaviourData) => b.change_since_last_TP)).toFixed(1)}%
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Individual Potential Improvement Card */}
+      <div 
+        className="bg-white rounded-xl border border-[#F0F0F0] p-8 shadow-sm mt-6"
+        style={{ fontFamily: "'Quicksand', sans-serif" }}
+      >
+        {/* Title Section */}
+        <div className="mb-6 flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-[#282828] mb-2">
+              Individual Potential Improvement
+            </h1>
+            <p className="text-sm text-[#797A79]">
+              Consultant performance metrics and retention rates
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Team Average</p>
+            <p className="text-2xl font-bold text-[#FF8A00]">
+              {consultantData.consultants.find((c: ConsultantData) => c.name === "Team average")?.retention_rate || "75.8%"}
+            </p>
+          </div>
+        </div>
+        
+        {/* Sort Button */}
+        <div className="mb-4 flex justify-end">
+          <button
+            onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:bg-[#F5F5F5] transition-colors duration-200"
+          >
+            <span className="text-sm font-medium text-[#282828]">
+              Sort by Retention Rate
+            </span>
+            {sortOrder === "desc" ? (
+              <ArrowDown size={16} className="text-[#797A79]" />
+            ) : (
+              <ArrowUp size={16} className="text-[#797A79]" />
+            )}
+          </button>
+        </div>
+        
+        {/* Consultants Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b-2 border-[#F0F0F0]">
+                <th className="text-left py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide">
+                  Rank
+                </th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide">
+                  Consultant Name
+                </th>
+                <th className="text-right py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide">
+                  Retention Rate
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {consultantData.consultants
+                .filter((consultant: ConsultantData) => consultant.name !== "Team average")
+                .sort((a: ConsultantData, b: ConsultantData) => {
+                  const aRate = parseFloat(a.retention_rate);
+                  const bRate = parseFloat(b.retention_rate);
+                  return sortOrder === "desc" ? bRate - aRate : aRate - bRate;
+                })
+                .map((consultant: ConsultantData, index: number) => {
+                  const isTopPerformer = consultant.rank <= 3;
+                  
+                  return (
+                    <tr 
+                      key={index} 
+                      className="border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors duration-200"
+                    >
+                      <td className="py-4 px-4 text-sm text-[#282828]">
+                        #{consultant.rank}
+                      </td>
+                      <td className="py-4 px-4">
+                        <div className="flex items-center gap-3">
+                          {isTopPerformer && (
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#8BAF20] text-white text-xs font-bold">
+                              {consultant.rank}
+                            </span>
+                          )}
+                          <span className="text-base text-[#282828]">
+                            {consultant.name}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 text-right">
+                        <span className={`text-lg font-semibold ${
+                          parseFloat(consultant.retention_rate) >= 85 ? "text-[#8BAF20]" :
+                          parseFloat(consultant.retention_rate) >= 75 ? "text-[#FF8A00]" :
+                          "text-[#D84D51]"
+                        }`}>
+                          {consultant.retention_rate}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
       </div>
       
