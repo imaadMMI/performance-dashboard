@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
 import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare } from "lucide-react";
+import Dashboard from "./dashboard";
 
 interface Emotion {
   emotion: string;
@@ -37,7 +38,7 @@ interface AgentInfo {
   peakMoment: PeakMomentData;
 }
 
-export default function SalesPage() {
+function LLMInsights() {
   const [selectedAgent, setSelectedAgent] = useState<"james" | "elisha">("james");
   
   const insightCards = [
@@ -133,11 +134,7 @@ export default function SalesPage() {
   const negativeEmotions = currentAgent.topEmotions.filter(e => e.negative);
 
   return (
-    <div className="flex h-screen bg-brand-white">
-      <LeftSidebar />
-      
-      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
-        <div className="mb-8">
+    <div className="w-full">
           <h1 className="font-montserrat font-bold text-3xl lg:text-4xl text-[#58595b] mb-8">
             LLM insights
           </h1>
@@ -441,6 +438,45 @@ export default function SalesPage() {
               </span>
             </p>
           </div>
+    </div>
+  );
+}
+
+export default function SalesPage() {
+  const [activeView, setActiveView] = useState<"llm" | "dashboard">("llm");
+
+  return (
+    <div className="flex h-screen bg-brand-white">
+      <LeftSidebar />
+      
+      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
+        {/* Toggle Buttons */}
+        <div className="mb-6 flex gap-2">
+          <button
+            onClick={() => setActiveView("llm")}
+            className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+              activeView === "llm"
+                ? "bg-[#C58E02] text-white shadow-md"
+                : "bg-white border border-[#C58E02] text-[#C58E02] hover:bg-[#C58E02] hover:text-white"
+            }`}
+          >
+            LLM Insights
+          </button>
+          <button
+            onClick={() => setActiveView("dashboard")}
+            className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+              activeView === "dashboard"
+                ? "bg-[#C58E02] text-white shadow-md"
+                : "bg-white border border-[#C58E02] text-[#C58E02] hover:bg-[#C58E02] hover:text-white"
+            }`}
+          >
+            Dashboard
+          </button>
+        </div>
+
+        {/* Content based on active view */}
+        <div className="mb-8">
+          {activeView === "llm" ? <LLMInsights /> : <Dashboard />}
         </div>
       </main>
     </div>

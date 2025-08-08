@@ -1,0 +1,149 @@
+{
+  "MOL_TP1_2025": {
+    "impact_on_enrolment_retention": {
+      "behaviours": [
+        {
+          "name": "Artificial Urgency Creation",
+          "impact_on_retention": "+16.5%",
+          "change_since_last_TP": 16.5,
+          "description": "Creating a sense of urgency to encourage immediate action from students."
+        },
+        {
+          "name": "Support Mechanism Integration",
+          "impact_on_retention": "+16.5%",
+          "change_since_last_TP": 16.5,
+          "description": "Integrating support mechanisms into the educational planning process to enhance student retention."
+        },
+        {
+          "name": "Excessive Promise-Making",
+          "impact_on_retention": "+12.6%",
+          "change_since_last_TP": 12.6,
+          "description": "Making promises that may not be fulfilled, which can lead to student dissatisfaction."
+        },
+        {
+          "name": "Value Proposition Articulation",
+          "impact_on_retention": "+12.4%",
+          "change_since_last_TP": 12.4,
+          "description": "Clearly articulating the value proposition to students to enhance their understanding and commitment."
+        },
+        {
+          "name": "Adaptive Communication Style",
+          "impact_on_retention": "+12.4%",
+          "change_since_last_TP": 12.4,
+          "description": "Adapting communication styles to better connect with students and meet their needs."
+        },
+        {
+          "name": "Value Proposition Reinforcement Response",
+          "impact_on_retention": "+12.1%",
+          "change_since_last_TP": 12.1,
+          "description": "Reinforcing the value proposition in response to student inquiries or concerns."
+        },
+        {
+          "name": "Adaptive Collaboration Style",
+          "impact_on_retention": "+12.1%",
+          "change_since_last_TP": 12.1,
+          "description": "Collaborating with students in a way that adapts to their individual needs and preferences."
+        },
+        {
+          "name": "Responsive Adaptability",
+          "impact_on_retention": "+11.8%",
+          "change_since_last_TP":  11.8,
+          "description": "Being responsive and adaptable to changing student needs and circumstances."
+        }
+      ]
+    },
+    "individual_potential_improvement": {
+      "team_average_score": 2.5,
+      "team_average_retention_potential": "70.11%",
+      "consultants": [
+        {
+          "rank": 1,
+          "name": "Michael Whyte",
+          "average_score": 1.2,
+          "potential_increase_retention": "116.50%"
+        },
+        {
+          "rank": 2,
+          "name": "Michael Bosman",
+          "average_score": 1.8,
+          "potential_increase_retention": "98.70%"
+        },
+        {
+          "rank": 3,
+          "name": "Mrudang Pancholi",
+          "average_score": 1.5,
+          "potential_increase_retention": "90.60%"
+        },
+        {
+          "rank": 4,
+          "name": "Alyssa Pennacchia",
+          "average_score": 1.3,
+          "potential_increase_retention": "89.80%"
+        },
+        {
+          "rank": 5,
+          "name": "Elisha Odhiambo",
+          "average_score": 2.3,
+          "potential_increase_retention": "85.50%"
+        },
+        {
+          "rank": 6,
+          "name": "Pawan Thapa",
+          "average_score": 2.4,
+          "potential_increase_retention": "79.30%"
+        },
+        {
+          "rank": 7,
+          "name": "Team average",
+          "average_score": 2.5,
+          "potential_increase_retention": "70.11%"
+        },
+        {
+          "rank": 8,
+          "name": "James Lockie",
+          "average_score": 3.2,
+          "potential_increase_retention": "56.60%"
+        },
+        {
+          "rank": 9,
+          "name": "Luke Williams",
+          "average_score": 2.7,
+          "potential_increase_retention": "47.20%"
+        },
+        {
+          "rank": 10,
+          "name": "Tayla Viglione",
+          "average_score": 3.7,
+          "potential_increase_retention": "34.30%"
+        },
+        {
+          "rank": 11,
+          "name": "Ramon Keane",
+          "average_score": 4.7,
+          "potential_increase_retention": "2.60%"
+        }
+      ]
+    },
+    "support_mechanism_integration_patterns": {
+      "pattern": "Post-Enrollment Support Service Introduction",
+      "description": "Effective consultants strategically introduce relevant post-enrollment support services as integral parts of the educational planning process, clearly positioning these resources to address anticipated student needs.",
+      "comparison": [
+        {
+          "category": "Not_retained",
+          "score_range": "1-2",
+          "consultant_script": "After enrollment, our Student Coaches can help you develop detailed weekly study schedules that work with your rotating shifts."
+        },
+        {
+          "category": "No_progression",
+          "score_range": "3",
+          "consultant_script": "Now the student advisors are available seven days a week, Monday to Friday. They can assist you with information questions, academic skills, study support, research writing, and technical support."
+        },
+        {
+          "category": "Retained",
+          "score_range": "4-5",
+          "consultant_script": "Moving forward as well, in terms of the support available to you, you’ll get your dedicated student advisor team who are here to support you. They’re available seven days a week via email, phone, and online learning. They’ll also reach out to you weekly. They will also check in with your learning needs and goals, and they will become a consistent support to you – essentially your teacher and they’ll be your first point of contact to assist with the classroom content and the assessment tasks. They’re also available seven days a week via email and Zoom."
+        }
+      ]
+    }
+  }
+}

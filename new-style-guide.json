@@ -1,0 +1,385 @@
+# Comprehensive JSON Style Guide for Sentiment AI Dashboard UI
+
+json
+{
+  "styleGuide": {
+    "brand": {
+      "name": "Sentiment AI Student Intelligence Dashboard",
+      "version": "1.0.0",
+      "lastUpdated": "2024"
+    },
+    
+    "aesthetic": {
+      "description": "Clean, professional, and data-focused design with humanistic touches. Emphasizes clarity through generous whitespace, subtle borders, and a restrained color palette that aids comprehension without overwhelming. The design balances analytical precision with approachability through soft rounded elements and thoughtful typography.",
+      "principles": [
+        "Minimal visual noise - no shadows, only subtle borders",
+        "Information hierarchy through size and weight, not excessive color",
+        "Humanistic data presentation with profile photos and quotes",
+        "Card-based modular architecture for scalable information display",
+        "Progressive disclosure - summary to detail",
+        "Consistent visual rhythm through systematic spacing"
+      ]
+    },
+    
+    "colors": {
+      "primary": {
+        "green": "#8BAF20",
+        "orange": "#FF8A00",
+        "blue": "#B5DAD4"
+      },
+      "semantic": {
+        "success": "#8BAF20",
+        "warning": "#FF8A00",
+        "error": "#D84D51",
+        "info": "#B5DAD4"
+      },
+      "neutral": {
+        "black": "#282828",
+        "darkGrey": "#797A79",
+        "mediumGrey": "#A0A0A0",
+        "lightGrey": "#F0F0F0",
+        "backgroundGrey": "#F5F5F5",
+        "white": "#FFFFFF"
+      },
+      "text": {
+        "primary": "#282828",
+        "secondary": "#797A79",
+        "disabled": "#A0A0A0",
+        "inverse": "#FFFFFF"
+      },
+      "backgrounds": {
+        "primary": "#FFFFFF",
+        "sidebar": "#F5F5F5",
+        "card": "#FFFFFF",
+        "hover": "#FAFAFA"
+      },
+      "borders": {
+        "default": "#F0F0F0",
+        "focus": "#B5DAD4",
+        "error": "#D84D51"
+      }
+    },
+    
+    "typography": {
+      "fontFamily": {
+        "primary": "'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "monospace": "'SF Mono', Monaco, 'Courier New', monospace"
+      },
+      "fontSize": {
+        "xxs": "10px",
+        "xs": "12px",
+        "sm": "14px",
+        "base": "16px",
+        "lg": "18px",
+        "xl": "20px",
+        "xxl": "24px",
+        "xxxl": "32px",
+        "display": "48px"
+      },
+      "fontWeight": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeight": {
+        "tight": 1.2,
+        "base": 1.5,
+        "relaxed": 1.75
+      },
+      "letterSpacing": {
+        "tight": "-0.02em",
+        "normal": "0",
+        "wide": "0.02em"
+      }
+    },
+    
+    "spacing": {
+      "scale": {
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "6": "24px",
+        "7": "32px",
+        "8": "40px",
+        "9": "48px",
+        "10": "56px",
+        "11": "64px",
+        "12": "80px"
+      },
+      "components": {
+        "cardPadding": "24px",
+        "sectionMargin": "32px",
+        "containerPadding": "40px",
+        "sidebarWidth": "280px",
+        "gridGap": "20px"
+      }
+    },
+    
+    "borderRadius": {
+      "none": "0px",
+      "sm": "4px",
+      "base": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "24px",
+      "full": "9999px"
+    },
+    
+    "borders": {
+      "width": {
+        "none": "0px",
+        "thin": "1px",
+        "base": "2px",
+        "thick": "3px"
+      },
+      "style": "solid",
+      "defaultColor": "#F0F0F0"
+    },
+    
+    "shadows": {
+      "none": "none",
+      "card": "none",
+      "dropdown": "0 2px 8px rgba(40, 40, 40, 0.08)",
+      "modal": "0 4px 16px rgba(40, 40, 40, 0.12)"
+    },
+    
+    "components": {
+      "card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #F0F0F0",
+        "borderRadius": "12px",
+        "padding": "24px",
+        "marginBottom": "20px",
+        "shadow": "none"
+      },
+      
+      "profileImage": {
+        "size": {
+          "sm": "40px",
+          "md": "60px",
+          "lg": "80px",
+          "xl": "120px"
+        },
+        "borderRadius": "full",
+        "border": "2px solid #F0F0F0"
+      },
+      
+      "progressIndicator": {
+        "size": "80px",
+        "strokeWidth": "6px",
+        "backgroundColor": "#F0F0F0",
+        "fontSize": "20px",
+        "fontWeight": "600"
+      },
+      
+      "stat": {
+        "labelColor": "#797A79",
+        "labelSize": "14px",
+        "valueColor": "#282828",
+        "valueSize": "24px",
+        "valueWeight": "600",
+        "spacing": "8px"
+      },
+      
+      "button": {
+        "height": {
+          "sm": "32px",
+          "md": "40px",
+          "lg": "48px"
+        },
+        "padding": {
+          "sm": "8px 16px",
+          "md": "10px 20px",
+          "lg": "12px 24px"
+        },
+        "borderRadius": "8px",
+        "fontSize": {
+          "sm": "14px",
+          "md": "16px",
+          "lg": "18px"
+        },
+        "fontWeight": "500"
+      },
+      
+      "tag": {
+        "padding": "4px 12px",
+        "borderRadius": "full",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "backgroundColor": "#F5F5F5",
+        "color": "#282828"
+      },
+      
+      "navigation": {
+        "sidebar": {
+          "width": "280px",
+          "background": "#F5F5F5",
+          "padding": "24px",
+          "itemHeight": "48px",
+          "itemPadding": "12px 16px",
+          "itemBorderRadius": "8px",
+          "activeBackground": "#FFFFFF",
+          "activeBorder": "2px solid #B5DAD4"
+        },
+        "tabs": {
+          "height": "48px",
+          "padding": "0 20px",
+          "gap": "32px",
+          "borderBottom": "1px solid #F0F0F0",
+          "activeIndicator": "2px solid #FF8A00"
+        }
+      },
+      
+      "quote": {
+        "fontSize": "14px",
+        "lineHeight": "1.6",
+        "fontStyle": "italic",
+        "color": "#797A79",
+        "quotationMarks": true,
+        "padding": "16px",
+        "borderLeft": "3px solid #B5DAD4"
+      }
+    },
+    
+    "layout": {
+      "grid": {
+        "columns": {
+          "mobile": "1",
+          "tablet": "2",
+          "desktop": "3",
+          "wide": "4"
+        },
+        "gap": "20px"
+      },
+      "container": {
+        "maxWidth": "1440px",
+        "padding": {
+          "mobile": "16px",
+          "tablet": "24px",
+          "desktop": "40px"
+        }
+      },
+      "sidebar": {
+        "width": "280px",
+        "collapsedWidth": "80px"
+      },
+      "header": {
+        "height": "72px",
+        "padding": "0 40px"
+      }
+    },
+    
+    "breakpoints": {
+      "xs": "375px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "xxl": "1536px"
+    },
+    
+    "animation": {
+      "duration": {
+        "instant": "0ms",
+        "fast": "150ms",
+        "normal": "250ms",
+        "slow": "350ms"
+      },
+      "easing": {
+        "linear": "linear",
+        "ease": "ease",
+        "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+        "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+        "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+      }
+    },
+    
+    "interactions": {
+      "hover": {
+        "card": {
+          "background": "#FAFAFA",
+          "border": "1px solid #E0E0E0",
+          "transition": "all 250ms ease"
+        },
+        "button": {
+          "opacity": "0.9",
+          "transform": "translateY(-1px)"
+        },
+        "link": {
+          "color": "#FF8A00",
+          "textDecoration": "underline"
+        }
+      },
+      "focus": {
+        "outline": "2px solid #B5DAD4",
+        "outlineOffset": "2px"
+      },
+      "active": {
+        "transform": "scale(0.98)"
+      }
+    },
+    
+    "icons": {
+      "size": {
+        "xs": "16px",
+        "sm": "20px",
+        "md": "24px",
+        "lg": "32px",
+        "xl": "40px"
+      },
+      "strokeWidth": "2px",
+      "color": {
+        "default": "#797A79",
+        "active": "#282828"
+      }
+    },
+    
+    "dataVisualization": {
+      "colors": {
+        "primary": ["#8BAF20", "#FF8A00", "#B5DAD4", "#D84D51"],
+        "extended": ["#8BAF20", "#FF8A00", "#B5DAD4", "#D84D51", "#797A79", "#282828"]
+      },
+      "chart": {
+        "height": {
+          "sm": "200px",
+          "md": "300px",
+          "lg": "400px"
+        },
+        "padding": "20px",
+        "gridColor": "#F0F0F0",
+        "axisColor": "#797A79"
+      }
+    }
+  }
+}
+
+
+## Aesthetic Description
+
+The Sentiment AI dashboard embodies a *"Analytical Humanism"* design philosophy - a sophisticated balance between data-driven precision and human-centered storytelling. Key characteristics include:
+
+### Visual Philosophy
+- *Restraint over excess*: No drop shadows, only subtle single-pixel borders create definition
+- *Information clarity*: White space is used generously to let data breathe and create clear visual hierarchy
+- *Human touch*: Profile photos and personal quotes maintain connection to individual stories within data
+- *Modular consistency*: Card-based architecture creates predictable, scannable information patterns
+
+### Layout Conventions
+1. *Three-zone architecture*: Left navigation (280px) → Main content area → Right contextual panel
+2. *Consistent card spacing*: 20px gaps between cards, 24px internal padding
+3. *Visual rhythm*: Repeating patterns of image → stats → quote create scannable layouts
+4. *Progressive disclosure*: Overview stats → Detailed archetypes → Individual behaviors
+5. *Responsive grid*: 4-column base grid that collapses gracefully on smaller screens
+
+### Spacing Principles
+- *8-point grid system*: All spacing increments in multiples of 8px for visual consistency
+- *Generous breathing room*: 40px container padding, 32px between major sections
+- *Tight component grouping*: Related elements within 8-16px of each other
+- *Hierarchical spacing*: Larger gaps between sections than between related items
+
+This design system prioritizes *cognitive ease* and *decision confidence* through clear information architecture, while maintaining the human element essential to Sentiment AI's mission of understanding human interactions.
