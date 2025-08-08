@@ -6,49 +6,57 @@
           "name": "Artificial Urgency Creation",
           "impact_on_retention": "+16.5%",
           "change_since_last_TP": 16.5,
-          "description": "Creating a sense of urgency to encourage immediate action from students."
+          "description": "Creating a sense of urgency to encourage immediate action from students.",
+          "tags": ["consultation", "high risk archetype 3"]
         },
         {
           "name": "Support Mechanism Integration",
           "impact_on_retention": "+16.5%",
           "change_since_last_TP": 16.5,
-          "description": "Integrating support mechanisms into the educational planning process to enhance student retention."
+          "description": "Integrating support mechanisms into the educational planning process to enhance student retention.",
+          "tags": ["enrollment", "successful archetype 7"]
         },
         {
           "name": "Excessive Promise-Making",
           "impact_on_retention": "+12.6%",
           "change_since_last_TP": 12.6,
-          "description": "Making promises that may not be fulfilled, which can lead to student dissatisfaction."
+          "description": "Making promises that may not be fulfilled, which can lead to student dissatisfaction.",
+          "tags": ["consultation", "high risk archetype 5"]
         },
         {
           "name": "Value Proposition Articulation",
           "impact_on_retention": "+12.4%",
           "change_since_last_TP": 12.4,
-          "description": "Clearly articulating the value proposition to students to enhance their understanding and commitment."
+          "description": "Clearly articulating the value proposition to students to enhance their understanding and commitment.",
+          "tags": ["enrollment", "successful archetype 2"]
         },
         {
           "name": "Adaptive Communication Style",
           "impact_on_retention": "+12.4%",
           "change_since_last_TP": 12.4,
-          "description": "Adapting communication styles to better connect with students and meet their needs."
+          "description": "Adapting communication styles to better connect with students and meet their needs.",
+          "tags": ["consultation", "successful archetype 4"]
         },
         {
           "name": "Value Proposition Reinforcement Response",
           "impact_on_retention": "+12.1%",
           "change_since_last_TP": 12.1,
-          "description": "Reinforcing the value proposition in response to student inquiries or concerns."
+          "description": "Reinforcing the value proposition in response to student inquiries or concerns.",
+          "tags": ["enrollment", "successful archetype 6"]
         },
         {
           "name": "Adaptive Collaboration Style",
           "impact_on_retention": "+12.1%",
           "change_since_last_TP": 12.1,
-          "description": "Collaborating with students in a way that adapts to their individual needs and preferences."
+          "description": "Collaborating with students in a way that adapts to their individual needs and preferences.",
+          "tags": ["consultation", "successful archetype 1"]
         },
         {
           "name": "Responsive Adaptability",
           "impact_on_retention": "+11.8%",
           "change_since_last_TP":  11.8,
-          "description": "Being responsive and adaptable to changing student needs and circumstances."
+          "description": "Being responsive and adaptable to changing student needs and circumstances.",
+          "tags": ["enrollment", "high risk archetype 8"]
         }
       ]
     },

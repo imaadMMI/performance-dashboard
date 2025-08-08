@@ -100,6 +100,7 @@ interface BehaviourData {
   impact_on_retention: string;
   change_since_last_TP: number;
   description: string;
+  tags: string[];
 }
 
 interface ConsultantData {
@@ -316,9 +317,9 @@ export default function Dashboard() {
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-[#282828]">
-                  Qualitative Data
+                  {selectedBehaviour.name}
                 </h2>
                 <button
                   onClick={() => setSelectedBehaviour(null)}
@@ -328,18 +329,40 @@ export default function Dashboard() {
                 </button>
               </div>
               
-              {/* Behaviour Name */}
+              {/* Metrics and Tags */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-[#282828] mb-2">
-                  {selectedBehaviour.name}
-                </h3>
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-4 mb-3">
                   <span className="text-sm text-[#797A79]">
                     Impact: <span className="font-semibold text-[#282828]">{selectedBehaviour.impact_on_retention}</span>
                   </span>
                   <span className="text-sm text-[#797A79]">
                     Change: <span className="font-semibold text-[#8BAF20]">+{selectedBehaviour.change_since_last_TP}%</span>
                   </span>
+                </div>
+                
+                {/* Tags */}
+                <div className="flex items-center gap-2 mb-4">
+                  {selectedBehaviour.tags && selectedBehaviour.tags.map((tag, index) => {
+                    const isConsultation = tag === "consultation";
+                    const isEnrollment = tag === "enrollment";
+                    const isSuccessful = tag.includes("successful");
+                    const isHighRisk = tag.includes("high risk");
+                    
+                    return (
+                      <span
+                        key={index}
+                        className={`inline-flex px-3 py-1 rounded-full text-xs font-medium capitalize ${
+                          isConsultation ? "bg-[#B5DAD4] text-[#282828] border border-[#B5DAD4]" :
+                          isEnrollment ? "bg-[#FF8A00] text-white" :
+                          isSuccessful ? "bg-[#8BAF20] text-white" :
+                          isHighRisk ? "bg-[#D84D51] text-white" :
+                          "bg-[#F5F5F5] text-[#282828] border border-[#F0F0F0]"
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
               
@@ -351,16 +374,6 @@ export default function Dashboard() {
                 <p className="text-base text-[#282828] leading-relaxed">
                   {selectedBehaviour.description}
                 </p>
-              </div>
-              
-              {/* Close Button */}
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={() => setSelectedBehaviour(null)}
-                  className="px-6 py-2 bg-[#8BAF20] text-white rounded-lg font-medium hover:bg-[#7A9E1B] transition-colors"
-                >
-                  Close
-                </button>
               </div>
             </div>
           </div>
