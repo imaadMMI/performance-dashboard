@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
 import dashboardData from "./dashboard-data.json";
+import behavioralData from "./jason-schema.json";
 
 interface ArchetypeChartProps {
   value: number;
@@ -95,12 +96,43 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
   );
 };
 
-interface BehaviourData {
-  name: string;
-  impact_on_retention: string;
-  change_since_last_TP: number;
-  description: string;
-  tags: string[];
+
+interface BehavioralFeature {
+  taxonomy_info: {
+    title: string;
+    description: string;
+    identification_guidance: string;
+    examples: string[];
+  };
+  meta_analysis_metrics: {
+    overall_confidence: string;
+    weighted_effect_size: number;
+    effect_size_percentage: string;
+    sample_size: {
+      students_with_behavior: number;
+      students_without_behavior: number;
+      total_sample_size: number;
+    };
+    retention_rates: {
+      retention_with_behavior: number;
+      retention_without_behavior: number;
+      retention_with_behavior_percentage: string;
+      retention_without_behavior_percentage: string;
+    };
+    retention_with_behavior_percentage?: string;
+    retention_without_behavior_percentage?: string;
+    evidence_strength: {
+      total_significant_findings: number;
+      datasets_found: number;
+      combined_p_value: number;
+    };
+  };
+}
+
+interface QuoteExample {
+  quote: string;
+  context: string;
+  consultant_id: string;
 }
 
 interface ConsultantData {
@@ -112,13 +144,17 @@ interface ConsultantData {
 }
 
 export default function Dashboard() {
-  const behaviourData = dashboardData.MOL_TP1_2025.impact_on_enrolment_retention;
   const consultantData = dashboardData.MOL_TP1_2025.individual_potential_improvement;
-  const comparisonData = dashboardData.MOL_TP1_2025.support_mechanism_integration_patterns;
-  const [selectedBehaviour, setSelectedBehaviour] = useState<BehaviourData | null>(null);
+  
+  // Get behavioral features from jason-schema.json
+  const behavioralFeatures = behavioralData.overall_behavioral_effects as Record<string, BehavioralFeature>;
+  const exampleQuotes = behavioralData.example_quotes as Record<string, { feature_title: string; quotes_by_outcome: Record<string, QuoteExample[]> }>;
+  
+  const [selectedBehaviour, setSelectedBehaviour] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [selectedBehaviourFilter, setSelectedBehaviourFilter] = useState<string>("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [modalDataType, setModalDataType] = useState<"qualitative" | "quantitative">("qualitative");
   
   // Calculate dynamic team average from actual consultants (excluding "Team average" entry)
   const actualConsultants = consultantData.consultants.filter((c: ConsultantData) => c.name !== "Team average");
@@ -145,62 +181,77 @@ export default function Dashboard() {
         </div>
         
         {/* Behaviour Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8">
-          {behaviourData.behaviours.map((behaviour: BehaviourData, index: number) => (
-            <div
-              key={index}
-              onClick={() => setSelectedBehaviour(behaviour)}
-              className="group bg-[#F5F5F5] rounded-xl border border-[#F0F0F0] p-6 hover:shadow-md hover:border-[#E0E0E0] hover:bg-white transition-all duration-[250ms] cursor-pointer"
-            >
-              {/* Behaviour Name */}
-              <h3 className="text-base font-semibold text-[#282828] mb-6 leading-relaxed min-h-[48px]">
-                {behaviour.name}
-              </h3>
-              
-              {/* Chart and Impact Value */}
-              <div className="flex items-center justify-between">
-                <ArchetypeChart 
-                  value={behaviour.change_since_last_TP}
-                  size={80}
-                  strokeWidth={6}
-                  primaryColor={behaviour.change_since_last_TP > 15 ? "#FF8A00" : "#8BAF20"}
-                  backgroundColor="#F0F0F0"
-                  fontSize="18px"
-                  fontWeight="600"
-                />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-8">
+          {Object.entries(behavioralFeatures).slice(0, 10).map(([key, feature]) => {
+            const effectSize = feature.meta_analysis_metrics.weighted_effect_size * 100;
+            
+            return (
+              <div
+                key={key}
+                onClick={() => setSelectedBehaviour(key)}
+                className="group bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer"
+              >
+                {/* Impact Level Badge */}
+                <div className="flex justify-center mb-3">
+                  <span className={`inline-flex px-2 py-1 rounded-full text-[10px] font-medium uppercase tracking-wide ${
+                    effectSize > 35 ? "bg-[#8BAF20] text-white" : 
+                    effectSize > 25 ? "bg-[#FF8A00] text-white" : 
+                    "bg-[#D84D51] text-white"
+                  }`}>
+                    {effectSize > 35 ? "High" : effectSize > 25 ? "Moderate" : "Low"}
+                  </span>
+                </div>
                 
-                <div className="text-right">
-                  <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">
-                    Impact
-                  </p>
-                  <p className="text-xl font-bold text-[#282828]">
-                    {behaviour.impact_on_retention}
-                  </p>
+                {/* Behaviour Name */}
+                <h3 className="text-sm font-semibold text-[#282828] mb-4 text-center leading-relaxed min-h-[40px]">
+                  {feature.taxonomy_info.title}
+                </h3>
+                
+                {/* Chart Only */}
+                <div className="flex justify-center">
+                  <ArchetypeChart 
+                    value={effectSize}
+                    size={72}
+                    strokeWidth={6}
+                    primaryColor={effectSize > 35 ? "#8BAF20" : effectSize > 25 ? "#FF8A00" : "#D84D51"}
+                    backgroundColor="#F0F0F0"
+                    fontSize="16px"
+                    fontWeight="600"
+                  />
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Summary Statistics */}
         <div 
-          className="bg-[#F5F5F5] rounded-xl border border-[#F0F0F0] p-6"
+          className="bg-[#F5F5F5] rounded-xl border border-[#F0F0F0] p-8"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <p className="text-sm text-[#797A79] mb-1">Total Behaviours Tracked</p>
-              <p className="text-2xl font-bold text-[#282828]">{behaviourData.behaviours.length}</p>
+          <div className="flex justify-around items-center">
+            <div className="text-center">
+              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Behaviors Analyzed</p>
+              <p className="text-3xl font-bold text-[#282828]">{Object.keys(behavioralFeatures).length}</p>
             </div>
-            <div>
-              <p className="text-sm text-[#797A79] mb-1">Average Impact</p>
-              <p className="text-2xl font-bold text-[#8BAF20]">
-                +{(behaviourData.behaviours.reduce((acc: number, b: BehaviourData) => acc + b.change_since_last_TP, 0) / behaviourData.behaviours.length).toFixed(1)}%
+            <div className="text-center">
+              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Average Impact</p>
+              <p className="text-3xl font-bold text-[#8BAF20]">
+                +{(Object.values(behavioralFeatures).reduce((acc, f) => 
+                  acc + f.meta_analysis_metrics.weighted_effect_size * 100, 0) / Object.keys(behavioralFeatures).length).toFixed(1)}%
               </p>
             </div>
-            <div>
-              <p className="text-sm text-[#797A79] mb-1">Highest Impact</p>
-              <p className="text-2xl font-bold text-[#FF8A00]">
-                +{Math.max(...behaviourData.behaviours.map((b: BehaviourData) => b.change_since_last_TP)).toFixed(1)}%
+            <div className="text-center">
+              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Highest Impact</p>
+              <p className="text-3xl font-bold text-[#8BAF20]">
+                +{Math.max(...Object.values(behavioralFeatures).map(f => 
+                  f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Lowest Impact</p>
+              <p className="text-3xl font-bold text-[#D84D51]">
+                +{Math.min(...Object.values(behavioralFeatures).map(f => 
+                  f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
               </p>
             </div>
           </div>
@@ -320,10 +371,10 @@ export default function Dashboard() {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h1 className="text-2xl font-bold text-[#282828] mb-2">
-              Enhanced Comparison of Sales Behaviours Patterns
+              Behavioral Pattern Examples
             </h1>
             <p className="text-sm text-[#797A79]">
-              Analyze and compare different behavioural patterns across sales consultations
+              Real consultant quotes demonstrating behavioral patterns and their outcomes
             </p>
           </div>
           
@@ -340,7 +391,7 @@ export default function Dashboard() {
               <span className="text-base text-[#282828]">
                 {selectedBehaviourFilter === "all" 
                   ? "All Behaviours" 
-                  : behaviourData.behaviours.find(b => b.name === selectedBehaviourFilter)?.name || "Select Behaviour"}
+                  : behavioralFeatures[selectedBehaviourFilter]?.taxonomy_info?.title || "Select Behaviour"}
               </span>
               <ChevronDown 
                 size={20} 
@@ -363,20 +414,20 @@ export default function Dashboard() {
                   >
                     <span className="text-base text-[#282828]">All Behaviours</span>
                   </button>
-                  {behaviourData.behaviours.map((behaviour: BehaviourData, index: number) => (
+                  {Object.entries(behavioralFeatures).map(([key, feature]) => (
                     <button
-                      key={index}
+                      key={key}
                       onClick={() => {
-                        setSelectedBehaviourFilter(behaviour.name);
+                        setSelectedBehaviourFilter(key);
                         setIsDropdownOpen(false);
                       }}
                       className={`w-full px-4 py-3 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
-                        selectedBehaviourFilter === behaviour.name ? "bg-[#F5F5F5] font-semibold" : ""
+                        selectedBehaviourFilter === key ? "bg-[#F5F5F5] font-semibold" : ""
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-base text-[#282828]">{behaviour.name}</span>
-                        <span className="text-xs text-[#8BAF20] font-semibold">{behaviour.impact_on_retention}</span>
+                        <span className="text-base text-[#282828]">{feature.taxonomy_info.title}</span>
+                        <span className="text-xs text-[#8BAF20] font-semibold">{feature.meta_analysis_metrics.effect_size_percentage}</span>
                       </div>
                     </button>
                   ))}
@@ -392,54 +443,122 @@ export default function Dashboard() {
           {selectedBehaviourFilter === "all" ? (
             <div className="text-center py-8">
               <p className="text-[#797A79] text-base">
-                Select a behaviour from the dropdown above to view detailed comparison patterns
+                Select a behaviour from the dropdown above to view real consultant examples
               </p>
             </div>
-          ) : (
+          ) : exampleQuotes[selectedBehaviourFilter] ? (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-[#282828] mb-4">
-                Pattern Analysis: {selectedBehaviourFilter}
-              </h3>
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-[#282828] mb-2">
+                  {exampleQuotes[selectedBehaviourFilter].feature_title}
+                </h3>
+                <p className="text-sm text-[#797A79]">
+                  {behavioralFeatures[selectedBehaviourFilter]?.taxonomy_info?.description}
+                </p>
+              </div>
               
-              {/* Display comparison data based on selected behaviour */}
+              {/* Display real quotes from JSON */}
               <div className="space-y-4">
-                {comparisonData.comparison && comparisonData.comparison.map((item: any, index: number) => (
-                  <div key={index} className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 ${
-                    item.category === "Enrolled and Retained" ? "border-l-[#8BAF20]" :
-                    item.category === "Enrolled Not Retained" ? "border-l-[#FF8A00]" :
-                    "border-l-[#D84D51]"
-                  }`}>
-                    {/* Header with Category and Score Range */}
+                {/* Enrolled and Retained Examples */}
+                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained && 
+                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.length > 0 && (
+                  <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#8BAF20]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
                       <div className="flex items-center justify-between">
                         <h4 className="text-lg font-semibold text-[#282828]">
-                          {item.category}
+                          Enrolled and Retained
                         </h4>
-                        <div className="text-right">
-                          <p className="text-xs text-[#797A79] uppercase tracking-wide">Score Range</p>
-                          <p className="text-sm font-bold text-[#282828]">{item.score_range}</p>
-                        </div>
+                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#8BAF20] text-white">
+                          BEST PRACTICE
+                        </span>
                       </div>
                     </div>
-                    
-                    {/* Content with Sample Script */}
-                    <div className="p-6">
-                      <div>
-                        <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
-                          "{item.consultant_script}"
-                        </p>
-                      </div>
+                    <div className="p-6 space-y-4">
+                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.map((quote: QuoteExample, idx: number) => (
+                        <div key={idx}>
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                            &ldquo;{quote.quote}&rdquo;
+                          </p>
+                          <p className="text-xs text-[#797A79]">
+                            Context: {quote.context}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+                )}
+                
+                {/* Enrolled Not Retained Examples */}
+                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained && 
+                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.length > 0 && (
+                  <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#FF8A00]`}>
+                    <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-semibold text-[#282828]">
+                          Enrolled Not Retained
+                        </h4>
+                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#FF8A00] text-white">
+                          NEEDS IMPROVEMENT
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6 space-y-4">
+                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.map((quote: QuoteExample, idx: number) => (
+                        <div key={idx}>
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                            &ldquo;{quote.quote}&rdquo;
+                          </p>
+                          <p className="text-xs text-[#797A79]">
+                            Context: {quote.context}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Not Enrolled Examples */}
+                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled && 
+                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.length > 0 && (
+                  <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#D84D51]`}>
+                    <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-semibold text-[#282828]">
+                          Not Enrolled
+                        </h4>
+                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#D84D51] text-white">
+                          AVOID
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6 space-y-4">
+                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.map((quote: QuoteExample, idx: number) => (
+                        <div key={idx}>
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                            &ldquo;{quote.quote}&rdquo;
+                          </p>
+                          <p className="text-xs text-[#797A79]">
+                            Context: {quote.context}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
+            </div>
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-[#797A79] text-base">
+                No examples available for this behavior
+              </p>
             </div>
           )}
         </div>
       </div>
       
       {/* Modal Popup */}
-      {selectedBehaviour && (
+      {selectedBehaviour && behavioralFeatures[selectedBehaviour] && (
         <>
           {/* Backdrop with blur */}
           <div 
@@ -450,67 +569,195 @@ export default function Dashboard() {
           {/* Modal Content */}
           <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
             <div 
-              className="bg-white rounded-xl border border-[#F0F0F0] p-8 max-w-lg w-full mx-4 shadow-xl pointer-events-auto"
+              className="bg-white rounded-xl border border-[#F0F0F0] max-w-5xl w-full mx-4 shadow-xl pointer-events-auto max-h-[90vh] overflow-y-auto"
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
-              {/* Modal Header */}
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-[#282828]">
-                  {selectedBehaviour.name}
-                </h2>
-                <button
-                  onClick={() => setSelectedBehaviour(null)}
-                  className="p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors"
-                >
-                  <X size={24} className="text-[#797A79]" />
-                </button>
-              </div>
-              
-              {/* Metrics and Tags */}
-              <div className="mb-4">
-                <div className="flex items-center gap-4 mb-3">
-                  <span className="text-sm text-[#797A79]">
-                    Impact: <span className="font-semibold text-[#282828]">{selectedBehaviour.impact_on_retention}</span>
-                  </span>
-                  <span className="text-sm text-[#797A79]">
-                    Change: <span className="font-semibold text-[#8BAF20]">+{selectedBehaviour.change_since_last_TP}%</span>
-                  </span>
+              {/* Modal Header with Title and Effect Size */}
+              <div className="border-b border-[#F0F0F0] p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold text-[#282828]">
+                    {behavioralFeatures[selectedBehaviour].taxonomy_info.title}
+                  </h2>
+                  <div className="flex items-center gap-4">
+                    {(() => {
+                      const effectSize = behavioralFeatures[selectedBehaviour].meta_analysis_metrics.weighted_effect_size * 100;
+                      return (
+                        <>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm text-[#797A79] uppercase tracking-wide">Effect Size:</span>
+                            <span className="text-xl font-bold" style={{ 
+                              color: effectSize > 35 ? "#8BAF20" : effectSize > 25 ? "#FF8A00" : "#D84D51" 
+                            }}>
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.effect_size_percentage}
+                            </span>
+                          </div>
+                          <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide ${
+                            effectSize > 35 ? "bg-[#8BAF20] text-white" : 
+                            effectSize > 25 ? "bg-[#FF8A00] text-white" : 
+                            "bg-[#D84D51] text-white"
+                          }`}>
+                            {effectSize > 35 ? "High" : effectSize > 25 ? "Moderate" : "Low"}
+                          </span>
+                        </>
+                      );
+                    })()}
+                    <button
+                      onClick={() => setSelectedBehaviour(null)}
+                      className="p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors"
+                    >
+                      <X size={24} className="text-[#797A79]" />
+                    </button>
+                  </div>
                 </div>
                 
-                {/* Tags */}
-                <div className="flex items-center gap-2 mb-4">
-                  {selectedBehaviour.tags && selectedBehaviour.tags.map((tag, index) => {
-                    const isConsultation = tag === "consultation";
-                    const isEnrollment = tag === "enrollment";
-                    const isSuccessful = tag.includes("successful");
-                    const isHighRisk = tag.includes("high risk");
-                    
-                    return (
-                      <span
-                        key={index}
-                        className={`inline-flex px-3 py-1 rounded-full text-xs font-medium capitalize ${
-                          isConsultation ? "bg-[#B5DAD4] text-[#282828] border border-[#B5DAD4]" :
-                          isEnrollment ? "bg-[#FF8A00] text-white" :
-                          isSuccessful ? "bg-[#8BAF20] text-white" :
-                          isHighRisk ? "bg-[#D84D51] text-white" :
-                          "bg-[#F5F5F5] text-[#282828] border border-[#F0F0F0]"
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    );
-                  })}
+                {/* Toggle Buttons */}
+                <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+                  <button
+                    onClick={() => setModalDataType("qualitative")}
+                    className={`flex-1 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      modalDataType === "qualitative"
+                        ? "bg-white text-[#282828] shadow-sm"
+                        : "text-[#797A79] hover:text-[#282828]"
+                    }`}
+                  >
+                    Qualitative Data
+                  </button>
+                  <button
+                    onClick={() => setModalDataType("quantitative")}
+                    className={`flex-1 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      modalDataType === "quantitative"
+                        ? "bg-white text-[#282828] shadow-sm"
+                        : "text-[#797A79] hover:text-[#282828]"
+                    }`}
+                  >
+                    Quantitative Data
+                  </button>
                 </div>
               </div>
               
-              {/* Description */}
-              <div className="p-6 bg-[#F5F5F5] rounded-lg border border-[#F0F0F0]">
-                <p className="text-sm font-semibold text-[#797A79] uppercase tracking-wide mb-3">
-                  Description
-                </p>
-                <p className="text-base text-[#282828] leading-relaxed">
-                  {selectedBehaviour.description}
-                </p>
+              {/* Content Area */}
+              <div className="p-6">
+                {modalDataType === "qualitative" ? (
+                  /* Qualitative Data View */
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-3">
+                        Description
+                      </p>
+                      <p className="text-sm text-[#282828] leading-relaxed">
+                        {behavioralFeatures[selectedBehaviour].taxonomy_info.description}
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-3">
+                        Identification Guidance
+                      </p>
+                      <p className="text-sm text-[#282828] leading-relaxed">
+                        {behavioralFeatures[selectedBehaviour].taxonomy_info.identification_guidance}
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-3">
+                        Examples
+                      </p>
+                      <div className="space-y-3">
+                        {behavioralFeatures[selectedBehaviour].taxonomy_info.examples.map((example: string, idx: number) => (
+                          <div key={idx} className={`border-l-3 pl-4 ${(() => {
+                            const effectSize = behavioralFeatures[selectedBehaviour].meta_analysis_metrics.weighted_effect_size * 100;
+                            return effectSize > 35 ? "border-[#8BAF20]" : effectSize > 25 ? "border-[#FF8A00]" : "border-[#D84D51]";
+                          })()}`}>
+                            <p className="text-sm text-[#282828] italic leading-relaxed">
+                              &ldquo;{example}&rdquo;
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Quantitative Data View */
+                  <div>
+                    <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-4">
+                      Statistical Metrics
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-[#FAFAFA] rounded-lg p-4 border border-[#F0F0F0]">
+                        <p className="text-xs text-[#797A79] uppercase tracking-wide mb-2">Retention Rates</p>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-xs text-[#797A79] mb-1">With Behavior</p>
+                            <p className="text-lg font-semibold text-[#8BAF20]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.retention_rates.retention_with_behavior_percentage}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-[#797A79] mb-1">Without Behavior</p>
+                            <p className="text-lg font-semibold text-[#D84D51]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.retention_rates.retention_without_behavior_percentage}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-[#FAFAFA] rounded-lg p-4 border border-[#F0F0F0]">
+                        <p className="text-xs text-[#797A79] uppercase tracking-wide mb-2">Sample Size</p>
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <span className="text-xs text-[#797A79]">Total Students</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.sample_size.total_sample_size.toLocaleString()}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-xs text-[#797A79]">With Behavior</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.sample_size.students_with_behavior.toLocaleString()}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-xs text-[#797A79]">Without Behavior</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.sample_size.students_without_behavior.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-[#FAFAFA] rounded-lg p-4 border border-[#F0F0F0] md:col-span-2">
+                        <p className="text-xs text-[#797A79] uppercase tracking-wide mb-2">Evidence Strength</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <div>
+                            <span className="text-xs text-[#797A79] block mb-1">Confidence Level</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.overall_confidence.replace("Meta ", "")}
+                            </span>
+                          </div>
+                          <div>
+                            <span className="text-xs text-[#797A79] block mb-1">P-value</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.evidence_strength.combined_p_value.toExponential(2)}
+                            </span>
+                          </div>
+                          <div>
+                            <span className="text-xs text-[#797A79] block mb-1">Significant Findings</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.evidence_strength.total_significant_findings}
+                            </span>
+                          </div>
+                          <div>
+                            <span className="text-xs text-[#797A79] block mb-1">Datasets</span>
+                            <span className="text-sm font-semibold text-[#282828]">
+                              {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.evidence_strength.datasets_found}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
