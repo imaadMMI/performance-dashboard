@@ -404,28 +404,30 @@ export default function Dashboard() {
               {/* Display comparison data based on selected behaviour */}
               <div className="space-y-4">
                 {comparisonData.comparison && comparisonData.comparison.map((item: any, index: number) => (
-                  <div key={index} className="bg-white rounded-lg p-6 border border-[#F0F0F0]">
-                    <div className="flex items-start gap-6">
-                      <div className="flex-shrink-0 w-40">
-                        <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${
-                          item.category === "Enrolled and Retained" ? "bg-[#8BAF20] text-white" :
-                          item.category === "Enrolled Not Retained" ? "bg-[#FF8A00] text-white" :
-                          "bg-[#D84D51] text-white"
-                        }`}>
+                  <div key={index} className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 ${
+                    item.category === "Enrolled and Retained" ? "border-l-[#8BAF20]" :
+                    item.category === "Enrolled Not Retained" ? "border-l-[#FF8A00]" :
+                    "border-l-[#D84D51]"
+                  }`}>
+                    {/* Header with Category and Score Range */}
+                    <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-semibold text-[#282828]">
                           {item.category}
-                        </span>
+                        </h4>
+                        <div className="text-right">
+                          <p className="text-xs text-[#797A79] uppercase tracking-wide">Score Range</p>
+                          <p className="text-sm font-bold text-[#282828]">{item.score_range}</p>
+                        </div>
                       </div>
-                      <div className="flex-1 pl-4">
-                        <div className="mb-4">
-                          <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Score Range</p>
-                          <p className="text-sm font-semibold text-[#282828]">{item.score_range}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-[#797A79] uppercase tracking-wide mb-2">Sample Script</p>
-                          <p className="text-sm text-[#282828] italic leading-relaxed">
-                            "{item.consultant_script}"
-                          </p>
-                        </div>
+                    </div>
+                    
+                    {/* Content with Sample Script */}
+                    <div className="p-6">
+                      <div>
+                        <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
+                          "{item.consultant_script}"
+                        </p>
                       </div>
                     </div>
                   </div>
