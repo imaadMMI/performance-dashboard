@@ -234,17 +234,17 @@ export default function Dashboard() {
               <p className="text-3xl font-bold text-[#282828]">{Object.keys(behavioralFeatures).length}</p>
             </div>
             <div className="text-center">
-              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Average Impact</p>
-              <p className="text-3xl font-bold text-[#8BAF20]">
-                +{(Object.values(behavioralFeatures).reduce((acc, f) => 
-                  acc + f.meta_analysis_metrics.weighted_effect_size * 100, 0) / Object.keys(behavioralFeatures).length).toFixed(1)}%
-              </p>
-            </div>
-            <div className="text-center">
               <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Highest Impact</p>
               <p className="text-3xl font-bold text-[#8BAF20]">
                 +{Math.max(...Object.values(behavioralFeatures).map(f => 
                   f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Average Impact</p>
+              <p className="text-3xl font-bold text-[#8BAF20]">
+                +{(Object.values(behavioralFeatures).reduce((acc, f) => 
+                  acc + f.meta_analysis_metrics.weighted_effect_size * 100, 0) / Object.keys(behavioralFeatures).length).toFixed(1)}%
               </p>
             </div>
             <div className="text-center">
@@ -464,23 +464,15 @@ export default function Dashboard() {
                  exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#8BAF20]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-semibold text-[#282828]">
-                          Enrolled and Retained
-                        </h4>
-                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#8BAF20] text-white">
-                          BEST PRACTICE
-                        </span>
-                      </div>
+                      <h4 className="text-lg font-semibold text-[#282828]">
+                        Enrolled and Retained
+                      </h4>
                     </div>
                     <div className="p-6 space-y-4">
                       {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
-                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
                             &ldquo;{quote.quote}&rdquo;
-                          </p>
-                          <p className="text-xs text-[#797A79]">
-                            Context: {quote.context}
                           </p>
                         </div>
                       ))}
@@ -493,23 +485,15 @@ export default function Dashboard() {
                  exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#FF8A00]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-semibold text-[#282828]">
-                          Enrolled Not Retained
-                        </h4>
-                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#FF8A00] text-white">
-                          NEEDS IMPROVEMENT
-                        </span>
-                      </div>
+                      <h4 className="text-lg font-semibold text-[#282828]">
+                        Enrolled Not Retained
+                      </h4>
                     </div>
                     <div className="p-6 space-y-4">
                       {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
-                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
                             &ldquo;{quote.quote}&rdquo;
-                          </p>
-                          <p className="text-xs text-[#797A79]">
-                            Context: {quote.context}
                           </p>
                         </div>
                       ))}
@@ -522,23 +506,15 @@ export default function Dashboard() {
                  exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#D84D51]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-semibold text-[#282828]">
-                          Not Enrolled
-                        </h4>
-                        <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-[#D84D51] text-white">
-                          AVOID
-                        </span>
-                      </div>
+                      <h4 className="text-lg font-semibold text-[#282828]">
+                        Not Enrolled
+                      </h4>
                     </div>
                     <div className="p-6 space-y-4">
                       {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
-                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed mb-2">
+                          <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
                             &ldquo;{quote.quote}&rdquo;
-                          </p>
-                          <p className="text-xs text-[#797A79]">
-                            Context: {quote.context}
                           </p>
                         </div>
                       ))}
