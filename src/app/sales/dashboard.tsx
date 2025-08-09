@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
-import dashboardData from "./dashboard-data.json";
 import behavioralData from "./jason-schema.json";
 
 interface ArchetypeChartProps {
@@ -135,32 +134,42 @@ interface QuoteExample {
   consultant_id: string;
 }
 
-interface ConsultantData {
-  rank: number;
-  name: string;
-  average_score: number;
-  potential_increase_retention: string;
-  retention_rate: string;
-}
-
 export default function Dashboard() {
-  const consultantData = dashboardData.MOL_TP1_2025.individual_potential_improvement;
   
   // Get behavioral features from jason-schema.json
   const behavioralFeatures = behavioralData.overall_behavioral_effects as Record<string, BehavioralFeature>;
   const exampleQuotes = behavioralData.example_quotes as Record<string, { feature_title: string; quotes_by_outcome: Record<string, QuoteExample[]> }>;
+  const individualPerformance = behavioralData.individual_consultant_performance as Record<string, any>;
   
   const [selectedBehaviour, setSelectedBehaviour] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [selectedBehaviourFilter, setSelectedBehaviourFilter] = useState<string>("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [modalDataType, setModalDataType] = useState<"qualitative" | "quantitative">("qualitative");
+  const [selectedConsultant, setSelectedConsultant] = useState<string | null>(null);
   
-  // Calculate dynamic team average from actual consultants (excluding "Team average" entry)
-  const actualConsultants = consultantData.consultants.filter((c: ConsultantData) => c.name !== "Team average");
+  // Create consultant data from jason-schema.json
+  const consultantsFromJason = [
+    {
+      rank: 1,
+      id: "consultant_001",
+      name: individualPerformance.consultant_001?.consultant_name || "Consultant A",
+      retention_rate: (individualPerformance.consultant_001?.overall_metrics?.average_retention_rate * 100).toFixed(1) + "%",
+      potential_increase: individualPerformance.consultant_001?.overall_metrics?.potential_retention_increase_percentage
+    },
+    {
+      rank: 2,
+      id: "consultant_002",
+      name: individualPerformance.consultant_002?.consultant_name || "Consultant B",
+      retention_rate: (individualPerformance.consultant_002?.overall_metrics?.average_retention_rate * 100).toFixed(1) + "%",
+      potential_increase: individualPerformance.consultant_002?.overall_metrics?.potential_retention_increase_percentage
+    }
+  ];
+  
+  // Calculate dynamic team average from the 2 consultants
   const dynamicTeamAverage = (
-    actualConsultants.reduce((sum: number, consultant: ConsultantData) => 
-      sum + parseFloat(consultant.retention_rate), 0) / actualConsultants.length
+    consultantsFromJason.reduce((sum: number, consultant: any) => 
+      sum + parseFloat(consultant.retention_rate), 0) / consultantsFromJason.length
   ).toFixed(1);
   
   return (
@@ -315,40 +324,31 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {consultantData.consultants
-                .filter((consultant: ConsultantData) => consultant.name !== "Team average")
-                .sort((a: ConsultantData, b: ConsultantData) => {
+              {consultantsFromJason
+                .sort((a: any, b: any) => {
                   const aRate = parseFloat(a.retention_rate);
                   const bRate = parseFloat(b.retention_rate);
                   return sortOrder === "desc" ? bRate - aRate : aRate - bRate;
                 })
-                .map((consultant: ConsultantData, index: number) => {
-                  const isTopPerformer = consultant.rank <= 3;
-                  
+                .map((consultant: any, index: number) => {
                   return (
                     <tr 
                       key={index} 
-                      className="border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors duration-200"
+                      onClick={() => setSelectedConsultant(consultant.id)}
+                      className="border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors duration-200 cursor-pointer"
                     >
                       <td className="py-4 px-4 text-sm text-[#282828]">
                         #{consultant.rank}
                       </td>
                       <td className="py-4 px-4">
-                        <div className="flex items-center gap-3">
-                          {isTopPerformer && (
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#8BAF20] text-white text-xs font-bold">
-                              {consultant.rank}
-                            </span>
-                          )}
-                          <span className="text-base text-[#282828]">
-                            {consultant.name}
-                          </span>
-                        </div>
+                        <span className="text-base text-[#282828]">
+                          {consultant.name}
+                        </span>
                       </td>
                       <td className="py-4 px-4 text-right">
                         <span className={`text-lg font-semibold ${
-                          parseFloat(consultant.retention_rate) >= 85 ? "text-[#8BAF20]" :
-                          parseFloat(consultant.retention_rate) >= 75 ? "text-[#FF8A00]" :
+                          parseFloat(consultant.retention_rate) >= 35 ? "text-[#8BAF20]" :
+                          parseFloat(consultant.retention_rate) >= 30 ? "text-[#FF8A00]" :
                           "text-[#D84D51]"
                         }`}>
                           {consultant.retention_rate}
@@ -732,6 +732,161 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+      
+      {/* Consultant Performance Modal */}
+      {selectedConsultant && individualPerformance[selectedConsultant] && (
+        <>
+          {/* Backdrop with blur */}
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
+            onClick={() => setSelectedConsultant(null)}
+          />
+          
+          {/* Modal Content */}
+          <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none p-4">
+            <div 
+              className="bg-white rounded-xl border border-[#F0F0F0] max-w-6xl w-full shadow-xl pointer-events-auto overflow-y-auto"
+              style={{ fontFamily: "'Quicksand', sans-serif", maxHeight: "calc(100vh - 2rem)", minHeight: "600px" }}
+            >
+              {/* Modal Header */}
+              <div className="border-b border-[#F0F0F0] p-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-[#282828]">
+                    {individualPerformance[selectedConsultant].consultant_name}
+                  </h2>
+                  <div className="flex items-center gap-4">
+                    <span className="text-lg font-semibold text-[#797A79]">TP1</span>
+                    <button
+                      onClick={() => setSelectedConsultant(null)}
+                      className="p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors"
+                    >
+                      <X size={24} className="text-[#797A79]" />
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Overall Metrics Summary */}
+                <div className="mt-4 grid grid-cols-3 gap-4">
+                  <div className="bg-[#F5F5F5] rounded-lg p-3">
+                    <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Retention Rate</p>
+                    <p className="text-xl font-bold text-[#282828]">
+                      {individualPerformance[selectedConsultant].overall_metrics.average_retention_rate_percentage}
+                    </p>
+                  </div>
+                  <div className="bg-[#F5F5F5] rounded-lg p-3">
+                    <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Potential Increase</p>
+                    <p className="text-xl font-bold text-[#8BAF20]">
+                      {individualPerformance[selectedConsultant].overall_metrics.potential_retention_increase_percentage}
+                    </p>
+                  </div>
+                  <div className="bg-[#F5F5F5] rounded-lg p-3">
+                    <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Total Students</p>
+                    <p className="text-xl font-bold text-[#282828]">
+                      {individualPerformance[selectedConsultant].overall_metrics.total_students}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Behavioral Metrics Table */}
+              <div className="p-6 pb-32">
+                <h3 className="text-lg font-semibold text-[#282828] mb-4">Behavioral Performance Metrics</h3>
+                
+                <div className="relative">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b-2 border-[#F0F0F0]">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide w-1/4">
+                          Behavior Name
+                        </th>
+                        <th className="text-center py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide w-1/4">
+                          <div className="relative inline-block group">
+                            <span className="cursor-help">Actual Score</span>
+                            <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
+                              <div className="font-normal normal-case text-left">
+                                <p className="mb-2 font-semibold">How Actual Score is calculated:</p>
+                                <p>Percentage of this consultant's students who exhibited this specific behavior during their enrollment conversations.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                        <th className="text-center py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide w-1/4">
+                          <div className="relative inline-block group">
+                            <span className="cursor-help">Ideal Score</span>
+                            <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
+                              <div className="font-normal normal-case text-left">
+                                <p className="mb-2 font-semibold">How Ideal Score is calculated:</p>
+                                <p>Team Average + (Behavior Effect Size × 100)</p>
+                                <p className="mt-2">This represents the target performance level based on the behavior's proven impact on retention, capped at 90%.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                        <th className="text-center py-3 px-4 text-sm font-semibold text-[#797A79] uppercase tracking-wide w-1/4">
+                          <div className="relative inline-block group">
+                            <span className="cursor-help">Potential Improvement</span>
+                            <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
+                              <div className="font-normal normal-case text-left">
+                                <p className="mb-2 font-semibold">How Potential Improvement is calculated:</p>
+                                <p>Ideal Score - Actual Score</p>
+                                <p className="mt-2">Positive values indicate opportunity for improvement. Negative values mean the consultant exceeds the ideal target.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {Object.entries(individualPerformance[selectedConsultant].behavioral_features || {}).map(([behaviorKey, behaviorData]: [string, any], idx: number) => {
+                        const actualScore = behaviorData.consultant_metrics.percentage_students_with_behavior * 100;
+                        const teamAverage = behaviorData.team_averages.team_percentage_students_with_behavior * 100;
+                        // Use team average as baseline, ideal would be higher (e.g., 90% for high-impact behaviors)
+                        const behaviorEffectSize = behavioralFeatures[behaviorKey]?.meta_analysis_metrics?.weighted_effect_size || 0.3;
+                        const idealScore = Math.min(90, teamAverage + (behaviorEffectSize * 100)); // Ideal based on effect size
+                        const potentialImprovement = idealScore - actualScore;
+                        const behaviorName = behavioralFeatures[behaviorKey]?.taxonomy_info?.title || behaviorKey;
+                        
+                        return (
+                          <tr key={idx} className="border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors duration-200">
+                            <td className="py-4 px-4 w-1/4">
+                              <p className="text-sm font-medium text-[#282828]">{behaviorName}</p>
+                            </td>
+                            <td className="py-4 px-4 text-center w-1/4">
+                              <span className="text-sm font-semibold text-[#282828]">
+                                {actualScore.toFixed(1)}%
+                              </span>
+                            </td>
+                            <td className="py-4 px-4 text-center w-1/4">
+                              <span className="text-sm font-semibold text-[#8BAF20]">
+                                {idealScore.toFixed(1)}%
+                              </span>
+                            </td>
+                            <td className="py-4 px-4 text-center w-1/4">
+                              <span className={`text-sm font-semibold ${
+                                potentialImprovement > 0 ? "text-[#FF8A00]" : "text-[#8BAF20]"
+                              }`}>
+                                {potentialImprovement > 0 ? "+" : ""}{potentialImprovement.toFixed(1)}%
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                
+                {Object.keys(individualPerformance[selectedConsultant].behavioral_features || {}).length === 0 && (
+                  <div className="text-center py-8">
+                    <p className="text-[#797A79] text-base">
+                      No behavioral data available for this consultant
+                    </p>
                   </div>
                 )}
               </div>
