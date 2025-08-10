@@ -2,7 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
-import behavioralData from "./jason-schema.json";
+import tp1Data from "./tp1-schema.json";
+import tp2Data from "./tp2-schema.json";
+import tpCombinedData from "./tp-combined.json";
 
 interface ArchetypeChartProps {
   value: number;
@@ -26,10 +28,12 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
   animationDuration = 1000,
 }) => {
   const [animatedValue, setAnimatedValue] = useState(0);
+  const originalValue = value; // Store original value with sign
+  const absValue = Math.abs(value); // Use absolute value for chart
   
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (animatedValue / 100) * circumference;
+  const strokeDashoffset = circumference - (Math.abs(animatedValue) / 100) * circumference;
   
   useEffect(() => {
     const startTime = Date.now();
@@ -38,9 +42,9 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
       const progress = Math.min((now - startTime) / animationDuration, 1);
       
       const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-      const currentValue = value * easeOutCubic(progress);
+      const currentValue = absValue * easeOutCubic(progress);
       
-      setAnimatedValue(currentValue);
+      setAnimatedValue(originalValue < 0 ? -currentValue : currentValue);
       
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -48,7 +52,9 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
     };
     
     requestAnimationFrame(animate);
-  }, [value, animationDuration]);
+  }, [originalValue, absValue, animationDuration]);
+  
+  const isNegative = originalValue < 0;
   
   return (
     <div className="relative inline-flex items-center justify-center">
@@ -77,6 +83,8 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
           strokeLinecap="round"
           style={{
             transition: "stroke-dashoffset 0.35s ease",
+            transformOrigin: "center",
+            transform: isNegative ? `rotate(${360 - (Math.abs(animatedValue) / 100) * 360}deg)` : "none",
           }}
         />
       </svg>
@@ -129,16 +137,22 @@ interface BehavioralFeature {
 }
 
 interface QuoteExample {
-  quote: string;
-  context: string;
-  consultant_id: string;
+  quote_id: string;
+  evidence: string;
+  justification: string;
+  outcome_category: string;
 }
 
-export default function Dashboard() {
+interface DashboardProps {
+  selectedSchema?: "tp1" | "tp2" | "combined";
+}
+
+export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   
-  // Get behavioral features from jason-schema.json
+  // Get behavioral features from selected schema
+  const behavioralData = selectedSchema === "tp1" ? tp1Data : selectedSchema === "tp2" ? tp2Data : tpCombinedData;
   const behavioralFeatures = behavioralData.overall_behavioral_effects as Record<string, BehavioralFeature>;
-  const exampleQuotes = behavioralData.example_quotes as Record<string, { feature_title: string; quotes_by_outcome: Record<string, QuoteExample[]> }>;
+  const exampleQuotes = behavioralData.example_quotes as Record<string, { behavioral_feature_title: string; outcome_categories: Record<string, QuoteExample[]> }>;
   const individualPerformance = behavioralData.individual_consultant_performance as Record<string, any>;
   
   const [selectedBehaviour, setSelectedBehaviour] = useState<string | null>(null);
@@ -148,28 +162,24 @@ export default function Dashboard() {
   const [modalDataType, setModalDataType] = useState<"qualitative" | "quantitative">("qualitative");
   const [selectedConsultant, setSelectedConsultant] = useState<string | null>(null);
   
-  // Create consultant data from jason-schema.json
-  const consultantsFromJason = [
-    {
-      rank: 1,
-      id: "consultant_001",
-      name: individualPerformance.consultant_001?.consultant_name || "Consultant A",
-      retention_rate: (individualPerformance.consultant_001?.overall_metrics?.average_retention_rate * 100).toFixed(1) + "%",
-      potential_increase: individualPerformance.consultant_001?.overall_metrics?.potential_retention_increase_percentage
-    },
-    {
-      rank: 2,
-      id: "consultant_002",
-      name: individualPerformance.consultant_002?.consultant_name || "Consultant B",
-      retention_rate: (individualPerformance.consultant_002?.overall_metrics?.average_retention_rate * 100).toFixed(1) + "%",
-      potential_increase: individualPerformance.consultant_002?.overall_metrics?.potential_retention_increase_percentage
-    }
-  ];
+  // Create consultant data from selected schema
+  const consultantsFromSchema = Object.entries(individualPerformance)
+    .map(([consultantId, data]: [string, any]) => ({
+      id: consultantId,
+      name: data.consultant_name,
+      retention_rate: (data.overall_metrics.average_retention_rate * 100).toFixed(1) + "%",
+      potential_increase: data.overall_metrics.potential_retention_increase_percentage
+    }))
+    .sort((a, b) => parseFloat(b.retention_rate) - parseFloat(a.retention_rate))
+    .map((consultant, index) => ({
+      ...consultant,
+      rank: index + 1
+    }));
   
-  // Calculate dynamic team average from the 2 consultants
+  // Calculate dynamic team average from all consultants
   const dynamicTeamAverage = (
-    consultantsFromJason.reduce((sum: number, consultant: any) => 
-      sum + parseFloat(consultant.retention_rate), 0) / consultantsFromJason.length
+    consultantsFromSchema.reduce((sum: number, consultant: any) => 
+      sum + parseFloat(consultant.retention_rate), 0) / consultantsFromSchema.length
   ).toFixed(1);
   
   return (
@@ -203,11 +213,9 @@ export default function Dashboard() {
                 {/* Impact Level Badge */}
                 <div className="flex justify-center mb-3">
                   <span className={`inline-flex px-2 py-1 rounded-full text-[10px] font-medium uppercase tracking-wide ${
-                    effectSize > 35 ? "bg-[#8BAF20] text-white" : 
-                    effectSize > 25 ? "bg-[#FF8A00] text-white" : 
-                    "bg-[#D84D51] text-white"
+                    effectSize > 0 ? "bg-[#8BAF20] text-white" : "bg-[#D84D51] text-white"
                   }`}>
-                    {effectSize > 35 ? "High" : effectSize > 25 ? "Moderate" : "Low"}
+                    {effectSize > 0 ? "Increase" : "Avoid"}
                   </span>
                 </div>
                 
@@ -222,7 +230,7 @@ export default function Dashboard() {
                     value={effectSize}
                     size={72}
                     strokeWidth={6}
-                    primaryColor={effectSize > 35 ? "#8BAF20" : effectSize > 25 ? "#FF8A00" : "#D84D51"}
+                    primaryColor={effectSize > 0 ? "#8BAF20" : "#D84D51"}
                     backgroundColor="#F0F0F0"
                     fontSize="16px"
                     fontWeight="600"
@@ -238,28 +246,21 @@ export default function Dashboard() {
           className="bg-[#F5F5F5] rounded-xl border border-[#F0F0F0] p-8"
         >
           <div className="flex justify-around items-center">
-            <div className="text-center">
+            <div className="text-center flex-1">
               <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Behaviors Analyzed</p>
               <p className="text-3xl font-bold text-[#282828]">{Object.keys(behavioralFeatures).length}</p>
             </div>
-            <div className="text-center">
+            <div className="text-center flex-1">
               <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Highest Impact</p>
               <p className="text-3xl font-bold text-[#8BAF20]">
                 +{Math.max(...Object.values(behavioralFeatures).map(f => 
                   f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
               </p>
             </div>
-            <div className="text-center">
-              <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Average Impact</p>
-              <p className="text-3xl font-bold text-[#8BAF20]">
-                +{(Object.values(behavioralFeatures).reduce((acc, f) => 
-                  acc + f.meta_analysis_metrics.weighted_effect_size * 100, 0) / Object.keys(behavioralFeatures).length).toFixed(1)}%
-              </p>
-            </div>
-            <div className="text-center">
+            <div className="text-center flex-1">
               <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Lowest Impact</p>
               <p className="text-3xl font-bold text-[#D84D51]">
-                +{Math.min(...Object.values(behavioralFeatures).map(f => 
+                {Math.min(...Object.values(behavioralFeatures).map(f => 
                   f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
               </p>
             </div>
@@ -324,13 +325,25 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {consultantsFromJason
+              {consultantsFromSchema
                 .sort((a: any, b: any) => {
                   const aRate = parseFloat(a.retention_rate);
                   const bRate = parseFloat(b.retention_rate);
                   return sortOrder === "desc" ? bRate - aRate : aRate - bRate;
                 })
                 .map((consultant: any, index: number) => {
+                  // Determine color based on position in sorted list
+                  const totalConsultants = consultantsFromSchema.length;
+                  const topThird = Math.ceil(totalConsultants / 3);
+                  const middleThird = Math.ceil(totalConsultants * 2 / 3);
+                  
+                  let colorClass = "text-[#D84D51]"; // Default red for bottom third
+                  if (consultant.rank <= topThird) {
+                    colorClass = "text-[#8BAF20]"; // Green for top third
+                  } else if (consultant.rank <= middleThird) {
+                    colorClass = "text-[#FF8A00]"; // Orange for middle third
+                  }
+                  
                   return (
                     <tr 
                       key={index} 
@@ -346,11 +359,7 @@ export default function Dashboard() {
                         </span>
                       </td>
                       <td className="py-4 px-4 text-right">
-                        <span className={`text-lg font-semibold ${
-                          parseFloat(consultant.retention_rate) >= 35 ? "text-[#8BAF20]" :
-                          parseFloat(consultant.retention_rate) >= 30 ? "text-[#FF8A00]" :
-                          "text-[#D84D51]"
-                        }`}>
+                        <span className={`text-lg font-semibold ${colorClass}`}>
                           {consultant.retention_rate}
                         </span>
                       </td>
@@ -450,7 +459,7 @@ export default function Dashboard() {
             <div className="space-y-4">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-[#282828] mb-2">
-                  {exampleQuotes[selectedBehaviourFilter].feature_title}
+                  {behavioralFeatures[selectedBehaviourFilter]?.taxonomy_info?.title || exampleQuotes[selectedBehaviourFilter].behavioral_feature_title}
                 </h3>
                 <p className="text-sm text-[#797A79]">
                   {behavioralFeatures[selectedBehaviourFilter]?.taxonomy_info?.description}
@@ -460,8 +469,8 @@ export default function Dashboard() {
               {/* Display real quotes from JSON */}
               <div className="space-y-4">
                 {/* Enrolled and Retained Examples */}
-                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained && 
-                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.length > 0 && (
+                {exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_retained && 
+                 exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_retained.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#8BAF20]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
                       <h4 className="text-lg font-semibold text-[#282828]">
@@ -469,10 +478,10 @@ export default function Dashboard() {
                       </h4>
                     </div>
                     <div className="p-6 space-y-4">
-                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_retained.map((quote: QuoteExample, idx: number) => (
+                      {exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_retained.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
                           <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
-                            &ldquo;{quote.quote}&rdquo;
+                            {quote.evidence}
                           </p>
                         </div>
                       ))}
@@ -481,8 +490,8 @@ export default function Dashboard() {
                 )}
                 
                 {/* Enrolled Not Retained Examples */}
-                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained && 
-                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.length > 0 && (
+                {exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_not_retained && 
+                 exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_not_retained.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#FF8A00]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
                       <h4 className="text-lg font-semibold text-[#282828]">
@@ -490,10 +499,10 @@ export default function Dashboard() {
                       </h4>
                     </div>
                     <div className="p-6 space-y-4">
-                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.enrolled_not_retained.map((quote: QuoteExample, idx: number) => (
+                      {exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_not_retained.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
                           <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
-                            &ldquo;{quote.quote}&rdquo;
+                            {quote.evidence}
                           </p>
                         </div>
                       ))}
@@ -502,8 +511,8 @@ export default function Dashboard() {
                 )}
                 
                 {/* Not Enrolled Examples */}
-                {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled && 
-                 exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.length > 0 && (
+                {exampleQuotes[selectedBehaviourFilter].outcome_categories.not_enrolled && 
+                 exampleQuotes[selectedBehaviourFilter].outcome_categories.not_enrolled.length > 0 && (
                   <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#D84D51]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
                       <h4 className="text-lg font-semibold text-[#282828]">
@@ -511,10 +520,10 @@ export default function Dashboard() {
                       </h4>
                     </div>
                     <div className="p-6 space-y-4">
-                      {exampleQuotes[selectedBehaviourFilter].quotes_by_outcome.not_enrolled.map((quote: QuoteExample, idx: number) => (
+                      {exampleQuotes[selectedBehaviourFilter].outcome_categories.not_enrolled.map((quote: QuoteExample, idx: number) => (
                         <div key={idx}>
                           <p className="text-base font-semibold text-[#282828] italic leading-relaxed">
-                            &ldquo;{quote.quote}&rdquo;
+                            {quote.evidence}
                           </p>
                         </div>
                       ))}
@@ -562,17 +571,15 @@ export default function Dashboard() {
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-[#797A79] uppercase tracking-wide">Effect Size:</span>
                             <span className="text-xl font-bold" style={{ 
-                              color: effectSize > 35 ? "#8BAF20" : effectSize > 25 ? "#FF8A00" : "#D84D51" 
+                              color: effectSize > 0 ? "#8BAF20" : "#D84D51" 
                             }}>
                               {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.effect_size_percentage}
                             </span>
                           </div>
                           <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide ${
-                            effectSize > 35 ? "bg-[#8BAF20] text-white" : 
-                            effectSize > 25 ? "bg-[#FF8A00] text-white" : 
-                            "bg-[#D84D51] text-white"
+                            effectSize > 0 ? "bg-[#8BAF20] text-white" : "bg-[#D84D51] text-white"
                           }`}>
-                            {effectSize > 35 ? "High" : effectSize > 25 ? "Moderate" : "Low"}
+                            {effectSize > 0 ? "Increase" : "Avoid"}
                           </span>
                         </>
                       );
@@ -642,7 +649,7 @@ export default function Dashboard() {
                         {behavioralFeatures[selectedBehaviour].taxonomy_info.examples.map((example: string, idx: number) => (
                           <div key={idx} className={`border-l-3 pl-4 ${(() => {
                             const effectSize = behavioralFeatures[selectedBehaviour].meta_analysis_metrics.weighted_effect_size * 100;
-                            return effectSize > 35 ? "border-[#8BAF20]" : effectSize > 25 ? "border-[#FF8A00]" : "border-[#D84D51]";
+                            return effectSize > 0 ? "border-[#8BAF20]" : "border-[#D84D51]";
                           })()}`}>
                             <p className="text-sm text-[#282828] italic leading-relaxed">
                               &ldquo;{example}&rdquo;
@@ -665,13 +672,21 @@ export default function Dashboard() {
                         <div className="space-y-3">
                           <div>
                             <p className="text-xs text-[#797A79] mb-1">With Behavior</p>
-                            <p className="text-lg font-semibold text-[#8BAF20]">
+                            <p className={`text-lg font-semibold ${
+                              behavioralFeatures[selectedBehaviour].meta_analysis_metrics.weighted_effect_size > 0 
+                                ? "text-[#8BAF20]" 
+                                : "text-[#D84D51]"
+                            }`}>
                               {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.retention_rates.retention_with_behavior_percentage}
                             </p>
                           </div>
                           <div>
                             <p className="text-xs text-[#797A79] mb-1">Without Behavior</p>
-                            <p className="text-lg font-semibold text-[#D84D51]">
+                            <p className={`text-lg font-semibold ${
+                              behavioralFeatures[selectedBehaviour].meta_analysis_metrics.weighted_effect_size > 0 
+                                ? "text-[#D84D51]" 
+                                : "text-[#8BAF20]"
+                            }`}>
                               {behavioralFeatures[selectedBehaviour].meta_analysis_metrics.retention_rates.retention_without_behavior_percentage}
                             </p>
                           </div>
@@ -762,7 +777,9 @@ export default function Dashboard() {
                     {individualPerformance[selectedConsultant].consultant_name}
                   </h2>
                   <div className="flex items-center gap-4">
-                    <span className="text-lg font-semibold text-[#797A79]">TP1</span>
+                    <span className="text-lg font-semibold text-[#797A79]">
+                      {selectedSchema === "tp1" ? "TP1" : selectedSchema === "tp2" ? "TP2" : "TP1-TP2 Combined"}
+                    </span>
                     <button
                       onClick={() => setSelectedConsultant(null)}
                       className="p-2 rounded-lg hover:bg-[#F5F5F5] transition-colors"
@@ -783,7 +800,17 @@ export default function Dashboard() {
                   <div className="bg-[#F5F5F5] rounded-lg p-3">
                     <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Potential Increase</p>
                     <p className="text-xl font-bold text-[#8BAF20]">
-                      {individualPerformance[selectedConsultant].overall_metrics.potential_retention_increase_percentage}
+                      {(() => {
+                        // Calculate sum of all behavior potential improvements
+                        const totalPotential = Object.values(individualPerformance[selectedConsultant].behavioral_features || {})
+                          .reduce((sum: number, behavior: any) => {
+                            const potentialStr = behavior.improvement_potential?.potential_retention_increase_percentage || 
+                                               behavior.optimal_conditions?.potential_retention_increase_percentage || "0%";
+                            const potential = parseFloat(potentialStr.replace('%', '').replace('+', ''));
+                            return sum + potential;
+                          }, 0);
+                        return `+${totalPotential.toFixed(2)}%`;
+                      })()}
                     </p>
                   </div>
                   <div className="bg-[#F5F5F5] rounded-lg p-3">
@@ -811,7 +838,7 @@ export default function Dashboard() {
                             <span className="cursor-help">Actual Score</span>
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
-                                <p className="mb-2 font-semibold">How Actual Score is calculated:</p>
+                                <p className="mb-2 font-semibold">Actual Score:</p>
                                 <p>Percentage of this consultant's students who exhibited this specific behavior during their enrollment conversations.</p>
                               </div>
                             </div>
@@ -822,9 +849,8 @@ export default function Dashboard() {
                             <span className="cursor-help">Ideal Score</span>
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
-                                <p className="mb-2 font-semibold">How Ideal Score is calculated:</p>
-                                <p>Team Average + (Behavior Effect Size × 100)</p>
-                                <p className="mt-2">This represents the target performance level based on the behavior's proven impact on retention, capped at 90%.</p>
+                                <p className="mb-2 font-semibold">Ideal Score:</p>
+                                <p>The optimal percentage of students who should exhibit this behavior for maximum retention impact.</p>
                               </div>
                             </div>
                           </div>
@@ -834,9 +860,8 @@ export default function Dashboard() {
                             <span className="cursor-help">Potential Improvement</span>
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
-                                <p className="mb-2 font-semibold">How Potential Improvement is calculated:</p>
-                                <p>Ideal Score - Actual Score</p>
-                                <p className="mt-2">Positive values indicate opportunity for improvement. Negative values mean the consultant exceeds the ideal target.</p>
+                                <p className="mb-2 font-semibold">Potential Improvement in Retention:</p>
+                                <p>The potential increase in retention rate if this consultant achieves the ideal score for this behavior.</p>
                               </div>
                             </div>
                           </div>
@@ -845,12 +870,17 @@ export default function Dashboard() {
                     </thead>
                     <tbody>
                       {Object.entries(individualPerformance[selectedConsultant].behavioral_features || {}).map(([behaviorKey, behaviorData]: [string, any], idx: number) => {
-                        const actualScore = behaviorData.consultant_metrics.percentage_students_with_behavior * 100;
-                        const teamAverage = behaviorData.team_averages.team_percentage_students_with_behavior * 100;
-                        // Use team average as baseline, ideal would be higher (e.g., 90% for high-impact behaviors)
-                        const behaviorEffectSize = behavioralFeatures[behaviorKey]?.meta_analysis_metrics?.weighted_effect_size || 0.3;
-                        const idealScore = Math.min(90, teamAverage + (behaviorEffectSize * 100)); // Ideal based on effect size
-                        const potentialImprovement = idealScore - actualScore;
+                        // Use the correct field names from the JSON schemas
+                        const actualScore = behaviorData.consultant_metrics?.percentage_students_with_behavior * 100 || 0;
+                        
+                        // Check for improvement_potential (tp1/tp2) or optimal_conditions (combined)
+                        const idealScore = (behaviorData.improvement_potential?.optimal_percentage_students_with_behavior * 100) || 
+                                          (behaviorData.optimal_conditions?.optimal_percentage_students_with_behavior * 100) || 
+                                          (behaviorData.team_averages?.team_percentage_students_with_behavior * 100 || 50);
+                        
+                        const potentialImprovementStr = behaviorData.improvement_potential?.potential_retention_increase_percentage || 
+                                                        behaviorData.optimal_conditions?.potential_retention_increase_percentage || "0%";
+                        const potentialImprovement = parseFloat(potentialImprovementStr.replace('%', ''));
                         const behaviorName = behavioralFeatures[behaviorKey]?.taxonomy_info?.title || behaviorKey;
                         
                         return (

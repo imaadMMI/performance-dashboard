@@ -444,39 +444,101 @@ function LLMInsights() {
 
 export default function SalesPage() {
   const [activeView, setActiveView] = useState<"llm" | "dashboard">("llm");
+  const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined">("tp1");
+  const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
 
   return (
     <div className="flex h-screen bg-brand-white">
       <LeftSidebar />
       
       <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
-        {/* Toggle Buttons */}
-        <div className="mb-6 flex gap-2">
-          <button
-            onClick={() => setActiveView("llm")}
-            className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-              activeView === "llm"
-                ? "bg-[#C58E02] text-white shadow-md"
-                : "bg-white border border-[#C58E02] text-[#C58E02] hover:bg-[#C58E02] hover:text-white"
-            }`}
-          >
-            LLM Insights
-          </button>
-          <button
-            onClick={() => setActiveView("dashboard")}
-            className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-              activeView === "dashboard"
-                ? "bg-[#C58E02] text-white shadow-md"
-                : "bg-white border border-[#C58E02] text-[#C58E02] hover:bg-[#C58E02] hover:text-white"
-            }`}
-          >
-            Dashboard
-          </button>
+        {/* Toggle Buttons and Schema Selector */}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex gap-2">
+            <button
+              onClick={() => setActiveView("llm")}
+              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+                activeView === "llm"
+                  ? "bg-[#FF8A00] text-white shadow-md"
+                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
+              }`}
+            >
+              LLM Insights
+            </button>
+            <button
+              onClick={() => setActiveView("dashboard")}
+              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+                activeView === "dashboard"
+                  ? "bg-[#FF8A00] text-white shadow-md"
+                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
+              }`}
+            >
+              Dashboard
+            </button>
+          </div>
+          
+          {/* Schema Dropdown - Only show when Dashboard is active */}
+          {activeView === "dashboard" && (
+            <div className="relative">
+              <button
+                onClick={() => setIsSchemaDropdownOpen(!isSchemaDropdownOpen)}
+                className="px-4 py-2 bg-white border border-[#FF8A00] rounded-lg font-montserrat font-medium text-[#FF8A00] hover:bg-[#FFE5D0] transition-all duration-200 flex items-center gap-2"
+              >
+                <span>{selectedSchema === "tp1" ? "Monash TP1" : selectedSchema === "tp2" ? "Monash TP2" : "Monash TP Combined"}</span>
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-200 ${isSchemaDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isSchemaDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-full min-w-[150px] bg-white border border-[#F0F0F0] rounded-lg shadow-lg z-10">
+                  <button
+                    onClick={() => {
+                      setSelectedSchema("tp1");
+                      setIsSchemaDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors ${
+                      selectedSchema === "tp1" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
+                    }`}
+                  >
+                    Monash TP1
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedSchema("tp2");
+                      setIsSchemaDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors border-t border-[#F0F0F0] ${
+                      selectedSchema === "tp2" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
+                    }`}
+                  >
+                    Monash TP2
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedSchema("combined");
+                      setIsSchemaDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors border-t border-[#F0F0F0] ${
+                      selectedSchema === "combined" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
+                    }`}
+                  >
+                    Monash TP Combined
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Content based on active view */}
         <div className="mb-8">
-          {activeView === "llm" ? <LLMInsights /> : <Dashboard />}
+          {activeView === "llm" ? <LLMInsights /> : <Dashboard selectedSchema={selectedSchema} />}
         </div>
       </main>
     </div>

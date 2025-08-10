@@ -342,11 +342,15 @@
     "consultant_001": {
       "consultant_name": "Alyssa-Pennacchia",
       "overall_metrics": {
-        "average_retention_rate": 0.7278911564625851,
-        "average_retention_rate_percentage": "72.8%",
+        "average_retention_rate": 0.4385245901639344,
+        "average_retention_rate_percentage": "43.9%",
+        "enrolled_retention_rate": 0.7278911564625851,
+        "enrolled_retention_rate_percentage": "72.8%",
         "total_students": 244,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 147,
+        "enrolled_retained": 107,
+        "potential_retention_increase": 0.02536711449506797,
+        "potential_retention_increase_percentage": "+2.54%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -359,6 +363,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.02379522379522378,
+            "usage_gap_percentage": "2.38%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0017846417846417834,
+            "potential_retention_increase_percentage": "+0.18%"
           }
         },
         "14.B.ii": {
@@ -371,6 +384,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -383,6 +405,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -395,6 +426,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04019958475654675,
+            "usage_gap_percentage": "4.02%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0030149688567410065,
+            "potential_retention_increase_percentage": "+0.30%"
           }
         },
         "15.A.ii": {
@@ -407,6 +447,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -419,6 +468,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.01650802022637468,
+            "usage_gap_percentage": "1.65%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.001238101516978101,
+            "potential_retention_increase_percentage": "+0.12%"
           }
         },
         "16.B.iii": {
@@ -431,6 +489,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -443,6 +510,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.05691579429897187,
+            "usage_gap_percentage": "5.69%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0042686845724228895,
+            "potential_retention_increase_percentage": "+0.43%"
           }
         },
         "16.A.i": {
@@ -455,6 +531,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -467,6 +552,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -474,11 +568,15 @@
     "consultant_002": {
       "consultant_name": "Elisha-Odhiambo",
       "overall_metrics": {
-        "average_retention_rate": 0.6714285714285714,
-        "average_retention_rate_percentage": "67.1%",
+        "average_retention_rate": 0.27485380116959063,
+        "average_retention_rate_percentage": "27.5%",
+        "enrolled_retention_rate": 0.6714285714285714,
+        "enrolled_retention_rate_percentage": "67.1%",
         "total_students": 171,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 70,
+        "enrolled_retained": 47,
+        "potential_retention_increase": 0.05459616621004902,
+        "potential_retention_increase_percentage": "+5.46%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -491,6 +589,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04018174784383036,
+            "usage_gap_percentage": "4.02%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0030136310882872765,
+            "potential_retention_increase_percentage": "+0.30%"
           }
         },
         "14.B.ii": {
@@ -503,6 +610,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -515,6 +631,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -527,6 +652,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "15.A.ii": {
@@ -539,6 +673,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -551,6 +694,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.055247742266686106,
+            "usage_gap_percentage": "5.52%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.004143580670001458,
+            "potential_retention_increase_percentage": "+0.41%"
           }
         },
         "16.B.iii": {
@@ -563,6 +715,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -575,6 +736,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.09401104278911229,
+            "usage_gap_percentage": "9.40%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.007050828209183422,
+            "potential_retention_increase_percentage": "+0.71%"
           }
         },
         "16.A.i": {
@@ -587,6 +757,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -599,6 +778,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -606,11 +794,15 @@
     "consultant_003": {
       "consultant_name": "James-Lockie",
       "overall_metrics": {
-        "average_retention_rate": 0.7857142857142857,
-        "average_retention_rate_percentage": "78.6%",
+        "average_retention_rate": 0.39896373056994816,
+        "average_retention_rate_percentage": "39.9%",
+        "enrolled_retention_rate": 0.7857142857142857,
+        "enrolled_retention_rate_percentage": "78.6%",
         "total_students": 193,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 98,
+        "enrolled_retained": 77,
+        "potential_retention_increase": 0.05519413778664646,
+        "potential_retention_increase_percentage": "+5.52%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -623,6 +815,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.041611914782646475,
+            "usage_gap_percentage": "4.16%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0031208936086984857,
+            "potential_retention_increase_percentage": "+0.31%"
           }
         },
         "14.B.ii": {
@@ -635,6 +836,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -647,6 +857,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -659,6 +878,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.07073811578288267,
+            "usage_gap_percentage": "7.07%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0053053586837162,
+            "potential_retention_increase_percentage": "+0.53%"
           }
         },
         "15.A.ii": {
@@ -671,6 +899,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -683,6 +920,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.03678458196635104,
+            "usage_gap_percentage": "3.68%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.0027588436474763277,
+            "potential_retention_increase_percentage": "+0.28%"
           }
         },
         "16.B.iii": {
@@ -695,6 +941,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -707,6 +962,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.050147675335730946,
+            "usage_gap_percentage": "5.01%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0037610756501798206,
+            "potential_retention_increase_percentage": "+0.38%"
           }
         },
         "16.A.i": {
@@ -719,6 +983,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -731,6 +1004,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -738,11 +1020,15 @@
     "consultant_004": {
       "consultant_name": "Luke-Williams",
       "overall_metrics": {
-        "average_retention_rate": 0.7319587628865979,
-        "average_retention_rate_percentage": "73.2%",
+        "average_retention_rate": 0.3622448979591837,
+        "average_retention_rate_percentage": "36.2%",
+        "enrolled_retention_rate": 0.7319587628865979,
+        "enrolled_retention_rate_percentage": "73.2%",
         "total_students": 196,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 97,
+        "enrolled_retained": 71,
+        "potential_retention_increase": 0.021065483320290734,
+        "potential_retention_increase_percentage": "+2.11%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -755,6 +1041,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.02721297978650919,
+            "usage_gap_percentage": "2.72%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.002040973483988189,
+            "potential_retention_increase_percentage": "+0.20%"
           }
         },
         "14.B.ii": {
@@ -767,6 +1062,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -779,6 +1083,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -791,6 +1104,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.03786026013781038,
+            "usage_gap_percentage": "3.79%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0028395195103357784,
+            "potential_retention_increase_percentage": "+0.28%"
           }
         },
         "15.A.ii": {
@@ -803,6 +1125,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -815,6 +1146,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.B.iii": {
@@ -827,6 +1167,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -839,6 +1188,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.036545423928601495,
+            "usage_gap_percentage": "3.65%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.002740906794645112,
+            "potential_retention_increase_percentage": "+0.27%"
           }
         },
         "16.A.i": {
@@ -851,6 +1209,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -863,6 +1230,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 4.960317460317443e-05,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 3.7202380952380817e-06,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -870,11 +1246,15 @@
     "consultant_005": {
       "consultant_name": "Michael-Bosman",
       "overall_metrics": {
-        "average_retention_rate": 0.8181818181818182,
-        "average_retention_rate_percentage": "81.8%",
+        "average_retention_rate": 0.2848101265822785,
+        "average_retention_rate_percentage": "28.5%",
+        "enrolled_retention_rate": 0.8181818181818182,
+        "enrolled_retention_rate_percentage": "81.8%",
         "total_students": 158,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 55,
+        "enrolled_retained": 45,
+        "potential_retention_increase": 0.06899887631574181,
+        "potential_retention_increase_percentage": "+6.90%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -887,6 +1267,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.06835563547892315,
+            "usage_gap_percentage": "6.84%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.005126672660919236,
+            "potential_retention_increase_percentage": "+0.51%"
           }
         },
         "14.B.ii": {
@@ -899,6 +1288,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -911,6 +1309,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -923,6 +1330,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.062462395512508206,
+            "usage_gap_percentage": "6.25%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.004684679663438115,
+            "potential_retention_increase_percentage": "+0.47%"
           }
         },
         "15.A.ii": {
@@ -935,6 +1351,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -947,6 +1372,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04793514206445543,
+            "usage_gap_percentage": "4.79%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.0035951356548341567,
+            "potential_retention_increase_percentage": "+0.36%"
           }
         },
         "16.B.iii": {
@@ -959,6 +1393,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -971,6 +1414,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.09867849633564652,
+            "usage_gap_percentage": "9.87%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0074008872251734885,
+            "potential_retention_increase_percentage": "+0.74%"
           }
         },
         "16.A.i": {
@@ -983,6 +1435,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -995,6 +1456,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -1002,11 +1472,15 @@
     "consultant_006": {
       "consultant_name": "Michael-Whyte",
       "overall_metrics": {
-        "average_retention_rate": 0.7017543859649122,
-        "average_retention_rate_percentage": "70.2%",
+        "average_retention_rate": 0.25316455696202533,
+        "average_retention_rate_percentage": "25.3%",
+        "enrolled_retention_rate": 0.7017543859649122,
+        "enrolled_retention_rate_percentage": "70.2%",
         "total_students": 158,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 57,
+        "enrolled_retained": 40,
+        "potential_retention_increase": 0.016182352298662838,
+        "potential_retention_increase_percentage": "+1.62%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1019,6 +1493,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "14.B.ii": {
@@ -1031,6 +1514,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1043,6 +1535,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1055,6 +1556,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04432557991057931,
+            "usage_gap_percentage": "4.43%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.003324418493293448,
+            "potential_retention_increase_percentage": "+0.33%"
           }
         },
         "15.A.ii": {
@@ -1067,6 +1577,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1079,6 +1598,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.03423041551886344,
+            "usage_gap_percentage": "3.42%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.002567281163914758,
+            "potential_retention_increase_percentage": "+0.26%"
           }
         },
         "16.B.iii": {
@@ -1091,6 +1619,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1103,6 +1640,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.A.i": {
@@ -1115,6 +1661,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1127,6 +1682,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -1134,11 +1698,15 @@
     "consultant_007": {
       "consultant_name": "Mrudang-Pancholi",
       "overall_metrics": {
-        "average_retention_rate": 0.726027397260274,
-        "average_retention_rate_percentage": "72.6%",
+        "average_retention_rate": 0.375886524822695,
+        "average_retention_rate_percentage": "37.6%",
+        "enrolled_retention_rate": 0.726027397260274,
+        "enrolled_retention_rate_percentage": "72.6%",
         "total_students": 282,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 146,
+        "enrolled_retained": 106,
+        "potential_retention_increase": 0.006387210030556419,
+        "potential_retention_increase_percentage": "+0.64%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1151,6 +1719,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.01990500263881559,
+            "usage_gap_percentage": "1.99%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.001492875197911169,
+            "potential_retention_increase_percentage": "+0.15%"
           }
         },
         "14.B.ii": {
@@ -1163,6 +1740,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1175,6 +1761,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1187,6 +1782,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04687158049329071,
+            "usage_gap_percentage": "4.69%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.003515368536996803,
+            "potential_retention_increase_percentage": "+0.35%"
           }
         },
         "15.A.ii": {
@@ -1199,6 +1803,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1211,6 +1824,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.B.iii": {
@@ -1223,6 +1845,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1235,6 +1866,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.A.i": {
@@ -1247,6 +1887,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1259,6 +1908,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -1266,11 +1924,15 @@
     "consultant_008": {
       "consultant_name": "Olive-Jerome",
       "overall_metrics": {
-        "average_retention_rate": 0.7037037037037037,
-        "average_retention_rate_percentage": "70.4%",
+        "average_retention_rate": 0.5428571428571428,
+        "average_retention_rate_percentage": "54.3%",
+        "enrolled_retention_rate": 0.7037037037037037,
+        "enrolled_retention_rate_percentage": "70.4%",
         "total_students": 70,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 54,
+        "enrolled_retained": 38,
+        "potential_retention_increase": 0.060031092277414225,
+        "potential_retention_increase_percentage": "+6.00%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1283,6 +1945,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "14.B.ii": {
@@ -1295,6 +1966,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1307,6 +1987,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1319,6 +2008,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.02070008525704725,
+            "usage_gap_percentage": "2.07%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0015525063942785438,
+            "potential_retention_increase_percentage": "+0.16%"
           }
         },
         "15.A.ii": {
@@ -1331,6 +2029,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1343,6 +2050,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.05714866086701531,
+            "usage_gap_percentage": "5.71%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.004286149565026148,
+            "potential_retention_increase_percentage": "+0.43%"
           }
         },
         "16.B.iii": {
@@ -1355,6 +2071,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1367,6 +2092,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 5.893744211499241e-05,
+            "usage_gap_percentage": "0.01%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 4.420308158624431e-06,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.A.i": {
@@ -1379,6 +2113,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1391,6 +2134,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -1398,11 +2150,15 @@
     "consultant_009": {
       "consultant_name": "Pawan-Thapa",
       "overall_metrics": {
-        "average_retention_rate": 0.7263157894736842,
-        "average_retention_rate_percentage": "72.6%",
+        "average_retention_rate": 0.3094170403587444,
+        "average_retention_rate_percentage": "30.9%",
+        "enrolled_retention_rate": 0.7263157894736842,
+        "enrolled_retention_rate_percentage": "72.6%",
         "total_students": 223,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 95,
+        "enrolled_retained": 69,
+        "potential_retention_increase": 0.025142304982363573,
+        "potential_retention_increase_percentage": "+2.51%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1415,6 +2171,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.016186892136259207,
+            "usage_gap_percentage": "1.62%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0012140169102194405,
+            "potential_retention_increase_percentage": "+0.12%"
           }
         },
         "14.B.ii": {
@@ -1427,6 +2192,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1439,6 +2213,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1451,6 +2234,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "15.A.ii": {
@@ -1463,6 +2255,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1475,6 +2276,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0006216094032549802,
+            "usage_gap_percentage": "0.06%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 4.662070524412351e-05,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.B.iii": {
@@ -1487,6 +2297,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1499,6 +2318,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.026147593910518296,
+            "usage_gap_percentage": "2.61%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.001961069543288872,
+            "potential_retention_increase_percentage": "+0.20%"
           }
         },
         "16.A.i": {
@@ -1511,6 +2339,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1523,6 +2360,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.009373744223427766,
+            "usage_gap_percentage": "0.94%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0007030308167570824,
+            "potential_retention_increase_percentage": "+0.07%"
           }
         }
       }
@@ -1530,11 +2376,15 @@
     "consultant_010": {
       "consultant_name": "Ram\u00f3n-Keane",
       "overall_metrics": {
-        "average_retention_rate": 0.6274509803921569,
-        "average_retention_rate_percentage": "62.7%",
+        "average_retention_rate": 0.21476510067114093,
+        "average_retention_rate_percentage": "21.5%",
+        "enrolled_retention_rate": 0.6274509803921569,
+        "enrolled_retention_rate_percentage": "62.7%",
         "total_students": 149,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 51,
+        "enrolled_retained": 32,
+        "potential_retention_increase": 0.003662745604009403,
+        "potential_retention_increase_percentage": "+0.37%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1547,6 +2397,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "14.B.ii": {
@@ -1559,6 +2418,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1571,6 +2439,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1583,6 +2460,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "15.A.ii": {
@@ -1595,6 +2481,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1607,6 +2502,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.B.iii": {
@@ -1619,6 +2523,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1631,6 +2544,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         },
         "16.A.i": {
@@ -1643,6 +2565,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1655,6 +2586,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04882833880678708,
+            "usage_gap_percentage": "4.88%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.003662125410509031,
+            "potential_retention_increase_percentage": "+0.37%"
           }
         }
       }
@@ -1662,11 +2602,15 @@
     "consultant_011": {
       "consultant_name": "Tayla-Viglione",
       "overall_metrics": {
-        "average_retention_rate": 0.808695652173913,
-        "average_retention_rate_percentage": "80.9%",
+        "average_retention_rate": 0.38114754098360654,
+        "average_retention_rate_percentage": "38.1%",
+        "enrolled_retention_rate": 0.808695652173913,
+        "enrolled_retention_rate_percentage": "80.9%",
         "total_students": 244,
-        "potential_retention_increase": null,
-        "potential_retention_increase_percentage": null
+        "total_enrolled": 115,
+        "enrolled_retained": 93,
+        "potential_retention_increase": 0.020592689397808738,
+        "potential_retention_increase_percentage": "+2.06%"
       },
       "behavioral_features": {
         "16.C.ii": {
@@ -1679,6 +2623,15 @@
             "team_percentage_students_with_behavior": 0.26536788348780027,
             "team_average_count_per_student": 1.4000378286362776,
             "team_percentage_students_with_behavior_formatted": "26.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.010038610038610035,
+            "usage_gap_percentage": "1.00%",
+            "optimal_percentage_students_with_behavior": 0.2386100386100386,
+            "optimal_percentage_formatted": "23.86%",
+            "behavior_effect_size": 0.201,
+            "potential_retention_increase": 0.0007528957528957526,
+            "potential_retention_increase_percentage": "+0.08%"
           }
         },
         "14.B.ii": {
@@ -1691,6 +2644,15 @@
             "team_percentage_students_with_behavior": 0.13202194060904104,
             "team_average_count_per_student": 0.560242103272177,
             "team_percentage_students_with_behavior_formatted": "13.2%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "13.A.ii": {
@@ -1703,6 +2665,15 @@
             "team_percentage_students_with_behavior": 0.2742576130130509,
             "team_average_count_per_student": 1.5222243238131266,
             "team_percentage_students_with_behavior_formatted": "27.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.ii": {
@@ -1715,6 +2686,15 @@
             "team_percentage_students_with_behavior": 0.17779459050501228,
             "team_average_count_per_student": 0.8373368640060526,
             "team_percentage_students_with_behavior_formatted": "17.8%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0069720715290335356,
+            "usage_gap_percentage": "0.70%",
+            "optimal_percentage_students_with_behavior": 0.1720514366083986,
+            "optimal_percentage_formatted": "17.21%",
+            "behavior_effect_size": 0.15007559702672782,
+            "potential_retention_increase": 0.0005229053646775151,
+            "potential_retention_increase_percentage": "+0.05%"
           }
         },
         "15.A.ii": {
@@ -1727,6 +2707,15 @@
             "team_percentage_students_with_behavior": 0.29525250614715337,
             "team_average_count_per_student": 1.6432759599016455,
             "team_percentage_students_with_behavior_formatted": "29.5%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "12.C.iii": {
@@ -1739,6 +2728,15 @@
             "team_percentage_students_with_behavior": 0.21013807452241345,
             "team_average_count_per_student": 0.9992434272744467,
             "team_percentage_students_with_behavior_formatted": "21.0%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0027514064697609086,
+            "usage_gap_percentage": "0.28%",
+            "optimal_percentage_students_with_behavior": 0.18687839059674505,
+            "optimal_percentage_formatted": "18.69%",
+            "behavior_effect_size": 0.319,
+            "potential_retention_increase": 0.00020635548523206815,
+            "potential_retention_increase_percentage": "+0.02%"
           }
         },
         "16.B.iii": {
@@ -1751,6 +2749,15 @@
             "team_percentage_students_with_behavior": 0.18441460185360317,
             "team_average_count_per_student": 0.774352184603745,
             "team_percentage_students_with_behavior_formatted": "18.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "15.C.ii": {
@@ -1763,6 +2770,15 @@
             "team_percentage_students_with_behavior": 0.29279364478910536,
             "team_average_count_per_student": 1.461698505768867,
             "team_percentage_students_with_behavior_formatted": "29.3%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.04845018583336341,
+            "usage_gap_percentage": "4.85%",
+            "optimal_percentage_students_with_behavior": 0.2865454239286015,
+            "optimal_percentage_formatted": "28.65%",
+            "behavior_effect_size": 0.290538585728124,
+            "potential_retention_increase": 0.003633763937502256,
+            "potential_retention_increase_percentage": "+0.36%"
           }
         },
         "16.A.i": {
@@ -1775,6 +2791,15 @@
             "team_percentage_students_with_behavior": 0.28919992434272745,
             "team_average_count_per_student": 1.5600529600907886,
             "team_percentage_students_with_behavior_formatted": "28.9%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0.0,
+            "usage_gap_percentage": "0.0%",
+            "optimal_percentage_students_with_behavior": 0.0,
+            "optimal_percentage_formatted": "0.0%",
+            "behavior_effect_size": 0.0,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.0%"
           }
         },
         "14.C.i": {
@@ -1787,6 +2812,15 @@
             "team_percentage_students_with_behavior": 0.12407792699073199,
             "team_average_count_per_student": 0.5844524304898808,
             "team_percentage_students_with_behavior_formatted": "12.4%"
+          },
+          "improvement_potential": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.09370039682539683,
+            "optimal_percentage_formatted": "9.37%",
+            "behavior_effect_size": -0.11988704150272876,
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
           }
         }
       }
@@ -1799,43 +2833,43 @@
         "not_enrolled": [
           {
             "quote_id": "16.C.ii_not_enrolled_1",
-            "evidence": "Olive: So our plan is: I can see that [consultant's name] advised that he did send you an email. If you want to reply with your transcripts as well as a proof of identification... we'll be able to take a look over the units... Sound good?",
-            "justification": " Olive outlines clear next steps for pursuing recognition of prior learning, involving both her and Alice in the process. This establishes mutual ownership of the action plan and respects Alice's input, ensuring collaborative planning.",
+            "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call to finalize your approach. Does that timeline work for you?",
+            "justification": "The consultant collaborates with the student to outline a specific action plan that involves mutual input and responsibilities, ensuring agreement on the tasks and timelines, thereby demonstrating collaborative action planning behavior.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "16.C.ii_not_enrolled_2",
             "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call Friday to finalize your approach. Does that timeline work for you?",
-            "justification": " The consultant creates a clear action plan with specific next steps and involves the student in confirming the timeline, ensuring mutual ownership and agreement of responsibilities in the decision-making process.",
+            "justification": "The consultant collaborates with the student to create a clear action plan with student input, ensuring both parties have defined responsibilities and timelines, demonstrating collaborative action planning.",
             "outcome_category": "not_enrolled"
+          }
+        ],
+        "enrolled_not_retained": [
+          {
+            "quote_id": "16.C.ii_enrolled_not_retained_1",
+            "evidence": "CONSULTANT: So as long as it's got the same name, Kerry Ferguson, then you can just reply back to me with that. For now, if you can reply back to me with your ID, I think I should be able to enroll you for the course directly, okay, until we wait for that official academic transcript. But what I want to do is because it's so close to Friday, because enrollment is closing on Friday, I want to secure this position...",
+            "justification": "The consultant generates a comprehensive action plan that emphasizes mutual input and responsibility. The sequence of task assignments is clear, with agreed timelines that incorporate both student and consultant commitments. This ensures shared ownership of the enrollment process and confirms the student's decision-making role in adhering to deadlines.",
+            "outcome_category": "enrolled_not_retained"
+          },
+          {
+            "quote_id": "16.C.ii_enrolled_not_retained_2",
+            "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call Friday to finalize your approach. Does that timeline work for you?",
+            "justification": "The consultant outlines a clear, collaborative action plan involving mutual agreement on responsibilities and specific timeframes, ensuring mutual ownership of decisions and planning through clear communication and agreement.",
+            "outcome_category": "enrolled_not_retained"
           }
         ],
         "enrolled_retained": [
           {
             "quote_id": "16.C.ii_enrolled_retained_1",
             "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call Friday to finalize your approach. Does that timeline work for you?",
-            "justification": " The consultant develops a clear action plan collaboratively with the student, establishing mutual agreement on responsibilities and timelines, showcasing collaborative planning and ensuring active student involvement in decision-making.",
+            "justification": "The consultant involves the student in collaborative action planning by outlining clear next steps and timelines, ensuring mutual ownership of decisions.",
             "outcome_category": "enrolled_retained"
           },
           {
             "quote_id": "16.C.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call Friday to finalize your approach. Does that timeline work for you?",
-            "justification": " The consultant engages in collaborative action planning by developing a clear, mutual action plan. This involves defining specific next steps and timelines with the student, ensuring both parties have ownership and agreeing to a schedule that suits both.",
+            "evidence": "CONSULTANT: I'm more than happy to send you through an email and if you'd like to reply to that with those documents attached then we can go from there and look to get you settled by the end of the week at the latest.",
+            "justification": "The consultant establishes clear steps in collaboration with Scott, ensuring mutual participation in the enrollment approach, which includes a timeline for document submission and enrollment finalization, demonstrating collaborative action planning.",
             "outcome_category": "enrolled_retained"
-          }
-        ],
-        "enrolled_not_retained": [
-          {
-            "quote_id": "16.C.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: 'What I would advise is that if that's not been sent out to you by, I'd probably say by three o'clock today, give us a call back.'",
-            "justification": " The consultant establishes a collaborative action plan by advising the student on specific next steps in case the email isn't received by a certain time, involving the student in the process. This ensures mutual understanding and encourages student participation in resolving the issue.",
-            "outcome_category": "enrolled_not_retained"
-          },
-          {
-            "quote_id": "16.C.ii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: So our plan is: I'll send you the detailed program information today, you'll review it by Thursday, and we'll have another call Friday to finalize your approach. Does that timeline work for you?",
-            "justification": " The consultant demonstrates Collaborative Action Planning by developing a clear plan with the student, incorporating both consultant and student responsibilities and confirming agreement on the timeline.",
-            "outcome_category": "enrolled_not_retained"
           }
         ]
       }
@@ -1847,42 +2881,42 @@
           {
             "quote_id": "14.B.ii_not_enrolled_1",
             "evidence": "CONSULTANT: Okay, it says create your. Account to unlock the next step. If you don't finish it, you'll miss out on the January intake.",
-            "justification": " The consultant underscores the importance of finalizing enrollment steps, connecting the process urgency with securing a place for January intake. This highlights timing concerns and explores alternatives within the program structure.",
+            "justification": "The consultant underscores the importance of finalizing enrollment steps, connecting the process urgency with securing a place for January intake. This highlights timing concerns and explores alternatives within the program structure.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "14.B.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: Again, a bit hard to say because it's at 58.6, we do officially need that 60%, but yeah, like worst-case scenario, if we can't sort of like make a bit of an exception for you, then you can always just start with the graduate certificate of analytics instead, and like I mentioned earlier, like you won't be like disadvantaged because those courses overlap anyway, so they're the same units that you would be starting with.",
-            "justification": " The consultant addresses the student's disappointment about potentially not qualifying for the Master's course directly by proposing alternative options, such as starting with the graduate certificate of analytics. This demonstrates an attempt to resolve concerns associated with teaching period selection and aligns program structure with the student's academic and career goals.",
+            "evidence": "STUDENT: Maybe the March.",
+            "justification": "The consultant addresses the student's indecision about teaching period selection by explaining the benefits and flexibility of enrolling in the January period and deferring if needed for increased flexibility. This approach offers clear alternatives within the program structure and enhances the student's ability to adapt scheduling according to their needs.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "14.B.ii_enrolled_retained_1",
-            "evidence": "STUDENT: It looks like the final report was due on the 17th of July, 2020.",
-            "justification": " The consultant prepares to proceed with enrollment based on the student's completion date prior to accreditation expiration, addressing concerns about timing for program eligibility.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "14.B.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: So your start date is January the 6th, but you do always have until your census date of each teaching period to defer or withdraw from the course without any academic or financial penalties.",
-            "justification": " The consultant provides flexibility regarding teaching periods, allowing the student to defer or withdraw without penalties until the census date. This addresses concerns about start dates, aligning with the 'Teaching Period Selection Objection Response' category by offering alternatives within the program structure.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "14.B.ii_enrolled_not_retained_1",
-            "evidence": "STUDENT: And after I've set it up, I will have an early access to the course content, is that right?",
-            "justification": " The student inquires about the timing of accessing course content, signaling a concern or interest in the teaching period start dates. The consultant's precise and reassuring response addresses the student's implied curiosity and demonstrates the consultant's understanding of the program schedule.",
+            "evidence": "STUDENT: Can I just check, when does the registration finish? Like when is it like the latest time that I can enroll? CONSULTANT: For our January intake that's going to be this coming Friday.",
+            "justification": "The student's question about registration deadlines implicitly addresses concerns related to the timing of educational commitments. The consultant responds with precise enrollment dates, facilitating the student's need for planning and scheduling in alignment with the study period start.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "14.B.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: Okay, I will do that ASAP. CONSULTANT: Fantastic, any other questions while I've got you. STUDENT: false, you said as much detail as possible. CONSULTANT: true, outlined in there, so detailing what you do basically in your roles, so day-to-day, you know, what type of, if you have any sort of management experience as well and all that type of stuff. STUDENT: And in the letters of recommendation, is there anything specific? CONSULTANT: Let me just double check that for you. CONSULTANT: Just give me one moment. STUDENT: No worries. CONSULTANT: false, I don't need a recommendation letter. CONSULTANT: That's okay.",
-            "justification": " The consultant clarifies the requirements for documents, including recommendation letters, and emphasizes detailed professional experience. This helps manage expectations regarding the enrollment process timing and reinforces the importance of detailed submissions without stress.",
+            "evidence": "STUDENT: And after I've set it up, I will have an early access to the course content, is that right?",
+            "justification": "The student inquires about the timing of accessing course content, signaling a concern or interest in the teaching period start dates. The consultant's precise and reassuring response addresses the student's implied curiosity and demonstrates the consultant's understanding of the program schedule.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "14.B.ii_enrolled_retained_1",
+            "evidence": "CONSULTANT: And are you looking to start the January intake?",
+            "justification": "The consultant directly asks about the student's preference for the teaching period start date, confirming the January start. Even without explicit concern from the student, the consultant's query encourages consideration of teaching period timing.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "14.B.ii_enrolled_retained_2",
+            "evidence": "CONSULTANT: Well, I would say in worst case scenario, if not January, the next intake is not too long anyway. In that case, you'll be commencing for the March intake then.",
+            "justification": "The consultant addresses concerns about the timing of enrollment, explaining alternative start dates within the program's structure to manage the student's uncertainty about meeting the January intake due to transcript delays.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -1893,43 +2927,43 @@
         "not_enrolled": [
           {
             "quote_id": "13.A.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Okay, all I need to do now is just confirm your details and happy to send you the offer letter, but before I jump into it, do you have any questions for me?",
-            "justification": " The consultant demonstrates a process clarification technique by first confirming necessary details before sending out the offer letter, organizing the enrollment process into manageable steps and checking for understanding by asking if the student has any questions.",
+            "evidence": "CONSULTANT: So in advance, congratulations, you will have secured a position. I'll run you through what the next steps are and what you can expect leading up to the teaching period. So now that you will be enrolled, you will receive the enrolment letter in the following 24 to 48 hours that'll be sent to your email. It will have instruction on how to log on and set up for the first time. So there are a few tasks you'll need to do on your end to finalise the enrolment. I should add that for the January intake, these tasks will need to be completed by the 18th of December, and they include setting up your Monash account, your student email, completing a few compulsory introductory modules online, supplying your USI number, and filling out the fee forms as well. If you're hoping to use FeeHelp, you'll be able to get the FeeHelp application process started from those fee forms. Once that's all done, your enrolment will be finalised, and you'll be set to gain early access on the 16th of December, whereby you'll have early access to your first unit, the academic staff, and the online library resources.",
+            "justification": "The consultant provides a comprehensive and structured explanation of the enrolment process by describing the next steps and breaking them into a chronological series of actions. This includes sending the enrolment letter, setting up a Monash account, and completing necessary tasks before specific deadlines, demonstrating the Process Clarification Technique.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "13.A.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: There are only two documents that we'd need to see. Your Bachelor of Commerce official transcript. We need to just have a look over that and calculate your weighted average mark. We need a minimum 60%. And then we'd also just need to see proof of citizenship, like a, you know, a passport.",
-            "justification": " The consultant breaks down the application requirements into clear, manageable components (transcript and proof of citizenship), clarifying the necessary weighted average mark. This structured explanation ensures Jasper understands exactly what is required for the application, simplifying the process into accessible steps.",
+            "evidence": "CONSULTANT: Yeah it's pretty straightforward, usually about a day to just assess documents for approval and then once we get approval from the faculty it would just be a quick phone call to wrap up enrolment. The next enrolment available will be in January, so that would be starting on 6th of January. Close of enrolments for that would be the 13th of December. As long as we got it in before that day, it would be fine.",
+            "justification": "The consultant simplifies the enrollment process by breaking it into manageable components: document assessment followed by faculty approval and a concluding phone call, making the process accessible through a step-by-step explanation. Providing clear timelines and reassurance about document approval makes the process understandable to the student.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "13.A.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: Number two is the important one talking about the census date, so you are commencing on the 6th of January, however you will have until the 17th of January to have a change of mind without any academic penalties...",
-            "justification": " The consultant clarifies the enrollment process by communicating important deadlines, such as the census date and the timeframe for changing the student\u2019s decision, exemplifying process clarification technique.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "13.A.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: Well, look, I'm more than happy to answer your questions if you do have those with you now. And if you're happy with the answers to those questions, I can send you through an email directly that you can reply to with those documents, and then we can have that reviewed for you as soon as possible.",
-            "justification": " The consultant demonstrates a process clarification technique by outlining a step-by-step approach to addressing the student's previous questions: providing answers, sending an email, having the student reply with documents, and getting those reviewed. This makes the application process clearer and more manageable for the student.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "13.A.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: 'Let me explain the three-step process: First, submit your transcript by Friday. This ensures we verify eligibility before the deadline. Second, complete the online form. Third, we'll have a brief call to finalize everything'",
-            "justification": " The consultant breaks down the application process into manageable steps ('submit your transcript', 'complete the online form', 'brief call to finalize'), making the process accessible and ensuring the student understands each component.",
+            "evidence": "CONSULTANT: Would that be possible if I give you a call back like at nine in the morning tomorrow? Yeah, that's fine, thank you. And finalise the application for you, by then I'll have everything I needed and I'll be happy. All I have to do is just take five, seven minutes to confirm your details and we'd be happy to just, yeah, prioritise and finalise the application for you then. Just make sure you have access to your email, the Gmail account, okay?",
+            "justification": "The consultant demonstrates the Process Clarification Technique by outlining clear and manageable steps: confirming details, ensuring email accessibility, and scheduling a call-back time. This approach breaks down the application process into logical components, facilitating student understanding.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "13.A.ii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: Let me explain the three-step process: First, submit your transcript by Friday. This ensures we verify eligibility before the deadline. Second, complete the online form. Third, we'll have a brief call to finalize everything.",
-            "justification": " The consultant effectively breaks down the enrollment process into manageable steps, providing clarity and verification about application submission, completion, and confirmation procedures, ensuring the student's understanding of each component involved.",
+            "evidence": "CONSULTANT: You just need to send us those documents by the 13th of December. It'll take about a day or so for us to review those documents and just ensure that they are the officialised and credible versions and then we can give you a call back. It'll take 10-15 minutes and we can secure your spot for teaching period one and essentially have you enrolled?",
+            "justification": "The consultant breaks down the application process into manageable components with specific actions and deadlines, making the process accessible and clear for the student. The structure facilitates comprehension and follows up with next steps for enrollment.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "13.A.ii_enrolled_retained_1",
+            "evidence": "CONSULTANT: So how it works is we've got different entry points for the Graduate Certificate, the Diploma, and the Master's. It all depends on your qualifications, as well as if you're looking into your CV. That depends on which entry point you'd be looking at. You've mentioned you've completed a bachelor's degree, which means you have two options. You can either start at the graduate certificate level or the master's level. If you're starting at the grad cert level, it actually comprises the first four units of the master sequence anyway. It's a good indication of what the master's sequence looks like, but it also gives you the chance to graduate at the graduate certificate level. Then the next step will be the graduate diploma, which is another four units, from the master's.",
+            "justification": "The consultant clearly breaks down the enrollment process for different qualifications. They provide a structured explanation of how the Graduate Certificate, Diploma, and Master's programs are interconnected, using logical language that facilitates understanding.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "13.A.ii_enrolled_retained_2",
+            "evidence": "STUDENT: I've been going through the process of applying to be in the next year's Graduate Certificate of Computer Science remotely and I've got to the point of receiving my... with Monash Online, so I've gone through the declaration, been sort of accepted in so I'm just sort of setting up the steps and in the email I received I didn't there's a it basically prompts me to go through setting up the Monash account which it recommends you do within 24 hours however the student ID field in the email I received is blank so I just wanted to follow up to see if that's something I'm expected to sort of receive later or if it was a mistake perhaps and it could be rectified over the phone.",
+            "justification": "The consultant provides a structured breakdown of the enrollment process, explaining that the student number will be issued after processing is completed by student advisors. This clear explanation is paired with transferring the inquiry to student advisors, breaking down the process into manageable components while ensuring the student comprehends the steps involved.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -1940,43 +2974,43 @@
         "not_enrolled": [
           {
             "quote_id": "12.C.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Are you interested in our January intake? ... STUDENT: Maybe after, okay. CONSULTANT: So we have March if you don't do the January intake.",
-            "justification": " By offering intake options and maintaining momentum with potential follow-up interaction regarding the intake decision, the consultant exemplifies 'Follow-Up Scheduling Behavior'.",
+            "evidence": "STUDENT: Is it possible to actually maybe schedule a call at a time that maybe I can give you some divine attention?",
+            "justification": "The consultant demonstrates effective follow-up scheduling behavior by arranging a specific date and time for the next call to ensure continued interaction and maintain momentum in the enrollment process. This scheduling is anchored with a confirmation email, keeping the student engaged and informed.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "12.C.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: What time today would you like me to give you a call back? ... Once you've pressed accept, you can give me a call back if you have any questions.",
-            "justification": " The consultant arranges follow-up by asking the student for a preferred callback time, aiming to maintain enrollment momentum by ensuring ongoing communication post-acceptance.",
+            "evidence": "CONSULTANT: I'll be in touch with you as long as you have met those marks. If you still have any more doubts, please feel free to reach out. Happy to discuss things further as well.",
+            "justification": "The consultant sets specific expectations for follow-up interactions, ensuring continued communication based on academic progress. This establishes follow-up scheduling behavior to maintain enrollment momentum.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "12.C.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: What I need to do now is just to help you get started and make sure that across everything we have a dedicated student coach which is free of charge that I'm going to sign you up with and that's a free service that we offer to help you get started with everything, help you get set up for success with your studies. They're available all this week and all next week, when's ideal for you for a phone call? STUDENT: I think Wednesday around this time 11 a.m. Manila time sounds great.",
-            "justification": " Consultant establishes a specific time (Wednesday 11 a.m. Manila time) for a follow-up call with a student coach to maintain enrollment momentum, ensuring support and success in Sabrina's studies.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "12.C.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: And if that's all good, then I'll be able to do what we call the pre-enrolment call. We confirm all your details and then go through a student declaration, which is basically the terms and conditions. Once you accept that, you'll have...in 24 hours after that, you'll get a basic step-by-step guide on how to enroll.",
-            "justification": " The consultant outlines a specific follow-up call for pre-enrollment, provides a timeline for subsequent actions, and establishes scheduled interactions to maintain enrollment progression. This behavior of setting a clear follow-up process helps to ensure momentum in the student's decision-making.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "12.C.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: I'll call you this Friday at 3pm to check on your document progress and answer any questions.",
-            "justification": " The consultant establishes a specific date and time for a follow-up call to maintain enrollment momentum, which is a clear demonstration of follow-up scheduling behavior as outlined in taxonomy category 12.C.ii.",
+            "evidence": "CONSULTANT: You'll receive a welcome call from the student advisors in the next week or so to welcome you to the course, and you'll have three weeks early access to your learning materials.",
+            "justification": "The consultant establishes a follow-up schedule by specifying the timing and purpose of future interactions, ensuring enrollment momentum through scheduled engagement and early access to course materials.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "12.C.ii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: I'll be touching base again over the next couple of weeks, just as we get closer to the cut-off date.",
-            "justification": " The consultant demonstrates follow-up scheduling behavior to maintain enrollment momentum by establishing a plan to touch base as the cut-off date approaches, although it lacks specific dates or times, it indicates future contact.",
+            "evidence": "CONSULTANT: They'll reach out to you as well in the next seven days to welcome you to the program.",
+            "justification": "The consultant schedules specific follow-up contact within a seven-day timeframe, maintaining momentum for enrollment through structured outreach.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "12.C.ii_enrolled_retained_1",
+            "evidence": "CONSULTANT: If you can send that to me in the next 45 minutes or so, I'll submit those straight away to the faculty and you'll probably hear back from me before 5pm today with an outcome for you.",
+            "justification": "The consultant establishes follow-up scheduling by specifying expected submission within 45 minutes and guarantees a decision by 5pm, which maintains momentum and provides clear timelines.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "12.C.ii_enrolled_retained_2",
+            "evidence": "CONSULTANT: But once I do that, I'll probably touch base sometime Monday. I'll be able to have an answer for you. From then on, then we can progress forward with the application process.",
+            "justification": "The consultant establishes a specific timeline for follow-up interaction, scheduling touch base on Monday to maintain enrollment momentum, aligning with follow-up scheduling behavior. This clear timeline helps ensure the student expects subsequent interaction post-resolution of the fee inquiry and maintains the application's progress.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -1987,43 +3021,43 @@
         "not_enrolled": [
           {
             "quote_id": "15.A.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: I think even the best students, you know, with balancing work and family as well, would find it difficult here and there. It's always a challenge, no matter how good your work ethic is, so yeah, that's completely understandable.",
-            "justification": " The consultant provides sufficient acknowledgment of the student's concerns about entry into an honors program and validates the student's experiences by acknowledging the universal challenge of balancing work, family, and studies. This demonstrates targeted acknowledgment that shows understanding while maintaining conversation momentum.",
+            "evidence": "STUDENT: 'Yeah, so I've got the letter coming, so I'm hoping it won't be too long because I still think that my WAM should be higher than that.' CONSULTANT: 'Trust me, from my side of it, with those marks where you have, compared to other students I've seen so far for this last two weeks, yours is definitely going to be a lot more higher.'",
+            "justification": "The consultant provides targeted acknowledgment of the student's concern about their weighted average mark (WAM) being potentially underrated. This is done by providing reassurance with specific context and comparative data, thus validating the student's experience without overanalyzing.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "15.A.ii_not_enrolled_2",
-            "evidence": "STUDENT: First is my passport will expire July of next year.",
-            "justification": " The consultant provides sufficient acknowledgment of the student's concern about passport expiration, confirming understanding of the query while promptly addressing and validating it without over-analyzing.",
+            "evidence": "STUDENT: I think I did and I had to provide a letter from work as well.",
+            "justification": "The consultant acknowledges the student's concern about document provision, reflecting the details offered and providing reassurance that the documents should be on file. This demonstrates sufficient acknowledgment of the concern without overanalysing it.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "15.A.ii_enrolled_retained_1",
-            "evidence": "STUDENT: Yeah, okay, fantastic. I don't know if I have any more questions to mind, Jeb, but I definitely would want to complete the application today, and thankfully I'm working from home.",
-            "justification": " The consultant provides specific acknowledgment of the student's intention to complete the application and explains the necessary steps clearly. This demonstrates sufficient understanding and maintains forward progress without overanalyzing.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "15.A.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: Yeah, beautiful. So we just need to see the official transcript of that particular bachelor and we'll also just need to see proof of identification, so either a passport or a birth certificate.",
-            "justification": " The consultant provides targeted, specific acknowledgment of the student's qualification without overanalyzing, validating the student's eligibility for entry. This demonstrates providing sufficient acknowledgment without extensive exploration.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "15.A.ii_enrolled_not_retained_1",
-            "evidence": "STUDENT: I'm working full-time.",
-            "justification": " The consultant provides appropriate acknowledgment depth by reaffirming the student's full-time work status and acknowledging their limited knowledge in project management, thus validating the student's context and allowing the conversation to progress without overanalyzing.",
+            "evidence": "CONSULTANT: I think even the best students, you know, with balancing work and family as well, would find it difficult here and there. It's always a challenge, no matter how good your work ethic is, so yeah, that's completely understandable.",
+            "justification": "The consultant provides specific acknowledgment of the student's potential concerns, validating their experience and encouraging forward progress without overanalyzing, demonstrating appropriate acknowledgment depth.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "15.A.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: There are some universities that will not get back to me until the end of January.",
-            "justification": " The consultant provides targeted acknowledgment of the student's concern, explicitly addressing the consequences of missing the cancellation deadline, thus validating the student's situation and ensuring clear understanding of associated risks.",
+            "evidence": "CONSULTANT: Yeah, absolutely. You can take up to six deferrals throughout the master program if need be. You're more than welcome to take several study breaks.",
+            "justification": "The consultant provides specific acknowledgment of the student's potential concern about balancing the course with other commitments. This acknowledgment reassures the student about the program's adaptability, demonstrating understanding and validating the student's situation while maintaining conversational flow.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "15.A.ii_enrolled_retained_1",
+            "evidence": "CONSULTANT: Oh, actually, they've already... I just looked into their account. I think it's already being escalated. They have emailed us last week.",
+            "justification": "The consultant provides sufficient acknowledgment of the ongoing issue by explaining its status. This validates the student's concern about the delay and demonstrates understanding while maintaining forward progress in the conversation without overanalyzing.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "15.A.ii_enrolled_retained_2",
+            "evidence": "CONSULTANT: I think even the best students, you know, with balancing work and family as well, would find it difficult here and there. It's always a challenge, no matter how good your work ethic is, so yeah, that's completely understandable. STUDENT: Yeah, I'm glad to hear it's recognized as a challenge.",
+            "justification": "The consultant provides targeted acknowledgment of the student's potential challenges in balancing studies with personal life. This targeted reflection validates the student's experience by empathizing with their situation and maintains forward progress in the conversation without overanalyzing.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -2034,43 +3068,43 @@
         "not_enrolled": [
           {
             "quote_id": "12.C.iii_not_enrolled_1",
-            "evidence": "CONSULTANT: Just letting you know, the application for January is closing this Friday. So, yeah, sooner the better.",
-            "justification": " The consultant creates urgency by mentioning the imminent closing of the application period, using a deadline to motivate the student's swift action, which exemplifies urgency and momentum creation aimed at securing enrollment.",
+            "evidence": "CONSULTANT: 'Now, applications are closing next week, so I'm going to send you this email right now.'",
+            "justification": "The consultant creates urgency by highlighting the application closing date next week, motivating immediate action to complete enrollment steps. This urgency is intended to encourage Jasper to prioritize the submission of necessary documents to ensure a timely enrollment process.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "12.C.iii_not_enrolled_2",
-            "evidence": "CONSULTANT: If I email you now, would you be able to send those documents through to me this morning so I can process this for you? We are closing applications in a couple of days, so I will get to yours as soon as I've got it.",
-            "justification": " The consultant creates urgency and momentum by requesting immediate action ('this morning') and highlighting the imminent closing of applications ('in a couple of days'), fitting the category's description of creating appropriate urgency around enrollment actions.",
+            "evidence": "CONSULTANT: 'I'll email you now once you've got it send it through and we'll calculate your grades.'",
+            "justification": "By offering to email immediately and calculate grades swiftly upon receipt of the document, the consultant creates a sense of urgency that motivates the student towards making a timely decision, enhancing enrollment momentum through urgency creation.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "12.C.iii_enrolled_retained_1",
-            "evidence": "CONSULTANT: Yet yeah I'm pretty sure it is the 7th of December and we have up until the 17th of December to get you enrolled so it does give us a bit of leeway time there what I'll suggest we do.",
-            "justification": " The consultant creates urgency by highlighting the enrollment deadline (17th December) and suggesting necessary steps to ensure enrollment within the time frame, encouraging timely action with connected benefits.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "12.C.iii_enrolled_retained_2",
-            "evidence": "CONSULTANT: ...it's only nine days away, I would suggest taking the time to do so, it does take about an hour to get your account set up, and also you're going to receive a welcome call from the support team... CONSULTANT: Now once that's all done, you actually get early access to your course content. Early access opens up from the 16th of December, feel free to use it if you want, otherwise the unit just starts January.",
-            "justification": " The consultant creates urgency around setting up the Monash account by emphasizing the proximity of the deadline and connects this urgency to a tangible benefit of accessing course content earlier, thereby motivating the student to complete the enrollment tasks promptly.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "12.C.iii_enrolled_not_retained_1",
-            "evidence": "STUDENT: I got a missed call from you yesterday. So I was just calling. CONSULTANT: Yeah, I was just calling up, just chasing up on some documentation. If you're still looking at enrolling into the Graduate Certificate of Business Administration course.",
-            "justification": " The consultant creates urgency and momentum in the enrollment process by leveraging a missed call to prompt document submission, ensuring the student remains focused on timely progression.",
+            "evidence": "CONSULTANT: Yep no worries is cost a factor or did you still want to apply?",
+            "justification": "The consultant addresses a potential barrier (cost) to create urgency and momentum towards the application process. By asking whether cost is a factor and probing for immediate interest in applying, the consultant subtly encourages Bashir to weigh their decision promptly, which can lead to making a faster commitment.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "12.C.iii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: You also get two weeks early access, so that means you actually get four weeks of looking at the learning materials, playing around with it to see if you've got the time to actually start it then or not.",
-            "justification": " The consultant uses early access to learning materials as a motivational tool, creating urgency by highlighting the benefits of early enrollment, which aligns with 'Urgency & Momentum Creation' behaviors. This approach aims to incentivize the student to consider prompt enrollment through tangible benefits.",
+            "evidence": "CONSULTANT: Now, if you have not set up your Monash account by the deadline outlined on your offer letter, your enrollment will be cancelled. In this case, you'll not incur any cost of your course. Now once this is done, you will have early access to the unit on the 16th of December.",
+            "justification": "The consultant creates urgency by emphasizing the need to set up the Monash account by a certain deadline to avoid losing enrollment and highlights the benefit of early unit access, thereby fostering enrollment momentum.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "12.C.iii_enrolled_retained_1",
+            "evidence": "CONSULTANT: As soon as I've got that from you, I'll do the WAM assessment. [...] I should have an outcome for you before the end of the day. [...] you'll almost certainly hear from me before close of business today, which is six o'clock.",
+            "justification": "The consultant creates urgency by setting a clear timeline for receiving documents and providing the student with a concrete deadline to ensure the enrollment process continues without delay, exemplifying Urgency & Momentum Creation.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "12.C.iii_enrolled_retained_2",
+            "evidence": "CONSULTANT: We have January intakes, the unit starting on 6th of Jan, but the cutoff is actually this Friday at 6pm. This Friday, we do have the possibility for an extension up until Tuesday, but that's if you do let us know your intentions to enroll.",
+            "justification": "The consultant creates urgency surrounding the enrollment deadline for the January intake, emphasizing the importance of acting promptly and offering a slight extension as a motivator for the student to affirm their intent to enroll, aligning with 'Urgency & Momentum Creation' behavior.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -2081,43 +3115,43 @@
         "not_enrolled": [
           {
             "quote_id": "16.B.iii_not_enrolled_1",
-            "evidence": "STUDENT: I have an appointment to go to at 11.30. I should be home by two o'clock so any time after that would be suitable.",
-            "justification": " The consultant collaborates with the student to plan the timing of their enrollment around the student's personal commitments, offering flexibility and respecting the student's schedule preferences.",
+            "evidence": "CONSULTANT: If you get me your candidate statement tonight or tomorrow, I'll give you a call back. We can enroll you for January and then it actually buys you two more weeks. So Friday the 17th of January is the census date if you do need to withdraw.",
+            "justification": "The consultant collaboratively plans a flexible timeline for enrollment, aligning it with the student's availability and decision-making timeframe, ensuring the student knows they have time until the census date to decide or withdraw, accommodating their personal and professional circumstances.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "16.B.iii_not_enrolled_2",
-            "evidence": "CONSULTANT: Yeah, that's fair enough so like the bridging courses since it's only two units you'll be doing that through two teaching periods which will actually take you 12 weeks to do so but at the same time I also want to gear you up for success...so that's just a call you'd have to make to see if you've got the capacity to study in Teaching Period 1, or if your initial assessment tells you that Teaching Period 3 would be the best intake for yourself, we can also accommodate that.",
-            "justification": " The consultant collaborates with the student to create a flexible timeline, considering work commitments by offering options to defer enrollment. This demonstrates adaptive planning that respects the student's unique constraints and ensures mutual decision-making.",
+            "evidence": "CONSULTANT: Yeah, so January 17th, you said? Yeah, so start date is January 6th, January 17th is your census date so you've got plenty of time.",
+            "justification": "The consultant collaborates with the student to develop a flexible timeline that accommodates the student's need to wait for responses from other universities, planning timelines that fit the student's decision-making needs.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "16.B.iii_enrolled_retained_1",
-            "evidence": "CONSULTANT: Well, I would say in worst case scenario, if not January, the next intake is not too long anyway. In that case, you'll be commencing for the March intake then.",
-            "justification": " The consultant collaborates with the student to explore alternative timeline options considering potential delays, demonstrating flexibility in planning without imposing rigid schedules.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "16.B.iii_enrolled_retained_2",
-            "evidence": "CONSULTANT: Correct. So I would say even a better idea is to defer to March, because then what will happen, that will give them an extra two months to get back to you.",
-            "justification": " The consultant collaborates with the student to develop a flexible timeline that accommodates delays in the credit application process, suggesting deferral as an option to relieve financial stress while maintaining enrollment adaptability.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "16.B.iii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: I would recommend it, just in case you would like to proceed with our enrolment, so if you want to get that account set up, just to at least secure your enrolment, and then if you do change your mind, you can have up until the 17th of January to call through and have that cancellation call through.",
-            "justification": " The consultant is collaboratively discussing the timeline for enrollment actions, considering the student's intention to potentially cancel enrollment if they receive another offer. This segment shows adaptive planning of timelines aligning with the student's uncertainties and circumstances.",
+            "evidence": "CONSULTANT: With your current external commitments, you can log on whenever you're available for those hours and work through the content.",
+            "justification": "The consultant discusses flexible timelines regarding study commitments, considering the student's lack of current work obligations and preference for starting in January. This demonstrates planning that accommodates the student's circumstances, suggesting flexibility in structuring study periods.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "16.B.iii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: Let's think about your work project timeline and when you'd feel most ready to take on study commitments. STUDENT: I manage a family business and we are opening a hotel.",
-            "justification": " The consultant works with the student to collaboratively plan study timelines that accommodate the student's project timeline, ensuring enrollment timing aligns with personal commitments such as managing a family business and opening a hotel.",
+            "evidence": "CONSULTANT: If you just want to send through those two documents for us, then we can definitely go ahead with your application and get you enrolled for January.",
+            "justification": "The consultant collaborates with the student to plan a timeline for January enrollment based on the student's readiness to provide necessary documentation, showing flexible timeline development tailored to the student's circumstances.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "16.B.iii_enrolled_retained_1",
+            "evidence": "CONSULTANT: Okay yep sure so as long as it within next one to two weeks we can still finalize the application for you for the January intake if that's what you're looking at. STUDENT: Sorry what about for the March intake when does that close? CONSULTANT: Yep that's that's open now already so yeah once you have your transcript you can send it through and we'll be able to so that one closes on the 19th of February so you'll have a bit of time for that one yeah.",
+            "justification": "The consultant discusses different intake periods (January and March), collaborating with the student to determine optimal timing for enrollment. This provides flexibility in planning study timelines according to the student's personal circumstances.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "16.B.iii_enrolled_retained_2",
+            "evidence": "CONSULTANT: With your current circumstances, would starting in July or November align better with your other commitments?",
+            "justification": "The consultant collaborates on determining enrollment timing that suits the student's commitments, demonstrating flexible timeline development.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -2128,43 +3162,43 @@
         "not_enrolled": [
           {
             "quote_id": "15.C.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: 'And lecture attendance isn't mandatory, allowing you to shape your study schedule around your personal availability, accommodating flexibility.'",
-            "justification": " The consultant provides reassurance about non-mandatory attendance and the ability to adjust study times to meet personal scheduling needs, responding adaptively to student signals regarding flexibility without overreaction.",
+            "evidence": "CONSULTANT: I notice you hesitated when I mentioned the group work component. Would you like me to explain more about how that works?",
+            "justification": "The consultant demonstrates responsive adaptability by picking up on the student's hesitation and offering to provide more information, indicative of adjusting the approach based on student cues.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "15.C.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: Okay, yeah there might be some issues we're having with this uh this course because it is quite new to our online study um what I might get you to do uh what I might do Mary is I might give you a call back tomorrow if that's okay. STUDENT: Yeah sure.",
-            "justification": " The consultant demonstrates responsive adaptability by acknowledging the issue with the student declaration and adjusting the approach to resolve it by offering to follow up the next day, without overreacting to the technical issue.",
+            "evidence": "CONSULTANT: You seem to have some specific questions about the online format. What aspects would be most helpful for me to clarify?",
+            "justification": "The consultant demonstrates responsive adaptability by noticing the student's cues about concerns with the online format and adjusting the approach to address these specific concerns without overreacting to minor signals. This illustrates appropriate responsiveness to student signals while balancing structure and flexibility.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "15.C.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: And in terms of your motivation to do this course, what was it that really sparked your interest in pursuing this one?",
-            "justification": " The consultant adapts and shifts the conversation to explore the student's motivations for returning to study, responding to meaningful signals of interest from the student, which demonstrates a balance in responsiveness.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "15.C.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: Based on that time commitment, is that something that you feel that you can juggle on your plate at the moment?",
-            "justification": " The consultant demonstrates responsive adaptability by addressing the student's signal regarding their work schedule, adjusting the approach to assess if the time commitment is manageable, balancing structure with flexibility in response to student cues.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "15.C.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: Once you create a Monash account, you can actually change it to March, you can change it to May, you can change it to whichever dates you want, any teaching period. Now, the ball's on your court, you do not need to contact us to do that.",
-            "justification": " The consultant demonstrates responsive adaptability by adjusting the enrollment process based on the student's expressed need to defer due to increased work responsibilities, while maintaining enrollment flexibility.",
+            "evidence": "STUDENT: So the attendance is not counted, right?",
+            "justification": "The consultant adapts to the student's concern regarding attendance by demonstrating adaptability through a clear confirmation, ensuring flexibility is understood without overreacting to the inquiry.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "15.C.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: And then, um, is it, like, one unit at a time? And then, what, how many hours are we looking at, like, per unit?...",
-            "justification": " The consultant shows responsiveness to the student's inquiry about course structure, adapting their explanation to clearly confirm the workload expectations, balancing detailed information with simplicity to support student comprehension.",
+            "evidence": "STUDENT: And is there a way to sort of essentially get the government to cover it and me pay the government back type thing.",
+            "justification": "The consultant responds to the student's question about financial aid with relevant information about the HECS program, demonstrating adaptability in providing useful, precise responses aligned with the student's inquiry.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "15.C.ii_enrolled_retained_1",
+            "evidence": "CONSULTANT: And then lastly, how are you feeling about returning to study? Generally, pretty confident? Anything that you're especially nervous about?",
+            "justification": "Through responsive adaptability, the consultant gauges the student's feelings about returning to study, assessing signals and adjusting the approach to address specific student concerns.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "15.C.ii_enrolled_retained_2",
+            "evidence": "CONSULTANT: I notice you hesitated when I mentioned the group work component. Would you like me to explain more about how that works?",
+            "justification": "The consultant skillfully adjusts their approach based on the student's cues, offering precise information when a hesitance is noted, which reflects responsive adaptability. This demonstrates keen perception and responsiveness to student signals.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -2175,43 +3209,43 @@
         "not_enrolled": [
           {
             "quote_id": "16.A.i_not_enrolled_1",
-            "evidence": "STUDENT: I'm just kind of worried that I'm going to try and pursue the clinical psychology pathway and then I'm going run out of money on fee help before I can get there.",
-            "justification": " The consultant references the student's concern about financial constraints and the cost of pursuing their desired pathway. They use this context to guide the discussion about the financial commitment needed for the entire study plan, thereby initiating a planning conversation that considers the student's expressed financial concern.",
+            "evidence": "CONSULTANT: Well, let me see what we can do with the work experience, and what was your kind of, what was your job role now? STUDENT: I got analytics. CONSULTANT: Analytics, okay. It might not meet it at the moment, unfortunately. Yeah, we could take a look at your CV if you have it so you could just always email that through to us and just do a quick assessment of it just to see if you meet that entry. So we're happy to take a look at it.",
+            "justification": "The consultant uses the student's provided information about their current job role in analytics to guide the entry requirement discussion, demonstrating context-informed planning by building on earlier conversation elements rather than repetitive questioning.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "16.A.i_not_enrolled_2",
-            "evidence": "CONSULTANT: Based on what you've shared about your work schedule and career goals, let's explore how we might structure your study approach.",
-            "justification": " The consultant uses previously gathered information about the student's background and goals to initiate a planning discussion, actively guiding the conversation without the need for repetitive questioning, thereby demonstrating context-informed planning initiation.",
+            "evidence": "CONSULTANT: Based on your second and third year psych units with a WAM of 74%, you've been approved for the Graduate Diploma of Psychology Advanced. Were you looking at going ahead with this one?",
+            "justification": "The consultant uses the previously gathered information about the student's academic performance to inform the discussion about enrollment approval, thus demonstrating context-informed planning initiation.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "16.A.i_enrolled_retained_1",
-            "evidence": "CONSULTANT: So this is 100% online and a part-time course, as you know, there are six teaching periods starting from January. The first one is commencing on the 6th of January next year.",
-            "justification": " The consultant consistently references previously gathered information, acknowledging the student's awareness of the online and part-time structure and directly responding with specific commencement details without repeating basic information, thereby demonstrating context-informed planning initiation.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "16.A.i_enrolled_retained_2",
-            "evidence": "CONSULTANT: So you're looking at doing, you're wondering about the Graduate Diploma of Psychology course. Is that correct? STUDENT: Yes. I was told it starts in October. I probably missed that deadline. And then again in January. Is that right? CONSULTANT: That's right. STUDENT: Did I just miss the deadline?",
-            "justification": " The consultant uses information previously gathered about the student's interest and the intake deadlines to guide the enrollment discussion, demonstrating context-informed planning initiation without repetitive questioning.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "16.A.i_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: So if you're going to finish up your... I'll finish up my master's early March.",
-            "justification": " The consultant effectively uses the student's background information and current educational commitments to guide the planning discussion. By referencing the student's completion timeline for their master's and their nursing background, the consultant initiates a tailored planning discussion. This demonstrates context-informed planning initiation by building on established context rather than starting anew.",
+            "evidence": "CONSULTANT: Based on what you've shared about your work schedule and career goals, let's explore how we might structure your study approach.",
+            "justification": "The consultant uses information shared by the student about their previous academic record and career goals to propose a potential route to the advanced course without repetitive questioning, thereby demonstrating context-informed planning initiation.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "16.A.i_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: Yeah, so you are entitled to take up to six intermissions during the course if need be. By default the course takes 1.4 years to complete, which works out to be roughly 16 months. If you needed to though, you do have a maximum of 4.8 years to complete this course, so you're more than welcome to stretch it out to almost five years if need be.",
-            "justification": " The consultant uses context-informed planning as they initiate discussions about the course duration and flexibility based on the student's query about taking breaks, referencing existing knowledge about the course structure to guide responses without repetitive questioning.",
+            "evidence": "STUDENT: I got an email saying that I am in the final step of the process of basically getting enrolled",
+            "justification": "The consultant uses the student's prior communication (an email received) to reference enrollment readiness, smoothly initiating discussion of next steps without redundant questioning, demonstrating context-informed planning initiation.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "16.A.i_enrolled_retained_1",
+            "evidence": "CONSULTANT: Based on what you've shared about your work schedule and career goals, let's explore how we might structure your study approach.",
+            "justification": "The consultant references the student's work structure and career goals, previously discussed during the call, to guide the planning process, demonstrating context-informed planning initiation by utilizing gathered information to tailor the study approach.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "16.A.i_enrolled_retained_2",
+            "evidence": "CONSULTANT: Based on what you've shared about your work schedule and career goals, let's explore how we might structure your study approach.",
+            "justification": "The consultant utilizes previously gathered information about the student's background to guide the planning discussion, specifically targeting the student's work schedule and career goals to direct the conversation. This demonstrates context-informed planning initiation as the consultant does not repeat questions but builds on established information.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
@@ -2223,42 +3257,42 @@
           {
             "quote_id": "14.C.i_not_enrolled_1",
             "evidence": "STUDENT: I'm just waiting on... With full transparency, I've also applied at Sydney Uni and I think they recognize experience, like. Work experience. I just wanted to get an outcome from them if they will do that for me, otherwise I will go with you guys.",
-            "justification": " The student expresses uncertainty about committing to Monash University due to an ongoing application with Sydney Uni, indicating they are comparing options and awaiting a preferred offer. This behavior highlights a browsing without intent to fully commit at the present moment.",
+            "justification": "The student expresses uncertainty about committing to Monash University due to an ongoing application with Sydney Uni, indicating they are comparing options and awaiting a preferred offer. This behavior highlights a browsing without intent to fully commit at the present moment.",
             "outcome_category": "not_enrolled"
           },
           {
             "quote_id": "14.C.i_not_enrolled_2",
-            "evidence": "STUDENT: Are you able to send it again?",
-            "justification": " The student indicates they did not see the previous email, which may suggest they are in a browsing phase without direct intent as critical information might have been missed. The consultant promptly offers to resend the email, thereby addressing a potential lapse in engagement and moving towards clarifying commitment.",
+            "evidence": "STUDENT: I just received a couple of calls from you.",
+            "justification": "The student indicates they've been receiving calls but hasn't committed to enrollment yet, while the consultant urges enrollment during the call. This behavior reflects the browsing without intent response, where the consultant attempts to move the student towards decision-making by facilitating immediate enrollment.",
             "outcome_category": "not_enrolled"
-          }
-        ],
-        "enrolled_retained": [
-          {
-            "quote_id": "14.C.i_enrolled_retained_1",
-            "evidence": "STUDENT: Yeah my first question was that only about my eligibility so if my BBA qualifications match then it's well good...",
-            "justification": " The consultant addresses the student's inquiry about eligibility, guiding the student towards understanding their academic positioning and options, thereby clarifying enrollment decision factors. Additionally, the prompt to discuss study time frames engages the student in program value discussions following eligibility clarification.",
-            "outcome_category": "enrolled_retained"
-          },
-          {
-            "quote_id": "14.C.i_enrolled_retained_2",
-            "evidence": "STUDENT: I'm looking at, oh I have been looking at, I have talked to someone previously about the graduate diploma of psychology advanced.",
-            "justification": " The student appears to be exploring options and has previously talked to someone about the program, indicating a browsing behavior without a clear enrollment intent yet. This highlights the consultant's opportunity to clarify program specifics and guide the student from browsing towards informed decision-making.",
-            "outcome_category": "enrolled_retained"
           }
         ],
         "enrolled_not_retained": [
           {
             "quote_id": "14.C.i_enrolled_not_retained_1",
-            "evidence": "STUDENT: I got a missed call from you yesterday. STUDENT: So I was just calling. CONSULTANT: Yeah, I was just calling up, just chasing up on some documentation. CONSULTANT: If you're still looking at enrolling into the Graduate Certificate of Business Administration course. STUDENT: true, I am.",
-            "justification": " The consultant engages proactively with the student who is in a browsing stage, assisting in moving towards clarity in decision-making about enrollment. This supports students by acknowledging their current exploration phase and gently guiding them toward firming up their intentions.",
+            "evidence": "STUDENT: I've just finished my double degree of sports science and business management, and I guess I was just kind of looking around and not 100% sure on my career path, so I was just having a look at some other pathways and further learning that I could really go into, I guess the MBA was just something that I was interested in.",
+            "justification": "The student expresses uncertainty about their career path and mentions 'just looking around,' indicating they are exploring educational options without a clear intent to enroll. This aligns with the consultant's role to respond to students who are 'just looking' and uncertain, and provide information to facilitate decision-making clarity.",
             "outcome_category": "enrolled_not_retained"
           },
           {
             "quote_id": "14.C.i_enrolled_not_retained_2",
-            "evidence": "STUDENT: Yeah, yeah. It wasn't the best back when I did it a few years ago.",
-            "justification": " The student mentions their previous academic performance wasn't the best, indicating possible hesitation or uncertainty about their ability to succeed in the program. Although the consultant acknowledges these concerns, they fail to address the specific information the student might need for clearer decision-making, which aligns with browsing without enrollment intent.",
+            "evidence": "STUDENT: I'm looking at potentially time-wise I'm looking at investing a potentially four to five years. CONSULTANT: That's correct.",
+            "justification": "The student discusses the long-term commitment and timespan involved, typical of a general inquiry phase where they are assessing educational options. The consultant confirms this information, enabling the student to gain clarity about the program duration essential for decision-making.",
             "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "14.C.i_enrolled_retained_1",
+            "evidence": "STUDENT: My thing is, if I'm dicking around too much, I've just had, this one's a fully paid, where I have to pay the whole thing. You know, there's three other unis with government funded places, and I'll, you know, while I'm waiting over Christmas to sort things out. I'll end up applying there too and see where I get to first. CONSULTANT: Yeah, of course, of course. And I'm with you, see if I were you I'll do the same...",
+            "justification": "The student expresses intention to explore other options due to the cost and payment model at Monash, demonstrating browsing behavior without clear enrollment intent. The consultant mirrors the student's approach to exploring all options and encourages applying to Monash with no immediate commitment, promoting clarity in decision-making.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "14.C.i_enrolled_retained_2",
+            "evidence": "CONSULTANT: Are you still looking through our graduate diploma in psychology?",
+            "justification": "The consultant responds to a situation where the student appears to be browsing, expressing confusion about program options and seeking clarification. The consultant acknowledges the student's uncertainty and offers detailed information to guide their decision-making process toward clarity.",
+            "outcome_category": "enrolled_retained"
           }
         ]
       }
