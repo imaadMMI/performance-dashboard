@@ -33,7 +33,11 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
   
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (Math.abs(animatedValue) / 100) * circumference;
+  
+  // For negative values, we need to draw counter-clockwise
+  const strokeDashoffset = originalValue < 0 
+    ? circumference + (Math.abs(animatedValue) / 100) * circumference
+    : circumference - (Math.abs(animatedValue) / 100) * circumference;
   
   useEffect(() => {
     const startTime = Date.now();
@@ -61,7 +65,7 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
       <svg
         width={size}
         height={size}
-        className="transform -rotate-90"
+        className={isNegative ? "transform rotate-270" : "transform -rotate-90"}
       >
         <circle
           cx={size / 2}
@@ -84,7 +88,6 @@ const ArchetypeChart: React.FC<ArchetypeChartProps> = ({
           style={{
             transition: "stroke-dashoffset 0.35s ease",
             transformOrigin: "center",
-            transform: isNegative ? `rotate(${360 - (Math.abs(animatedValue) / 100) * 360}deg)` : "none",
           }}
         />
       </svg>
@@ -436,7 +439,13 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-base text-[#282828]">{feature.taxonomy_info.title}</span>
-                        <span className="text-xs text-[#8BAF20] font-semibold">{feature.meta_analysis_metrics.effect_size_percentage}</span>
+                        <span className={`text-xs font-semibold ${
+                          feature.meta_analysis_metrics.weighted_effect_size < 0 
+                            ? "text-[#D84D51]" 
+                            : "text-[#8BAF20]"
+                        }`}>
+                          {feature.meta_analysis_metrics.effect_size_percentage}
+                        </span>
                       </div>
                     </button>
                   ))}
@@ -882,11 +891,22 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                                                         behaviorData.optimal_conditions?.potential_retention_increase_percentage || "0%";
                         const potentialImprovement = parseFloat(potentialImprovementStr.replace('%', ''));
                         const behaviorName = behavioralFeatures[behaviorKey]?.taxonomy_info?.title || behaviorKey;
+                        const behaviorDescription = behavioralFeatures[behaviorKey]?.taxonomy_info?.description || "";
                         
                         return (
                           <tr key={idx} className="border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors duration-200">
-                            <td className="py-4 px-4 w-1/4">
-                              <p className="text-sm font-medium text-[#282828]">{behaviorName}</p>
+                            <td className="py-4 px-4 w-1/4 relative">
+                              <div className="relative inline-block group">
+                                <p className="text-sm font-medium text-[#282828] cursor-help">{behaviorName}</p>
+                                {behaviorDescription && (
+                                  <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-80 left-0 top-full mt-2 shadow-xl">
+                                    <div className="font-normal text-left">
+                                      <p className="mb-2 font-semibold">{behaviorName}:</p>
+                                      <p className="leading-relaxed">{behaviorDescription}</p>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
                             </td>
                             <td className="py-4 px-4 text-center w-1/4">
                               <span className="text-sm font-semibold text-[#282828]">
