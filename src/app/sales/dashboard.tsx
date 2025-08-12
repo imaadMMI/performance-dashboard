@@ -5,6 +5,7 @@ import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
 import tp1Data from "./tp1-schema.json";
 import tp2Data from "./tp2-schema.json";
 import tpCombinedData from "./tp-combined.json";
+import solTp1Data from "./sol-tp1.json";
 
 interface ArchetypeChartProps {
   value: number;
@@ -147,13 +148,13 @@ interface QuoteExample {
 }
 
 interface DashboardProps {
-  selectedSchema?: "tp1" | "tp2" | "combined";
+  selectedSchema?: "tp1" | "tp2" | "combined" | "sol-tp1";
 }
 
 export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   
   // Get behavioral features from selected schema
-  const behavioralData = selectedSchema === "tp1" ? tp1Data : selectedSchema === "tp2" ? tp2Data : tpCombinedData;
+  const behavioralData = selectedSchema === "tp1" ? tp1Data : selectedSchema === "tp2" ? tp2Data : selectedSchema === "combined" ? tpCombinedData : solTp1Data;
   const behavioralFeatures = behavioralData.overall_behavioral_effects as Record<string, BehavioralFeature>;
   const exampleQuotes = behavioralData.example_quotes as Record<string, { behavioral_feature_title: string; outcome_categories: Record<string, QuoteExample[]> }>;
   const individualPerformance = behavioralData.individual_consultant_performance as Record<string, any>;
@@ -263,8 +264,11 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
             <div className="text-center flex-1">
               <p className="text-sm text-[#797A79] uppercase tracking-wide mb-2">Lowest Impact</p>
               <p className="text-3xl font-bold text-[#D84D51]">
-                {Math.min(...Object.values(behavioralFeatures).map(f => 
-                  f.meta_analysis_metrics.weighted_effect_size * 100)).toFixed(1)}%
+                {(() => {
+                  const lowestImpact = Math.min(...Object.values(behavioralFeatures).map(f => 
+                    f.meta_analysis_metrics.weighted_effect_size * 100));
+                  return lowestImpact > 0 ? `+${lowestImpact.toFixed(1)}%` : `${lowestImpact.toFixed(1)}%`;
+                })()}
               </p>
             </div>
           </div>
@@ -787,7 +791,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                   </h2>
                   <div className="flex items-center gap-4">
                     <span className="text-lg font-semibold text-[#797A79]">
-                      {selectedSchema === "tp1" ? "TP1" : selectedSchema === "tp2" ? "TP2" : "TP1-TP2 Combined"}
+                      {selectedSchema === "tp1" ? "Monash TP1" : selectedSchema === "tp2" ? "Monash TP2" : selectedSchema === "combined" ? "Monash TP1-TP2 Combined" : "SOL TP1"}
                     </span>
                     <button
                       onClick={() => setSelectedConsultant(null)}
@@ -848,7 +852,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
                                 <p className="mb-2 font-semibold">Actual Score:</p>
-                                <p>Percentage of this consultant's students who exhibited this specific behavior during their enrollment conversations.</p>
+                                <p>Percentage of this consultant's students who experienced this specific behaviour during their enrollment or consultation conversations.</p>
                               </div>
                             </div>
                           </div>
@@ -859,7 +863,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
                                 <p className="mb-2 font-semibold">Ideal Score:</p>
-                                <p>The optimal percentage of students who should exhibit this behavior for maximum retention impact.</p>
+                                <p>The optimal percentage of students, for each consultant, who should experience this sales behaviour. This 'optimal percentage' is defined using the top 25% of consultants (based on retention rate).</p>
                               </div>
                             </div>
                           </div>

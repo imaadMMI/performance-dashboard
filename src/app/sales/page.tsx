@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
-import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare } from "lucide-react";
+import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare, ChevronDown } from "lucide-react";
 import Dashboard from "./dashboard";
 
 interface Emotion {
@@ -444,8 +444,19 @@ function LLMInsights() {
 
 export default function SalesPage() {
   const [activeView, setActiveView] = useState<"llm" | "dashboard">("llm");
-  const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined">("tp1");
+  const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
   const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
+  
+  // Derive selected university from selected schema
+  const selectedUniversity = selectedSchema === "sol-tp1" ? "sol" : "monash";
+  const [activeUniversity, setActiveUniversity] = useState<"monash" | "sol">("monash");
+  
+  // Sync activeUniversity with selectedSchema when dropdown opens
+  useEffect(() => {
+    if (isSchemaDropdownOpen) {
+      setActiveUniversity(selectedUniversity);
+    }
+  }, [isSchemaDropdownOpen, selectedUniversity]);
 
   return (
     <div className="flex h-screen bg-brand-white">
@@ -484,52 +495,106 @@ export default function SalesPage() {
                 onClick={() => setIsSchemaDropdownOpen(!isSchemaDropdownOpen)}
                 className="px-4 py-2 bg-white border border-[#FF8A00] rounded-lg font-montserrat font-medium text-[#FF8A00] hover:bg-[#FFE5D0] transition-all duration-200 flex items-center gap-2"
               >
-                <span>{selectedSchema === "tp1" ? "Monash TP1" : selectedSchema === "tp2" ? "Monash TP2" : "Monash TP Combined"}</span>
-                <svg 
-                  className={`w-4 h-4 transition-transform duration-200 ${isSchemaDropdownOpen ? "rotate-180" : ""}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <span>{selectedSchema === "tp1" ? "Monash - TP1" : selectedSchema === "tp2" ? "Monash - TP2" : selectedSchema === "combined" ? "Monash - Combined" : "SOL - TP1"}</span>
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-200 ${isSchemaDropdownOpen ? "rotate-180" : ""}`}
+                />
               </button>
               
+              {/* Dropdown Menu */}
               {isSchemaDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-full min-w-[150px] bg-white border border-[#F0F0F0] rounded-lg shadow-lg z-10">
-                  <button
-                    onClick={() => {
-                      setSelectedSchema("tp1");
-                      setIsSchemaDropdownOpen(false);
-                    }}
-                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors ${
-                      selectedSchema === "tp1" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
-                    }`}
-                  >
-                    Monash TP1
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSelectedSchema("tp2");
-                      setIsSchemaDropdownOpen(false);
-                    }}
-                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors border-t border-[#F0F0F0] ${
-                      selectedSchema === "tp2" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
-                    }`}
-                  >
-                    Monash TP2
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSelectedSchema("combined");
-                      setIsSchemaDropdownOpen(false);
-                    }}
-                    className={`w-full px-4 py-2 text-left font-montserrat hover:bg-[#FFE5D0] transition-colors border-t border-[#F0F0F0] ${
-                      selectedSchema === "combined" ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" : "text-[#58595b]"
-                    }`}
-                  >
-                    Monash TP Combined
-                  </button>
+                <div className="absolute top-full right-0 mt-2 w-[320px] bg-white border border-[#F0F0F0] rounded-lg shadow-lg z-10 overflow-hidden">
+                  {/* University Toggle */}
+                  <div className="p-4 border-b border-[#F0F0F0]">
+                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select University</p>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setActiveUniversity("monash")}
+                        className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+                          activeUniversity === "monash"
+                            ? "bg-[#FF8A00] text-white shadow-sm"
+                            : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
+                        }`}
+                      >
+                        Monash
+                      </button>
+                      <button
+                        onClick={() => setActiveUniversity("sol")}
+                        className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+                          activeUniversity === "sol"
+                            ? "bg-[#FF8A00] text-white shadow-sm"
+                            : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
+                        }`}
+                      >
+                        SOL
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Teaching Period Selection */}
+                  <div className="p-4">
+                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select Teaching Period</p>
+                    <div className="space-y-2">
+                      {activeUniversity === "monash" ? (
+                        <>
+                          <button
+                            onClick={() => {
+                              setSelectedSchema("tp1");
+                              setIsSchemaDropdownOpen(false);
+                            }}
+                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
+                              selectedSchema === "tp1" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
+                                : "hover:bg-[#F5F5F5] text-[#58595b]"
+                            }`}
+                          >
+                            Teaching Period 1
+                          </button>
+                          <button
+                            onClick={() => {
+                              setSelectedSchema("tp2");
+                              setIsSchemaDropdownOpen(false);
+                            }}
+                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
+                              selectedSchema === "tp2" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
+                                : "hover:bg-[#F5F5F5] text-[#58595b]"
+                            }`}
+                          >
+                            Teaching Period 2
+                          </button>
+                          <button
+                            onClick={() => {
+                              setSelectedSchema("combined");
+                              setIsSchemaDropdownOpen(false);
+                            }}
+                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
+                              selectedSchema === "combined" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
+                                : "hover:bg-[#F5F5F5] text-[#58595b]"
+                            }`}
+                          >
+                            TP1-TP2 Combined
+                          </button>
+                        </>
+                      ) : (
+                        <button
+                          onClick={() => {
+                            setSelectedSchema("sol-tp1");
+                            setIsSchemaDropdownOpen(false);
+                          }}
+                          className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
+                            selectedSchema === "sol-tp1" 
+                              ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
+                              : "hover:bg-[#F5F5F5] text-[#58595b]"
+                          }`}
+                        >
+                          Teaching Period 1
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
