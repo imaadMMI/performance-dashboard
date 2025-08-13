@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { X, ArrowUp, ArrowDown, ChevronDown } from "lucide-react";
-import tp1Data from "./tp1-schema.json";
-import tp2Data from "./tp2-schema.json";
-import tpCombinedData from "./tp-combined.json";
-import solTp1Data from "./sol-tp1.json";
+import tp1Data from "./dashboardJson/tp1-schema.json";
+import tp2Data from "./dashboardJson/tp2-schema.json";
+import tpCombinedData from "./dashboardJson/tp-combined.json";
+import solTp1Data from "./dashboardJson/sol-tp1.json";
 
 interface ArchetypeChartProps {
   value: number;

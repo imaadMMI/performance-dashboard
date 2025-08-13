@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
 import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare, ChevronDown } from "lucide-react";
 import Dashboard from "./dashboard";
+import KeyMoments from "./keyMoments";
 
 interface Emotion {
   emotion: string;
@@ -443,7 +444,7 @@ function LLMInsights() {
 }
 
 export default function SalesPage() {
-  const [activeView, setActiveView] = useState<"llm" | "dashboard">("llm");
+  const [activeView, setActiveView] = useState<"llm" | "dashboard" | "keyMoments">("llm");
   const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
   const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
   
@@ -485,6 +486,17 @@ export default function SalesPage() {
               }`}
             >
               Dashboard
+            </button>
+
+            <button
+              onClick={() => setActiveView("keyMoments")}
+              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
+                activeView === "keyMoments"
+                  ? "bg-[#FF8A00] text-white shadow-md"
+                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
+              }`}
+            >
+              Key Moments
             </button>
           </div>
           
@@ -603,7 +615,7 @@ export default function SalesPage() {
 
         {/* Content based on active view */}
         <div className="mb-8">
-          {activeView === "llm" ? <LLMInsights /> : <Dashboard selectedSchema={selectedSchema} />}
+          {activeView === "llm" ? <LLMInsights /> : activeView === "keyMoments" ? <KeyMoments/> : <Dashboard selectedSchema={selectedSchema} />}
         </div>
       </main>
     </div>
