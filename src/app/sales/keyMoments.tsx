@@ -253,10 +253,13 @@ const KeyMoments = () => {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h1 className="text-2xl font-bold text-[#282828] mb-2">
-              Key Moments Analysis
+              {selectedConsultant !== "all" && selectedConsultantData 
+                ? `Key Moments Analysis - ${selectedConsultantData.name}`
+                : "Key Moments Analysis"
+              }
             </h1>
             <p className="text-sm text-[#797A79]">
-              Analyze key conversation moments and patterns for individual consultants
+              Analyze key conversation moments and patterns for individual consultants per week
             </p>
           </div>
           
@@ -322,19 +325,14 @@ const KeyMoments = () => {
         {/* Content Area - matching dashboard.tsx style */}
         <div className=" rounded-lg p-6">
           {selectedConsultant === "all" ? (
-            <div className="text-center py-8">
-              <p className="text-[#000000 ] text-base">
+            <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
+              <p className="text-sm text-[#797A79]">
                 Select a consultant from the dropdown above to view their key conversation moments
               </p>
             </div>
+            
           ) : selectedConsultantData ? (
             <div className="space-y-4">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-[#282828] mb-2">
-                  {selectedConsultantData.name}
-                </h3>
-              </div>
-              
               {/* Filters Section */}
               <div className="bg-white rounded-lg p-6">
                 {/* Week Selection */}
@@ -349,28 +347,28 @@ const KeyMoments = () => {
                           setWeekInputValue(newWeek.toString());
                         }}
                         disabled={selectedWeek === 1}
-                        className={`p-2 rounded-lg transition-all duration-200 ${
+                        className={`p-3 rounded-lg transition-all duration-200 ${
                           selectedWeek === 1 
                             ? 'bg-[#F5F5F5] text-[#C0C0C0] cursor-not-allowed' 
                             : 'bg-white hover:bg-[#F5F5F5] text-[#797A79] hover:text-[#282828] border border-[#F0F0F0] hover:shadow-sm'
                         }`}
                       >
-                        <ChevronLeft size={20} />
+                        <ChevronLeft size={24} />
                       </button>
                       
                       <div 
-                        className="mx-2 relative"
+                        className="mx-3 relative"
                         onClick={() => {
                           setIsEditingWeek(true);
                           setTimeout(() => weekInputRef.current?.select(), 0);
                         }}
                       >
-                        <div className={`flex items-center gap-2 px-3 py-2.5 rounded-lg cursor-text transition-all duration-200 ${
+                        <div className={`flex items-center gap-3 px-5 py-3 rounded-lg cursor-text transition-all duration-200 ${
                           isEditingWeek 
                             ? 'bg-white border-2 border-[#8BAF20] shadow-sm' 
                             : 'bg-[#F5F5F5] border-2 border-transparent hover:bg-white hover:border-[#F0F0F0]'
                         }`}>
-                          <span className="text-base font-semibold text-[#282828] select-none">
+                          <span className="text-lg font-semibold text-[#282828] select-none">
                             Week
                           </span>
                           <input
@@ -406,7 +404,7 @@ const KeyMoments = () => {
                                 e.currentTarget.blur();
                               }
                             }}
-                            className={`w-8 text-center text-base font-semibold bg-transparent focus:outline-none ${
+                            className={`w-10 text-center text-lg font-semibold bg-transparent focus:outline-none ${
                               isEditingWeek ? 'text-[#8BAF20]' : 'text-[#282828]'
                             }`}
                             style={{ caretColor: '#8BAF20' }}
@@ -426,13 +424,13 @@ const KeyMoments = () => {
                           setWeekInputValue(newWeek.toString());
                         }}
                         disabled={selectedWeek === totalWeeks}
-                        className={`p-2 rounded-lg transition-all duration-200 ${
+                        className={`p-3 rounded-lg transition-all duration-200 ${
                           selectedWeek === totalWeeks 
                             ? 'bg-[#F5F5F5] text-[#C0C0C0] cursor-not-allowed' 
                             : 'bg-white hover:bg-[#F5F5F5] text-[#797A79] hover:text-[#282828] border border-[#F0F0F0] hover:shadow-sm'
                         }`}
                       >
-                        <ChevronRight size={20} />
+                        <ChevronRight size={24} />
                       </button>
                     </div>
                   </div>
@@ -772,7 +770,7 @@ const KeyMoments = () => {
                         ) : (
                           <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
                             <p className="text-sm text-[#797A79]">
-                              No strength data available for the selected filters
+                              No data available for the selected filters
                             </p>
                           </div>
                         );
@@ -1028,7 +1026,7 @@ const KeyMoments = () => {
                         ) : (
                           <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
                             <p className="text-sm text-[#797A79]">
-                              No missed opportunity data available for the selected filters
+                              No data available for the selected filters
                             </p>
                           </div>
                         );
