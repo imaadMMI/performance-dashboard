@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronLeft, ChevronRight, X, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, X, ThumbsUp, ThumbsDown, ArrowDown, ArrowUp, Target, Info } from 'lucide-react';
 import tpCombinedData from './dashboardJson/tp-combined.json';
 
 interface ConsultantData {
@@ -43,6 +43,11 @@ interface CallTranscript {
   call_id: string;
   week_num: number;
   transcript: TranscriptEntry[];
+  summary?: {
+    total_messages: number;
+    customer_messages: number;
+    agent_messages: number;
+  };
 }
 
 const KeyMoments = () => {
@@ -74,9 +79,13 @@ const KeyMoments = () => {
     positive: CallTranscript[];
     missed: CallTranscript[];
   }>({ positive: [], missed: [] });
+  const [showPositiveSummary, setShowPositiveSummary] = useState(false);
+  const [showMissedSummary, setShowMissedSummary] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const weekInputRef = useRef<HTMLInputElement>(null);
   const callDropdownRef = useRef<HTMLDivElement>(null);
+  const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
+  const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
   
   const totalWeeks = 12; // You can adjust this based on your data
   
@@ -299,30 +308,27 @@ const KeyMoments = () => {
         </div>
         
         {/* Content Area - matching dashboard.tsx style */}
-        <div className="bg-[#F5F5F5] rounded-lg border border-[#F0F0F0] p-6">
+        <div className=" rounded-lg p-6">
           {selectedConsultant === "all" ? (
             <div className="text-center py-8">
-              <p className="text-[#797A79] text-base">
+              <p className="text-[#000000 ] text-base">
                 Select a consultant from the dropdown above to view their key conversation moments
               </p>
             </div>
           ) : selectedConsultantData ? (
             <div className="space-y-4">
               <div className="mb-6">
-                <h3 className="text-lg font-semibold text-[#282828] mb-2">
+                <h3 className="text-2xl font-bold text-[#282828] mb-2">
                   {selectedConsultantData.name}
                 </h3>
               </div>
               
               {/* Filters Section */}
-              <div className="bg-white rounded-lg border border-[#F0F0F0] p-6">
+              <div className="bg-white rounded-lg p-6">
                 {/* Week Selection */}
                 <div className="mb-6">
                   {/* Week Navigation */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
-                      Select Week
-                    </label>
                     <div className="flex items-center justify-center">
                       <button
                         onClick={() => {
@@ -590,18 +596,21 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* View More Button */}
-                              <button
-                                onClick={() => {
-                                  setSelectedCallDetails({
-                                    type: 'strength',
-                                    data: callData
-                                  });
-                                  setShowDetailsModal(true);
-                                }}
-                                className="w-full py-2 text-sm font-semibold text-[#8BAF20] hover:text-[#7A9B1B] transition-colors duration-200"
-                              >
-                                View more →
-                              </button>
+                              <div className="flex justify-end mt-3">
+                                <button
+                                  onClick={() => {
+                                    setSelectedCallDetails({
+                                      type: 'strength',
+                                      data: callData
+                                    });
+                                    setShowDetailsModal(true);
+                                  }}
+                                  className="px-4 py-2 bg-[#FF8A00] hover:bg-white text-white hover:text-[#FF8A00] border border-[#FF8A00] text-sm font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-1"
+                                >
+                                  View more
+                                  <span className="text-base">→</span>
+                                </button>
+                              </div>
                                 </div>
                               </div>
                               ))}
@@ -611,17 +620,84 @@ const KeyMoments = () => {
                             {selectedCall !== "all" && (() => {
                               const transcript = getTranscriptForCall(selectedCall);
                               if (!transcript) return null;
+                              
+                              const scrollToTop = () => {
+                                if (positiveTranscriptScrollRef.current) {
+                                  positiveTranscriptScrollRef.current.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              };
+                              
+                              const scrollToBottom = () => {
+                                if (positiveTranscriptScrollRef.current) {
+                                  positiveTranscriptScrollRef.current.scrollTo({
+                                    top: positiveTranscriptScrollRef.current.scrollHeight,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              };
+                              
+                              const scrollToKeyMoment = () => {
+                                if (positiveTranscriptScrollRef.current) {
+                                  const keyMomentElement = positiveTranscriptScrollRef.current.querySelector('[data-key-moment="true"]');
+                                  if (keyMomentElement) {
+                                    keyMomentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }
+                                }
+                              };
+                              
                               return (
                                 <div className="w-1/2">
-                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col">
+                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col relative">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
-                                      <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                      <div className="flex items-center justify-between">
+                                        <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                        <div className="relative">
+                                          <button
+                                            onClick={() => setShowPositiveSummary(!showPositiveSummary)}
+                                            className="p-1.5 hover:bg-[#8BAF20]/10 rounded-md transition-colors"
+                                            title="Call Summary"
+                                          >
+                                            <Info size={18} className="text-[#797A79] hover:text-[#8BAF20]" />
+                                          </button>
+                                          {showPositiveSummary && transcript.summary && (
+                                            <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#F0F0F0] p-4 z-20">
+                                              <div className="flex items-center justify-between mb-3">
+                                                <h5 className="text-sm font-semibold text-[#282828]">Call Summary</h5>
+                                                <button
+                                                  onClick={() => setShowPositiveSummary(false)}
+                                                  className="p-0.5 hover:bg-[#F5F5F5] rounded"
+                                                >
+                                                  <X size={14} className="text-[#797A79]" />
+                                                </button>
+                                              </div>
+                                              <div className="space-y-2">
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Total Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#282828]">{transcript.summary.total_messages}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Customer Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#8BAF20]">{transcript.summary.customer_messages}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Agent Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#8BAF20]">{transcript.summary.agent_messages}</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div className="flex-1 overflow-y-auto p-5">
+                                    <div ref={positiveTranscriptScrollRef} className="flex-1 overflow-y-auto p-5">
                                       <div className="space-y-3">
                                       {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
                                         <div 
-                                          key={index} 
+                                          key={index}
+                                          data-key-moment={entry.key_moment ? "true" : "false"}
                                           className={`p-3 rounded-lg ${
                                             entry.key_moment 
                                               ? 'bg-[#8BAF20]/10 border border-[#8BAF20]/20' 
@@ -648,6 +724,33 @@ const KeyMoments = () => {
                                         </div>
                                       ))}
                                       </div>
+                                    </div>
+                                    {/* Navigation Buttons */}
+                                    <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
+                                      <button
+                                        onClick={scrollToBottom}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Bottom"
+                                      >
+                                        <ArrowDown size={14} />
+                                        Bottom
+                                      </button>
+                                      <button
+                                        onClick={scrollToKeyMoment}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Key Moment"
+                                      >
+                                        <Target size={14} />
+                                        Key Moment
+                                      </button>
+                                      <button
+                                        onClick={scrollToTop}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Top"
+                                      >
+                                        <ArrowUp size={14} />
+                                        Top
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -749,18 +852,21 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* View More Button */}
-                              <button
-                                onClick={() => {
-                                  setSelectedCallDetails({
-                                    type: 'missed',
-                                    data: callData
-                                  });
-                                  setShowDetailsModal(true);
-                                }}
-                                className="w-full py-2 text-sm font-semibold text-[#FF8A00] hover:text-[#D84D51] transition-colors duration-200"
-                              >
-                                View more →
-                              </button>
+                              <div className="flex justify-end mt-3">
+                                <button
+                                  onClick={() => {
+                                    setSelectedCallDetails({
+                                      type: 'missed',
+                                      data: callData
+                                    });
+                                    setShowDetailsModal(true);
+                                  }}
+                                  className="px-4 py-2 bg-[#FF8A00] hover:bg-white text-white hover:text-[#FF8A00] border border-[#FF8A00] text-sm font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-1"
+                                >
+                                  View more
+                                  <span className="text-base">→</span>
+                                </button>
+                              </div>
                             </div>
                                 </div>
                               ))}
@@ -770,17 +876,84 @@ const KeyMoments = () => {
                             {selectedCall !== "all" && (() => {
                               const transcript = getTranscriptForCall(selectedCall);
                               if (!transcript) return null;
+                              
+                              const scrollToTop = () => {
+                                if (missedTranscriptScrollRef.current) {
+                                  missedTranscriptScrollRef.current.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              };
+                              
+                              const scrollToBottom = () => {
+                                if (missedTranscriptScrollRef.current) {
+                                  missedTranscriptScrollRef.current.scrollTo({
+                                    top: missedTranscriptScrollRef.current.scrollHeight,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              };
+                              
+                              const scrollToKeyMoment = () => {
+                                if (missedTranscriptScrollRef.current) {
+                                  const keyMomentElement = missedTranscriptScrollRef.current.querySelector('[data-key-moment="true"]');
+                                  if (keyMomentElement) {
+                                    keyMomentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }
+                                }
+                              };
+                              
                               return (
                                 <div className="w-1/2">
-                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col">
+                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col relative">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
-                                      <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                      <div className="flex items-center justify-between">
+                                        <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                        <div className="relative">
+                                          <button
+                                            onClick={() => setShowMissedSummary(!showMissedSummary)}
+                                            className="p-1.5 hover:bg-[#FF8A00]/10 rounded-md transition-colors"
+                                            title="Call Summary"
+                                          >
+                                            <Info size={18} className="text-[#797A79] hover:text-[#FF8A00]" />
+                                          </button>
+                                          {showMissedSummary && transcript.summary && (
+                                            <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#F0F0F0] p-4 z-20">
+                                              <div className="flex items-center justify-between mb-3">
+                                                <h5 className="text-sm font-semibold text-[#282828]">Call Summary</h5>
+                                                <button
+                                                  onClick={() => setShowMissedSummary(false)}
+                                                  className="p-0.5 hover:bg-[#F5F5F5] rounded"
+                                                >
+                                                  <X size={14} className="text-[#797A79]" />
+                                                </button>
+                                              </div>
+                                              <div className="space-y-2">
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Total Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#282828]">{transcript.summary.total_messages}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Customer Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#FF8A00]">{transcript.summary.customer_messages}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-xs text-[#797A79]">Agent Messages:</span>
+                                                  <span className="text-xs font-semibold text-[#FF8A00]">{transcript.summary.agent_messages}</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div className="flex-1 overflow-y-auto p-5">
+                                    <div ref={missedTranscriptScrollRef} className="flex-1 overflow-y-auto p-5">
                                       <div className="space-y-3">
                                       {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
                                         <div 
-                                          key={index} 
+                                          key={index}
+                                          data-key-moment={entry.key_moment ? "true" : "false"}
                                           className={`p-3 rounded-lg ${
                                             entry.key_moment 
                                               ? 'bg-[#FF8A00]/10 border border-[#FF8A00]/20' 
@@ -807,6 +980,33 @@ const KeyMoments = () => {
                                         </div>
                                       ))}
                                       </div>
+                                    </div>
+                                    {/* Navigation Buttons */}
+                                    <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
+                                      <button
+                                        onClick={scrollToBottom}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Bottom"
+                                      >
+                                        <ArrowDown size={14} />
+                                        Bottom
+                                      </button>
+                                      <button
+                                        onClick={scrollToKeyMoment}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Key Moment"
+                                      >
+                                        <Target size={14} />
+                                        Key Moment
+                                      </button>
+                                      <button
+                                        onClick={scrollToTop}
+                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                        title="Scroll to Top"
+                                      >
+                                        <ArrowUp size={14} />
+                                        Top
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
