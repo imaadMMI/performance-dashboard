@@ -465,7 +465,7 @@ const KeyMoments = () => {
                 {/* Call Number Dropdown */}
                 <div className="mb-6">
                   <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
-                    Select Call
+                    Select Individual Call
                   </label>
                   <div className="relative" ref={callDropdownRef}>
                     <button
@@ -553,17 +553,17 @@ const KeyMoments = () => {
                                 </div>
                             
                             
-                            {/* Analysis Sections */}
-                            <div className="space-y-3">
+                            {/* Analysis Content - Leaflet Style */}
+                            <div className="mt-4 space-y-4">
                               {/* Opportunity Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#8BAF20] p-3">
+                              <div className="pb-3 border-b border-[#F0F0F0]">
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Opportunity</p>
-                                  <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Score: {callData.analysis.opportunity.opportunity_score}/5
+                                  <h5 className="text-sm font-bold text-[#282828]">Opportunity Identified</h5>
+                                  <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
+                                    Score: {callData.analysis.opportunity.opportunity_score}/5
                                   </span>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {callData.analysis.opportunity.text.length > 150 
                                     ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
                                     : callData.analysis.opportunity.text}
@@ -571,14 +571,14 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* Consultant Response Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#8BAF20] p-3">
+                              <div className="pb-3 border-b border-[#F0F0F0]">
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Response</p>
-                                  <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
+                                  <h5 className="text-sm font-bold text-[#282828]">Consultant Response</h5>
+                                  <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
                                     Score: {callData.analysis.consultant_response.response_score}/5
                                   </span>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {callData.analysis.consultant_response.text.length > 150 
                                     ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
                                     : callData.analysis.consultant_response.text}
@@ -586,19 +586,19 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* Why This Is Effective Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#8BAF20] p-3">
+                              <div>
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Why This Is Effective</p>
+                                  <h5 className="text-sm font-bold text-[#282828]">Why This Is Effective</h5>
                                   <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Enrollment: +{callData?.analysis.why_good?.enrolment_impact_percent || 0}%
+                                    <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
+                                      +{callData?.analysis.why_good?.enrolment_impact_percent || 0}% Enrollment
                                     </span>
-                                    <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Retention: +{callData?.analysis.why_good?.retention_impact_percent || 0}%
+                                    <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
+                                      +{callData?.analysis.why_good?.retention_impact_percent || 0}% Retention
                                     </span>
                                   </div>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {(callData?.analysis.why_good?.text?.length || 0) > 150 
                                     ? callData?.analysis.why_good?.text?.substring(0, 150) + "..." 
                                     : callData?.analysis.why_good?.text || ""}
@@ -651,9 +651,16 @@ const KeyMoments = () => {
                               
                               const scrollToKeyMoment = () => {
                                 if (positiveTranscriptScrollRef.current) {
-                                  const keyMomentElement = positiveTranscriptScrollRef.current.querySelector('[data-key-moment="true"]');
+                                  const keyMomentElement = positiveTranscriptScrollRef.current.querySelector('[data-key-moment="true"]') as HTMLElement;
                                   if (keyMomentElement) {
-                                    keyMomentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    const elementTop = keyMomentElement.offsetTop;
+                                    // Subtract 20px to ensure the full message is visible with some padding
+                                    const scrollPosition = Math.max(0, elementTop - 65);
+                                    
+                                    positiveTranscriptScrollRef.current.scrollTo({
+                                      top: scrollPosition,
+                                      behavior: 'smooth'
+                                    });
                                   }
                                 }
                               };
@@ -702,35 +709,41 @@ const KeyMoments = () => {
                                         </div>
                                       </div>
                                     </div>
-                                    <div ref={positiveTranscriptScrollRef} className="flex-1 overflow-y-auto p-5">
-                                      <div className="space-y-3">
+                                    <div ref={positiveTranscriptScrollRef} className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]">
+                                      <div className="space-y-4">
                                       {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
                                         <div 
                                           key={index}
                                           data-key-moment={entry.key_moment ? "true" : "false"}
-                                          className={`p-3 rounded-lg ${
-                                            entry.key_moment 
-                                              ? 'bg-[#8BAF20]/10 border border-[#8BAF20]/20' 
-                                              : entry.speaker === 'Agent' 
-                                                ? 'bg-[#F5F5F5]' 
-                                                : 'bg-white border border-[#F0F0F0]'
+                                          className={`flex ${entry.speaker === 'Customer' ? 'justify-end' : 'justify-start'} ${
+                                            entry.key_moment ? 'bg-[#8BAF20]/10 py-3 px-4 -mx-4 rounded-lg border-l-4 border-[#8BAF20]' : ''
                                           }`}
                                         >
-                                          <div className="flex items-start gap-2">
-                                            <span className={`text-xs font-bold uppercase tracking-wide ${
-                                              entry.speaker === 'Agent' ? 'text-[#8BAF20]' : 'text-[#797A79]'
+                                          <div className={`max-w-[70%] ${entry.speaker === 'Customer' ? 'order-2' : 'order-1'}`}>
+                                            <div className={`mb-1 px-2 text-xs text-[#797A79] ${
+                                              entry.speaker === 'Customer' ? 'text-right' : 'text-left'
                                             }`}>
-                                              {entry.speaker}:
-                                            </span>
-                                            <p className="text-sm text-[#282828] flex-1 leading-relaxed">
-                                              {entry.message}
-                                            </p>
+                                              {entry.speaker}
+                                            </div>
+                                            <div className={`flex items-end gap-2 ${entry.speaker === 'Customer' ? 'flex-row-reverse' : 'flex-row'}`}>
+                                              <div className={`px-4 py-3 rounded-2xl ${
+                                                entry.speaker === 'Customer' 
+                                                  ? 'bg-[#F26A37] text-white' 
+                                                  : 'bg-white text-[#282828] border border-[#E0E0E0]'
+                                              }`}>
+                                                <p className="text-sm leading-relaxed">
+                                                  {entry.message}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            {entry.key_moment && (
+                                              <div className={`mt-1 px-2 text-xs font-semibold text-[#8BAF20] ${
+                                                entry.speaker === 'Customer' ? 'text-right' : 'text-left'
+                                              }`}>
+                                                ⭐ Key Moment
+                                              </div>
+                                            )}
                                           </div>
-                                          {entry.key_moment && (
-                                            <span className="inline-block mt-2 px-2 py-1 bg-[#8BAF20] text-white text-xs font-semibold rounded-md">
-                                              Key Moment
-                                            </span>
-                                          )}
                                         </div>
                                       ))}
                                       </div>
@@ -809,17 +822,17 @@ const KeyMoments = () => {
                             </div>
                             
                             
-                            {/* Analysis Sections */}
-                            <div className="space-y-3">
+                            {/* Analysis Content - Leaflet Style */}
+                            <div className="mt-4 space-y-4">
                               {/* Opportunity Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#FF8A00] p-3">
+                              <div className="pb-3 border-b border-[#F0F0F0]">
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Opportunity</p>
-                                  <span className="px-2 py-1 bg-[#FF8A00]/10 text-[#FF8A00] rounded-md text-sm font-bold">
+                                  <h5 className="text-sm font-bold text-[#282828]">Missed Opportunity</h5>
+                                  <span className="px-2 py-0.5 bg-[#FF8A00]/10 text-[#FF8A00] rounded text-xs font-semibold">
                                     Score: {callData.analysis.opportunity.opportunity_score}/5
                                   </span>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {callData.analysis.opportunity.text.length > 150 
                                     ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
                                     : callData.analysis.opportunity.text}
@@ -827,14 +840,14 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* Consultant Response Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#D84D51] p-3">
+                              <div className="pb-3 border-b border-[#F0F0F0]">
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Response</p>
-                                  <span className="px-2 py-1 bg-[#D84D51]/10 text-[#D84D51] rounded-md text-sm font-bold">
+                                  <h5 className="text-sm font-bold text-[#282828]">Consultant Response</h5>
+                                  <span className="px-2 py-0.5 bg-[#D84D51]/10 text-[#D84D51] rounded text-xs font-semibold">
                                     Score: {callData.analysis.consultant_response.response_score}/5
                                   </span>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {callData.analysis.consultant_response.text.length > 150 
                                     ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
                                     : callData.analysis.consultant_response.text}
@@ -842,19 +855,19 @@ const KeyMoments = () => {
                               </div>
                               
                               {/* Recommended Approach Section */}
-                              <div className="bg-white rounded-lg border border-[#F0F0F0] border-l-4 border-l-[#8BAF20] p-3">
+                              <div>
                                 <div className="flex items-center justify-between mb-2">
-                                  <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Recommended Approach</p>
+                                  <h5 className="text-sm font-bold text-[#282828]">Recommended Approach</h5>
                                   <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Enrollment: +{callData.analysis.recommended_response?.enrolment_impact_percent || 0}%
+                                    <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
+                                      +{callData.analysis.recommended_response?.enrolment_impact_percent || 0}% Enrollment
                                     </span>
-                                    <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Retention: +{callData.analysis.recommended_response?.retention_impact_percent || 0}%
+                                    <span className="px-2 py-0.5 bg-[#8BAF20]/10 text-[#8BAF20] rounded text-xs font-semibold">
+                                      +{callData.analysis.recommended_response?.retention_impact_percent || 0}% Retention
                                     </span>
                                   </div>
                                 </div>
-                                <p className="text-sm text-[#282828] leading-relaxed">
+                                <p className="text-sm text-[#797A79] leading-relaxed">
                                   {(callData.analysis.recommended_response?.text?.length || 0) > 150 
                                     ? callData.analysis.recommended_response?.text?.substring(0, 150) + "..." 
                                     : callData.analysis.recommended_response?.text || ""}
@@ -907,9 +920,16 @@ const KeyMoments = () => {
                               
                               const scrollToKeyMoment = () => {
                                 if (missedTranscriptScrollRef.current) {
-                                  const keyMomentElement = missedTranscriptScrollRef.current.querySelector('[data-key-moment="true"]');
+                                  const keyMomentElement = missedTranscriptScrollRef.current.querySelector('[data-key-moment="true"]') as HTMLElement;
                                   if (keyMomentElement) {
-                                    keyMomentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    const elementTop = keyMomentElement.offsetTop;
+                                    // Subtract 20px to ensure the full message is visible with some padding
+                                    const scrollPosition = Math.max(0, elementTop - 65);
+                                    
+                                    missedTranscriptScrollRef.current.scrollTo({
+                                      top: scrollPosition,
+                                      behavior: 'smooth'
+                                    });
                                   }
                                 }
                               };
@@ -958,35 +978,41 @@ const KeyMoments = () => {
                                         </div>
                                       </div>
                                     </div>
-                                    <div ref={missedTranscriptScrollRef} className="flex-1 overflow-y-auto p-5">
-                                      <div className="space-y-3">
+                                    <div ref={missedTranscriptScrollRef} className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]">
+                                      <div className="space-y-4">
                                       {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
                                         <div 
                                           key={index}
                                           data-key-moment={entry.key_moment ? "true" : "false"}
-                                          className={`p-3 rounded-lg ${
-                                            entry.key_moment 
-                                              ? 'bg-[#FF8A00]/10 border border-[#FF8A00]/20' 
-                                              : entry.speaker === 'Agent' 
-                                                ? 'bg-[#F5F5F5]' 
-                                                : 'bg-white border border-[#F0F0F0]'
+                                          className={`flex ${entry.speaker === 'Customer' ? 'justify-end' : 'justify-start'} ${
+                                            entry.key_moment ? 'bg-[#FF8A00]/10 py-3 px-4 -mx-4 rounded-lg border-l-4 border-[#FF8A00]' : ''
                                           }`}
                                         >
-                                          <div className="flex items-start gap-2">
-                                            <span className={`text-xs font-bold uppercase tracking-wide ${
-                                              entry.speaker === 'Agent' ? 'text-[#FF8A00]' : 'text-[#797A79]'
+                                          <div className={`max-w-[70%] ${entry.speaker === 'Customer' ? 'order-2' : 'order-1'}`}>
+                                            <div className={`mb-1 px-2 text-xs text-[#797A79] ${
+                                              entry.speaker === 'Customer' ? 'text-right' : 'text-left'
                                             }`}>
-                                              {entry.speaker}:
-                                            </span>
-                                            <p className="text-sm text-[#282828] flex-1 leading-relaxed">
-                                              {entry.message}
-                                            </p>
+                                              {entry.speaker}
+                                            </div>
+                                            <div className={`flex items-end gap-2 ${entry.speaker === 'Customer' ? 'flex-row-reverse' : 'flex-row'}`}>
+                                              <div className={`px-4 py-3 rounded-2xl ${
+                                                entry.speaker === 'Customer' 
+                                                  ? 'bg-[#F26A37] text-white' 
+                                                  : 'bg-white text-[#282828] border border-[#E0E0E0]'
+                                              }`}>
+                                                <p className="text-sm leading-relaxed">
+                                                  {entry.message}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            {entry.key_moment && (
+                                              <div className={`mt-1 px-2 text-xs font-semibold text-[#FF8A00] ${
+                                                entry.speaker === 'Customer' ? 'text-right' : 'text-left'
+                                              }`}>
+                                                ⭐ Key Moment
+                                              </div>
+                                            )}
                                           </div>
-                                          {entry.key_moment && (
-                                            <span className="inline-block mt-2 px-2 py-1 bg-[#FF8A00] text-white text-xs font-semibold rounded-md">
-                                              Key Moment
-                                            </span>
-                                          )}
                                         </div>
                                       ))}
                                       </div>
