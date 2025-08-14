@@ -195,6 +195,18 @@ const KeyMoments = () => {
     setSelectedCall("all");
   }, [selectedDataType, selectedWeek]);
 
+  // Reset state when consultant changes
+  useEffect(() => {
+    if (selectedConsultant !== "all") {
+      setSelectedWeek(1);
+      setWeekInputValue("1");
+      setSelectedCall("all");
+      setSelectedDataType("strengths");
+      setShowPositiveSummary(false);
+      setShowMissedSummary(false);
+    }
+  }, [selectedConsultant]);
+
   const selectedConsultantData = consultants.find(c => c.id === selectedConsultant);
   
   // Get calls based on selected data type, consultant, and week
