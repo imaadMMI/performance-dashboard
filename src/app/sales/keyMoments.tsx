@@ -72,6 +72,11 @@ const AllConsultantsView = ({
   }>({});
   const [expandedConsultants, setExpandedConsultants] = useState<Set<string>>(new Set());
 
+  // Reset expanded consultants when week or data type changes
+  useEffect(() => {
+    setExpandedConsultants(new Set());
+  }, [selectedWeek, selectedDataType]);
+
   // Load data for all consultants
   useEffect(() => {
     const loadAllConsultantsData = async () => {
