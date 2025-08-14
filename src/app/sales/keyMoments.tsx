@@ -33,6 +33,18 @@ interface CallAnalysis {
   };
 }
 
+interface TranscriptEntry {
+  speaker: string;
+  message: string;
+  key_moment?: boolean;
+}
+
+interface CallTranscript {
+  call_id: string;
+  week_num: number;
+  transcript: TranscriptEntry[];
+}
+
 const KeyMoments = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedConsultant, setSelectedConsultant] = useState<string>("all");
@@ -57,6 +69,10 @@ const KeyMoments = () => {
   const [consultantCallData, setConsultantCallData] = useState<{
     positive: CallAnalysis[];
     missed: CallAnalysis[];
+  }>({ positive: [], missed: [] });
+  const [consultantTranscripts, setConsultantTranscripts] = useState<{
+    positive: CallTranscript[];
+    missed: CallTranscript[];
   }>({ positive: [], missed: [] });
   const dropdownRef = useRef<HTMLDivElement>(null);
   const weekInputRef = useRef<HTMLInputElement>(null);
@@ -83,6 +99,7 @@ const KeyMoments = () => {
     const loadConsultantData = async () => {
       if (selectedConsultant === "all") {
         setConsultantCallData({ positive: [], missed: [] });
+        setConsultantTranscripts({ positive: [], missed: [] });
         return;
       }
 
@@ -91,18 +108,51 @@ const KeyMoments = () => {
 
       const positiveData: CallAnalysis[] = [];
       const missedData: CallAnalysis[] = [];
+      const positiveTranscripts: CallTranscript[] = [];
+      const missedTranscripts: CallTranscript[] = [];
 
       try {
-        // For now, only load Alyssa's data as it's the only one available
+        // Load data based on consultant name
         if (selectedConsultantObj.name === "Alyssa Pennacchia") {
-          // Import Alyssa's data
-          const alyssaPositive = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761228/679951761228_Analysis.json');
+          // Import Alyssa's data with transcripts
+          const alyssaPositive1 = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761228/679951761228_Analysis.json');
+          const alyssaPositive1Transcript = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761228/679951761228.json');
+          const alyssaPositive2 = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761229/679951761229_Analysis.json');
+          const alyssaPositive2Transcript = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761229/679951761229.json');
           const alyssaMissed1 = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129307/679942129307_Analysis.json');
+          const alyssaMissed1Transcript = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129307/679942129307.json');
           const alyssaMissed2 = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129308/679942129308_Analysis.json');
+          const alyssaMissed2Transcript = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129308/679942129308.json');
           
-          positiveData.push(alyssaPositive.default);
+          positiveData.push(alyssaPositive1.default);
+          positiveData.push(alyssaPositive2.default);
+          positiveTranscripts.push(alyssaPositive1Transcript.default);
+          positiveTranscripts.push(alyssaPositive2Transcript.default);
+          
           missedData.push(alyssaMissed1.default);
           missedData.push(alyssaMissed2.default);
+          missedTranscripts.push(alyssaMissed1Transcript.default);
+          missedTranscripts.push(alyssaMissed2Transcript.default);
+        } else if (selectedConsultantObj.name === "Michael Whyte") {
+          // Import Michael's data with transcripts
+          const michaelPositive1 = await import('./keyMomentsJson/M. Whyte/Positive/Call_56/56_Analysis.json');
+          const michaelPositive1Transcript = await import('./keyMomentsJson/M. Whyte/Positive/Call_56/56.json');
+          const michaelPositive2 = await import('./keyMomentsJson/M. Whyte/Positive/Call_78/78_Analysis.json');
+          const michaelPositive2Transcript = await import('./keyMomentsJson/M. Whyte/Positive/Call_78/78.json');
+          const michaelMissed1 = await import('./keyMomentsJson/M. Whyte/Missed/Call_12/12_Analysis.json');
+          const michaelMissed1Transcript = await import('./keyMomentsJson/M. Whyte/Missed/Call_12/12.json');
+          const michaelMissed2 = await import('./keyMomentsJson/M. Whyte/Missed/Call_34/34_Analysis.json');
+          const michaelMissed2Transcript = await import('./keyMomentsJson/M. Whyte/Missed/Call_34/34.json');
+          
+          positiveData.push(michaelPositive1.default);
+          positiveData.push(michaelPositive2.default);
+          positiveTranscripts.push(michaelPositive1Transcript.default);
+          positiveTranscripts.push(michaelPositive2Transcript.default);
+          
+          missedData.push(michaelMissed1.default);
+          missedData.push(michaelMissed2.default);
+          missedTranscripts.push(michaelMissed1Transcript.default);
+          missedTranscripts.push(michaelMissed2Transcript.default);
         }
         // Future consultants can be added here with their respective data paths
       } catch (error) {
@@ -110,6 +160,7 @@ const KeyMoments = () => {
       }
 
       setConsultantCallData({ positive: positiveData, missed: missedData });
+      setConsultantTranscripts({ positive: positiveTranscripts, missed: missedTranscripts });
     };
 
     loadConsultantData();
@@ -459,21 +510,31 @@ const KeyMoments = () => {
                         Identified Strengths
                       </h4>
                       {/* Check if Alyssa is selected, week 7, and appropriate call */}
-                      {consultantCallData.positive.length > 0 && consultantCallData.positive[0] && selectedConsultantData?.name === "Alyssa Pennacchia" && selectedWeek === 7 && (selectedCall === "679951761228" || selectedCall === "all") ? (
-                        <div className="grid gap-4">
-                          {/* Single Call Mini Card - matching dashboard.tsx style */}
-                          <div className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer">
-                            {/* Card Header with Call Info */}
-                            <div className="flex items-center justify-between mb-4">
-                              <div>
-                                <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Call ID</p>
-                                <p className="text-sm font-semibold text-[#282828]">{consultantCallData.positive[0].call_id}</p>
-                              </div>
-                              <div className="text-right">
-                                <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Week</p>
-                                <p className="text-lg font-bold text-[#8BAF20]">{consultantCallData.positive[0].week_num}</p>
-                              </div>
-                            </div>
+                      {(() => {
+                        const filteredPositiveCalls = consultantCallData.positive
+                          .filter(call => call.week_num === selectedWeek)
+                          .filter(call => selectedCall === "all" || call.call_id === selectedCall);
+                        
+                        const getTranscriptForCall = (callId: string) => {
+                          return consultantTranscripts.positive.find(t => t.call_id === callId);
+                        };
+                        
+                        return filteredPositiveCalls.length > 0 ? (
+                          <div className={selectedCall === "all" ? "grid gap-4" : "flex gap-4"}>
+                            <div className={selectedCall === "all" ? "grid gap-4 w-full" : "flex flex-col gap-4 w-1/2"}>
+                              {filteredPositiveCalls.map((callData) => (
+                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full">
+                                {/* Card Header with Call Info */}
+                                <div className="flex items-center justify-between mb-4">
+                                  <div>
+                                    <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Call ID</p>
+                                    <p className="text-sm font-semibold text-[#282828]">{callData.call_id}</p>
+                                  </div>
+                                  <div className="text-right">
+                                    <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Week</p>
+                                    <p className="text-lg font-bold text-[#8BAF20]">{callData.week_num}</p>
+                                  </div>
+                                </div>
                             
                             
                             {/* Analysis Sections */}
@@ -483,13 +544,13 @@ const KeyMoments = () => {
                                 <div className="flex items-center justify-between mb-2">
                                   <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Opportunity</p>
                                   <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                    Score: {consultantCallData.positive[0].analysis.opportunity.opportunity_score}/5
+                                      Score: {callData.analysis.opportunity.opportunity_score}/5
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#282828] leading-relaxed">
-                                  {consultantCallData.positive[0].analysis.opportunity.text.length > 150 
-                                    ? consultantCallData.positive[0].analysis.opportunity.text.substring(0, 150) + "..." 
-                                    : consultantCallData.positive[0].analysis.opportunity.text}
+                                  {callData.analysis.opportunity.text.length > 150 
+                                    ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
+                                    : callData.analysis.opportunity.text}
                                 </p>
                               </div>
                               
@@ -498,13 +559,13 @@ const KeyMoments = () => {
                                 <div className="flex items-center justify-between mb-2">
                                   <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Response</p>
                                   <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                    Score: {consultantCallData.positive[0].analysis.consultant_response.response_score}/5
+                                    Score: {callData.analysis.consultant_response.response_score}/5
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#282828] leading-relaxed">
-                                  {consultantCallData.positive[0].analysis.consultant_response.text.length > 150 
-                                    ? consultantCallData.positive[0].analysis.consultant_response.text.substring(0, 150) + "..." 
-                                    : consultantCallData.positive[0].analysis.consultant_response.text}
+                                  {callData.analysis.consultant_response.text.length > 150 
+                                    ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
+                                    : callData.analysis.consultant_response.text}
                                 </p>
                               </div>
                               
@@ -514,17 +575,17 @@ const KeyMoments = () => {
                                   <p className="text-xs font-semibold text-[#797A79] uppercase tracking-wide">Why This Is Effective</p>
                                   <div className="flex items-center gap-2">
                                     <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Enrollment: +{consultantCallData.positive[0]?.analysis.why_good?.enrolment_impact_percent || 0}%
+                                      Enrollment: +{callData?.analysis.why_good?.enrolment_impact_percent || 0}%
                                     </span>
                                     <span className="px-2 py-1 bg-[#8BAF20]/10 text-[#8BAF20] rounded-md text-sm font-bold">
-                                      Retention: +{consultantCallData.positive[0]?.analysis.why_good?.retention_impact_percent || 0}%
+                                      Retention: +{callData?.analysis.why_good?.retention_impact_percent || 0}%
                                     </span>
                                   </div>
                                 </div>
                                 <p className="text-sm text-[#282828] leading-relaxed">
-                                  {(consultantCallData.positive[0]?.analysis.why_good?.text?.length || 0) > 150 
-                                    ? consultantCallData.positive[0]?.analysis.why_good?.text?.substring(0, 150) + "..." 
-                                    : consultantCallData.positive[0]?.analysis.why_good?.text || ""}
+                                  {(callData?.analysis.why_good?.text?.length || 0) > 150 
+                                    ? callData?.analysis.why_good?.text?.substring(0, 150) + "..." 
+                                    : callData?.analysis.why_good?.text || ""}
                                 </p>
                               </div>
                               
@@ -533,7 +594,7 @@ const KeyMoments = () => {
                                 onClick={() => {
                                   setSelectedCallDetails({
                                     type: 'strength',
-                                    data: consultantCallData.positive[0]
+                                    data: callData
                                   });
                                   setShowDetailsModal(true);
                                 }}
@@ -541,18 +602,66 @@ const KeyMoments = () => {
                               >
                                 View more →
                               </button>
+                                </div>
+                              </div>
+                              ))}
                             </div>
+                            
+                            {/* Transcript Panel - Only show when specific call is selected */}
+                            {selectedCall !== "all" && (() => {
+                              const transcript = getTranscriptForCall(selectedCall);
+                              if (!transcript) return null;
+                              return (
+                                <div className="w-1/2">
+                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col">
+                                    <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
+                                      <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                    </div>
+                                    <div className="flex-1 overflow-y-auto p-5">
+                                      <div className="space-y-3">
+                                      {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
+                                        <div 
+                                          key={index} 
+                                          className={`p-3 rounded-lg ${
+                                            entry.key_moment 
+                                              ? 'bg-[#8BAF20]/10 border border-[#8BAF20]/20' 
+                                              : entry.speaker === 'Agent' 
+                                                ? 'bg-[#F5F5F5]' 
+                                                : 'bg-white border border-[#F0F0F0]'
+                                          }`}
+                                        >
+                                          <div className="flex items-start gap-2">
+                                            <span className={`text-xs font-bold uppercase tracking-wide ${
+                                              entry.speaker === 'Agent' ? 'text-[#8BAF20]' : 'text-[#797A79]'
+                                            }`}>
+                                              {entry.speaker}:
+                                            </span>
+                                            <p className="text-sm text-[#282828] flex-1 leading-relaxed">
+                                              {entry.message}
+                                            </p>
+                                          </div>
+                                          {entry.key_moment && (
+                                            <span className="inline-block mt-2 px-2 py-1 bg-[#8BAF20] text-white text-xs font-semibold rounded-md">
+                                              Key Moment
+                                            </span>
+                                          )}
+                                        </div>
+                                      ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })()}
                           </div>
-                        </div>
-                      ) : (
-                        <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
-                          <p className="text-sm text-[#797A79]">
-                            {selectedConsultantData?.name === "Alyssa Pennacchia" 
-                              ? "Select the positive call from the dropdown to view strength analysis"
-                              : "No data available for this consultant"}
-                          </p>
-                        </div>
-                      )}
+                        ) : (
+                          <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
+                            <p className="text-sm text-[#797A79]">
+                              No strength data available for the selected filters
+                            </p>
+                          </div>
+                        );
+                      })()}
                     </div>
                   ) : (
                     <div>
@@ -565,10 +674,15 @@ const KeyMoments = () => {
                           .filter(call => call.week_num === selectedWeek)
                           .filter(call => selectedCall === "all" || call.call_id === selectedCall);
                         
+                        const getTranscriptForCall = (callId: string) => {
+                          return consultantTranscripts.missed.find(t => t.call_id === callId);
+                        };
+                        
                         return filteredCalls.length > 0 ? (
-                          <div className="grid gap-4">
-                            {filteredCalls.map((callData) => (
-                              <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer">
+                          <div className={selectedCall === "all" ? "grid gap-4" : "flex gap-4"}>
+                            <div className={selectedCall === "all" ? "grid gap-4 w-full" : "flex flex-col gap-4 w-1/2"}>
+                              {filteredCalls.map((callData) => (
+                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full">
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -648,8 +762,56 @@ const KeyMoments = () => {
                                 View more →
                               </button>
                             </div>
-                          </div>
-                            ))}
+                                </div>
+                              ))}
+                            </div>
+                            
+                            {/* Transcript Panel - Only show when specific call is selected */}
+                            {selectedCall !== "all" && (() => {
+                              const transcript = getTranscriptForCall(selectedCall);
+                              if (!transcript) return null;
+                              return (
+                                <div className="w-1/2">
+                                  <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[600px] flex flex-col">
+                                    <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
+                                      <h4 className="text-lg font-semibold text-[#282828]">Call {transcript.call_id} Transcript</h4>
+                                    </div>
+                                    <div className="flex-1 overflow-y-auto p-5">
+                                      <div className="space-y-3">
+                                      {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
+                                        <div 
+                                          key={index} 
+                                          className={`p-3 rounded-lg ${
+                                            entry.key_moment 
+                                              ? 'bg-[#FF8A00]/10 border border-[#FF8A00]/20' 
+                                              : entry.speaker === 'Agent' 
+                                                ? 'bg-[#F5F5F5]' 
+                                                : 'bg-white border border-[#F0F0F0]'
+                                          }`}
+                                        >
+                                          <div className="flex items-start gap-2">
+                                            <span className={`text-xs font-bold uppercase tracking-wide ${
+                                              entry.speaker === 'Agent' ? 'text-[#FF8A00]' : 'text-[#797A79]'
+                                            }`}>
+                                              {entry.speaker}:
+                                            </span>
+                                            <p className="text-sm text-[#282828] flex-1 leading-relaxed">
+                                              {entry.message}
+                                            </p>
+                                          </div>
+                                          {entry.key_moment && (
+                                            <span className="inline-block mt-2 px-2 py-1 bg-[#FF8A00] text-white text-xs font-semibold rounded-md">
+                                              Key Moment
+                                            </span>
+                                          )}
+                                        </div>
+                                      ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })()}
                           </div>
                         ) : (
                           <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
