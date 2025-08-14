@@ -1154,7 +1154,7 @@ const KeyMoments = () => {
                     {selectedCallDetails.data.analysis.opportunity.text}
                   </p>
                 </div>
-                <hr />
+                <div className="border-t border-[#F0F0F0]"></div>
                 {/* Consultant Response Section */}
                 <div>
                   <div className="flex items-center justify-between mb-3">
