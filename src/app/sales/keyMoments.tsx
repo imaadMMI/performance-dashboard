@@ -277,7 +277,7 @@ const AllConsultantsView = ({
          }) ? (
           <div className="bg-[#F5F5F5] rounded-lg p-8 text-center">
             <p className="text-sm text-[#797A79]">
-              No {selectedDataType === "strengths" ? "identified strengths" : "missed opportunities"} data available for week {selectedWeek}
+              No data available for the selected filters.
             </p>
           </div>
         ) : null}
