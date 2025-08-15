@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info } from 'lucide-react';
 import tpCombinedData from './dashboardJson/tp-combined.json';
+import './keyMomentsAnimations.css';
 
 interface ConsultantData {
   consultant_name: string;
@@ -68,43 +69,118 @@ const AllConsultantsView = ({
       missed: CallAnalysis[];
     }
   }>({});
+  const [consultantTranscripts, setConsultantTranscripts] = useState<{
+    [key: string]: {
+      positive: CallTranscript[];
+      missed: CallTranscript[];
+    }
+  }>({});
   const [expandedConsultants, setExpandedConsultants] = useState<Set<string>>(new Set());
+  const [closingConsultants, setClosingConsultants] = useState<Set<string>>(new Set());
+  const [selectedCallDetail, setSelectedCallDetail] = useState<{
+    consultantId: string;
+    callId: string;
+    type: 'strengths' | 'opportunities';
+  } | null>(null);
+  const [closingCallDetail, setClosingCallDetail] = useState<{
+    consultantId: string;
+    callId: string;
+  } | null>(null);
+  const [showTranscriptSummary, setShowTranscriptSummary] = useState<string | null>(null);
+  const transcriptRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [filterKey, setFilterKey] = useState(0);
 
-  // Reset expanded consultants when week or data type changes
+  // Reset expanded consultants and selected call when week or data type changes
   useEffect(() => {
     setExpandedConsultants(new Set());
+    setSelectedCallDetail(null);
+    setClosingCallDetail(null);
+    setFilterKey(prev => prev + 1); // Trigger animation on filter change
   }, [selectedWeek, selectedDataType]);
+
+  // Handle view less with animation
+  const handleViewLess = (consultantId: string, callId: string) => {
+    setClosingCallDetail({ consultantId, callId });
+    setTimeout(() => {
+      setSelectedCallDetail(null);
+      setClosingCallDetail(null);
+    }, 200); // Match the fadeOut animation duration
+  };
+
+  // Handle consultant toggle with animation
+  const toggleConsultant = (consultantId: string) => {
+    if (expandedConsultants.has(consultantId)) {
+      // Closing animation
+      setClosingConsultants(new Set([...closingConsultants, consultantId]));
+      setTimeout(() => {
+        setExpandedConsultants(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(consultantId);
+          return newSet;
+        });
+        setClosingConsultants(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(consultantId);
+          return newSet;
+        });
+      }, 200);
+    } else {
+      // Opening
+      setExpandedConsultants(prev => new Set([...prev, consultantId]));
+    }
+  };
 
   // Load data for all consultants
   useEffect(() => {
     const loadAllConsultantsData = async () => {
       const allData: typeof consultantsData = {};
+      const allTranscripts: typeof consultantTranscripts = {};
 
       for (const consultant of consultants) {
         const positiveData: CallAnalysis[] = [];
         const missedData: CallAnalysis[] = [];
+        const positiveTranscripts: CallTranscript[] = [];
+        const missedTranscripts: CallTranscript[] = [];
 
         try {
           if (consultant.name === "Alyssa Pennacchia") {
             const alyssaPositive1 = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761228/679951761228_Analysis.json');
+            const alyssaPositive1Transcript = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761228/679951761228.json');
             const alyssaPositive2 = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761229/679951761229_Analysis.json');
+            const alyssaPositive2Transcript = await import('./keyMomentsJson/Alyssa/Positive/Call: 679951761229/679951761229.json');
             const alyssaMissed1 = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129307/679942129307_Analysis.json');
+            const alyssaMissed1Transcript = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129307/679942129307.json');
             const alyssaMissed2 = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129308/679942129308_Analysis.json');
+            const alyssaMissed2Transcript = await import('./keyMomentsJson/Alyssa/Missed/Call: 679942129308/679942129308.json');
             
             positiveData.push(alyssaPositive1.default);
             positiveData.push(alyssaPositive2.default);
+            positiveTranscripts.push(alyssaPositive1Transcript.default);
+            positiveTranscripts.push(alyssaPositive2Transcript.default);
+            
             missedData.push(alyssaMissed1.default);
             missedData.push(alyssaMissed2.default);
+            missedTranscripts.push(alyssaMissed1Transcript.default);
+            missedTranscripts.push(alyssaMissed2Transcript.default);
           } else if (consultant.name === "Michael Whyte") {
             const michaelPositive1 = await import('./keyMomentsJson/M. Whyte/Positive/Call_56/56_Analysis.json');
+            const michaelPositive1Transcript = await import('./keyMomentsJson/M. Whyte/Positive/Call_56/56.json');
             const michaelPositive2 = await import('./keyMomentsJson/M. Whyte/Positive/Call_78/78_Analysis.json');
+            const michaelPositive2Transcript = await import('./keyMomentsJson/M. Whyte/Positive/Call_78/78.json');
             const michaelMissed1 = await import('./keyMomentsJson/M. Whyte/Missed/Call_12/12_Analysis.json');
+            const michaelMissed1Transcript = await import('./keyMomentsJson/M. Whyte/Missed/Call_12/12.json');
             const michaelMissed2 = await import('./keyMomentsJson/M. Whyte/Missed/Call_34/34_Analysis.json');
+            const michaelMissed2Transcript = await import('./keyMomentsJson/M. Whyte/Missed/Call_34/34.json');
             
             positiveData.push(michaelPositive1.default);
             positiveData.push(michaelPositive2.default);
+            positiveTranscripts.push(michaelPositive1Transcript.default);
+            positiveTranscripts.push(michaelPositive2Transcript.default);
+            
             missedData.push(michaelMissed1.default);
             missedData.push(michaelMissed2.default);
+            missedTranscripts.push(michaelMissed1Transcript.default);
+            missedTranscripts.push(michaelMissed2Transcript.default);
           }
         } catch (error) {
           console.error(`Error loading data for ${consultant.name}:`, error);
@@ -112,24 +188,16 @@ const AllConsultantsView = ({
 
         if (positiveData.length > 0 || missedData.length > 0) {
           allData[consultant.id] = { positive: positiveData, missed: missedData };
+          allTranscripts[consultant.id] = { positive: positiveTranscripts, missed: missedTranscripts };
         }
       }
 
       setConsultantsData(allData);
+      setConsultantTranscripts(allTranscripts);
     };
 
     loadAllConsultantsData();
   }, [consultants]);
-
-  const toggleConsultant = (consultantId: string) => {
-    const newExpanded = new Set(expandedConsultants);
-    if (newExpanded.has(consultantId)) {
-      newExpanded.delete(consultantId);
-    } else {
-      newExpanded.add(consultantId);
-    }
-    setExpandedConsultants(newExpanded);
-  };
 
   return (
     <div className="space-y-6">
@@ -145,7 +213,7 @@ const AllConsultantsView = ({
           const isExpanded = expandedConsultants.has(consultant.id);
 
           return (
-            <div key={consultant.id} className="bg-white rounded-xl border border-[#F0F0F0] overflow-hidden">
+            <div key={consultant.id} className="bg-white rounded-xl border border-[#F0F0F0] overflow-hidden consultant-card-transition">
               {/* Consultant Header */}
               <button
                 onClick={() => toggleConsultant(consultant.id)}
@@ -165,9 +233,14 @@ const AllConsultantsView = ({
 
               {/* Calls List */}
               {isExpanded && (
-                <div className="p-6 space-y-4 border-t border-[#F0F0F0]">
+                <div className={`p-6 space-y-4 border-t border-[#F0F0F0] ${
+                  closingConsultants.has(consultant.id) ? 'animate-fadeOut' : ''
+                }`}>
                   {filteredCalls.map((callData) => (
-                    <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms]">
+                    <React.Fragment key={callData.call_id}>
+                    <div className={`bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] ${
+                      closingConsultants.has(consultant.id) ? '' : 'animate-slideUp'
+                    }`}>
                       {/* Call Header */}
                       <div className="flex items-center justify-between mb-4">
                         <div>
@@ -258,8 +331,249 @@ const AllConsultantsView = ({
                             </p>
                           </div>
                         )}
+                        
+                        {/* View More Button */}
+                        <div className="flex justify-end mt-3 pt-3 border-t border-[#F0F0F0]">
+                          <button
+                            onClick={() => {
+                              if (selectedCallDetail?.consultantId === consultant.id && 
+                                  selectedCallDetail?.callId === callData.call_id) {
+                                // If already selected, close it with animation
+                                handleViewLess(consultant.id, callData.call_id);
+                              } else {
+                                // Open this call's details
+                                setSelectedCallDetail({
+                                  consultantId: consultant.id,
+                                  callId: callData.call_id,
+                                  type: selectedDataType
+                                });
+                              }
+                            }}
+                            className="text-sm font-semibold text-[#FF8A00] hover:text-[#F26A37] underline transition-colors duration-200"
+                          >
+                            {selectedCallDetail?.consultantId === consultant.id && 
+                             selectedCallDetail?.callId === callData.call_id ? 'View less' : 'View more'}
+                          </button>
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Full Analysis and Transcript View */}
+                    {selectedCallDetail?.consultantId === consultant.id && 
+                     selectedCallDetail?.callId === callData.call_id ? (
+                      <div className={`mt-4 grid grid-cols-2 gap-6 ${
+                        closingCallDetail?.consultantId === consultant.id && 
+                        closingCallDetail?.callId === callData.call_id 
+                          ? 'animate-fadeOut' 
+                          : 'animate-slideDown'
+                      }`}>
+                        {/* Full Analysis Column */}
+                        <div className="bg-white rounded-xl border border-[#F0F0F0] p-6 animate-fadeIn">
+                          <h4 className="text-lg font-semibold text-[#282828] mb-4">
+                            Full Analysis: {consultant.name} - Call {callData.call_id}
+                          </h4>
+                          <div className="space-y-4">
+                            {/* Copy the full analysis sections from individual view */}
+                            <div className="pb-4 border-b border-[#F0F0F0]">
+                              <h5 className="text-sm font-bold text-[#282828] mb-2">Opportunity Identified</h5>
+                              <p className="text-sm text-[#797A79] leading-relaxed">
+                                {callData.analysis.opportunity.text}
+                              </p>
+                            </div>
+                            
+                            <div className="pb-4 border-b border-[#F0F0F0]">
+                              <h5 className="text-sm font-bold text-[#282828] mb-2">Consultant Response</h5>
+                              <p className="text-sm text-[#797A79] leading-relaxed">
+                                {callData.analysis.consultant_response.text}
+                              </p>
+                            </div>
+                            
+                            {selectedDataType === "strengths" ? (
+                              <div>
+                                <h5 className="text-sm font-bold text-[#FF8A00] mb-2">Why This Is Effective</h5>
+                                <p className="text-sm text-[#797A79] leading-relaxed">
+                                  {callData?.analysis.why_good?.text || ""}
+                                </p>
+                              </div>
+                            ) : (
+                              <div>
+                                <h5 className="text-sm font-bold text-[#FF8A00] mb-2">Recommended Approach</h5>
+                                <p className="text-sm text-[#797A79] leading-relaxed">
+                                  {callData.analysis.recommended_response?.text || ""}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Transcript Column */}
+                        <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col relative overflow-hidden animate-fadeIn">
+                          {(() => {
+                            const transcripts = consultantTranscripts[consultant.id];
+                            if (!transcripts) return <p className="text-sm text-[#797A79] p-6">No transcript available</p>;
+                            
+                            const transcriptList = selectedDataType === "strengths" 
+                              ? transcripts.positive 
+                              : transcripts.missed;
+                            
+                            const transcript = transcriptList.find(t => t.call_id === callData.call_id);
+                            
+                            if (!transcript) return <p className="text-sm text-[#797A79] p-6">No transcript available</p>;
+                            
+                            const transcriptKey = `${consultant.id}-${callData.call_id}`;
+                            
+                            const scrollToTop = () => {
+                              const transcriptRef = transcriptRefs.current[transcriptKey];
+                              if (transcriptRef) {
+                                transcriptRef.scrollTo({
+                                  top: 0,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            };
+                            
+                            const scrollToBottom = () => {
+                              const transcriptRef = transcriptRefs.current[transcriptKey];
+                              if (transcriptRef) {
+                                transcriptRef.scrollTo({
+                                  top: transcriptRef.scrollHeight,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            };
+                            
+                            const scrollToKeyMoment = () => {
+                              const transcriptRef = transcriptRefs.current[transcriptKey];
+                              if (transcriptRef) {
+                                const keyMomentElement = transcriptRef.querySelector('[data-key-moment="true"]') as HTMLElement;
+                                if (keyMomentElement) {
+                                  const elementTop = keyMomentElement.offsetTop;
+                                  const scrollPosition = Math.max(0, elementTop - 65);
+                                  
+                                  transcriptRef.scrollTo({
+                                    top: scrollPosition,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              }
+                            };
+                              
+                              return (
+                                <>
+                                  {/* Transcript Header with Info */}
+                                  <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
+                                    <div className="flex items-center justify-between">
+                                      <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
+                                      <div className="relative">
+                                        <button
+                                          onClick={() => setShowTranscriptSummary(showTranscriptSummary === transcriptKey ? null : transcriptKey)}
+                                          className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
+                                          title="Show transcript summary"
+                                        >
+                                          <Info size={16} className="text-[#797A79] group-hover:text-[#282828]" />
+                                        </button>
+                                        {showTranscriptSummary === transcriptKey && transcript.summary && (
+                                          <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg p-4 w-64 z-20 border border-[#F0F0F0]">
+                                            <div className="space-y-2">
+                                              <div className="flex items-center justify-between">
+                                                <span className="text-xs text-[#797A79]">Total Messages</span>
+                                                <span className="text-xs font-semibold text-[#282828]">{transcript.summary.total_messages}</span>
+                                              </div>
+                                              <div className="flex items-center justify-between">
+                                                <span className="text-xs text-[#797A79]">Customer Messages</span>
+                                                <span className="text-xs font-semibold text-[#F26A37]">{transcript.summary.customer_messages}</span>
+                                              </div>
+                                              <div className="flex items-center justify-between">
+                                                <span className="text-xs text-[#797A79]">Agent Messages</span>
+                                                <span className="text-xs font-semibold text-[#8BAF20]">{transcript.summary.agent_messages}</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  {/* Transcript Content */}
+                                  <div 
+                                    ref={el => { transcriptRefs.current[transcriptKey] = el; }}
+                                    className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]"
+                                  >
+                                    <div className="space-y-4">
+                                      {transcript.transcript.map((entry: TranscriptEntry, index: number) => (
+                                    <div 
+                                      key={index}
+                                      data-key-moment={entry.key_moment ? "true" : "false"}
+                                      className={`flex ${entry.speaker === 'Customer' ? 'justify-end' : 'justify-start'} ${
+                                        entry.key_moment ? 'bg-[#8BAF20]/10 py-3 px-4 -mx-4 rounded-lg border-l-4 border-[#8BAF20]' : ''
+                                      }`}
+                                    >
+                                      <div className={`max-w-[70%] ${entry.speaker === 'Customer' ? 'order-2' : 'order-1'}`}>
+                                        <div className={`mb-1 px-2 text-xs text-[#797A79] ${
+                                          entry.speaker === 'Customer' ? 'text-right' : 'text-left'
+                                        }`}>
+                                          {entry.speaker}
+                                        </div>
+                                        <div className={`flex items-end gap-2 ${entry.speaker === 'Customer' ? 'flex-row-reverse' : 'flex-row'}`}>
+                                          <div className={`px-4 py-3 rounded-2xl ${
+                                            entry.speaker === 'Customer' 
+                                              ? 'bg-[#F26A37] text-white' 
+                                              : entry.speaker === 'Consultant' || entry.speaker === 'Agent'
+                                                ? 'bg-white text-[#282828] border border-[#E0E0E0]'
+                                                : 'bg-white text-[#282828] border border-[#E0E0E0]'
+                                          }`}>
+                                            <p className="text-sm leading-relaxed">
+                                              {entry.message}
+                                            </p>
+                                          </div>
+                                        </div>
+                                        {entry.key_moment && (
+                                          <div className={`mt-1 px-2 text-xs font-semibold text-[#8BAF20] ${
+                                            entry.speaker === 'Customer' ? 'text-right' : 'text-left'
+                                          }`}>
+                                            ⭐ Key Moment
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  
+                                  {/* Navigation Buttons */}
+                                  <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
+                                    <button
+                                      onClick={scrollToBottom}
+                                      className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                      title="Scroll to Bottom"
+                                    >
+                                      <ArrowDown size={14} />
+                                      Bottom
+                                    </button>
+                                    <button
+                                      onClick={scrollToKeyMoment}
+                                      className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                      title="Scroll to Key Moment"
+                                    >
+                                      <Target size={14} />
+                                      Key Moment
+                                    </button>
+                                    <button
+                                      onClick={scrollToTop}
+                                      className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                      title="Scroll to Top"
+                                    >
+                                      <ArrowUp size={14} />
+                                      Top
+                                    </button>
+                                  </div>
+                                </>
+                              );
+                            })()}
+                        </div>
+                      </div>
+                    ) : null}
+                    </React.Fragment>
                   ))}
                 </div>
               )}
@@ -294,6 +608,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
   const [selectedWeek, setSelectedWeek] = useState(1);
   const [selectedDataType, setSelectedDataType] = useState<"strengths" | "opportunities">("strengths");
   const [selectedCallDetails, setSelectedCallDetails] = useState<any>(null);
+  const [closingCallDetails, setClosingCallDetails] = useState<any>(null);
   const [selectedBehavior, setSelectedBehavior] = useState<string>("all");
   const [behaviors, setBehaviors] = useState<{ id: string; title: string }[]>([]);
   const [consultantCallData, setConsultantCallData] = useState<{
@@ -312,6 +627,16 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
   const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const contentAreaRef = useRef<HTMLDivElement>(null);
+  const [individualFilterKey, setIndividualFilterKey] = useState(0);
+
+  // Handle back to all calls with animation
+  const handleBackToAllCalls = () => {
+    setClosingCallDetails(selectedCallDetails);
+    setTimeout(() => {
+      setSelectedCallDetails(null);
+      setClosingCallDetails(null);
+    }, 200);
+  };
   
   const totalWeeks = 12; // You can adjust this based on your data
   
@@ -339,6 +664,11 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
     
     setBehaviors(behaviorList);
   }, []);
+
+  // Trigger animation on filter changes
+  useEffect(() => {
+    setIndividualFilterKey(prev => prev + 1);
+  }, [selectedWeek, selectedDataType, selectedConsultant, selectedBehavior]);
 
   // Load consultant call data when consultant is selected
   useEffect(() => {
@@ -696,7 +1026,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                             {isDetailView && (
                               <div className="mb-4">
                                 <button
-                                  onClick={() => setSelectedCallDetails(null)}
+                                  onClick={handleBackToAllCalls}
                                   className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#797A79] hover:text-[#282828] bg-[#F5F5F5] hover:bg-[#E0E0E0] rounded-lg transition-all"
                                 >
                                   <ChevronLeft size={18} />
@@ -707,9 +1037,9 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                             {filteredPositiveCalls.length > 0 ? (
                               <div className={isDetailView ? "flex gap-4" : "grid gap-4"}>
                                 {!isDetailView ? (
-                                  <div className="grid gap-4 w-full">
+                                  <div key={individualFilterKey} className="grid gap-4 w-full animate-stagger animate-quickFade">
                                 {filteredPositiveCalls.map((callData) => (
-                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full">
+                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp">
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -833,9 +1163,9 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                               
                               return (
                                 <>
-                                  <div className="w-1/2">
+                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     {/* Full Call Details */}
-                                    <div className="bg-white rounded-xl border border-[#F0F0F0] p-5">
+                                    <div className="bg-white rounded-xl border border-[#F0F0F0] p-5 animate-fadeIn">
                                       <div className="mb-4">
                                         <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
                                       </div>
@@ -887,7 +1217,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                                   </div>
                                   
                                   {/* Transcript */}
-                                  <div className="w-1/2">
+                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col relative overflow-hidden">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
                                       <div className="flex items-center justify-between">
@@ -1032,7 +1362,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                             {isDetailView && (
                               <div className="mb-4">
                                 <button
-                                  onClick={() => setSelectedCallDetails(null)}
+                                  onClick={handleBackToAllCalls}
                                   className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#797A79] hover:text-[#282828] bg-[#F5F5F5] hover:bg-[#E0E0E0] rounded-lg transition-all"
                                 >
                                   <ChevronLeft size={18} />
@@ -1043,9 +1373,9 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                             {filteredCalls.length > 0 ? (
                               <div className={isDetailView ? "flex gap-4" : "grid gap-4"}>
                                 {!isDetailView ? (
-                                  <div className="grid gap-4 w-full">
+                                  <div key={individualFilterKey} className="grid gap-4 w-full animate-stagger animate-quickFade">
                                 {filteredCalls.map((callData) => (
-                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full">
+                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp">
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -1169,9 +1499,9 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                               
                               return (
                                 <>
-                                  <div className="w-1/2">
+                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     {/* Full Call Details */}
-                                    <div className="bg-white rounded-xl border border-[#F0F0F0] p-5">
+                                    <div className="bg-white rounded-xl border border-[#F0F0F0] p-5 animate-fadeIn">
                                       <div className="mb-4">
                                         <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
                                       </div>
@@ -1223,7 +1553,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                                   </div>
                                   
                                   {/* Transcript */}
-                                  <div className="w-1/2">
+                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col relative overflow-hidden">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
                                       <div className="flex items-center justify-between">
