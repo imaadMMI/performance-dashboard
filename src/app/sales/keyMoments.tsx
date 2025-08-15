@@ -837,7 +837,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                                     {/* Full Call Details */}
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] p-5">
                                       <div className="mb-4">
-                                        <h4 className="text-lg font-semibold text-[#282828]">Full Analysis - Call {callData.call_id}</h4>
+                                        <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
                                       </div>
                                     
                                     {/* Full Opportunity */}
@@ -1173,7 +1173,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                                     {/* Full Call Details */}
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] p-5">
                                       <div className="mb-4">
-                                        <h4 className="text-lg font-semibold text-[#282828]">Full Analysis - Call {callData.call_id}</h4>
+                                        <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
                                       </div>
                                     
                                     {/* Full Opportunity */}
