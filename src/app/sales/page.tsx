@@ -447,6 +447,7 @@ export default function SalesPage() {
   const [activeView, setActiveView] = useState<"llm" | "dashboard" | "keyMoments">("llm");
   const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
   const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
+  const [isKeyMomentsDetailView, setIsKeyMomentsDetailView] = useState(false);
   
   // Derive selected university from selected schema
   const selectedUniversity = selectedSchema === "sol-tp1" ? "sol" : "monash";
@@ -463,7 +464,7 @@ export default function SalesPage() {
     <div className="flex h-screen bg-brand-white">
       <LeftSidebar />
       
-      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
+      <main className={`flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 ${activeView === "keyMoments" && !isKeyMomentsDetailView ? "overflow-hidden" : "overflow-y-auto"}`}>
         {/* Toggle Buttons and Schema Selector */}
         <div className="mb-6 flex items-center justify-between">
           <div className="flex gap-2">
@@ -615,7 +616,7 @@ export default function SalesPage() {
 
         {/* Content based on active view */}
         <div className="mb-8">
-          {activeView === "llm" ? <LLMInsights /> : activeView === "keyMoments" ? <KeyMoments/> : <Dashboard selectedSchema={selectedSchema} />}
+          {activeView === "llm" ? <LLMInsights /> : activeView === "keyMoments" ? <KeyMoments onDetailViewChange={setIsKeyMomentsDetailView} /> : <Dashboard selectedSchema={selectedSchema} />}
         </div>
       </main>
     </div>

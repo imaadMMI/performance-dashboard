@@ -55,13 +55,11 @@ const AllConsultantsView = ({
   consultants, 
   selectedWeek, 
   selectedDataType,
-  setSelectedDataType,
   selectedBehavior 
 }: { 
   consultants: { id: string; name: string }[], 
   selectedWeek: number, 
   selectedDataType: "strengths" | "opportunities",
-  setSelectedDataType: (type: "strengths" | "opportunities") => void,
   selectedBehavior: string 
 }) => {
   const [consultantsData, setConsultantsData] = useState<{
@@ -134,35 +132,7 @@ const AllConsultantsView = ({
   };
 
   return (
-    <div className="space-y-4">
-      {/* Data Type Toggle */}
-      <div className="mb-6">
-        <div className="flex bg-[#F5F5F5] rounded-lg p-1">
-          <button
-            onClick={() => setSelectedDataType("strengths")}
-            className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-              selectedDataType === "strengths"
-                ? "bg-white text-[#282828] shadow-sm"
-                : "text-[#797A79] hover:text-[#282828]"
-            }`}
-          >
-            Identified Strengths
-          </button>
-          <button
-            onClick={() => setSelectedDataType("opportunities")}
-            className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-              selectedDataType === "opportunities"
-                ? "bg-white text-[#282828] shadow-sm"
-                : "text-[#797A79] hover:text-[#282828]"
-            }`}
-          >
-            Missed Opportunities
-          </button>
-        </div>
-      </div>
-
-      {/* Consultants and their calls */}
-      <div className="space-y-6">
+    <div className="space-y-6">
         {consultants.map((consultant) => {
           const data = consultantsData[consultant.id];
           if (!data) return null;
@@ -311,12 +281,11 @@ const AllConsultantsView = ({
             </p>
           </div>
         ) : null}
-      </div>
     </div>
   );
 };
 
-const KeyMoments = () => {
+const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView: boolean) => void }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBehaviorDropdownOpen, setIsBehaviorDropdownOpen] = useState(false);
   const [isWeekDropdownOpen, setIsWeekDropdownOpen] = useState(false);
@@ -342,6 +311,7 @@ const KeyMoments = () => {
   const weekDropdownRef = useRef<HTMLDivElement>(null);
   const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
+  const contentAreaRef = useRef<HTMLDivElement>(null);
   
   const totalWeeks = 12; // You can adjust this based on your data
   
@@ -477,33 +447,45 @@ const KeyMoments = () => {
     setSelectedCallDetails(null);
     setShowPositiveSummary(false);
     setShowMissedSummary(false);
+    // Reset scroll position of content area
+    if (contentAreaRef.current) {
+      contentAreaRef.current.scrollTop = 0;
+    }
   }, [selectedDataType]);
 
   const selectedConsultantData = consultants.find(c => c.id === selectedConsultant);
 
+  // Notify parent when detail view changes
+  useEffect(() => {
+    if (onDetailViewChange) {
+      onDetailViewChange(!!selectedCallDetails);
+    }
+  }, [selectedCallDetails, onDetailViewChange]);
+
   
 
   return (
-    <div className="w-full relative">
+    <div className="w-full overflow-hidden">
       {/* Main Container Card - matching dashboard.tsx style */}
       <div 
-        className="bg-white rounded-xl border border-[#F0F0F0] p-8 shadow-sm"
+        className={`bg-white rounded-xl border border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails ? "" : "h-[calc(100vh-120px)]"}`}
         style={{ fontFamily: "'Quicksand', sans-serif" }}
       >
-        {/* Title Section with Filters */}
-        <div className="mb-6">
-          {/* Title and Description */}
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-[#282828] mb-2">
-              Key Moments Analysis
-            </h1>
-            <p className="text-sm text-[#797A79]">
-              Analyze key conversation moments and patterns for individual consultants
-            </p>
-          </div>
-          
-          {/* Filters Row */}
-          <div className="flex flex-wrap gap-3 items-end">
+        {/* Fixed Header Section with Filters */}
+        <div className="bg-white border-b border-[#F0F0F0]">
+          <div className="p-8 pb-6">
+            {/* Title and Description */}
+            <div className="mb-4">
+              <h1 className="text-2xl font-bold text-[#282828] mb-2">
+                Key Moments Analysis
+              </h1>
+              <p className="text-sm text-[#797A79]">
+                Analyze key conversation moments and patterns for individual consultants
+              </p>
+            </div>
+            
+            {/* Filters Row */}
+            <div className="flex flex-wrap gap-3 items-end">
             {/* Behavior Filter */}
             <div className="flex-1 min-w-[200px]" ref={behaviorDropdownRef}>
               <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
@@ -656,48 +638,46 @@ const KeyMoments = () => {
               </div>
             </div>
           </div>
+          
+          {/* Data Type Toggle - Part of Fixed Header */}
+          <div className="px-8 pb-3 pt-8">
+            <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+              <button
+                onClick={() => setSelectedDataType("strengths")}
+                className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
+                  selectedDataType === "strengths"
+                    ? "bg-white text-[#282828] shadow-sm"
+                    : "text-[#797A79] hover:text-[#282828]"
+                }`}
+              >
+                Identified Strengths
+              </button>
+              <button
+                onClick={() => setSelectedDataType("opportunities")}
+                className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
+                  selectedDataType === "opportunities"
+                    ? "bg-white text-[#282828] shadow-sm"
+                    : "text-[#797A79] hover:text-[#282828]"
+                }`}
+              >
+                Missed Opportunities
+              </button>
+            </div>
+          </div>
+        </div>
         </div>
         
-        {/* Content Area - matching dashboard.tsx style */}
-        <div className=" rounded-lg p-6">
+        {/* Scrollable Content Area */}
+        <div ref={contentAreaRef} className={`${selectedCallDetails ? "" : "flex-1 overflow-y-auto"} p-8`}>
           {selectedConsultant === "all" ? (
             <AllConsultantsView 
               consultants={consultants}
               selectedWeek={selectedWeek}
               selectedDataType={selectedDataType}
-              setSelectedDataType={setSelectedDataType}
               selectedBehavior={selectedBehavior}
             />
           ) : selectedConsultantData ? (
-            <div className="space-y-4">
-              {/* Data Type Toggle */}
-              <div className="mb-6">
-                <div className="flex bg-[#F5F5F5] rounded-lg p-1">
-                  <button
-                    onClick={() => setSelectedDataType("strengths")}
-                    className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-                      selectedDataType === "strengths"
-                        ? "bg-white text-[#282828] shadow-sm"
-                        : "text-[#797A79] hover:text-[#282828]"
-                    }`}
-                  >
-                    Identified Strengths
-                  </button>
-                  <button
-                    onClick={() => setSelectedDataType("opportunities")}
-                    className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-                      selectedDataType === "opportunities"
-                        ? "bg-white text-[#282828] shadow-sm"
-                        : "text-[#797A79] hover:text-[#282828]"
-                    }`}
-                  >
-                    Missed Opportunities
-                  </button>
-                </div>
-              </div>
-              
-              {/* Content for selected filters */}
-              <div>
+            <div>
                   {selectedDataType === "strengths" ? (
                     <div>
                       {/* Check if Alyssa is selected, week 7, and appropriate call */}
@@ -1372,7 +1352,6 @@ const KeyMoments = () => {
                     </div>
                   )}
               </div>
-            </div>
           ) : (
             <div className="text-center py-8">
               <p className="text-[#797A79] text-base">
