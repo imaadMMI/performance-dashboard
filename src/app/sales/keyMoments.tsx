@@ -2,12 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info, ThumbsUp, ThumbsDown } from 'lucide-react';
-import tpCombinedData from './dashboardJson/tp-combined.json';
 import './keyMomentsAnimations.css';
-
-interface ConsultantData {
-  consultant_name: string;
-}
 
 interface CallAnalysis {
   call_id: string;
@@ -365,13 +360,29 @@ const AllConsultantsView = ({
   );
 };
 
-const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView: boolean) => void }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isBehaviorDropdownOpen, setIsBehaviorDropdownOpen] = useState(false);
-  const [isWeekDropdownOpen, setIsWeekDropdownOpen] = useState(false);
-  const [selectedConsultant, setSelectedConsultant] = useState<string>("all");
-  const [consultants, setConsultants] = useState<{ id: string; name: string}[]>([]);
-  const [selectedWeek, setSelectedWeek] = useState(1);
+interface KeyMomentsProps {
+  onDetailViewChange?: (inDetailView: boolean) => void;
+  selectedConsultant: string;
+  setSelectedConsultant: (value: string) => void;
+  consultants: { id: string; name: string }[];
+  selectedWeek: number;
+  setSelectedWeek: (value: number) => void;
+  selectedBehavior: string;
+  setSelectedBehavior: (value: string) => void;
+  behaviors: { id: string; title: string }[];
+}
+
+const KeyMoments = ({ 
+  onDetailViewChange,
+  selectedConsultant,
+  setSelectedConsultant,
+  consultants,
+  selectedWeek,
+  setSelectedWeek,
+  selectedBehavior,
+  setSelectedBehavior,
+  behaviors
+}: KeyMomentsProps) => {
   const [selectedDataType, setSelectedDataType] = useState<"strengths" | "opportunities">("strengths");
   const [selectedCallDetails, setSelectedCallDetails] = useState<any>(null);
   const [closingCallDetails, setClosingCallDetails] = useState<any>(null);
@@ -384,8 +395,6 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
     transcript: CallTranscript;
   } | null>(null);
   const [closingAllConsultantsDetail, setClosingAllConsultantsDetail] = useState(false);
-  const [selectedBehavior, setSelectedBehavior] = useState<string>("all");
-  const [behaviors, setBehaviors] = useState<{ id: string; title: string }[]>([]);
   const [consultantCallData, setConsultantCallData] = useState<{
     positive: CallAnalysis[];
     missed: CallAnalysis[];
@@ -396,9 +405,6 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
   }>({ positive: [], missed: [] });
   const [showPositiveSummary, setShowPositiveSummary] = useState(false);
   const [showMissedSummary, setShowMissedSummary] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const behaviorDropdownRef = useRef<HTMLDivElement>(null);
-  const weekDropdownRef = useRef<HTMLDivElement>(null);
   const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const contentAreaRef = useRef<HTMLDivElement>(null);
@@ -421,33 +427,6 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
       setClosingCallDetails(null);
     }, 200);
   };
-  
-  const totalWeeks = 12; // You can adjust this based on your data
-  
-  // Get calls based on selected data type and consultant
-  // This will be calculated after selectedConsultantData is defined
-
-  // Extract consultant and behavior data from JSON
-  useEffect(() => {
-    const individualPerformance = tpCombinedData.individual_consultant_performance as Record<string, ConsultantData>;
-    const consultantList = Object.entries(individualPerformance).map(([id, data]) => ({
-      id,
-      name: data.consultant_name.replace(/-/g, ' '),
-      })).sort((a, b) => a.name.localeCompare(b.name));
-    
-    setConsultants(consultantList);
-    
-    // Extract behaviors from overall_behavioral_effects
-    const behavioralEffects = tpCombinedData.overall_behavioral_effects as Record<string, any>;
-    const behaviorList = Object.entries(behavioralEffects)
-      .map(([id, data]) => ({
-        id,
-        title: data.taxonomy_info.title
-      }))
-      .sort((a, b) => a.title.localeCompare(b.title));
-    
-    setBehaviors(behaviorList);
-  }, []);
 
   // Trigger animation on filter changes
   useEffect(() => {
@@ -526,23 +505,6 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
     loadConsultantData();
   }, [selectedConsultant, consultants]);
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false);
-      }
-      if (behaviorDropdownRef.current && !behaviorDropdownRef.current.contains(event.target as Node)) {
-        setIsBehaviorDropdownOpen(false);
-      }
-      if (weekDropdownRef.current && !weekDropdownRef.current.contains(event.target as Node)) {
-        setIsWeekDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
   
 
   // Reset state when consultant changes
@@ -588,196 +550,40 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
         {/* Fixed Header Section with Filters */}
         <div className="bg-white border-b border-[#F0F0F0]">
           <div className="p-8 pb-6">
-            {/* Title and Description */}
+            {/* Title, Description and Data Type Toggle */}
             <div className="mb-4">
-              <h1 className="text-2xl font-bold text-[#282828] mb-2">
-                Key Moments Analysis
-              </h1>
+              <div className="flex items-center justify-between mb-2">
+                <h1 className="text-2xl font-bold text-[#282828]">
+                  Key Moments Analysis
+                </h1>
+                {/* Data Type Toggle */}
+                <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+                  <button
+                    onClick={() => setSelectedDataType("strengths")}
+                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                      selectedDataType === "strengths"
+                        ? "bg-white text-[#282828] shadow-sm"
+                        : "text-[#797A79] hover:text-[#282828]"
+                    }`}
+                  >
+                    Identified Strengths
+                  </button>
+                  <button
+                    onClick={() => setSelectedDataType("opportunities")}
+                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                      selectedDataType === "opportunities"
+                        ? "bg-white text-[#282828] shadow-sm"
+                        : "text-[#797A79] hover:text-[#282828]"
+                    }`}
+                  >
+                    Missed Opportunities
+                  </button>
+                </div>
+              </div>
               <p className="text-sm text-[#797A79]">
                 Analyze key conversation moments and patterns for individual consultants
               </p>
             </div>
-            
-            {/* Filters Row */}
-            <div className="flex flex-wrap gap-3 items-end">
-            {/* Behavior Filter */}
-            <div className="flex-1 min-w-[200px]" ref={behaviorDropdownRef}>
-              <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
-                Behavior
-              </label>
-              <div className="relative">
-                <button
-                  onClick={() => setIsBehaviorDropdownOpen(!isBehaviorDropdownOpen)}
-                  className="w-full px-4 py-2.5 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] focus:outline-none focus:border-[#B5DAD4] transition-colors duration-200 flex items-center justify-between"
-                >
-                  <span className="text-sm text-[#282828] truncate">
-                    {selectedBehavior === "all" 
-                      ? "All Behaviors" 
-                      : behaviors.find(b => b.id === selectedBehavior)?.title || "Select Behavior"}
-                  </span>
-                  <ChevronDown 
-                    size={18} 
-                    className={`text-[#797A79] transition-transform duration-200 flex-shrink-0 ml-2 ${isBehaviorDropdownOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                
-                {isBehaviorDropdownOpen && (
-                  <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                    <div className="max-h-64 overflow-y-auto">
-                      <button
-                        onClick={() => {
-                          setSelectedBehavior("all");
-                          setIsBehaviorDropdownOpen(false);
-                        }}
-                        className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                          selectedBehavior === "all" ? "bg-[#F5F5F5] font-semibold" : ""
-                        }`}
-                      >
-                        <span className="text-sm text-[#282828]">All Behaviors</span>
-                      </button>
-                      {behaviors.map((behavior) => (
-                        <button
-                          key={behavior.id}
-                          onClick={() => {
-                            setSelectedBehavior(behavior.id);
-                            setIsBehaviorDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
-                            selectedBehavior === behavior.id ? "bg-[#F5F5F5] font-semibold" : ""
-                          }`}
-                        >
-                          <span className="text-sm text-[#282828]">{behavior.title}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Week Filter */}
-            <div className="min-w-[140px]" ref={weekDropdownRef}>
-              <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
-                Week
-              </label>
-              <div className="relative">
-                <button
-                  onClick={() => setIsWeekDropdownOpen(!isWeekDropdownOpen)}
-                  className="w-full px-4 py-2.5 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] focus:outline-none focus:border-[#B5DAD4] transition-colors duration-200 flex items-center justify-between"
-                >
-                  <span className="text-sm text-[#282828]">
-                    Week {selectedWeek}
-                  </span>
-                  <ChevronDown 
-                    size={18} 
-                    className={`text-[#797A79] transition-transform duration-200 ml-2 ${isWeekDropdownOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                
-                {isWeekDropdownOpen && (
-                  <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                    <div className="max-h-64 overflow-y-auto">
-                      {Array.from({ length: totalWeeks }, (_, i) => i + 1).map((week) => (
-                        <button
-                          key={week}
-                          onClick={() => {
-                            setSelectedWeek(week);
-                            setIsWeekDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                            week > 1 ? 'border-t border-[#F0F0F0]' : ''
-                          } ${selectedWeek === week ? "bg-[#F5F5F5] font-semibold" : ""}`}
-                        >
-                          <span className="text-sm text-[#282828]">Week {week}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Consultant Filter */}
-            <div className="flex-1 min-w-[200px]" ref={dropdownRef}>
-              <label className="block text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-2">
-                Consultant
-              </label>
-              <div className="relative">
-                <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-full px-4 py-2.5 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] focus:outline-none focus:border-[#B5DAD4] transition-colors duration-200 flex items-center justify-between"
-                >
-                  <span className="text-sm text-[#282828] truncate">
-                    {selectedConsultant === "all" 
-                      ? "All Consultants" 
-                      : selectedConsultantData?.name || "Select Consultant"}
-                  </span>
-                  <ChevronDown 
-                    size={18} 
-                    className={`text-[#797A79] transition-transform duration-200 flex-shrink-0 ml-2 ${isDropdownOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                
-                {isDropdownOpen && (
-                  <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                    <div className="max-h-64 overflow-y-auto">
-                      <button
-                        onClick={() => {
-                          setSelectedConsultant("all");
-                          setIsDropdownOpen(false);
-                        }}
-                        className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                          selectedConsultant === "all" ? "bg-[#F5F5F5] font-semibold" : ""
-                        }`}
-                      >
-                        <span className="text-sm text-[#282828]">All Consultants</span>
-                      </button>
-                      {consultants.map((consultant) => (
-                        <button
-                          key={consultant.id}
-                          onClick={() => {
-                            setSelectedConsultant(consultant.id);
-                            setIsDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
-                            selectedConsultant === consultant.id ? "bg-[#F5F5F5] font-semibold" : ""
-                          }`}
-                        >
-                          <span className="text-sm text-[#282828]">{consultant.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          
-          {/* Data Type Toggle - Part of Fixed Header */}
-          <div className="px-8 pb-3 pt-8">
-            <div className="flex bg-[#F5F5F5] rounded-lg p-1">
-              <button
-                onClick={() => setSelectedDataType("strengths")}
-                className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-                  selectedDataType === "strengths"
-                    ? "bg-white text-[#282828] shadow-sm"
-                    : "text-[#797A79] hover:text-[#282828]"
-                }`}
-              >
-                Identified Strengths
-              </button>
-              <button
-                onClick={() => setSelectedDataType("opportunities")}
-                className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-all duration-200 ${
-                  selectedDataType === "opportunities"
-                    ? "bg-white text-[#282828] shadow-sm"
-                    : "text-[#797A79] hover:text-[#282828]"
-                }`}
-              >
-                Missed Opportunities
-              </button>
-            </div>
-          </div>
         </div>
         </div>
         
@@ -981,7 +787,7 @@ const KeyMoments = ({ onDetailViewChange }: { onDetailViewChange?: (inDetailView
                               <div className="mb-4">
                                 <button
                                   onClick={handleBackToAllCalls}
-                                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#797A79] hover:text-[#282828] bg-[#F5F5F5] hover:bg-[#E0E0E0] rounded-lg transition-all"
+                                  className="flex items-center gap-2 text-sm font-semibold text-[#FF8A00] hover:text-[#F26A37] transition-colors"
                                 >
                                   <ChevronLeft size={18} />
                                   Back to all calls
