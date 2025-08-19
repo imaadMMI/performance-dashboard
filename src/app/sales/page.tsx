@@ -565,24 +565,24 @@ export default function SalesPage() {
                 <div className="relative" ref={behaviorDropdownRef}>
                   <button
                     onClick={() => setIsBehaviorDropdownOpen(!isBehaviorDropdownOpen)}
-                    className="px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] transition-colors duration-200 flex items-center gap-2 min-w-[160px]"
+                    className="px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] transition-colors duration-200 flex items-center gap-2 min-w-[180px] max-w-[280px]"
                   >
-                    <span className="text-sm text-[#282828] truncate">
+                    <span className="text-sm text-[#282828] truncate flex-1">
                       {selectedBehavior === "all" 
                         ? "All Behaviors" 
                         : behaviors.find(b => b.id === selectedBehavior)?.title || "Select Behavior"}
                     </span>
                     <ChevronDown 
                       size={16} 
-                      className={`text-[#797A79] transition-transform duration-200 ${
+                      className={`text-[#797A79] transition-transform duration-200 flex-shrink-0 ${
                         isBehaviorDropdownOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   
                   {isBehaviorDropdownOpen && (
-                    <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                      <div className="max-h-64 overflow-y-auto">
+                    <div className="absolute z-50 mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden" style={{ minWidth: '280px', maxWidth: '400px' }}>
+                      <div className="max-h-64 overflow-y-auto overflow-x-hidden">
                         <button
                           onClick={() => {
                             setSelectedBehavior("all");
@@ -592,7 +592,7 @@ export default function SalesPage() {
                             selectedBehavior === "all" ? "bg-[#F5F5F5] font-semibold" : ""
                           }`}
                         >
-                          <span className="text-sm text-[#282828]">All Behaviors</span>
+                          <span className="text-sm text-[#282828] block break-words">All Behaviors</span>
                         </button>
                         {behaviors.map((behavior) => (
                           <button
@@ -605,7 +605,7 @@ export default function SalesPage() {
                               selectedBehavior === behavior.id ? "bg-[#F5F5F5] font-semibold" : ""
                             }`}
                           >
-                            <span className="text-sm text-[#282828]">{behavior.title}</span>
+                            <span className="text-sm text-[#282828] block break-words pr-2">{behavior.title}</span>
                           </button>
                         ))}
                       </div>

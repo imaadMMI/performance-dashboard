@@ -407,6 +407,7 @@ const KeyMoments = ({
   const [showMissedSummary, setShowMissedSummary] = useState(false);
   const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
+  const allConsultantsTranscriptRef = useRef<HTMLDivElement>(null);
   const contentAreaRef = useRef<HTMLDivElement>(null);
   const [individualFilterKey, setIndividualFilterKey] = useState(0);
   const [individualSectionFeedback, setIndividualSectionFeedback] = useState<{ [key: string]: 'up' | 'down' | null }>({});
@@ -709,7 +710,7 @@ const KeyMoments = ({
                       <div className="px-5 py-4 border-b border-[#F0F0F0]">
                         <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
                       </div>
-                      <div className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]">
+                      <div ref={allConsultantsTranscriptRef} className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]">
                         <div className="space-y-4">
                           {allConsultantsCallDetail.transcript.transcript.map((entry: TranscriptEntry, index: number) => (
                             <div 
@@ -747,6 +748,60 @@ const KeyMoments = ({
                             </div>
                           ))}
                         </div>
+                      </div>
+                      {/* Navigation Buttons */}
+                      <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
+                        <button
+                          onClick={() => {
+                            if (allConsultantsTranscriptRef.current) {
+                              allConsultantsTranscriptRef.current.scrollTo({
+                                top: allConsultantsTranscriptRef.current.scrollHeight,
+                                behavior: 'smooth'
+                              });
+                            }
+                          }}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                          title="Scroll to Bottom"
+                        >
+                          <ArrowDown size={14} />
+                          Bottom
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (allConsultantsTranscriptRef.current) {
+                              const keyMomentElement = allConsultantsTranscriptRef.current.querySelector('[data-key-moment="true"]') as HTMLElement;
+                              if (keyMomentElement) {
+                                const elementTop = keyMomentElement.offsetTop;
+                                const scrollPosition = Math.max(0, elementTop - 65);
+                                
+                                allConsultantsTranscriptRef.current.scrollTo({
+                                  top: scrollPosition,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            }
+                          }}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                          title="Scroll to Key Moment"
+                        >
+                          <Target size={14} />
+                          Key Moment
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (allConsultantsTranscriptRef.current) {
+                              allConsultantsTranscriptRef.current.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                              });
+                            }
+                          }}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                          title="Scroll to Top"
+                        >
+                          <ArrowUp size={14} />
+                          Top
+                        </button>
                       </div>
                     </div>
                   </div>
