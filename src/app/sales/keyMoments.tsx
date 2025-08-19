@@ -395,6 +395,8 @@ const KeyMoments = ({
     transcript: CallTranscript;
   } | null>(null);
   const [closingAllConsultantsDetail, setClosingAllConsultantsDetail] = useState(false);
+  const [showAllConsultantsTranscript, setShowAllConsultantsTranscript] = useState(false);
+  const [showIndividualTranscript, setShowIndividualTranscript] = useState(false);
   const [consultantCallData, setConsultantCallData] = useState<{
     positive: CallAnalysis[];
     missed: CallAnalysis[];
@@ -426,6 +428,7 @@ const KeyMoments = ({
     setTimeout(() => {
       setSelectedCallDetails(null);
       setClosingCallDetails(null);
+      setShowIndividualTranscript(false);
     }, 200);
   };
 
@@ -601,6 +604,7 @@ const KeyMoments = ({
                       setTimeout(() => {
                         setAllConsultantsCallDetail(null);
                         setClosingAllConsultantsDetail(false);
+                        setShowAllConsultantsTranscript(false);
                         if (onDetailViewChange) onDetailViewChange(false);
                       }, 200);
                     }}
@@ -616,15 +620,30 @@ const KeyMoments = ({
                   closingAllConsultantsDetail ? 'animate-fadeOut' : 'animate-fadeIn'
                 }`}>
                   {/* Full Analysis Column */}
-                  <div className="w-1/2">
+                  <div className={showAllConsultantsTranscript ? "w-1/2" : "w-full"}>
                     <div className="bg-white rounded-xl border border-[#F0F0F0] p-6">
-                      <div className="mb-4">
-                        <h4 className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Consultant</h4>
-                        <p className="text-lg font-semibold text-[#282828]">{allConsultantsCallDetail.consultantName}</p>
-                      </div>
-                      <div className="mb-4">
-                        <h4 className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Call ID</h4>
-                        <p className="text-sm font-semibold text-[#282828]">{allConsultantsCallDetail.callId}</p>
+                      {/* Header with Toggle Button */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <div className="mb-4">
+                            <h4 className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Consultant</h4>
+                            <p className="text-lg font-semibold text-[#282828]">{allConsultantsCallDetail.consultantName}</p>
+                          </div>
+                          <div className="mb-4">
+                            <h4 className="text-xs font-semibold text-[#797A79] uppercase tracking-wide mb-1">Call ID</h4>
+                            <p className="text-sm font-semibold text-[#282828]">{allConsultantsCallDetail.callId}</p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => setShowAllConsultantsTranscript(!showAllConsultantsTranscript)}
+                          className="flex items-center gap-2 px-4 py-2 bg-[#FF8A00] text-white rounded-lg hover:bg-[#F26A37] transition-colors font-medium text-sm"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 4.5C2 3.67157 2.67157 3 3.5 3H5.5C6.32843 3 7 3.67157 7 4.5V11.5C7 12.3284 6.32843 13 5.5 13H3.5C2.67157 13 2 12.3284 2 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                            <path d="M9 4.5C9 3.67157 9.67157 3 10.5 3H12.5C13.3284 3 14 3.67157 14 4.5V11.5C14 12.3284 13.3284 13 12.5 13H10.5C9.67157 13 9 12.3284 9 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                          </svg>
+                          {showAllConsultantsTranscript ? "Hide Transcript" : "Show Transcript"}
+                        </button>
                       </div>
                       
                       <div className="space-y-6">
@@ -704,7 +723,8 @@ const KeyMoments = ({
                     </div>
                   </div>
                   
-                  {/* Transcript Column */}
+                  {/* Transcript Column - Only show when toggled */}
+                  {showAllConsultantsTranscript && (
                   <div className="w-1/2">
                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col">
                       <div className="px-5 py-4 border-b border-[#F0F0F0]">
@@ -805,6 +825,7 @@ const KeyMoments = ({
                       </div>
                     </div>
                   </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -978,11 +999,21 @@ const KeyMoments = ({
                               
                               return (
                                 <>
-                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
+                                  <div className={`${showIndividualTranscript ? 'w-1/2' : 'w-full'} ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     {/* Full Call Details */}
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] p-5 animate-fadeIn">
-                                      <div className="mb-4">
+                                      <div className="flex items-start justify-between mb-4">
                                         <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
+                                        <button
+                                          onClick={() => setShowIndividualTranscript(!showIndividualTranscript)}
+                                          className="flex items-center gap-2 px-4 py-2 bg-[#FF8A00] text-white rounded-lg hover:bg-[#F26A37] transition-colors font-medium text-sm"
+                                        >
+                                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 4.5C2 3.67157 2.67157 3 3.5 3H5.5C6.32843 3 7 3.67157 7 4.5V11.5C7 12.3284 6.32843 13 5.5 13H3.5C2.67157 13 2 12.3284 2 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                                            <path d="M9 4.5C9 3.67157 9.67157 3 10.5 3H12.5C13.3284 3 14 3.67157 14 4.5V11.5C14 12.3284 13.3284 13 12.5 13H10.5C9.67157 13 9 12.3284 9 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                                          </svg>
+                                          {showIndividualTranscript ? "Hide Transcript" : "Show Transcript"}
+                                        </button>
                                       </div>
                                     
                                     {/* Full Opportunity */}
@@ -1103,7 +1134,8 @@ const KeyMoments = ({
                                     </div>
                                   </div>
                                   
-                                  {/* Transcript */}
+                                  {/* Transcript - Only show when toggled */}
+                                  {showIndividualTranscript && (
                                   <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col relative overflow-hidden">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
@@ -1215,6 +1247,7 @@ const KeyMoments = ({
                                     </div>
                                     </div>
                                   </div>
+                                  )}
                                 </>
                               );
                               })()
@@ -1386,11 +1419,21 @@ const KeyMoments = ({
                               
                               return (
                                 <>
-                                  <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
+                                  <div className={`${showIndividualTranscript ? 'w-1/2' : 'w-full'} ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     {/* Full Call Details */}
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] p-5 animate-fadeIn">
-                                      <div className="mb-4">
+                                      <div className="flex items-start justify-between mb-4">
                                         <h4 className="text-lg font-semibold text-[#282828]">Full Analysis: {selectedConsultantData?.name} - Call {callData.call_id}</h4>
+                                        <button
+                                          onClick={() => setShowIndividualTranscript(!showIndividualTranscript)}
+                                          className="flex items-center gap-2 px-4 py-2 bg-[#FF8A00] text-white rounded-lg hover:bg-[#F26A37] transition-colors font-medium text-sm"
+                                        >
+                                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 4.5C2 3.67157 2.67157 3 3.5 3H5.5C6.32843 3 7 3.67157 7 4.5V11.5C7 12.3284 6.32843 13 5.5 13H3.5C2.67157 13 2 12.3284 2 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                                            <path d="M9 4.5C9 3.67157 9.67157 3 10.5 3H12.5C13.3284 3 14 3.67157 14 4.5V11.5C14 12.3284 13.3284 13 12.5 13H10.5C9.67157 13 9 12.3284 9 11.5V4.5Z" stroke="currentColor" strokeWidth="1.5"/>
+                                          </svg>
+                                          {showIndividualTranscript ? "Hide Transcript" : "Show Transcript"}
+                                        </button>
                                       </div>
                                     
                                     {/* Full Opportunity */}
@@ -1463,7 +1506,8 @@ const KeyMoments = ({
                                     </div>
                                   </div>
                                   
-                                  {/* Transcript */}
+                                  {/* Transcript - Only show when toggled */}
+                                  {showIndividualTranscript && (
                                   <div className={`w-1/2 ${closingCallDetails ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col relative overflow-hidden">
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
@@ -1575,6 +1619,7 @@ const KeyMoments = ({
                                     </div>
                                     </div>
                                   </div>
+                                  )}
                                 </>
                               );
                               })()
