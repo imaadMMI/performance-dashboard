@@ -80,11 +80,11 @@ export function StudentCard({
           className="rounded-full mr-4 object-cover"
         />
         <div className="flex flex-col gap-2 flex-1 items-center">
-          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[140px] text-[0.85rem]">
+          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
             <span className="mr-2">{successRate}</span>
             <span className="text-[#444]">of success</span>
           </div>
-          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[140px] text-[0.85rem]">
+          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
             <span className="mr-2">{studentRate}</span>
             <span className="text-[#444]">of students</span>
           </div>
@@ -92,24 +92,24 @@ export function StudentCard({
       </div>
 
       {/* Progression */}
-      <div className="bg-white border border-[#f0f0f0] rounded p-1 mb-5">
-        <p className="font-montserrat text-sm mb-4">Successful progression</p>
-        <div className="flex justify-between items-center">
-          <div>
-            <p className="font-montserrat text-xl font-semibold">{progressionRate}.0%</p>
-            <p className="font-montserrat text-black-500 text-sm">No withdrawal</p>
+      <div className="bg-white border border-[#f0f0f0] rounded p-5 mb-4">
+        <p className="font-montserrat text-sm mb-3">Successful progression</p>
+        <div className="flex justify-between items-end">
+          <div className="flex flex-col">
+            <p className="font-montserrat text-2xl font-semibold mb-2">{progressionRate}.0%</p>
+            <p className="font-montserrat text-black-500 text-xs leading-none mb-1">No withdrawal</p>
           </div>
-          <div className="relative ml-1">
-            <PieChart width={90} height={90}>
+          <div className="relative -mb-1">
+            <PieChart width={72} height={72}>
               <Pie
                 data={[
-                  { name: "Retention", value: 90 },
-                  { name: "Remaining", value: 10 },
+                  { name: "Retention", value: progressionRate },
+                  { name: "Remaining", value: 100 - progressionRate },
                 ]}
                 cx="50%"
                 cy="50%"
-                innerRadius={31}
-                outerRadius={38}
+                innerRadius={25}
+                outerRadius={31}
                 startAngle={90}
                 endAngle={-270}
                 paddingAngle={0}
@@ -120,7 +120,7 @@ export function StudentCard({
               </Pie>
             </PieChart>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-semibold text-[12px]">+90%</span>
+              <span className="font-semibold text-[11px]">+{progressionRate}%</span>
             </div>
           </div>
         </div>
