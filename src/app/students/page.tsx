@@ -5,25 +5,33 @@ import { LeftSidebar } from "@/components/LeftSidebar";
 import { RightSidebar } from "@/components/RightSidebar";
 import { ArrowUp, ChevronDown, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { StudentCard } from '@/components/molecules';
+import './students.css';
 
 export default function StudentsContent() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [activeCard, setActiveCard] = useState(-1);
+  const [activeCard, setActiveCard] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleCardHover = (cardIndex: number) => {
+    setHasInteracted(true);
+    setHoveredCard(cardIndex);
+  };
 
   return (
     <div className="min-h-screen flex bg-gray-50">
       {/* Left Navigation Sidebar */}
       <LeftSidebar />
 
-      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-hidden">
+      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-14 lg:pt-24 pb-4 overflow-hidden">
         {/* Header Row - Stack on mobile, grid on desktop */}
-        <div className="flex flex-col space-y-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 mb-8 items-start">
+        <div className="flex flex-col space-y-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 mb-14 items-start">
           {/* Left: Stats */}
           <div className="w-full">
-            <h2 className="font-montserrat font-bold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
+            <h2 className="font-montserrat font-semibold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
               <span>MOL TP5 2025:</span>
               <span className="flex items-center gap-2 text-black">
-                <span className="text-3xl lg:text-4xl font-bold">79</span>
+                <span className="text-3xl lg:text-4xl font-semibold">79</span>
                 <ArrowUp color="green" size={28} />
               </span>
             </h2>
@@ -50,18 +58,18 @@ export default function StudentsContent() {
               className="inline-flex items-center gap-1 text-gray-600 hover:text-yellow-600 transition-colors font-medium text-base"
             >
               {showSidebar ? <ChevronsRight size={14} /> : <ChevronsLeft size={14} />}
-              <span className="font-montserrat">{showSidebar ? 'Hide' : 'See'} retention stats</span>
+              <span className="font-montserrat">{showSidebar ? '' : 'See retention stats'} </span>
             </button>
           </div>
         </div>
 
         {/* Filter Tags - Stack on mobile */}
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 mb-6">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 mb-14">
           <div className="flex items-center gap-3">
-            <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 16 16">
+            <svg className="w-5 h-5 text-green-600 bg-(--brand-light)" fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
             </svg>
-            <span className="font-montserrat font-bold text-gray-800 text-lg">Successful students</span>
+            <span className="font-montserrat font-semibold text-gray-800 text-lg">Successful students</span>
           </div>
           
           <div className="flex items-center gap-3 opacity-50">
@@ -79,57 +87,82 @@ export default function StudentsContent() {
           <StudentCard
             tier={2}
             rank="01"
-            heading="Supported Problem-Solver"
+            heading="Supported<br/>Problem-Solver"
             profileImage="/profile.jpg"
             successRate="8.4%"
             studentRate="3.1%"
             progressionRate={70}
             quote="My wife is really encouraging me to do this and said she'll take on more of the household responsibilities."
             studentId="0439"
+            isActive={activeCard === 0 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 0}
+            onClick={() => setActiveCard(0)}
+            onMouseEnter={() => handleCardHover(0)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={2}
             rank="02"
-            heading="Supported Problem-Solver"
+            heading="Supported<br/>Problem-Solver"
             profileImage="/profile.jpg"
             successRate="8.4%"
             studentRate="3.1%"
             progressionRate={70}
             quote="My wife is really encouraging me to do this and said she'll take on more of the household responsibilities."
             studentId="0440"
+            isActive={activeCard === 1 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 1}
+            onClick={() => setActiveCard(1)}
+            onMouseEnter={() => handleCardHover(1)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={2}
             rank="03"
-            heading="Supported Problem-Solver"
+            heading="Supported<br/>Problem-Solver"
             profileImage="/profile.jpg"
             successRate="8.4%"
             studentRate="3.1%"
             progressionRate={70}
             quote="My wife is really encouraging me to do this and said she'll take on more of the household responsibilities."
             studentId="0441"
+            isActive={activeCard === 2 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 2}
+            onClick={() => setActiveCard(2)}
+            onMouseEnter={() => handleCardHover(2)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={2}
             rank="04"
-            heading="Supported Problem-Solver"
+            heading="Supported<br/>Problem-Solver"
             profileImage="/profile.jpg"
             successRate="8.4%"
             studentRate="3.1%"
             progressionRate={70}
             quote="My wife is really encouraging me to do this and said she'll take on more of the household responsibilities."
             studentId="0442"
+            isActive={activeCard === 3 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 3}
+            onClick={() => setActiveCard(3)}
+            onMouseEnter={() => handleCardHover(3)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={2}
             rank="05"
-            heading="Supported Problem-Solver"
+            heading="Supported<br/>Problem-Solver"
             profileImage="/profile.jpg"
             successRate="8.4%"
             studentRate="3.1%"
             progressionRate={70}
             quote="My wife is really encouraging me to do this and said she'll take on more of the household responsibilities."
             studentId="0443"
+            isActive={activeCard === 4 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 4}
+            onClick={() => setActiveCard(4)}
+            onMouseEnter={() => handleCardHover(4)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={1}
@@ -141,6 +174,11 @@ export default function StudentsContent() {
             progressionRate={85}
             quote="I've always been good at managing my time and staying organized with my studies."
             studentId="0444"
+            isActive={activeCard === 5 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 5}
+            onClick={() => setActiveCard(5)}
+            onMouseEnter={() => handleCardHover(5)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={3}
@@ -152,6 +190,11 @@ export default function StudentsContent() {
             progressionRate={45}
             quote="English is my second language and sometimes I find it hard to keep up with lectures."
             studentId="0445"
+            isActive={activeCard === 6 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 6}
+            onClick={() => setActiveCard(6)}
+            onMouseEnter={() => handleCardHover(6)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={1}
@@ -163,6 +206,11 @@ export default function StudentsContent() {
             progressionRate={92}
             quote="I love using online resources and tools to enhance my learning experience."
             studentId="0446"
+            isActive={activeCard === 7 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 7}
+            onClick={() => setActiveCard(7)}
+            onMouseEnter={() => handleCardHover(7)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={2}
@@ -174,6 +222,11 @@ export default function StudentsContent() {
             progressionRate={78}
             quote="Study groups have been essential for my success - we help each other understand difficult concepts."
             studentId="0447"
+            isActive={activeCard === 8 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 8}
+            onClick={() => setActiveCard(8)}
+            onMouseEnter={() => handleCardHover(8)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={3}
@@ -185,6 +238,11 @@ export default function StudentsContent() {
             progressionRate={38}
             quote="Balancing work and study is tough, especially when I have to miss classes for my job."
             studentId="0448"
+            isActive={activeCard === 9 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 9}
+            onClick={() => setActiveCard(9)}
+            onMouseEnter={() => handleCardHover(9)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           <StudentCard
             tier={1}
@@ -196,6 +254,11 @@ export default function StudentsContent() {
             progressionRate={95}
             quote="I've developed a solid study routine that helps me stay ahead of the coursework."
             studentId="0449"
+            isActive={activeCard === 10 && hoveredCard === null && !hasInteracted}
+            isHovered={hoveredCard === 10}
+            onClick={() => setActiveCard(10)}
+            onMouseEnter={() => handleCardHover(10)}
+            onMouseLeave={() => setHoveredCard(null)}
           />
           </div>
         </div>
