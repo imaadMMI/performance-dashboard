@@ -396,6 +396,7 @@ const KeyMoments = ({
   } | null>(null);
   const [closingAllConsultantsDetail, setClosingAllConsultantsDetail] = useState(false);
   const [showAllConsultantsTranscript, setShowAllConsultantsTranscript] = useState(false);
+  const [closingAllConsultantsTranscript, setClosingAllConsultantsTranscript] = useState(false);
   const [showIndividualTranscript, setShowIndividualTranscript] = useState(false);
   const [consultantCallData, setConsultantCallData] = useState<{
     positive: CallAnalysis[];
@@ -605,6 +606,7 @@ const KeyMoments = ({
                         setAllConsultantsCallDetail(null);
                         setClosingAllConsultantsDetail(false);
                         setShowAllConsultantsTranscript(false);
+                        setClosingAllConsultantsTranscript(false);
                         if (onDetailViewChange) onDetailViewChange(false);
                       }, 200);
                     }}
@@ -635,7 +637,17 @@ const KeyMoments = ({
                           </div>
                         </div>
                         <button
-                          onClick={() => setShowAllConsultantsTranscript(!showAllConsultantsTranscript)}
+                          onClick={() => {
+                            if (showAllConsultantsTranscript) {
+                              setClosingAllConsultantsTranscript(true);
+                              setTimeout(() => {
+                                setShowAllConsultantsTranscript(false);
+                                setClosingAllConsultantsTranscript(false);
+                              }, 200);
+                            } else {
+                              setShowAllConsultantsTranscript(true);
+                            }
+                          }}
                           className="flex items-center gap-2 px-4 py-2 bg-[#FF8A00] text-white rounded-lg hover:bg-[#F26A37] transition-colors font-medium text-sm"
                         >
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -725,7 +737,7 @@ const KeyMoments = ({
                   
                   {/* Transcript Column - Only show when toggled */}
                   {showAllConsultantsTranscript && (
-                  <div className="w-1/2">
+                  <div className={`w-1/2 ${closingAllConsultantsTranscript ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col">
                       <div className="px-5 py-4 border-b border-[#F0F0F0]">
                         <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
