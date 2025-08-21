@@ -1,26 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp } from "lucide-react";
+import { ArrowLeft, TrendingUp, X } from "lucide-react";
 import Image from "next/image";
 import ArchetypeCharts from "@/components/ArchetypeCharts";
 import { PieChart, Pie, Cell } from "recharts";
 import { useArchetypeProfile } from "@/hooks/useArchetypes";
 
 interface StudentProfileProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function StudentProfile({ params }: StudentProfileProps) {
-  const archetypeName = params.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const resolvedParams = React.use(params);
+  const archetypeName = resolvedParams.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const { profile, loading, error } = useArchetypeProfile(archetypeName);
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [fadeClass, setFadeClass] = useState('opacity-100');
   const [showRecommendationsModal, setShowRecommendationsModal] = useState(false);
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const [dynamicPaddingBottom, setDynamicPaddingBottom] = useState(68); // Default pb-17
+  
+  const leftBoxRef = useRef<HTMLDivElement>(null);
+  const signatureFeaturesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!profile?.quotes || profile.quotes.length === 0) return;
@@ -36,6 +42,45 @@ export default function StudentProfile({ params }: StudentProfileProps) {
 
     return () => clearInterval(interval);
   }, [profile?.quotes]);
+
+  useEffect(() => {
+    if (showRecommendationsModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showRecommendationsModal]);
+
+  useEffect(() => {
+    const calculateDynamicPadding = () => {
+      if (leftBoxRef.current && signatureFeaturesRef.current && !isDescriptionExpanded) {
+        const leftBoxHeight = leftBoxRef.current.offsetHeight;
+        const signatureFeaturesHeight = signatureFeaturesRef.current.scrollHeight;
+        
+        const heightDifference = leftBoxHeight - signatureFeaturesHeight;
+        if (heightDifference > 0) {
+          setDynamicPaddingBottom(heightDifference + 32); // Add some base padding
+        } else {
+          setDynamicPaddingBottom(32); // Minimum padding
+        }
+      }
+    };
+
+    // Calculate on mount and when content changes
+    const timer = setTimeout(calculateDynamicPadding, 100);
+    
+    // Recalculate on window resize
+    window.addEventListener('resize', calculateDynamicPadding);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', calculateDynamicPadding);
+    };
+  }, [profile, isDescriptionExpanded]);
 
   if (loading) {
     return (
@@ -77,16 +122,16 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           <h1 className="font-montserrat text-3xl font-semibold text-gray-900 flex items-center gap-8">
             {profile.name}:
             <span className="flex items-center gap-2">
-              <span className="font-semibold text-3xl">{profile.percentage_of_all_students.toFixed(1)}%</span>
+              <span className="font-semibold text-3xl">{profile.percentage_of_all_students?.toFixed(1) || '0.0'}%</span>
               <TrendingUp className="text-green-600" size={24} />
             </span>
           </h1>
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-row flex-1 gap-4 h-[calc(100vh-200px)]">
+        <div className="flex flex-row flex-1 gap-20 items-start">
           {/* Left Box */}
-          <div className="w-3/5 flex flex-col gap-4 h-full">
+          <div ref={leftBoxRef} className="w-1/3 flex flex-col gap-6 flex-shrink-0">
             {/* User Info */}
             <div className="flex flex-row items-center p-6 gap-8">
               <Image
@@ -97,14 +142,14 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                 className="rounded-full object-cover"
               />
               <div className="flex flex-col justify-between h-[150px]">
-                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.percentage_of_all_students.toFixed(1)}% of all students</p>
+                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.percentage_of_all_students?.toFixed(1) || '0.0'}% of all students</p>
                 <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.features.length} signature features</p>
                 <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.quotes.length} example quotes</p>
               </div>
             </div>
 
             {/* Progression Cards */}
-            <div className="grid grid-cols-2 pb-7" style={{width: '80%'}}>
+            <div className="grid grid-cols-2 pb-7">
               {/* First Card */}
               <div className="bg-white border border-[#f1f1f1] rounded-[2px] p-4 font-quicksand">
                 <p className="font-montserrat font-semibold text-base mb-3 ml-6">Retention Rate</p>
@@ -177,7 +222,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
             </div>
 
             {/* Next-best Interaction Behaviours */}
-            <div className="p-4 bg-white border border-gray-200 rounded-[2px] flex-1 flex flex-col font-quicksand" style={{width: '80%'}}>
+            <div className="p-4 bg-white border border-gray-200 rounded-[2px] flex-1 flex flex-col font-quicksand">
               <h3 className="font-montserrat text-xl font-semibold mb-4">Next-best interaction behaviours</h3>
               <div className="space-y-2">
                 {profile.recommendations && profile.recommendations.length > 0 ? (
@@ -207,11 +252,25 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           </div>
 
           {/* Signature Features */}
-          <div className="w-3/5 -ml-16 p-8 bg-white border border-gray-200 rounded-[2px] overflow-y-auto h-full flex flex-col font-quicksand">
-            <h2 className="font-montserrat text-3xl font-semibold text-gray-900 mb-6">Signature features:</h2>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8 font-semibold">
-              {profile.description}
-            </p>
+          <div 
+            ref={signatureFeaturesRef}
+            className="w-2/3 flex-shrink-0 p-8 bg-white border border-gray-200 rounded-[2px] flex flex-col font-quicksand min-h-full"
+            style={{ paddingBottom: `${dynamicPaddingBottom}px` }}
+          >
+            <h2 className="font-montserrat text-2xl font-semibold text-gray-900 mb-6">Signature features:</h2>
+            <div className="text-gray-700 text-lg leading-relaxed mb-8 font-semibold">
+              <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isDescriptionExpanded ? 'max-h-96' : 'max-h-20'}`}>
+                <p>{profile.description}</p>
+              </div>
+              {profile.description && profile.description.length > 200 && (
+                <button
+                  onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                  className="text-gray-500 text-sm hover:text-[#C58E02] transition-colors mt-2 underline"
+                >
+                  {isDescriptionExpanded ? 'Read less' : 'Read more'}
+                </button>
+              )}
+            </div>
 
             {/* Feature Tags */}
             <div className="flex flex-wrap gap-3 mb-8">
@@ -245,8 +304,6 @@ export default function StudentProfile({ params }: StudentProfileProps) {
               <p className={`text-gray-600 text-base mb-8 font-semibold flex-1 transition-opacity duration-300 ${fadeClass}`}>
                 {profile.quotes[currentQuoteIndex]?.justification}
               </p>
-
-              
             </div>
           </div>
         </div>
@@ -259,20 +316,24 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           onClick={() => setShowRecommendationsModal(false)}
         >
           <div 
-            className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto mx-4 animate-in fade-in zoom-in-95 duration-300"
+            className="bg-white max-w-4xl w-full max-h-[90vh] mx-4 animate-in fade-in zoom-in-95 duration-300 flex flex-col"
             onClick={e => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="border-b border-gray-200 p-6">
+            {/* Modal Header - Sticky */}
+            <div className="border-b border-gray-200 p-6 bg-white">
               <div className="flex justify-between items-center">
                 <h2 className="font-montserrat text-2xl font-semibold text-gray-900">
                   Next-best interaction behaviours
                 </h2>
                 <button 
-                  onClick={() => setShowRecommendationsModal(false)}
-                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setShowRecommendationsModal(false);
+                  }}
+                  className="text-gray-400 hover:text-gray-700 transition-colors duration-200 p-1"
                 >
-                  ×
+                  <X size={24} />
                 </button>
               </div>
               <p className="text-gray-600 mt-2 font-quicksand">
@@ -280,8 +341,8 @@ export default function StudentProfile({ params }: StudentProfileProps) {
               </p>
             </div>
 
-            {/* Modal Content */}
-            <div className="p-6">
+            {/* Modal Content - Scrollable */}
+            <div className="p-6 overflow-y-auto flex-1">
               {profile?.recommendations && profile.recommendations.length > 0 ? (
                 <div className="space-y-6">
                   {profile.recommendations.map((recommendation, index) => (
@@ -297,9 +358,26 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                       </div>
 
                       {/* Full Content */}
-                      <p className="text-gray-700 leading-relaxed font-quicksand">
+                      <p className="text-gray-700 leading-relaxed font-quicksand mb-4">
                         {recommendation.content}
                       </p>
+
+                      {/* Quotes Section */}
+                      {recommendation.quotes && recommendation.quotes.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-gray-100">
+                          <h4 className="font-montserrat font-semibold text-sm text-gray-700 mb-3">Example Quotes:</h4>
+                          <div className="space-y-2">
+                            {recommendation.quotes.map((quote, quoteIndex) => (
+                              <div key={quoteIndex} className="relative pl-4">
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-400 via-orange-300 to-gray-200 rounded-full"></div>
+                                <p className="text-gray-600 text-sm italic font-quicksand">
+                                  "{quote}"
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -310,15 +388,6 @@ export default function StudentProfile({ params }: StudentProfileProps) {
               )}
             </div>
 
-            {/* Modal Footer */}
-            <div className="border-t border-gray-200 p-6">
-              <button 
-                onClick={() => setShowRecommendationsModal(false)}
-                className="bg-[#C58E02] text-white px-6 py-2 hover:bg-[#B17D02] transition-colors font-montserrat font-semibold"
-              >
-                Close
-              </button>
-            </div>
           </div>
         </div>
       )}
