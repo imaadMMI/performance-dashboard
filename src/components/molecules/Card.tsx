@@ -115,7 +115,7 @@ export function StudentCard({
                 paddingAngle={0}
                 dataKey="value"
               >
-                <Cell fill="#C58E02" />
+                <Cell fill="#ff8a00" />
                 <Cell fill="#e5e7eb" />
               </Pie>
             </PieChart>
@@ -129,8 +129,8 @@ export function StudentCard({
       {/* Quote */}
       <div className="bg-white border border-[#f0f0f0] rounded p-5">
         <p className="font-raleway text-sm font-medium">
-          <span className="text-[#A87800]">"My wife is really encouraging me to do this</span>
-          {' '}and said she'll take on more of the household responsibilities<span className="text-[#A87800]">."</span>
+          <span className="text-[#ff8a00]">"My wife is really encouraging me to do this</span>
+          {' '}and said she'll take on more of the household responsibilities<span className="text-[#ff8a00]">."</span>
         </p>
       </div>
       </div>

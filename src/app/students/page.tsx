@@ -82,7 +82,7 @@ export default function StudentsContent() {
               <button className="font-montserrat inline-flex items-center gap-2 text-gray-600 font-medium text-base relative group">
                 <span className="relative">
                   Change teaching period
-                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-all duration-200 group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-orange-300 group-hover:to-white"></span>
+                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-all duration-200 group-hover:bg-gradient-to-r group-hover:from-[#ff8a00] group-hover:via-[#ff8a00]/50 group-hover:to-white"></span>
                 </span>
                 <ChevronDown size={16} />
               </button>
@@ -93,7 +93,7 @@ export default function StudentsContent() {
           <div className="w-full flex justify-start lg:justify-end">
             <button
               onClick={() => setShowSidebar(!showSidebar)}
-              className="inline-flex items-center gap-1 text-gray-600 hover:text-yellow-600 transition-colors font-medium text-base"
+              className="inline-flex items-center gap-1 text-gray-600 hover:text-[#ff8a00] transition-colors font-medium text-base"
             >
               {showSidebar ? <ChevronsRight size={14} /> : <ChevronsLeft size={14} />}
               <span className="font-montserrat">{showSidebar ? '' : 'See retention stats'} </span>

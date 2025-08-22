@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://192.168.1.15:5000/api/';
 
 export interface ArchetypeCard {
   archetype_students: number;
@@ -33,6 +33,25 @@ export interface ArchetypeRecommendation {
   quotes?: string[];
 }
 
+export interface FeatureAnalysisItem {
+  explanation: string;
+  feature_name: string;
+  importance: number;
+  original_code: string;
+  percentage_with_feature: number;
+  percentage_without_feature: number;
+  retention_difference: number;
+  retention_rate_with_feature: number;
+  retention_rate_without_feature: number;
+  students_with_feature: number;
+  students_without_feature: number;
+}
+
+export interface FeatureAnalysisResponse {
+  archetype_name: string;
+  features: FeatureAnalysisItem[];
+}
+
 export interface ArchetypeProfile {
   description: string;
   features: ArchetypeFeature[];
@@ -41,6 +60,10 @@ export interface ArchetypeProfile {
   quotes: ArchetypeQuote[];
   recommendations?: ArchetypeRecommendation[];
   retention_rate?: number;
+  student_ids?: string[];
+  enrollment_rate?: number;
+  retention_rate_difference?: number;
+  service_retention_rate?: number;
 }
 
 export interface ApiResponse<T> {
@@ -107,6 +130,14 @@ export const apiService = {
     if (params?.teaching_period) searchParams.append('teaching_period', params.teaching_period);
     
     const response = await fetch(`${API_BASE_URL}/archetype-profile/${encodeURIComponent(archetypeName)}${searchParams.toString() ? '?' + searchParams.toString() : ''}`);
+    return response.json();
+  },
+
+  async getFeatureAnalysis(archetypeName: string): Promise<ApiResponse<FeatureAnalysisResponse>> {
+    const searchParams = new URLSearchParams();
+    searchParams.append('archetype_name', archetypeName);
+    
+    const response = await fetch(`${API_BASE_URL}/feature-analysis?${searchParams.toString()}`);
     return response.json();
   },
 };
