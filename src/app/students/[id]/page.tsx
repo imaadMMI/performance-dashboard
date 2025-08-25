@@ -433,7 +433,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
             {/* Scroll Indicator */}
             {showScrollIndicator && (
               <div className="absolute bottom-4 right-4 animate-bounce bg-white rounded-full p-2 shadow-lg">
-                <ChevronsDown className="w-6 h-6 text-[#C58E02]" />
+                <ChevronsDown className="w-6 h-6 text-[#FF8a00]" />
               </div>
             )}
           </div>
@@ -500,7 +500,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                           <div className="space-y-2">
                             {recommendation.quotes.map((quote, quoteIndex) => (
                               <div key={quoteIndex} className="relative pl-4">
-                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#C58E02] via-[#C58E02]/50 to-gray-200 rounded-full"></div>
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF8a00] via-[#FF8a00]/50 to-gray-200 rounded-full"></div>
                                 <p className="text-gray-600 text-sm italic font-quicksand">
                                   "{quote}"
                                 </p>
@@ -694,7 +694,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                         <div className="flex-1">
                           <div className="bg-gray-200 rounded-full h-8 relative overflow-hidden">
                             <div 
-                              className="bg-[#C58E02] h-full rounded-full transition-all duration-500"
+                              className="bg-[#FF8a00] h-full rounded-full transition-all duration-500"
                               style={{ width: `${featureData.percentage_with_feature}%` }}
                             />
                           </div>
