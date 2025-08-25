@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
-import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare, ChevronDown } from "lucide-react";
-import Dashboard from "./dashboard";
-import KeyMoments from "./keyMoments";
-import tpCombinedData from './dashboardJson/tp-combined.json';
+import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare, ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface Emotion {
   emotion: string;
@@ -40,7 +38,8 @@ interface AgentInfo {
   peakMoment: PeakMomentData;
 }
 
-function LLMInsights() {
+export default function LLMInsightsPage() {
+  const router = useRouter();
   const [selectedAgent, setSelectedAgent] = useState<"james" | "elisha">("james");
   
   const insightCards = [
@@ -136,7 +135,20 @@ function LLMInsights() {
   const negativeEmotions = currentAgent.topEmotions.filter(e => e.negative);
 
   return (
-    <div className="w-full">
+    <div className="flex h-screen bg-brand-white">
+      <LeftSidebar />
+      
+      <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
+        {/* Back Button */}
+        <button
+          onClick={() => router.push('/sales/placeholder')}
+          className="mb-6 flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <ArrowLeft size={20} />
+          <span className="font-medium">Back to Sales Center</span>
+        </button>
+
+        <div className="w-full">
           <h1 className="font-montserrat font-bold text-3xl lg:text-4xl text-[#58595b] mb-8">
             LLM insights
           </h1>
@@ -440,419 +452,6 @@ function LLMInsights() {
               </span>
             </p>
           </div>
-    </div>
-  );
-}
-
-export default function SalesPage() {
-  // Check URL params to set initial view
-  const getInitialView = () => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const view = params.get('view');
-      if (view === 'dashboard') return 'dashboard';
-      if (view === 'keyMoments') return 'keyMoments';
-    }
-    return 'llm';
-  };
-
-  const [activeView, setActiveView] = useState<"llm" | "dashboard" | "keyMoments">("llm");
-  const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
-  const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
-  const [isKeyMomentsDetailView, setIsKeyMomentsDetailView] = useState(false);
-  
-  // Set view based on URL params on mount
-  useEffect(() => {
-    setActiveView(getInitialView());
-  }, []);
-  
-  // Key Moments filters state
-  const [selectedConsultant, setSelectedConsultant] = useState<string>("all");
-  const [consultants, setConsultants] = useState<{ id: string; name: string}[]>([]);
-  const [selectedWeek, setSelectedWeek] = useState(1);
-  const [selectedBehavior, setSelectedBehavior] = useState<string>("all");
-  const [behaviors, setBehaviors] = useState<{ id: string; title: string }[]>([]);
-  const [isConsultantDropdownOpen, setIsConsultantDropdownOpen] = useState(false);
-  const [isBehaviorDropdownOpen, setIsBehaviorDropdownOpen] = useState(false);
-  const [isWeekDropdownOpen, setIsWeekDropdownOpen] = useState(false);
-  const consultantDropdownRef = useRef<HTMLDivElement>(null);
-  const behaviorDropdownRef = useRef<HTMLDivElement>(null);
-  const weekDropdownRef = useRef<HTMLDivElement>(null);
-  const totalWeeks = 12;
-  
-  // Derive selected university from selected schema
-  const selectedUniversity = selectedSchema === "sol-tp1" ? "sol" : "monash";
-  const [activeUniversity, setActiveUniversity] = useState<"monash" | "sol">("monash");
-  
-  // Sync activeUniversity with selectedSchema when dropdown opens
-  useEffect(() => {
-    if (isSchemaDropdownOpen) {
-      setActiveUniversity(selectedUniversity);
-    }
-  }, [isSchemaDropdownOpen, selectedUniversity]);
-  
-  // Extract consultant and behavior data from JSON
-  useEffect(() => {
-    const individualPerformance = tpCombinedData.individual_consultant_performance as Record<string, any>;
-    const consultantList = Object.entries(individualPerformance).map(([id, data]) => ({
-      id,
-      name: data.consultant_name.replace(/-/g, ' '),
-    })).sort((a, b) => a.name.localeCompare(b.name));
-    
-    setConsultants(consultantList);
-    
-    // Extract behaviors from overall_behavioral_effects
-    const behavioralEffects = tpCombinedData.overall_behavioral_effects as Record<string, any>;
-    const behaviorList = Object.entries(behavioralEffects)
-      .map(([id, data]) => ({
-        id,
-        title: data.taxonomy_info.title
-      }))
-      .sort((a, b) => a.title.localeCompare(b.title));
-    
-    setBehaviors(behaviorList);
-  }, []);
-  
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (consultantDropdownRef.current && !consultantDropdownRef.current.contains(event.target as Node)) {
-        setIsConsultantDropdownOpen(false);
-      }
-      if (behaviorDropdownRef.current && !behaviorDropdownRef.current.contains(event.target as Node)) {
-        setIsBehaviorDropdownOpen(false);
-      }
-      if (weekDropdownRef.current && !weekDropdownRef.current.contains(event.target as Node)) {
-        setIsWeekDropdownOpen(false);
-      }
-    };
-    
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  return (
-    <div className="flex h-screen bg-brand-white">
-      <LeftSidebar />
-      
-      <main className={`flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 ${activeView === "keyMoments" && !isKeyMomentsDetailView ? "overflow-hidden" : "overflow-y-auto"}`}>
-        {/* Toggle Buttons and Filters */}
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex gap-2 items-center">
-            <button
-              onClick={() => setActiveView("llm")}
-              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-                activeView === "llm"
-                  ? "bg-[#FF8A00] text-white shadow-md"
-                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
-              }`}
-            >
-              LLM Insights
-            </button>
-            <button
-              onClick={() => setActiveView("dashboard")}
-              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-                activeView === "dashboard"
-                  ? "bg-[#FF8A00] text-white shadow-md"
-                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
-              }`}
-            >
-              Dashboard
-            </button>
-
-            <button
-              onClick={() => setActiveView("keyMoments")}
-              className={`px-6 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-                activeView === "keyMoments"
-                  ? "bg-[#FF8A00] text-white shadow-md"
-                  : "bg-white border border-[#FF8A00] text-[#FF8A00] hover:bg-[#FF8A00] hover:text-white"
-              }`}
-            >
-              Key Moments
-            </button>
-            
-            {/* Key Moments Filters - Only show when Key Moments is active */}
-            {activeView === "keyMoments" && (
-              <>
-                {/* Separator */}
-                <div className="h-8 w-px bg-gray-300 mx-2" />
-                
-                {/* Behavior Filter */}
-                <div className="relative" ref={behaviorDropdownRef}>
-                  <button
-                    onClick={() => setIsBehaviorDropdownOpen(!isBehaviorDropdownOpen)}
-                    className="px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] transition-colors duration-200 flex items-center gap-2 min-w-[180px] max-w-[280px]"
-                  >
-                    <span className="text-sm text-[#282828] truncate flex-1">
-                      {selectedBehavior === "all" 
-                        ? "All Behaviors" 
-                        : behaviors.find(b => b.id === selectedBehavior)?.title || "Select Behavior"}
-                    </span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`text-[#797A79] transition-transform duration-200 flex-shrink-0 ${
-                        isBehaviorDropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  
-                  {isBehaviorDropdownOpen && (
-                    <div className="absolute z-50 mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden" style={{ minWidth: '280px', maxWidth: '400px' }}>
-                      <div className="max-h-64 overflow-y-auto overflow-x-hidden">
-                        <button
-                          onClick={() => {
-                            setSelectedBehavior("all");
-                            setIsBehaviorDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                            selectedBehavior === "all" ? "bg-[#F5F5F5] font-semibold" : ""
-                          }`}
-                        >
-                          <span className="text-sm text-[#282828] block break-words">All Behaviors</span>
-                        </button>
-                        {behaviors.map((behavior) => (
-                          <button
-                            key={behavior.id}
-                            onClick={() => {
-                              setSelectedBehavior(behavior.id);
-                              setIsBehaviorDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
-                              selectedBehavior === behavior.id ? "bg-[#F5F5F5] font-semibold" : ""
-                            }`}
-                          >
-                            <span className="text-sm text-[#282828] block break-words pr-2">{behavior.title}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                
-                {/* Week Filter */}
-                <div className="relative" ref={weekDropdownRef}>
-                  <button
-                    onClick={() => setIsWeekDropdownOpen(!isWeekDropdownOpen)}
-                    className="px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] transition-colors duration-200 flex items-center gap-2 min-w-[100px]"
-                  >
-                    <span className="text-sm text-[#282828]">Week {selectedWeek}</span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`text-[#797A79] transition-transform duration-200 ${
-                        isWeekDropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  
-                  {isWeekDropdownOpen && (
-                    <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                      <div className="max-h-64 overflow-y-auto">
-                        {Array.from({ length: totalWeeks }, (_, i) => i + 1).map((week) => (
-                          <button
-                            key={week}
-                            onClick={() => {
-                              setSelectedWeek(week);
-                              setIsWeekDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                              week > 1 ? 'border-t border-[#F0F0F0]' : ''
-                            } ${selectedWeek === week ? "bg-[#F5F5F5] font-semibold" : ""}`}
-                          >
-                            <span className="text-sm text-[#282828]">Week {week}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                
-                {/* Consultant Filter */}
-                <div className="relative" ref={consultantDropdownRef}>
-                  <button
-                    onClick={() => setIsConsultantDropdownOpen(!isConsultantDropdownOpen)}
-                    className="px-4 py-2 bg-white border border-[#F0F0F0] rounded-lg hover:border-[#B5DAD4] transition-colors duration-200 flex items-center gap-2 min-w-[160px]"
-                  >
-                    <span className="text-sm text-[#282828] truncate">
-                      {selectedConsultant === "all" 
-                        ? "All Consultants" 
-                        : consultants.find(c => c.id === selectedConsultant)?.name || "Select Consultant"}
-                    </span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`text-[#797A79] transition-transform duration-200 ${
-                        isConsultantDropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  
-                  {isConsultantDropdownOpen && (
-                    <div className="absolute z-50 w-full mt-2 bg-white border border-[#F0F0F0] rounded-lg shadow-lg overflow-hidden">
-                      <div className="max-h-64 overflow-y-auto">
-                        <button
-                          onClick={() => {
-                            setSelectedConsultant("all");
-                            setIsConsultantDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 ${
-                            selectedConsultant === "all" ? "bg-[#F5F5F5] font-semibold" : ""
-                          }`}
-                        >
-                          <span className="text-sm text-[#282828]">All Consultants</span>
-                        </button>
-                        {consultants.map((consultant) => (
-                          <button
-                            key={consultant.id}
-                            onClick={() => {
-                              setSelectedConsultant(consultant.id);
-                              setIsConsultantDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2.5 text-left hover:bg-[#F5F5F5] transition-colors duration-150 border-t border-[#F0F0F0] ${
-                              selectedConsultant === consultant.id ? "bg-[#F5F5F5] font-semibold" : ""
-                            }`}
-                          >
-                            <span className="text-sm text-[#282828]">{consultant.name}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-          
-          {/* Schema Dropdown - Only show when Dashboard is active */}
-          {activeView === "dashboard" && (
-            <div className="relative">
-              <button
-                onClick={() => setIsSchemaDropdownOpen(!isSchemaDropdownOpen)}
-                className="px-4 py-2 bg-white border border-[#FF8A00] rounded-lg font-montserrat font-medium text-[#FF8A00] hover:bg-[#FFE5D0] transition-all duration-200 flex items-center gap-2"
-              >
-                <span>{selectedSchema === "tp1" ? "Monash - TP1" : selectedSchema === "tp2" ? "Monash - TP2" : selectedSchema === "combined" ? "Monash - Combined" : "SOL - TP1"}</span>
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-200 ${isSchemaDropdownOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              
-              {/* Dropdown Menu */}
-              {isSchemaDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-[320px] bg-white border border-[#F0F0F0] rounded-lg shadow-lg z-10 overflow-hidden">
-                  {/* University Toggle */}
-                  <div className="p-4 border-b border-[#F0F0F0]">
-                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select University</p>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setActiveUniversity("monash")}
-                        className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-                          activeUniversity === "monash"
-                            ? "bg-[#FF8A00] text-white shadow-sm"
-                            : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
-                        }`}
-                      >
-                        Monash
-                      </button>
-                      <button
-                        onClick={() => setActiveUniversity("sol")}
-                        className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
-                          activeUniversity === "sol"
-                            ? "bg-[#FF8A00] text-white shadow-sm"
-                            : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
-                        }`}
-                      >
-                        SOL
-                      </button>
-                    </div>
-                  </div>
-                  
-                  {/* Teaching Period Selection */}
-                  <div className="p-4">
-                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select Teaching Period</p>
-                    <div className="space-y-2">
-                      {activeUniversity === "monash" ? (
-                        <>
-                          <button
-                            onClick={() => {
-                              setSelectedSchema("tp1");
-                              setIsSchemaDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
-                              selectedSchema === "tp1" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
-                                : "hover:bg-[#F5F5F5] text-[#58595b]"
-                            }`}
-                          >
-                            Teaching Period 1
-                          </button>
-                          <button
-                            onClick={() => {
-                              setSelectedSchema("tp2");
-                              setIsSchemaDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
-                              selectedSchema === "tp2" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
-                                : "hover:bg-[#F5F5F5] text-[#58595b]"
-                            }`}
-                          >
-                            Teaching Period 2
-                          </button>
-                          <button
-                            onClick={() => {
-                              setSelectedSchema("combined");
-                              setIsSchemaDropdownOpen(false);
-                            }}
-                            className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
-                              selectedSchema === "combined" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
-                                : "hover:bg-[#F5F5F5] text-[#58595b]"
-                            }`}
-                          >
-                            TP1-TP2 Combined
-                          </button>
-                        </>
-                      ) : (
-                        <button
-                          onClick={() => {
-                            setSelectedSchema("sol-tp1");
-                            setIsSchemaDropdownOpen(false);
-                          }}
-                          className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
-                            selectedSchema === "sol-tp1" 
-                              ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
-                              : "hover:bg-[#F5F5F5] text-[#58595b]"
-                          }`}
-                        >
-                          Teaching Period 1
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Content based on active view */}
-        <div className="mb-8">
-          {activeView === "llm" ? (
-            <LLMInsights />
-          ) : activeView === "keyMoments" ? (
-            <KeyMoments 
-              onDetailViewChange={setIsKeyMomentsDetailView}
-              selectedConsultant={selectedConsultant}
-              setSelectedConsultant={setSelectedConsultant}
-              consultants={consultants}
-              selectedWeek={selectedWeek}
-              setSelectedWeek={setSelectedWeek}
-              selectedBehavior={selectedBehavior}
-              setSelectedBehavior={setSelectedBehavior}
-              behaviors={behaviors}
-            />
-          ) : (
-            <Dashboard selectedSchema={selectedSchema} />
-          )}
         </div>
       </main>
     </div>

@@ -4,40 +4,34 @@ import React from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import './home.css';
+import '../home.css';
 
 const tiles = [
   {
-    title: "Student\narchetypes",
-    href: "/students/",
-    mainData: "MOL-TP5",
-    secondaryData: "13 Student archetypes",
-  },
-  {
-    title: "Sales\ncoaching",
-    href: "/sales/placeholder",
+    title: "Sales\nAnalytics",
+    href: "/sales",
     mainData: "2456",
-    secondaryData: "Calls processed",
+    secondaryData: "Calls analyzed",
   },
   {
-    title: "Service\ninsights",
-    href: "/insights",
-    mainData: "414 hours",
-    secondaryData: "Cumulative call duration",
+    title: "Key\nMoments",
+    href: "/sales/keyMoments",
+    mainData: "847",
+    secondaryData: "Critical moments identified",
   },
   {
-    title: "Propensity\nmodelling",
-    href: "/propensity",
-    mainData: "93%",
-    secondaryData: "Predictive accuracy",
+    title: "Performance\nDashboard",
+    href: "/sales/dashboard",
+    mainData: "15",
+    secondaryData: "Behavioral patterns tracked",
   },
 ];
 
-export default function Home() {
+const placeholder = () => {
   return (
     <Layout>
       <main className=" font-montserrat min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
-        <div className=" font-montserrat grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full max-w-2xl">
+        <div className=" font-montserrat grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-4xl">
           {tiles.map((tile, index) => (
             <Link key={index} href={tile.href}>
               <div
@@ -70,3 +64,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export default placeholder

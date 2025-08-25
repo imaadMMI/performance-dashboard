@@ -399,7 +399,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                   key={feature.name}
                   onClick={() => handleFeatureClick(feature.name)}
                   className={`px-3 py-1.5 text-xs text-gray-700 border-2 rounded-[2px] font-semibold cursor-pointer transition-all ${
-                    feature.importance > 95 ? 'border-[#8BAF20] hover:bg-[#abd5ce]/20' : feature.importance > 93 && feature.importance > 92 ? 'border-[#FF8A00] hover:bg-[#abd5ce]/20' : 'border-[#D84D51] hover:bg-[#abd5ce]/20'
+                    feature.importance > 95 ? 'border-[#B6DBD5] hover:bg-[#abd5ce]/20' : 'border-[#ff8a00] hover:bg-[#abd5ce]/20'
                   }`}
                 >
                   {feature.name.replace(/_/g, ' ')}
@@ -433,7 +433,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
             {/* Scroll Indicator */}
             {showScrollIndicator && (
               <div className="absolute bottom-4 right-4 animate-bounce bg-white rounded-full p-2 shadow-lg">
-                <ChevronsDown className="w-6 h-6 text-[#ff8a00]" />
+                <ChevronsDown className="w-6 h-6 text-[#C58E02]" />
               </div>
             )}
           </div>
@@ -500,7 +500,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                           <div className="space-y-2">
                             {recommendation.quotes.map((quote, quoteIndex) => (
                               <div key={quoteIndex} className="relative pl-4">
-                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#ff8a00] via-[#ff8a00]/50 to-gray-200 rounded-full"></div>
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#C58E02] via-[#C58E02]/50 to-gray-200 rounded-full"></div>
                                 <p className="text-gray-600 text-sm italic font-quicksand">
                                   "{quote}"
                                 </p>
@@ -694,7 +694,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                         <div className="flex-1">
                           <div className="bg-gray-200 rounded-full h-8 relative overflow-hidden">
                             <div 
-                              className="bg-[#ff8a00] h-full rounded-full transition-all duration-500"
+                              className="bg-[#C58E02] h-full rounded-full transition-all duration-500"
                               style={{ width: `${featureData.percentage_with_feature}%` }}
                             />
                           </div>
