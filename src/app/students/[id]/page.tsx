@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp, TrendingDown, X } from "lucide-react";
+import { ArrowLeft, TrendingUp, TrendingDown, X, ChevronsDown } from "lucide-react";
 import Image from "next/image";
 import ArchetypeCharts from "@/components/ArchetypeCharts";
 import { PieChart, Pie, Cell } from "recharts";
@@ -30,6 +30,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
   const [featureAnalysis, setFeatureAnalysis] = useState<FeatureAnalysisResponse | null>(null);
   const [featureAnalysisLoading, setFeatureAnalysisLoading] = useState(false);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
   
   const leftBoxRef = useRef<HTMLDivElement>(null);
   const signatureFeaturesRef = useRef<HTMLDivElement>(null);
@@ -133,6 +134,24 @@ export default function StudentProfile({ params }: StudentProfileProps) {
     };
   }, [showRecommendationsModal]);
 
+  // Handle scroll detection for signature features box
+  useEffect(() => {
+    const handleScroll = () => {
+      if (signatureFeaturesRef.current && showScrollIndicator) {
+        const scrollTop = signatureFeaturesRef.current.scrollTop;
+        if (scrollTop > 10) {
+          setShowScrollIndicator(false);
+        }
+      }
+    };
+
+    const element = signatureFeaturesRef.current;
+    if (element) {
+      element.addEventListener('scroll', handleScroll);
+      return () => element.removeEventListener('scroll', handleScroll);
+    }
+  }, [showScrollIndicator]);
+
   useEffect(() => {
     const calculateDynamicPadding = () => {
       if (leftBoxRef.current && signatureFeaturesRef.current && !isDescriptionExpanded) {
@@ -217,7 +236,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
         {/* Main Content */}
         <div className="flex flex-row flex-1 gap-20 items-start">
           {/* Left Box */}
-          <div ref={leftBoxRef} className="w-3/7 flex flex-col gap-6 flex-shrink-0">
+          <div ref={leftBoxRef} className="w-4/10 flex flex-col gap-6 flex-shrink-0">
             {/* User Info */}
             <div className="flex flex-row items-center p-6 gap-8">
               <Image
@@ -323,9 +342,10 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                       <p className="text-gray-700 text-sm font-semibold flex-1 bg-gray-50 rounded-[2px] py-3 px-4">
                         {recommendation.headline}
                       </p>
-                      <span className="bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center">
-                        Enrollment: {formatPercentage(recommendation.impact_score)}
+                      <span className="w-[140px] bg-[#abd5ce] text-gray-700 py-3 px-4 rounded-[2px] text-sm whitespace-nowrap font-semibold flex items-center justify-center">
+                          Enrollment: {formatPercentage(recommendation.impact_score)}
                       </span>
+
                     </div>
                   ))
                 ) : (
@@ -344,11 +364,12 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           </div>
 
           {/* Signature Features */}
-          <div 
-            ref={signatureFeaturesRef}
-            className="w-4/7 flex-shrink-0 p-8 bg-white border border-gray-200 rounded-[2px] flex flex-col font-quicksand min-h-full"
-            style={{ paddingBottom: `${dynamicPaddingBottom}px` }}
-          >
+          <div className="relative w-6/10 flex-shrink-0">
+            <div 
+              ref={signatureFeaturesRef}
+              className="p-8 bg-white border border-gray-200 rounded-[2px] flex flex-col font-quicksand h-[670px] overflow-y-auto scrollbar-hide"
+              style={{ paddingBottom: `${dynamicPaddingBottom}px` }}
+            >
             <h2 className="font-montserrat text-2xl font-semibold text-gray-900 mb-6">Signature features:</h2>
             <div className="text-gray-700 text-lg leading-relaxed mb-8 font-semibold">
               <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isDescriptionExpanded ? 'max-h-96' : 'max-h-20'}`}>
@@ -356,7 +377,14 @@ export default function StudentProfile({ params }: StudentProfileProps) {
               </div>
               {profile.description && profile.description.length > 200 && (
                 <button
-                  onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                  onClick={() => {
+                    setIsDescriptionExpanded(!isDescriptionExpanded);
+                    if (!isDescriptionExpanded) {
+                      setShowScrollIndicator(true);
+                    } else {
+                      setShowScrollIndicator(false);
+                    }
+                  }}
                   className="text-gray-500 text-sm hover:text-[#ff8a00] transition-colors mt-2 underline"
                 >
                   {isDescriptionExpanded ? 'Read less' : 'Read more'}
@@ -371,10 +399,12 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                   key={feature.name}
                   onClick={() => handleFeatureClick(feature.name)}
                   className={`px-3 py-1.5 text-xs text-gray-700 border-2 rounded-[2px] font-semibold cursor-pointer transition-all ${
-                    feature.importance > 80 ? 'border-[#abd5ce] hover:bg-[#abd5ce]/20' : 'border-gray-300 hover:bg-gray-100'
+                    feature.importance > 95 ? 'border-[#8BAF20] hover:bg-[#abd5ce]/20' : feature.importance > 93 && feature.importance > 92 ? 'border-[#FF8A00] hover:bg-[#abd5ce]/20' : 'border-[#D84D51] hover:bg-[#abd5ce]/20'
                   }`}
                 >
-                  {feature.name.replace(/_/g, ' ')} ({feature.importance}%)
+                  {feature.name.replace(/_/g, ' ')}
+                  {/* {feature.name.replace("(Count)", "")}                  */}
+                  {/* ({feature.importance}%) */}
                 </button>
               ))}
             </div>
@@ -398,6 +428,14 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                 {profile.quotes[currentQuoteIndex]?.justification}
               </p>
             </div>
+            </div>
+            
+            {/* Scroll Indicator */}
+            {showScrollIndicator && (
+              <div className="absolute bottom-4 right-4 animate-bounce bg-white rounded-full p-2 shadow-lg">
+                <ChevronsDown className="w-6 h-6 text-[#ff8a00]" />
+              </div>
+            )}
           </div>
         </div>
       </div>
