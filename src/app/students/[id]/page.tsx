@@ -249,13 +249,13 @@ export default function StudentProfile({ params }: StudentProfileProps) {
               <div className="flex flex-col justify-between h-[150px]">
                 <button 
                   onClick={() => setShowStudentIdsModal(true)}
-                  className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold hover:bg-gray-50 transition-colors cursor-pointer text-left"
+                  className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors cursor-pointer text-left"
                 >
                   {profile.percentage_of_all_students?.toFixed(1) || '0.0'}% of all students
                   {profile.student_ids && ` (${profile.student_ids.length} students)`}
                 </button>
-                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.features.length} signature features</p>
-                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-fit font-semibold">{profile.quotes.length} example quotes</p>
+                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors">{profile.features.length} signature features</p>
+                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors">{profile.quotes.length} example quotes</p>
               </div>
             </div>
 
