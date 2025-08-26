@@ -569,11 +569,15 @@ const KeyMoments = ({
     <div className="w-full overflow-hidden">
       {/* Main Container Card - matching dashboard.tsx style */}
       <div 
-        className={`bg-white rounded-xl border border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
+        // className={`bg-white rounded-xl border border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
+        className={`bg-white rounded-xl  border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
+
         style={{ fontFamily: "'Quicksand', sans-serif" }}
       >
         {/* Fixed Header Section with Filters */}
-        <div className="bg-white border-b border-[#F0F0F0]">
+        {/* <div className="bg-white border-b border-[#F0F0F0]"> */}
+        <div className="bg-white border-[#F0F0F0]">
+
           <div className="p-8 pb-6">
             {/* Title, Description and Data Type Toggle */}
             <div className="mb-4">
