@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp, TrendingDown, X, ChevronsDown } from "lucide-react";
+import { ArrowLeft, TrendingUp, TrendingDown, X, ChevronsDown, Search, Download } from "lucide-react";
 import Image from "next/image";
 import ArchetypeCharts from "@/components/ArchetypeCharts";
 import { PieChart, Pie, Cell } from "recharts";
@@ -16,6 +16,25 @@ interface StudentProfileProps {
   }>;
 }
 
+// Function to get archetype-specific image
+const getArchetypeImage = (archetypeName: string): string => {
+  // Map archetype names to their image files
+  // Add your archetype images to the public folder with these names
+  const archetypeImages: { [key: string]: string } = {
+    'Strategic Achiever': '/strategicAchiever.jpg',
+    'Timeline Focused Planners': '/timelinePlanned.jpg',
+    'The Socializer': '/socializer.jpg',
+    'The Killer': '/killer.jpg',
+    'The Scholar': '/scholar.jpg',
+    'The Leader': '/leader.jpg',
+    'The Collaborator': '/collaborator.jpg',
+    // Add more archetype mappings as needed
+  };
+  
+  // Return the specific image or a default fallback
+  return archetypeImages[archetypeName] || '/profile.jpg';
+};
+
 export default function StudentProfile({ params }: StudentProfileProps) {
   const resolvedParams = React.use(params);
   const archetypeName = resolvedParams.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -26,6 +45,9 @@ export default function StudentProfile({ params }: StudentProfileProps) {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [dynamicPaddingBottom, setDynamicPaddingBottom] = useState(68); // Default pb-17
   const [showStudentIdsModal, setShowStudentIdsModal] = useState(false);
+  const [studentIdSearchQuery, setStudentIdSearchQuery] = useState("");
+  const [showFeaturesModal, setShowFeaturesModal] = useState(false);
+  const [featureSearchQuery, setFeatureSearchQuery] = useState("");
   const [showFeatureModal, setShowFeatureModal] = useState(false);
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
   const [featureAnalysis, setFeatureAnalysis] = useState<FeatureAnalysisResponse | null>(null);
@@ -239,13 +261,15 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           <div ref={leftBoxRef} className="w-4/10 flex flex-col gap-6 flex-shrink-0">
             {/* User Info */}
             <div className="flex flex-row items-center p-6 gap-8">
-              <Image
-                src="/profile.jpg"
-                alt="Student Avatar"
-                width={150}
-                height={150}
-                className="rounded-full object-cover"
-              />
+              <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src={getArchetypeImage(profile?.name || archetypeName)}
+                  alt={`${profile?.name || 'Student'} Avatar`}
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+              </div>
               <div className="flex flex-col justify-between h-[150px]">
                 <button 
                   onClick={() => setShowStudentIdsModal(true)}
@@ -254,7 +278,12 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                   {profile.percentage_of_all_students?.toFixed(1) || '0.0'}% of all students
                   {profile.student_ids && ` (${profile.student_ids.length} students)`}
                 </button>
-                <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors">{profile.features.length} signature features</p>
+                <button
+                  onClick={() => setShowFeaturesModal(true)}
+                  className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors cursor-pointer text-left"
+                >
+                  {profile.features.length} signature features
+                </button>
                 <p className="text-base text-gray-800 border border-gray-200 px-4 py-2.5 w-full font-semibold hover:bg-gray-50 transition-colors">{profile.quotes.length} example quotes</p>
               </div>
             </div>
@@ -399,7 +428,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                   key={feature.name}
                   onClick={() => handleFeatureClick(feature.name)}
                   className={`px-3 py-1.5 text-xs text-gray-700 border-2 rounded-[2px] font-semibold cursor-pointer transition-all ${
-                    feature.importance > 95 ? 'border-[#B6DBD5] hover:bg-[#abd5ce]/20' : 'border-[#ff8a00] hover:bg-[#abd5ce]/20'
+                    feature.importance > 95 ? 'border-[#B6DBD5] hover:bg-[#abd5ce]/20' : feature.importance < 70 ? "border-[#b9b9b9] hover:bg-[#abd5ce]/20" : 'border-[#ff8a00] hover:bg-[#abd5ce]/20'
                   }`}
                 >
                   {feature.name.replace(/_/g, ' ')}
@@ -535,7 +564,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
           >
             {/* Modal Header - Sticky */}
             <div className="border-b border-gray-200 p-6 bg-white">
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center mb-4">
                 <div>
                   <h2 className="font-montserrat text-2xl font-semibold text-gray-900">
                     Student IDs for {profile?.name}
@@ -549,33 +578,256 @@ export default function StudentProfile({ params }: StudentProfileProps) {
                     e.preventDefault();
                     e.stopPropagation();
                     setShowStudentIdsModal(false);
+                    setStudentIdSearchQuery("");
                   }}
                   className="text-gray-400 hover:text-gray-700 transition-colors duration-200 p-1"
                 >
                   <X size={24} />
                 </button>
               </div>
+              
+              {/* Search Bar and Download Button */}
+              <div className="flex gap-3">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    placeholder="Search student IDs..."
+                    value={studentIdSearchQuery}
+                    onChange={(e) => setStudentIdSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#FF8a00] transition-colors"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+
+                    // Create CSV content
+                    const headers = "Count,Student ID"; 
+
+                    const rows = (profile?.student_ids || [])
+                      .map((id, index) => `${index + 1},${id}`) // index starts at 0, so +1
+                      .join("\n");
+
+                    // Include title, headers, and rows
+                    const csvContent =
+                      `Student IDs of ${profile.name} students\n` + // title line
+                      `${headers}\n` + // header row
+                      rows;
+                    
+                    // Create blob and download
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement("a");
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", `${profile?.name?.replace(/\s+/g, '_')}_student_ids.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="px-4 py-2.5 bg-[#FF8a00] text-white rounded-lg hover:bg-[#E67900] transition-colors flex items-center gap-2 font-semibold"
+                >
+                  <Download size={20} />
+                  Download CSV
+                </button>
+              </div>
             </div>
 
             {/* Modal Content - Scrollable */}
             <div className="p-6 overflow-y-auto flex-1">
-              {profile?.student_ids && profile.student_ids.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {profile.student_ids.map((studentId, index) => (
-                    <div 
-                      key={index} 
-                      className="bg-gray-50 px-3 py-2 rounded text-sm font-mono text-gray-700 hover:bg-gray-100 transition-colors"
-                      title={`Student ID ${index + 1}`}
-                    >
-                      {studentId}
+              {(() => {
+                const filteredStudentIds = profile?.student_ids?.filter(id => 
+                  id.toLowerCase().includes(studentIdSearchQuery.toLowerCase())
+                ) || [];
+                
+                if (profile?.student_ids && profile.student_ids.length > 0) {
+                  if (filteredStudentIds.length > 0) {
+                    return (
+                      <>
+                        {studentIdSearchQuery && (
+                          <p className="text-sm text-gray-600 mb-4">
+                            Showing {filteredStudentIds.length} of {profile.student_ids.length} student IDs
+                          </p>
+                        )}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                          {filteredStudentIds.map((studentId, index) => (
+                            <div 
+                              key={index} 
+                              className="bg-gray-50 px-3 py-2 rounded text-sm font-mono text-gray-700 hover:bg-gray-100 transition-colors"
+                              title={`Student ID: ${studentId}`}
+                            >
+                              {studentId}
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    );
+                  } else {
+                    return (
+                      <div className="text-center text-gray-500 py-8">
+                        No student IDs match "{studentIdSearchQuery}"
+                      </div>
+                    );
+                  }
+                } else {
+                  return (
+                    <div className="text-center text-gray-500 py-8">
+                      No student IDs available
                     </div>
-                  ))}
+                  );
+                }
+              })()}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Features List Modal */}
+      {showFeaturesModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-in fade-in duration-300"
+          onClick={() => setShowFeaturesModal(false)}
+        >
+          <div 
+            className="bg-white max-w-4xl w-full max-h-[90vh] mx-4 animate-in fade-in zoom-in-95 duration-300 flex flex-col"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Modal Header - Sticky */}
+            <div className="border-b border-gray-200 p-6 bg-white">
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <h2 className="font-montserrat text-2xl font-semibold text-gray-900">
+                    Signature Features for {profile?.name}
+                  </h2>
+                  <p className="text-gray-600 mt-2 font-quicksand">
+                    Total: {profile?.features?.length || 0} signature features
+                  </p>
                 </div>
-              ) : (
-                <div className="text-center text-gray-500 py-8">
-                  No student IDs available
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setShowFeaturesModal(false);
+                    setFeatureSearchQuery("");
+                  }}
+                  className="text-gray-400 hover:text-gray-700 transition-colors duration-200 p-1"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              {/* Search Bar and Download Button */}
+              <div className="flex gap-3">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    placeholder="Search features..."
+                    value={featureSearchQuery}
+                    onChange={(e) => setFeatureSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#FF8a00] transition-colors"
+                  />
                 </div>
-              )}
+                <button
+                  onClick={() => {
+                    // Create CSV content for features
+                    const headers = "Count,Feature Name,Importance Score";
+                    
+                    const rows = (profile?.features || [])
+                      .map((feature, index) => `${index + 1},"${feature.name.replace(/_/g, ' ')}",${feature.importance}%`)
+                      .join("\n");
+                    
+                    // Include title, headers, and rows
+                    const csvContent =
+                      `Signature Features for ${profile?.name}\n` +
+                      `${headers}\n` +
+                      rows;
+                    
+                    // Create blob and download
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement("a");
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", `${profile?.name?.replace(/\s+/g, '_')}_features.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="px-4 py-2.5 bg-[#FF8a00] text-white rounded-lg hover:bg-[#E67900] transition-colors flex items-center gap-2 font-semibold"
+                >
+                  <Download size={20} />
+                  Download CSV
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content - Scrollable */}
+            <div className="p-6 overflow-y-auto flex-1">
+              {(() => {
+                const filteredFeatures = profile?.features?.filter(feature => 
+                  feature.name.toLowerCase().replace(/_/g, ' ').includes(featureSearchQuery.toLowerCase())
+                ) || [];
+                
+                if (profile?.features && profile.features.length > 0) {
+                  if (filteredFeatures.length > 0) {
+                    return (
+                      <>
+                        {featureSearchQuery && (
+                          <p className="text-sm text-gray-600 mb-4">
+                            Showing {filteredFeatures.length} of {profile.features.length} features
+                          </p>
+                        )}
+                        <div className="space-y-3">
+                          {filteredFeatures.map((feature, index) => (
+                            <div 
+                              key={index} 
+                              className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                            >
+                              <div className="flex-1">
+                                <p className="font-semibold text-gray-800">
+                                  {feature.name.replace(/_/g, ' ')}
+                                </p>
+                              </div>
+                              <div className="flex items-center gap-4">
+                                <span className={`px-3 py-1 text-sm font-semibold rounded ${
+                                  feature.importance > 95 
+                                    ? 'bg-[#B6DBD5] text-gray-700' 
+                                    : 'bg-[#FFE5D0] text-[#FF8a00]'
+                                }`}>
+                                  Importance: {feature.importance}%
+                                </span>
+                                <button
+                                  onClick={() => {
+                                    setSelectedFeature(feature.name);
+                                    setShowFeatureModal(true);
+                                    setShowFeaturesModal(false);
+                                  }}
+                                  className="text-sm text-[#FF8a00] hover:text-[#E67900] underline"
+                                >
+                                  View Analysis
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    );
+                  } else {
+                    return (
+                      <div className="text-center text-gray-500 py-8">
+                        No features match "{featureSearchQuery}"
+                      </div>
+                    );
+                  }
+                } else {
+                  return (
+                    <div className="text-center text-gray-500 py-8">
+                      No features available
+                    </div>
+                  );
+                }
+              })()}
             </div>
           </div>
         </div>

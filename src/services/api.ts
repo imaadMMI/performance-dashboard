@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://192.168.1.15:5000/api/';
+const API_BASE_URL = 'http://192.168.1.17:5000/api/';
 
 export interface ArchetypeCard {
   archetype_students: number;

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info, ThumbsUp, ThumbsDown, Filter, Settings2 } from 'lucide-react';
 import './keyMomentsAnimations.css';
 
 interface CallAnalysis {
@@ -211,7 +211,7 @@ const AllConsultantsView = ({
                 }`}>
                   {filteredCalls.map((callData) => (
                     <React.Fragment key={callData.call_id}>
-                    <div className={`bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] ${
+                    <div className={`bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms]${
                       closingConsultants.has(consultant.id) ? '' : 'animate-slideUp'
                     }`}>
                       {/* Call Header */}
@@ -362,28 +362,19 @@ const AllConsultantsView = ({
 
 interface KeyMomentsProps {
   onDetailViewChange?: (inDetailView: boolean) => void;
-  selectedConsultant: string;
-  setSelectedConsultant: (value: string) => void;
   consultants: { id: string; name: string }[];
-  selectedWeek: number;
-  setSelectedWeek: (value: number) => void;
-  selectedBehavior: string;
-  setSelectedBehavior: (value: string) => void;
   behaviors: { id: string; title: string }[];
 }
 
 const KeyMoments = ({ 
   onDetailViewChange,
-  selectedConsultant,
-  setSelectedConsultant,
   consultants,
-  selectedWeek,
-  setSelectedWeek,
-  selectedBehavior,
-  setSelectedBehavior,
   behaviors
 }: KeyMomentsProps) => {
   const [selectedDataType, setSelectedDataType] = useState<"strengths" | "opportunities">("strengths");
+  const [selectedConsultant, setSelectedConsultant] = useState<string>("all");
+  const [selectedWeek, setSelectedWeek] = useState<number>(1);
+  const [selectedBehavior, setSelectedBehavior] = useState<string>("");
   const [selectedCallDetails, setSelectedCallDetails] = useState<any>(null);
   const [closingCallDetails, setClosingCallDetails] = useState<any>(null);
   const [allConsultantsCallDetail, setAllConsultantsCallDetail] = useState<{
@@ -414,6 +405,15 @@ const KeyMoments = ({
   const contentAreaRef = useRef<HTMLDivElement>(null);
   const [individualFilterKey, setIndividualFilterKey] = useState(0);
   const [individualSectionFeedback, setIndividualSectionFeedback] = useState<{ [key: string]: 'up' | 'down' | null }>({});
+  const [showFilterPanel, setShowFilterPanel] = useState(false);
+  const [isBehaviorDropdownOpen, setIsBehaviorDropdownOpen] = useState(false);
+  const [isWeekDropdownOpen, setIsWeekDropdownOpen] = useState(false);
+  const [isConsultantDropdownOpen, setIsConsultantDropdownOpen] = useState(false);
+  
+  // Refs for dropdown outside click detection
+  const behaviorDropdownRef = useRef<HTMLDivElement>(null);
+  const weekDropdownRef = useRef<HTMLDivElement>(null);
+  const consultantDropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle feedback for individual consultant sections
   const handleIndividualSectionFeedback = (sectionKey: string, feedback: 'up' | 'down') => {
@@ -422,6 +422,26 @@ const KeyMoments = ({
       [sectionKey]: prev[sectionKey] === feedback ? null : feedback
     }));
   };
+
+  // Click outside handlers for dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (behaviorDropdownRef.current && !behaviorDropdownRef.current.contains(event.target as Node)) {
+        setIsBehaviorDropdownOpen(false);
+      }
+      if (weekDropdownRef.current && !weekDropdownRef.current.contains(event.target as Node)) {
+        setIsWeekDropdownOpen(false);
+      }
+      if (consultantDropdownRef.current && !consultantDropdownRef.current.contains(event.target as Node)) {
+        setIsConsultantDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const totalWeeks = 12; // Based on your key-moments page
 
   // Handle back to all calls with animation
   const handleBackToAllCalls = () => {
@@ -561,11 +581,24 @@ const KeyMoments = ({
                 <h1 className="text-2xl font-bold text-[#282828]">
                   Key Moments Analysis
                 </h1>
-                {/* Data Type Toggle */}
-                <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+                <div className="flex items-center gap-3">
+                  {/* Filter Button */}
                   <button
-                    onClick={() => setSelectedDataType("strengths")}
-                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                    onClick={() => setShowFilterPanel(!showFilterPanel)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200 ${
+                      showFilterPanel 
+                        ? "bg-[#F97316] text-white border-[#F97316]" 
+                        : "bg-white text-[#282828] border-[#E5E5E5] hover:border-[#F97316] hover:text-[#F97316]"
+                    }`}
+                  >
+                    <span className="text-sm font-medium">Filter</span>
+                    <Settings2 className="w-4 h-4" />
+                  </button>
+                  {/* Data Type Toggle */}
+                  <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+                    <button
+                      onClick={() => setSelectedDataType("strengths")}
+                      className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
                       selectedDataType === "strengths"
                         ? "bg-white text-[#282828] shadow-sm"
                         : "text-[#797A79] hover:text-[#282828]"
@@ -573,9 +606,9 @@ const KeyMoments = ({
                   >
                     Identified Strengths
                   </button>
-                  <button
-                    onClick={() => setSelectedDataType("opportunities")}
-                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                    <button
+                      onClick={() => setSelectedDataType("opportunities")}
+                      className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
                       selectedDataType === "opportunities"
                         ? "bg-white text-[#282828] shadow-sm"
                         : "text-[#797A79] hover:text-[#282828]"
@@ -583,12 +616,147 @@ const KeyMoments = ({
                   >
                     Missed Opportunities
                   </button>
+                  </div>
                 </div>
               </div>
               <p className="text-sm text-[#797A79]">
                 Analyze key conversation moments and patterns for individual consultants
               </p>
             </div>
+            
+            {/* Expandable Filter Panel */}
+            {showFilterPanel && (
+              <div className="border-t border-[#F0F0F0] pt-6 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Behaviors Dropdown */}
+                  <div className="relative" ref={behaviorDropdownRef}>
+                    <label className="block text-sm font-medium text-[#282828] mb-2">
+                      Behaviors
+                    </label>
+                    <button
+                      onClick={() => setIsBehaviorDropdownOpen(!isBehaviorDropdownOpen)}
+                      className="w-full flex items-center justify-between px-3 py-2 bg-white border border-[#E5E5E5] rounded-lg text-sm text-[#282828] hover:border-[#F97316] focus:outline-none focus:border-[#F97316]"
+                    >
+                      <span>{selectedBehavior || "All Behaviors"}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isBehaviorDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isBehaviorDropdownOpen && (
+                      <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                        <div className="py-1">
+                          <button
+                            onClick={() => {
+                              setSelectedBehavior("");
+                              setIsBehaviorDropdownOpen(false);
+                            }}
+                            className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                          >
+                            All Behaviors
+                          </button>
+                          {behaviors.map((behavior, index) => (
+                            <button
+                              key={index}
+                              onClick={() => {
+                                setSelectedBehavior(behavior.title);
+                                setIsBehaviorDropdownOpen(false);
+                              }}
+                              className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                            >
+                              {behavior.title}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Week Dropdown */}
+                  <div className="relative" ref={weekDropdownRef}>
+                    <label className="block text-sm font-medium text-[#282828] mb-2">
+                      Week
+                    </label>
+                    <button
+                      onClick={() => setIsWeekDropdownOpen(!isWeekDropdownOpen)}
+                      className="w-full flex items-center justify-between px-3 py-2 bg-white border border-[#E5E5E5] rounded-lg text-sm text-[#282828] hover:border-[#F97316] focus:outline-none focus:border-[#F97316]"
+                    >
+                      <span>{selectedWeek > 0 ? `Week ${selectedWeek}` : "All Weeks"}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isWeekDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isWeekDropdownOpen && (
+                      <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                        <div className="py-1">
+                          <button
+                            onClick={() => {
+                              setSelectedWeek(0);
+                              setIsWeekDropdownOpen(false);
+                            }}
+                            className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                          >
+                            All Weeks
+                          </button>
+                          {Array.from({ length: totalWeeks }, (_, i) => i + 1).map((week) => (
+                            <button
+                              key={week}
+                              onClick={() => {
+                                setSelectedWeek(week);
+                                setIsWeekDropdownOpen(false);
+                              }}
+                              className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                            >
+                              Week {week}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Consultants Dropdown */}
+                  <div className="relative" ref={consultantDropdownRef}>
+                    <label className="block text-sm font-medium text-[#282828] mb-2">
+                      Consultants
+                    </label>
+                    <button
+                      onClick={() => setIsConsultantDropdownOpen(!isConsultantDropdownOpen)}
+                      className="w-full flex items-center justify-between px-3 py-2 bg-white border border-[#E5E5E5] rounded-lg text-sm text-[#282828] hover:border-[#F97316] focus:outline-none focus:border-[#F97316]"
+                    >
+                      <span>
+                        {selectedConsultant === "all" 
+                          ? "All Consultants" 
+                          : consultants.find(c => c.id === selectedConsultant)?.name || "Select Consultant"}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isConsultantDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isConsultantDropdownOpen && (
+                      <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                        <div className="py-1">
+                          <button
+                            onClick={() => {
+                              setSelectedConsultant("all");
+                              setIsConsultantDropdownOpen(false);
+                            }}
+                            className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                          >
+                            All Consultants
+                          </button>
+                          {consultants.map((consultant) => (
+                            <button
+                              key={consultant.id}
+                              onClick={() => {
+                                setSelectedConsultant(consultant.id);
+                                setIsConsultantDropdownOpen(false);
+                              }}
+                              className="block w-full text-left px-3 py-2 text-sm text-[#282828] hover:bg-[#FFF7ED]"
+                            >
+                              {consultant.name}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
         </div>
         </div>
         

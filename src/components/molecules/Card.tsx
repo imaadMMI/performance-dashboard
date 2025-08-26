@@ -2,6 +2,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PieChart, Pie, Cell } from "recharts";
 
+// Function to get archetype-specific image
+const getArchetypeImage = (archetypeName: string): string => {
+  // Map archetype names to their image files
+  // Add your archetype images to the public folder with these names
+  const archetypeImages: { [key: string]: string } = {
+    'Strategic Achiever': '/strategicAchiever.jpg',
+    'Timeline Focused Planners': '/timelinePlanned.jpg',
+    'The Socializer': '/socializer.jpg',
+    'The Killer': '/killer.jpg',
+    'The Scholar': '/scholar.jpg',
+    'The Leader': '/leader.jpg',
+    'The Collaborator': '/collaborator.jpg',
+    // Add more archetype mappings as needed
+  };
+  
+  // Return the specific image or a default fallback
+  return archetypeImages[archetypeName] || '/profile.jpg';
+};
+
 interface StudentCardProps {
   tier: number;
   rank: string;
@@ -17,7 +36,10 @@ interface StudentCardProps {
   isHovered?: boolean;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  archetypeName?: string; // Add this for clean archetype name
 }
+
+
 
 export function StudentCard({
   tier,
@@ -34,6 +56,7 @@ export function StudentCard({
   isHovered = false,
   onMouseEnter,
   onMouseLeave,
+  archetypeName,
 }: StudentCardProps) {
   return (
     <Link href={`/students/${studentId}`} onClick={onClick}>
@@ -72,13 +95,15 @@ export function StudentCard({
 
       {/* Profile + Stats */}
       <div className="flex items-center mb-6">
-        <Image
-          src={profileImage}
-          alt="Profile"
-          width={80}
-          height={80}
-          className="rounded-full mr-4 object-cover"
-        />
+        <div className="relative w-[80px] h-[80px] rounded-full overflow-hidden flex-shrink-0 mr-4">
+          <Image
+            src={getArchetypeImage(archetypeName || heading.replace(/<br\/>/g, ' '))}
+            alt={`${archetypeName || heading} Avatar`}
+            fill
+            className="object-cover"
+            sizes="80px"
+          />
+        </div>
         <div className="flex flex-col gap-2 flex-1 items-center">
           <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
             <span className="mr-2">{successRate}</span>

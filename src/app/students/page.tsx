@@ -137,6 +137,7 @@ export default function StudentsContent() {
               isActive={activeCard === index && hoveredCard === null && !hasInteracted}
               isHovered={hoveredCard === index}
               onClick={() => setActiveCard(index)}
+              archetypeName={archetype.name}
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={() => setHoveredCard(null)}
             />
