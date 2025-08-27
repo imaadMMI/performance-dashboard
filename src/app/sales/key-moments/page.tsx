@@ -37,7 +37,7 @@ export default function KeyMomentsPage() {
   }, []);
 
   return (
-    <div className="flex h-screen bg-brand-white">
+    <div className="flex h-screen bg-[#f9fafb]">
       <LeftSidebar />
       
       <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">

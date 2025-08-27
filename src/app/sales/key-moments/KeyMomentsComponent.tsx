@@ -211,7 +211,7 @@ const AllConsultantsView = ({
                 }`}>
                   {filteredCalls.map((callData) => (
                     <React.Fragment key={callData.call_id}>
-                    <div className={`bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms]${
+                    <div className={`bg-white rounded-xl border border-[#F0F0F0] p-5 shadow-md hover:shadow-lg hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms]${
                       closingConsultants.has(consultant.id) ? '' : 'animate-slideUp'
                     }`}>
                       {/* Call Header */}
@@ -572,13 +572,13 @@ const KeyMoments = ({
       {/* Main Container Card - matching dashboard.tsx style */}
       <div 
         // className={`bg-white rounded-xl border border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
-        className={`bg-white rounded-xl  border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
+        className={`bg-[#f9fafb] rounded-xl  border-[#F0F0F0] shadow-sm flex flex-col ${selectedCallDetails || allConsultantsCallDetail ? "" : "h-[calc(100vh-120px)]"}`}
 
         style={{ fontFamily: "'Quicksand', sans-serif" }}
       >
         {/* Fixed Header Section with Filters */}
         {/* <div className="bg-white border-b border-[#F0F0F0]"> */}
-        <div className="bg-white border-[#F0F0F0]">
+        <div className="bg-[#f9fafb] border-[#F0F0F0]">
 
           <div className="p-8 pb-6">
             {/* Title, Description and Data Type Toggle */}
@@ -1135,7 +1135,7 @@ const KeyMoments = ({
                                 {!isDetailView ? (
                                   <div key={individualFilterKey} className={viewType === "grid" ? "contents" : "grid gap-4 w-full animate-stagger animate-quickFade"}>
                                 {filteredPositiveCalls.map((callData) => (
-                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
+                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} shadow-md hover:shadow-lg hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -1554,7 +1554,7 @@ const KeyMoments = ({
                                 {!isDetailView ? (
                                   <div key={individualFilterKey} className={viewType === "grid" ? "contents" : "grid gap-4 w-full animate-stagger animate-quickFade"}>
                                 {filteredCalls.map((callData) => (
-                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
+                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} shadow-md hover:shadow-lg hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>

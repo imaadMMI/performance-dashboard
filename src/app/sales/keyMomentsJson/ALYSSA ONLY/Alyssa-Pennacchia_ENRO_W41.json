@@ -1,0 +1,379 @@
+{
+    "metadata": {
+        "consultant_name": "Alyssa Pennacchia",
+        "week_number": 41,
+        "date_range": "08-04_08-08",
+        "report_type": "Enrolment Closing"
+    },
+    "impact_metrics": {
+        "enrollment": {
+            "percentage": 2,
+            "change_since_last_tp": -0.82
+        },
+        "retention": {
+            "percentage": 1,
+            "change_since_last_tp": -2.32
+        },
+        "enrolment_closing_note": "Based on the last TP, each +1 increase in your enrolment closing score correlates with the following uplift in enrolment / retention likelihood:"
+    },
+    "weekly_performance": {
+        "team": {
+            "opportunities": 338,
+            "percentage_taken": 12.42603550295858,
+            "average_score": 3.7
+        },
+        "individual": {
+            "opportunities": 61,
+            "percentage_taken": 9.836065573770492,
+            "average_score": 3.7
+        },
+        "average_scores_by_week": [
+            {
+                "week": "29",
+                "individual_score": 3.9,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "30",
+                "individual_score": 3.7,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "31",
+                "individual_score": 3.6,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "32",
+                "individual_score": 3.9,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "33",
+                "individual_score": 3.8,
+                "team_average_score": 3.8
+            },
+            {
+                "week": "34",
+                "individual_score": 4.0,
+                "team_average_score": 3.8
+            },
+            {
+                "week": "35",
+                "individual_score": 3.9,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "36",
+                "individual_score": 3.7,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "37",
+                "individual_score": 3.7,
+                "team_average_score": 3.6
+            },
+            {
+                "week": "38",
+                "individual_score": 3.5,
+                "team_average_score": 3.7
+            },
+            {
+                "week": "39",
+                "individual_score": 3.8,
+                "team_average_score": 3.6
+            },
+            {
+                "week": "40",
+                "individual_score": 4.2,
+                "team_average_score": 3.8
+            },
+            {
+                "week": "41",
+                "individual_score": 3.7,
+                "team_average_score": 3.7
+            }
+        ],
+        "future_weeks": [
+            {
+                "week": "future1",
+                "display_value": 1.5
+            },
+            {
+                "week": "future2",
+                "display_value": 1.0
+            },
+            {
+                "week": "future3",
+                "display_value": 0.5
+            }
+        ]
+    },
+    "key_trigger_moments": {
+        "display_modes": {
+            "opportunities": true,
+            "positive_moments": true
+        },
+        "opportunities": [
+            {
+                "call_id": "680132363508",
+                "opportunity_id": 2,
+                "impact_type": "enrollment",
+                "opportunity": "The opportunity arose when the student asked about documents: 'And um in terms of provision of um documents, what, what do you expect?' (segment 129). The consultant provided clarity by listing necessary documents: 'Your PR permanent residency, your passport, your official transcript.' This clear outline reduced uncertainty and formed a foundation for enrollment progression, despite lacking specific submission deadlines or methods.",
+                "consultant_response": "The student found the information helpful, as indicated by their response: 'A lot of information, a very, a lot of helpful information. Thank you.' (segment 143). The consultant reinforced clarity by offering to email a handbook but didn't set a clear document submission deadline, missing an opportunity to inject urgency and enhance enrollment momentum further.",
+                "opportunity_score": "4.3/5",
+                "response_score": "3.3/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "680132363508",
+                    "opportunity_detailed": "This opportunity emerged when the student asked about the provision of documents required for enrollment, stating: 'And um in terms of provision of um documents, what, what do you expect?' (segment 129). This aligns with the Documentation Submission Process Clarity, as the consultant's response provided precise instructions: 'That's fine. So your PR permanent residency, and then also your permanent residency and also your um passport, your official transcript, that's all that we need. You send it through to me.' (segments 135, 137). By clearly listing the specific documents required and offering to process the application, the consultant reduces the administrative load on the student and provides a clear path forward. The lack of specific deadlines or submission methods slightly limits the clarity, but the detailed instructions effectively transform interest into actionable steps, aligning well with the opportunity framework and propelling the enrollment journey forward.",
+                    "consultant_response_detailed": "The student's response, 'A lot of information, a very, a lot of helpful information. Thank you.' (segment 143), suggests satisfaction but is somewhat noncommittal. The consultant offered to email the handbook and further information: 'I\u2019m glad I can help. Anything else that you want me to answer for you about the pathway or the site courses?' (segment 144), providing an additional touchpoint which helped reinforce process clarity. Despite this supportive approach, the consultant missed an opportunity to establish a firm deadline, which may have limited urgency and reduced the potential impact on enrollment progression. Adding specific deadlines and submission methods could further align with the Documentation Submission Process Clarity component, enhancing the clarity and urgency of the student's next steps.",
+                    "recommended_response_detailed": "In order to enhance this Documentation Submission Process Clarity, the consultant could have transformed the solid foundation they established into an optimal level 5 implementation by incorporating specific submission timelines and methods. For example, after stating, 'That's fine. So your PR permanent residency, and then also your permanent residency and your passport, your official transcript, that's all that we need,' the consultant might continue: 'It would be ideal if you could email these documents to me by the end of this week, which would allow us time to process your application promptly for upcoming teaching periods.' Providing a precise document list is a strong start, but weaving in explicit timelines turns an informative step into an actionable momentum-builder. This refinement not only amplifies clarity but also injects urgency, ensuring document submission aligns seamlessly with enrollment timelines, thus significantly advancing the enrollment process."
+                },
+                "enrolment_impact_percentage": 3,
+                "retention_impact_percentage": 1,
+                "recommended_response": "To elevate document submission clarity to level 5, setting a submission deadline and email instructions would be beneficial. For instance, 'Please send your documents by the end of this week to expedite your application process.' Adding this specificity increases clarity and injects necessary urgency, ensuring steps align with critical enrollment timelines and enhancing the impact of the documentation process.",
+                "opportunity_score_value": 4.3,
+                "response_score_value": 3.3,
+                "is_positive": false
+            },
+            {
+                "call_id": "679942129307",
+                "opportunity_id": 2,
+                "impact_type": "enrollment",
+                "opportunity": "When the student asked about intake dates, saying: 'I thought there was an intake for the 16th, the 13th of August, is that right?' (segments 19-23), the inquiry suggested readiness to align with a timeline. The consultant confirmed the dates: 'closes 13th of August, starts August 25th,' aligning the student\u2019s interest with specific enrollment periods. Enhancing this opportunity by linking to specific actions could solidify the teaching period commitment.",
+                "consultant_response": "The student sought confirmation of intake dates, which indicated a willingness to align with the timeline (segment 22). However, the consultant merely confirmed dates in segment 23 without additional prompts for securing enrollment. The lack of action steps limited the proactive conversion of interest into commitment, missing a chance to drive tangible follow-up actions that could have capitalized on the student's timeline enthusiasm and readiness.",
+                "opportunity_score": "4.0/5",
+                "response_score": "3.0/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679942129307",
+                    "opportunity_detailed": "This opportunity arose when the student, Speaker 1, inquired about specific intake dates, asking: 'I thought there was an intake for the 16th, the 13th of August, is that right?' (segments 19-23). This inquiry indicates readiness to anchor the decision to a timeline, and the consultant's confirmation that 'that closes 13th of August, starts August 25th, but closes 13th of August' establishes an initial commitment by aligning the student with specified enrollment periods. While this interaction establishes an initial commitment by aligning the student with specified enrollment periods, it enhances the opportunity by bridging the interest to a concrete commitment of a teaching period with timelines.",
+                    "consultant_response_detailed": "The student's response was primarily centered around seeking confirmation of the intake dates, which reflects a readiness to align themselves with a specified timeline, as evidenced in segments 22: 'I thought there was an intake for the 16th, the 13th of August.' However, the consultant's confirmation in segment 23, 'Yeah, that closes 13th of August, starts August 25th, but closes 13th of August,' without additional prompts or steps for securing the enrollment missed further engagement opportunities. Without an active push toward completing the necessary steps to secure their intake spot, the consultant's response fell short of fully capitalizing on the student's expressed timeline readiness. This limits the proactive anchoring potential of the conversation around the confirmed dates, marking this as a missed chance to drive follow-up actions that fully utilize the moment. While effective in confirming the intake dates, this interaction could have been further enhanced by actively guiding the student towards the next steps of enrollment.",
+                    "recommended_response_detailed": "In this scenario, the consultant could have improved the interaction by moving beyond simple confirmation of dates. After stating, 'Yeah, that closes 13th of August, starts August 25th,' the consultant should have immediately transitioned to securing the student's commitment by saying, 'Given that you're interested in the August intake, let's get your application finalized. I can guide you through the necessary steps today.' This approach certainly transforms the confirmation from mere information sharing to effectively anchoring the student's interest with a clear action plan. By proposing information such as document submission deadlines or stating, 'To secure your spot for August, I\u2019ll need your application and documents by [specific date],' the consultant could maintain momentum, reduce decision paralysis, and satisfy the student\u2019s timeline enthusiasm. This would proactively prepare the student, establishing both psychological commitment and specific next steps crucial for progressing towards enrollment."
+                },
+                "enrolment_impact_percentage": 3,
+                "retention_impact_percentage": 1,
+                "recommended_response": "The consultant could have enhanced the interaction by initiating an action plan after confirming dates, such as saying, 'Since you're interested in the August intake, let's finalize your application. I can guide you through the necessary steps today.' Adding specifics about document submission deadlines or stating, 'To secure your spot, I'll need your application by [specific date],' would reduce decision paralysis and strengthen timeline enthusiasm.",
+                "opportunity_score_value": 4.0,
+                "response_score_value": 3.0,
+                "is_positive": false
+            },
+            {
+                "call_id": "680131728129",
+                "opportunity_id": 2,
+                "impact_type": "enrollment",
+                "opportunity": "In segment 57, the consultant stated: 'So have a read of that. Um, and if you wish to enroll or reply, just send your documents through.' This moment created an opportunity for Documentation Submission Process Clarity, as it introduced the topic of sending documents but lacked the specificity needed to encourage immediate action. The student\u2019s response, 'Yeah, beautiful,' in segment 58, showed acknowledgment but also suggested that more precise guidance could have strengthened engagement.",
+                "consultant_response": "The consultant's response failed to specify which documents were necessary or to provide any deadlines, simply instructing: 'send your documents through.' This lack of detail in segment 57 omitted references to key items like academic transcripts or citizenship proof that are crucial for enrollment. The student's lack of urgency in response highlights the deficiency. Without clear steps or pressure points, the response limited the potential for advancing the enrollment process.",
+                "opportunity_score": "3.0/5",
+                "response_score": "2.0/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "680131728129",
+                    "opportunity_detailed": "This opportunity arose when the Consultant provided instructions on document submission, stating: 'So have a read of that. Um, and if you wish to enroll or reply, just send your documents through.' (Segment 57). The criteria for Documentation Submission Process Clarity were met in terms of mentioning documents needs but lacked specific instructions or deadlines, thereby limiting the clarity and urgency required to maximize enrollment impact. The student responded positively, 'Yeah, beautiful.' (Segment 58), indicating interest but also reflecting the lack of detailed guidance as a potential barrier to engagement.",
+                    "consultant_response_detailed": "In segment 57, the consultant's language was vague and did not specify which documents were necessary or any deadlines, saying: 'So have a read of that. Um, and if you wish to enrol or reply, just send your documents through.' There was no mention of specific items like academic transcripts or proof of citizenship that are typically crucial for enrollment clarity. The response 'Yeah, beautiful' (Segment 58) from the student shows a lack of engagement or urgency. The absence of clear deadlines and specific document requests reduced the overall clarity and hindered potential enrollment progression, reflecting a missed opportunity in the enrollment journey.",
+                    "recommended_response_detailed": "In this instance, the consultant missed an opportunity to provide clear, specific directions about the document submission process. Instead of simply saying, 'send your documents through,' the consultant could have specified, 'Please send your academic transcripts and proof of citizenship by {appropriate follow-up date} to ensure your enrollment process is quick and smooth.' This specific language would enhance student understanding by clarifying what is needed and suggesting urgency. This approach transforms a general intention to enroll into concrete action, enhancing admission likelihood and ensuring smooth progress. Additionally, integrating proactive follow-up could improve engagement: 'I will follow up with you next Wednesday to discuss any questions you might have.' This aligns with Proactive Follow-Up Scheduling, ensuring clarity and continuous momentum in the enrollment process."
+                },
+                "enrolment_impact_percentage": 4,
+                "retention_impact_percentage": 2,
+                "recommended_response": "To enhance clarity, the consultant should specify, 'Please send your academic transcripts and proof of citizenship by {specified date} to expedite your enrollment.' This detailed direction would help the student understand what\u2019s required, encouraging prompt action. Adding 'I will follow up next Wednesday to address any questions' introduces urgency and follow-through, promoting clear steps forward. This aligns with Proactive Follow-Up Scheduling, improving both clarity and momentum toward enrollment.",
+                "opportunity_score_value": 3.0,
+                "response_score_value": 2.0,
+                "is_positive": false
+            },
+            {
+                "call_id": "679952511936",
+                "opportunity_id": 1,
+                "impact_type": "enrollment",
+                "opportunity": "A high-impact opportunity arose when the student inquired, 'And how many intakes do you have per year?' (Segment 34), indicating readiness to align plans with enrollment periods. The consultant provided details about the next intake on August 25th, yet missed using commitment-seeking language to secure enrollment probability.",
+                "consultant_response": "In segments 35-42, the consultant shared detailed intake schedules but failed to use closers like 'Were you considering joining the August intake?' to confirm readiness. While informative, this response lacked momentum creation by omitting direct enrollment action prompts.",
+                "opportunity_score": "4.5/5",
+                "response_score": "3.67/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679952511936",
+                    "opportunity_detailed": "This high-impact Teaching Period Confirmation opportunity arose when the student asked: 'And how many intakes do you have per year?' (Segment 34). This direct question signals readiness to align their plans with a specific enrollment period. The consultant provides detailed information about the next intake starting on August 25th, saying: 'So every teaching period is also an intake, so 6 intakes every year. We do have one coming up starting August 25th...' (Segment 35-37). However, the consultant continued to provide information rather than anchoring enrollment probability through commitment-seeking language. The opportunity was not capitalized through direct commitment questions or transition actions.",
+                    "consultant_response_detailed": "In segments 35-42, the consultant provides thorough information about the intake schedule, yet does not proceed to use assumptive or tentative closing methods to secure commitment. This omission represents a missed opportunity to confirm student readiness. The consultant's enrollment process explanation in segments 37-42 was informative but failed to encourage actionable steps by not integrating commitment-seeking questions such as 'Were you considering joining the August intake?' This limits the creation of strong commitment momentum.",
+                    "recommended_response_detailed": "To strengthen commitment and enhance this high-impact opportunity, consultants should incorporate commitment-seeking language immediately following the disclosure of intake details. An appropriate approach might be, 'Based on the information I provided, were you considering enrolling in the August intake?' accompanied by, 'If so, I can walk you through the next steps to ensure everything is lined up.' This strategy prompts an actionable decision and leverages the provided information towards enrollment momentum, efficiently transforming information to proactive engagement. While effective in providing intake details, the consultant's response could have been further enhanced by integrating assumption of readiness techniques, prompting the student to envision their start date, thereby bolstering the commitment to action."
+                },
+                "enrolment_impact_percentage": 3,
+                "retention_impact_percentage": 1,
+                "recommended_response": "To enhance response, use commitment-seeking language post-intake details. Ask, 'Based on this, were you considering the August intake?' and offer next steps guidance. This transforms information into proactive engagement, reinforcing enrollment momentum.",
+                "opportunity_score_value": 4.5,
+                "response_score_value": 3.67,
+                "is_positive": false
+            },
+            {
+                "call_id": "679952478232",
+                "opportunity_id": 1,
+                "impact_type": "enrollment",
+                "opportunity": "During segment 34, the student expressed interest in the application process by saying, 'I'm just looking at the um application process now. So I'll go through that, um, and submit.' This revealed a readiness to proceed, creating a strong Documentation Submission Process Clarity opportunity to transition expressed interest into actionable steps by providing clear guidance on document submission.",
+                "consultant_response": "In segment 39, the consultant specified, 'You need, you'll need to email him your documents,' providing clear instructions but lacking a critical time frame for submission. This oversight meant the response was clear but did not create urgency or ensure follow-through, making the student's potential action less likely to convert into immediate steps, reflected in a response score of 3.67.",
+                "opportunity_score": "4.0/5",
+                "response_score": "3.67/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679952478232",
+                    "opportunity_detailed": "This opportunity arose when the student stated: 'Um, potentially, I'm just looking at the um application process now. So I'll go through that, um, and submit.' (segment 34). This directly corresponds to the Documentation Submission Process Clarity component, where the student shows readiness to proceed with the application but seeks clarity ('I'm just looking at the um application process now'). The consultant's specific instruction of: 'You need, you'll need to email him your documents.' (segment 39) streamlines logistical progression by providing clear next steps. This moment is significant for enrollment as it transitions expressed interest into actionable steps, potentially propelling the enrollment journey forward substantively. Establishing specific document submission deadlines could further enhance enrollment likelihood by creating a sense of urgency.",
+                    "consultant_response_detailed": "The student's response indicated readiness to engage further in the enrollment process: 'Um, potentially, I'm just looking at the um application process now. So I'll go through that, um, and submit.' (segment 34). This showcases an interest in moving forward, yet the lack of a specific commitment timeline from the consultant, as evidenced by the consultant's instruction 'You need, you'll need to email him your documents' (segment 39), represents a missed opportunity to instill urgency. Although the guidance was clear, the absence of deadlines or direct time-based commitments limits the effectiveness in securing the application. Therefore, while the student is inclined to act, the lack of specified urgency doesn't substantially convert the expressed interest into action. For optimal effectiveness, implementation should integrate specific timelines to maintain momentum, which was absent here, resulting in a response score of 3.67. While effective in Documentation Submission Process Clarity, the consultant's response could have been further enhanced by introducing Proactive Follow-Up Scheduling, such as confirming when the documents should ideally be submitted to align with upcoming intakes. This complementary step could help solidify application initiation by setting expectations for the next phase of the enrollment journey.",
+                    "recommended_response_detailed": "In this situation, incorporating an explicit deadline for document submission would significantly enhance the clarity and effectiveness of the enrollment process. The consultant could improve by saying, 'To keep the momentum going and secure your spot for the upcoming intake, please email {specific documentation} by {appropriate follow-up date}.' This recommendation leverages the student's existing interest, as shown in their statement, 'I'm just looking at the um application process now,' by attaching a specific action deadline that creates a sense of urgency and sets a clear expectation. This approach not only clarifies the process but also aids in transforming the student's declared potential action into tangible steps, thereby potentially increasing the likelihood of enrollment. By establishing clear deadlines, the consultant can better maintain momentum and encourage timely student engagement, advancing the enrollment journey more effectively."
+                },
+                "enrolment_impact_percentage": 3,
+                "retention_impact_percentage": 1,
+                "recommended_response": "The consultant should enhance the response by incorporating specific timing, such as: 'Please email your documentation by [specific date] to secure your spot for the upcoming intake.' This would leverage the student's readiness and create urgency, improving clarity and converting interest into definitive actions while maintaining momentum in the enrollment process.",
+                "opportunity_score_value": 4.0,
+                "response_score_value": 3.67,
+                "is_positive": false
+            }
+        ],
+        "positive_moments": [
+            {
+                "call_id": "679951761228",
+                "opportunity_id": 3,
+                "impact_type": "enrollment",
+                "opportunity": "In segment 62, the student expressed concern about weekly study time, asking, 'The only thing, um, I'm concerned about is, um, so it's just the time and I don't know how many hours per per week.' This signaled a high-impact Teaching Period Confirmation opportunity as the consultant could clarify the program's demands, aligning them with the student's scheduling needs, thereby supporting their enrollment decision.",
+                "consultant_response": "The consultant delivered precise information on the coursework, 'about 20 to 24 hours per week' (segment 70), effectively addressing logistical concerns. By providing clarity on the teaching period, the response helped the student understand and plan for the time commitment, aligning with the Teaching Period Confirmation goal and facilitating the student's readiness for enrollment.",
+                "opportunity_score": "4.5/5",
+                "response_score": "4.83/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679951761228",
+                    "opportunity_detailed": "This opportunity is underscored by the student's concern about study time requirements: 'The only thing, um, I'm concerned about is, um, so it's just the time and I don't know how many hours per per week is, um, supposed to be taking, you know, the course is it like uh 40 hours...' (segment 62). By addressing these logistical concerns, the consultant offers a detailed explanation: 'We recommend about 20 to 24 hours of study each week.' (segment 70). This exchange serves as a high-impact Teaching Period Confirmation opportunity as it clarifies the teaching period structure and supports the student's decision-making by aligning their time commitment understanding with enrollment prospects. The depth of the consultant's response reinforces planning parameters, advancing the student towards potential enrollment commitment.",
+                    "consultant_response_detailed": "When the student expressed concern about study requirements ('how many hours per week,' segment 62), the consultant responded with precise information on the structure and workload ('about 20 to 24 hours per week,' segment 70). This comprehensive response effectively addresses logistical concerns, aligning with the Teaching Period Confirmation opportunity by providing the student with a clear understanding of the program structure. This clarity likely contributes to the student's decision-making process, enhancing their readiness for enrollment. Furthermore, the consultant's thorough explanation supports commitment by setting realistic expectations, thereby facilitating enrollment conversion.",
+                    "why_this_works_detailed": "This interaction showcases effective implementation of Teaching Period Confirmation. The consultant deftly addressed the student's inquiry about study time by explaining, 'We recommend about 20 to 24 hours of study each week.' (segment 70). This detailed response not only provided specific information but also helped the student align their personal schedule with the program's demands. This level of clarity ensures that the student is fully informed about the expectations, which enhances their ability to make confident decisions about their enrollment. By clarifying both the workload and teaching structure, the consultant provides the necessary framework for the student to visualize their future study experience realistically. Additionally, this approach strategically minimizes concerns about time management, a common barrier to enrollment in online programs. The consultant's ability to deliver a thorough and articulate response helps demystify the program's requirements, maintaining transparency and trust with prospective students. Such clarity is crucial for securing student commitment to the enrollment process, facilitating a smoother transition from prospect to active learner."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "The consultant exemplified effective Teaching Period Confirmation by explaining, 'We recommend about 20 to 24 hours of study each week' (segment 70), providing the student with a realistic understanding of program demands. This clarity on workload and structure empowers the student to align the course with their schedule, reducing potential barriers to enrollment.",
+                "opportunity_score_value": 4.5,
+                "response_score_value": 4.83,
+                "is_positive": true
+            },
+            {
+                "call_id": "680132363508",
+                "opportunity_id": 1,
+                "impact_type": "enrollment",
+                "opportunity": "A Teaching Period Confirmation opportunity arose when the student asked, 'When's your next teaching period starting for this?' (segment 124), signaling readiness to commit to a specific timeframe. The consultant used this inquiry to mention an enrollment deadline: 'So that starts August 25th. Applications for that one close next Wednesday though.' This transformed a simple question into a sense of urgency, propelling the enrollment journey forward significantly by linking the timeline inquiry into a decisive enrollment task.",
+                "consultant_response": "The student responded with interest, though mentioning the timeline was a bit soon (segment 127). The consultant seamlessly shifted to inform the student of the next available teaching period: 'the one after that is October 20th' (segment 128). This proactive approach preserved the student's engagement, showcasing effective alignment with the Teaching Period Confirmation framework by maintaining focus on future enrollment opportunities.",
+                "opportunity_score": "5/5",
+                "response_score": "4.7/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "680132363508",
+                    "opportunity_detailed": "This opportunity arose when the student explicitly inquired about the next teaching period, saying: 'When's your next teaching period starting for this?' (segment 124). This aligns with the Teaching Period Confirmation criteria, where the student's direct question signals readiness to commit to a specific enrollment timeline. The consultant effectively uses this inquiry to introduce a concrete enrollment deadline: 'So that starts August 25th. Applications for that one close next Wednesday though. So it closes Wednesday the 11th.' (segments 125-127). By listing the application closure date, the consultant not only answers the student's inquiry but creates a sense of urgency by encouraging immediate application. This decisive moment perfectly fits the criteria for establishing enrollment momentum and maximizing impact potential by turning temporal inquiry into a decisive enrollment action step. Additionally, while further connecting specific intake dates to immediate actions could enhance clarity, the detailed mention of deadlines here is significant for enrollment progression.",
+                    "consultant_response_detailed": "The student's response to the consultant's deadline was, 'No, that's a little bit too soon, but it's good to know. When's the next?' (segment 127). This indicates that although the immediate application was too soon, the student remained engaged and interested in future possibilities. The consultant smoothly transitioned the focus by detailing the next available teaching period: 'the one after that is October 20th' (segment 128). This follow-up action was effective as it maintained the student's positive momentum and interest by keeping the conversation focused on future opportunities. The consultant's ability to pivot quickly to meet the student's timeline needs without losing engagement mirrors the Teaching Period Confirmation and helped maintain enrollment momentum. This follow-up reinforces readiness, showing alignment with the pattern's criteria for sustaining commitment and engagement.",
+                    "why_this_works_detailed": "In this instance, the consultant adeptly harnessed the student's explicit inquiry about the enrollment timeline to generate the urgency needed for the enrollment closing process. By swiftly responding with detailed information about the August 25th intake and emphasizing the application closure date, the consultant successfully instilled a sense of urgency, effectively turning an inquiry into actionable momentum. While the student ultimately deemed the timeline too soon, the consultant's rapid transition to future teaching periods ('the one after that is October 20th') ensured that the student remained engaged. This dexterous handling of information exemplifies mastery in Teaching Period Confirmation by aligning future opportunities with the student's interest. Overall, the approach showcases expert timing and adaptability, critical in maintaining enrollment engagement and supporting the student along their decision-making journey."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "The consultant masterfully leveraged the student's question about enrollment timing to build urgency and momentum in the enrollment process. By quickly providing details on the August 25th intake and mentioning the application deadline, the consultant turned curiosity into action-oriented conversation. Even when the immediate timeline was too soon, the consultant's quick transition to discuss further periods, like the October 20th start, effectively kept the student engaged and aligned their future interests with the program opportunities.",
+                "opportunity_score_value": 5.0,
+                "response_score_value": 4.7,
+                "is_positive": true
+            },
+            {
+                "call_id": "679916277097",
+                "opportunity_id": 1,
+                "impact_type": "enrollment",
+                "opportunity": "The student's inquiry in segment 29, 'Uh, yeah, yeah, yeah. OK. Um, and, uh, so when is the, uh, starting date, uh, for the course?' demonstrates readiness to discuss intake periods, creating a high-impact Teaching Period Confirmation opportunity. This aligns with readiness signals integral to driving enrollment actions. The consultant capitalizes on this by linking the August 25th start date with enrollment closure timing, thereby establishing urgency and encouraging commitment. This strategic alignment emphasizes the opportunity's importance by directly connecting it to the clear next steps in the enrollment process.",
+                "consultant_response": "Demonstrating urgency awareness in segment 44, the student mentions, 'I don't have much time to do the PTO, the ILT is because the closing days date will be the next, uh, Wednesday.' The consultant reinforces this by stating, 'If you're unable to get it done by then, you will miss out on the August teaching period.' This response effectively uses urgency to guide immediate action, clearly aligning with Teaching Period Confirmation by illustrating consequence and offering thoughtfully timed alternatives, maintaining enrollment momentum and guiding the student towards concrete action.",
+                "opportunity_score": "5/5",
+                "response_score": "4.67/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679916277097",
+                    "opportunity_detailed": "This opportunity arises when the student asks, 'Uh, yeah, yeah, yeah. OK. Um, and, uh, so when is the, uh, starting date, uh, for the course?' (Segment 29). This indicates the student's readiness to discuss specific intake periods. The consultant effectively uses this moment to align calendar information with action steps, highlighting the August 25th start date and the closing of enrollment next Wednesday, thereby creating a strong Teaching Period Confirmation opportunity. The consultant's strategic approach ensures continuity and maximizes enrollment likelihood. The context established earlier in the conversation about eligibility and interest completion gives this inquiry pivotal importance, driving the enrollment process forward by setting clear next steps.",
+                    "consultant_response_detailed": "The student showed awareness of the enrollment timeline urgency by asking about key deadlines: 'I don't have much time to do the PTO, the ILT is because the closing days date will be the next, uh, Wednesday.' (Segment 44). The consultant reinforced this urgency by responding, 'If you're unable to get it done by then, you will miss out on the August teaching period. So the next teaching period starts October 20th, so you might need to aim for that one instead.' (Segment 48). This response demonstrates effective use of urgency to guide the student towards immediate action, aligning with the Teaching Period Confirmation component by clearly stating the consequences of missing the deadline and providing an alternative. The follow-up was impactful as it strategically maintained enrollment momentum by outlining the next available intake, contributing to maximizing the enrollment likelihood. The consultant successfully reinforced commitment by clearly linking the August deadline to immediate test completion requirements, aligning with the enrollment closing strategy to solidify commitment by utilizing enrollment timelines effectively.",
+                    "why_this_works_detailed": "This teaching period confirmation exemplifies level 5 implementation where the consultant effectively balances urgency with strategic options for the student. By stating that 'if you're unable to get it done by then, you will miss out on the August teaching period' while providing an immediate alternative of the October 20th start, the consultant not only addresses the immediate concern but strategically maintains momentum by emphasizing the significance of the current opportunity and yet cushioning it with a future actionable step. This approach ensures that the student remains engaged and aware of the institutional timelines, thus reducing decision paralysis and reinforcing their commitment to pursuing enrollment. The consultant has transitioned the mere provision of dates into a strategic enrollment push that can be a blueprint in guiding students through pivotal enrollment deadlines, enhancing both decision-making clarity and enrollment conversion rates."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "This exemplary teaching period confirmation effectively balances urgency with strategic options. By addressing the immediate concern, 'if you're unable to get it done by then, you will miss out on the August teaching period,' the consultant maintains engagement by offering an October 20th alternative. This not only ensures the student stays focused on institutional timelines but also demonstrates strategic foresight, guiding them through pivotal enrollment deadlines and enhancing decision clarity and conversion.",
+                "opportunity_score_value": 5.0,
+                "response_score_value": 4.67,
+                "is_positive": true
+            },
+            {
+                "call_id": "679916277097",
+                "opportunity_id": 2,
+                "impact_type": "enrollment",
+                "opportunity": "In segment 44, when the student says, 'I don't have much time to do the PTO, the ILT is because the closing days date will be the next, uh, Wednesday,' it indicates urgency and the need for procedural guidance, presenting a strong Documentation Submission Process Clarity opportunity. The consultant clarifies both urgency and the missing August intake consequences, while pivoting focus to October, which aligns with maintaining enrollment momentum and specifying action steps. Further deadline specificity could have enhanced this opportunity.",
+                "consultant_response": "The student\u2019s concern about the timeline, expressed in segment 44, triggered the consultant's acknowledgment of urgency, who laid out, 'If you're unable to get it done by then, you will miss out on the August teaching period.' Such a response clarified the document submission process, identifying potential outcomes if necessary steps failed to materialize, thus fostering engagement and maintaining momentum. The consultant's strategic guidance assured a pragmatic plan, even beyond immediate deadlines, supporting the Documentation Submission Process Clarity component effectively.",
+                "opportunity_score": "4/5",
+                "response_score": "4.0/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679916277097",
+                    "opportunity_detailed": "This segment offers significant clarity regarding the documentation submission process when the student says, 'I don't have much time to do the PTO, the ILT is because the closing days date will be the next, uh, Wednesday.' (Segment 44). This indicates urgency and the need for procedural guidance, offering a strong opportunity to set clear action paths. The consultant clarifies both the urgency and consequences of missing the August intake and shifts the focus to the October start, maintaining enrollment momentum. This aligns with creating a clear action path by specifying what enrollment steps need prioritization for documentation submission. While strong, further specificity in deadlines for October would enhance this opportunity. This segment emphasizes strategic planning and maintaining the student's engagement for the enrollment journey.",
+                    "consultant_response_detailed": "The student expressed concerns about meeting the August intake deadline due to limited time, articulating, 'I don't have much time to do the PTO, the ILT is because the closing days date will be the next, uh, Wednesday' (Segment 44). The consultant acknowledged this concern by articulating the importance of meeting the deadline and presenting an alternative, 'If you're unable to get it done by then, you will miss out on the August teaching period. So the next teaching period starts October 20th, so you might need to aim for that one instead.' (Segment 48). This response clarified the document submission process effectively by outlining the potential outcomes if the necessary tests are not completed, reflecting the Documentation Submission Process Clarity component. The consultant's approach effectively guided the student by providing a clear timeline for alternative options, fostering engagement and maintaining enrollment momentum. This strategic guidance reassured the student that there was a feasible plan even if the immediate deadline could not be met, aligning well with maintaining the enrollment process.",
+                    "why_this_works_detailed": "The consultant's approach in this documentation submission process demonstrates expert-level implementation by providing clear guidance that navigates the urgency of the situation. Through specific language, such as 'If you're unable to get it done by then, you will miss out on the August teaching period,' the consultant effectively emphasizes the importance of immediate action while also strategically offering the October teaching period as a backup plan. This both reassures and maintains the student's engagement by creating a clear action path that avoids overwhelming the student with unrealistic expectations. This commendable strategy helps to mitigate the potential stress associated with document submissions while continuing to foster student readiness and alignment with institutional timelines. By bridging immediate deadlines with future opportunities, the consultant has maintained procedural clarity and effectively sustained the enrollment trajectory."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "The consultant's directive, 'If you're unable to get it done by then, you will miss out on the August teaching period,' showcases expert-level guidance by balancing immediate action urgencies with future teaching period prospects. This dual approach reassures the student and aligns with institutional timelines, effectively maintaining procedural clarity and sustaining readiness by bridging present deadlines and future enrollment opportunities.",
+                "opportunity_score_value": 4.0,
+                "response_score_value": 4.0,
+                "is_positive": true
+            },
+            {
+                "call_id": "680034528492",
+                "opportunity_id": 1,
+                "impact_type": "enrollment",
+                "opportunity": "The consultant highlighted a valuable Documentation Submission Process Clarity opportunity by discussing the '10% alumni discount' tied to eligibility. This occurred when the student mentioned their previous degree at Monash (segment 39), creating a direct link to potential enrollment benefits. While this incentive offered clear motivation, elaborating on specific documentation needed to confirm eligibility could transform this interest into actionable steps.",
+                "consultant_response": "In segment 41, the student's 'OK' indicates awareness of the financial benefit, yet no further engagement to clarify steps was pursued. While mentioning the alumni discount suggested eligibility, lacking guidance on documentation requirements missed an opportunity to streamline enrollment decisions. Though the benefit positively influences enrollment, clarity on concrete next steps remains underutilized.",
+                "opportunity_score": "4.0/5",
+                "response_score": "4.0/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "680034528492",
+                    "opportunity_detailed": "This opportunity arose when the consultant discussed eligibility for the Master's program and mentioned potential alumni discounts: 'there are potentially opportunities for 10% alumni discounts as well' (segment 40). This aligns with the Documentation Submission Process Clarity component because the consultant introduced an incentive tied to eligibility criteria, directly addressing the student's inquiry: 'I did do a, uh, a computer science degree at Monash' (segment 39). This is significant for the enrollment journey as it connects the student's academic background to concrete enrollment benefits, reinforcing a path by which the student could advance towards enrollment. However, while the incentive was mentioned, further detailing specific documentation requirements to confirm eligibility for the discount would enhance enrollment momentum by transforming interest into actionable steps.",
+                    "consultant_response_detailed": "The student responded positively with a simple acknowledgment in segment 41: 'OK.' This indicates the student recognized the potential financial incentive but didn't engage further to clarify next steps. The consultant reinforced the sense of eligibility by mentioning the alumni discount, but did not delve deeper into the documentation process. The lack of additional clarification or encouragement to proceed implies a missed opportunity to further streamline the enrollment decision process. When the consultant said, 'there are potentially opportunities for 10% alumni discounts' (segment 40), this effectively highlighted a benefit that could influence enrollment, yet the opportunity to convert this interest into actionable steps was underutilized. Despite this, the introduction of the alumni discount alone carries significant potential for positive enrollment impact, as it connects directly with the student's academic background, suggesting readiness for enrollment facilitation.",
+                    "why_this_works_detailed": "The consultant skillfully identified a motivational opportunity in mentioning the '10% alumni discount' which directly linked to the student's prior academic experience at Monash. This approach aligns well with Documentation Submission Process Clarity by proactively addressing the student's overall eligibility context and introducing a compelling enrollment incentive. An improvement could be achieved by specifying the exact documentation needed to take advantage of this discount, thus immediately translating financial motivation into explicit enrollment steps. This omission suggests how a more structured approach, emphasizing immediate next steps like 'please submit your previous transcripts to confirm eligibility', could facilitate quicker progression. Nevertheless, the consultant's ability to introduce a powerful incentive is commendable and naturally primes the student towards considering enrollment more seriously, improving engagement outcomes significantly."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "The consultant skillfully introduced the influential '10% alumni discount,' aligning with the student's background and sparking interest. Enhancing this by requesting specific documents would convert financial interest into enrollment actions, like 'please submit your transcripts to confirm eligibility.' Despite needing structure, the effective use of incentives shows strong enrollment impact potential and engagement priming.",
+                "opportunity_score_value": 4.0,
+                "response_score_value": 4.0,
+                "is_positive": true
+            },
+            {
+                "call_id": "679952532963",
+                "opportunity_id": 2,
+                "impact_type": "enrollment",
+                "opportunity": "This pivotal opportunity arose when the student affirmed understanding of work experience pathways with 'Oh sweet. OK, cool, cool, cool.' (Segment 16), signaling engagement and readiness. The consultant's follow-up, 'And you've worked in, so in terms of your work, was it within IT?' (Segment 17), strategically transitions interest into concrete enrollment steps, leveraging the student's readiness to explore next steps aligned to their work history.",
+                "consultant_response": "The student's enthusiastic reply, 'Oh sweet. OK, cool, cool, cool.' (Segment 16), indicated strong engagement. The consultant's confirmation question, 'And you've worked in... was it within IT?' (Segment 17), used this engagement to gather more information and align with Clear Action Plan Articulation. This maintained momentum, though lacked a detailed action step, slightly diminishing the opportunity's impact.",
+                "opportunity_score": "5/5",
+                "response_score": "4/5",
+                "has_like_dislike_buttons": true,
+                "has_view_more_button": true,
+                "detailed_view": {
+                    "call_id": "679952532963",
+                    "opportunity_detailed": "This high-impact opportunity was identified when the student acknowledged understanding of the program entry requirements via work experience with an affirmative reaction: 'Oh sweet. OK, cool, cool, cool.' (Segment 16). The consultant's immediate follow-up with: 'And you've worked in, so in terms of your work, was it within IT so you started your own business and whatnot. Have you been working within IT or computers?' (Segment 17) transitions the student readiness into a strategic next step alignment. This moment aligns with Clear Action Plan Articulation, highlighting the importance of transforming expressed interest into actionable enrollment steps. The significance here is marked by the student's expressed readiness to proceed post-discussion, indicating readiness for outlining next enrollment steps specifically tied to their work experience. This opportunity is pivotal as it propels the student from passive interest to actively considering enrollment, thereby enhancing commitment likelihood.",
+                    "consultant_response_detailed": "The student's response, marked by enthusiasm with 'Oh sweet. OK, cool, cool, cool.' (Segment 16), signals a high level of engagement and readiness to proceed. This indicates that the student understood and was satisfied with the information provided about using their work experience as an entry requirement. The consultant reinforces this engagement by asking a confirming question: 'And you've worked in, so in terms of your work, was it within IT so you started your own business and whatnot. Have you been working within IT or computers?' (Segment 17). This not only acknowledges the student's readiness but also sets the stage for further dialogue on aligning previous work experience with the program requirements. By confirming the relevant IT work history, the consultant aligns their response with the pattern of Clear Action Plan Articulation, effectively maintaining the conversation momentum. However, the absence of a detailed explicit step or deadline represents a slight missed opportunity to fully capitalize on the engagement level. Despite this, the proactive questioning underscores a commitment to facilitating the student's enrollment journey, thus validating a positive impact with a response score of 4.0.",
+                    "why_this_works_detailed": "The consultant effectively engaged with the student's enthusiastic response ('Oh sweet. OK, cool, cool, cool.') by asking a pertinent question about the student's IT work history, maintaining momentum and leveraging the opportunity to gather more information ('And you've worked in, so in terms of your work, was it within IT?'). This action aligns well with Clear Action Plan Articulation, converting the student's passive interest into active consideration for enrollment. While this interaction shows promise, it could be enhanced by integrating explicit, actionable next steps or deadlines. Even so, the consultant demonstrated a high level of proficiency by facilitating an environment where the student felt acknowledged and ready to further explore the program requirements. This exchange successfully bridges student intention with strategic enrollment steps. A minor improvement could involve presenting a concise enrollment plan, outlining what the student can anticipate in the coming stages and specific tasks they might need to complete. Nevertheless, the overall implementation skillfully advances the student's journey towards enrollment by channeling their initial enthusiasm into concrete discussion, thus strengthening their commitment."
+                },
+                "enrolment_impact_percentage": 2,
+                "retention_impact_percentage": 1,
+                "why_this_works": "The consultant adeptly responded to the student's enthusiasm ('Oh sweet. OK, cool, cool, cool.') by immediately probing the student's IT experience (Segment 17). This dialogue maintained momentum and prepared for aligning the student's work history with program requirements. Further improvement could include specifying next steps or deadlines, yet the exchange effectively transitioned intention into strategic planning.",
+                "opportunity_score_value": 5.0,
+                "response_score_value": 4.0,
+                "is_positive": true
+            }
+        ]
+    },
+    "footer": {
+        "left_text": "OES Sales Excellence.AI",
+        "right_text": "Sentiment AI"
+    }
+}
