@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info, ThumbsUp, ThumbsDown, Filter, Settings2 } from 'lucide-react';
+import { ChevronDown, ChevronLeft, X, ArrowDown, ArrowUp, Target, Info, ThumbsUp, ThumbsDown, Filter, Settings2, LayoutGrid, LayoutList } from 'lucide-react';
 import './keyMomentsAnimations.css';
 
 interface CallAnalysis {
@@ -239,7 +239,7 @@ const AllConsultantsView = ({
                             </span>
                           </div>
                           <p className="text-sm text-[#797A79] leading-relaxed">
-                            {callData.analysis.opportunity.text.length > 150 
+                            {callData.analysis.opportunity.text.length > 150
                               ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
                               : callData.analysis.opportunity.text}
                           </p>
@@ -258,7 +258,7 @@ const AllConsultantsView = ({
                             </span>
                           </div>
                           <p className="text-sm text-[#797A79] leading-relaxed">
-                            {callData.analysis.consultant_response.text.length > 150 
+                            {callData.analysis.consultant_response.text.length > 150
                               ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
                               : callData.analysis.consultant_response.text}
                           </p>
@@ -279,7 +279,7 @@ const AllConsultantsView = ({
                               </div>
                             </div>
                             <p className="text-sm text-[#797A79] leading-relaxed">
-                              {(callData?.analysis.why_good?.text?.length || 0) > 150 
+                              {(callData?.analysis.why_good?.text?.length || 0) > 150
                                 ? callData?.analysis.why_good?.text?.substring(0, 150) + "..." 
                                 : callData?.analysis.why_good?.text || ""}
                             </p>
@@ -298,7 +298,7 @@ const AllConsultantsView = ({
                               </div>
                             </div>
                             <p className="text-sm text-[#797A79] leading-relaxed">
-                              {(callData.analysis.recommended_response?.text?.length || 0) > 150 
+                              {(callData.analysis.recommended_response?.text?.length || 0) > 150
                                 ? callData.analysis.recommended_response?.text?.substring(0, 150) + "..." 
                                 : callData.analysis.recommended_response?.text || ""}
                             </p>
@@ -377,6 +377,7 @@ const KeyMoments = ({
   const [selectedBehavior, setSelectedBehavior] = useState<string>("");
   const [selectedCallDetails, setSelectedCallDetails] = useState<any>(null);
   const [closingCallDetails, setClosingCallDetails] = useState<any>(null);
+  const [viewType, setViewType] = useState<"tile" | "grid">("tile");
   const [allConsultantsCallDetail, setAllConsultantsCallDetail] = useState<{
     consultantId: string;
     consultantName: string;
@@ -399,6 +400,7 @@ const KeyMoments = ({
   }>({ positive: [], missed: [] });
   const [showPositiveSummary, setShowPositiveSummary] = useState(false);
   const [showMissedSummary, setShowMissedSummary] = useState(false);
+  const [showAllConsultantsSummary, setShowAllConsultantsSummary] = useState(false);
   const positiveTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const missedTranscriptScrollRef = useRef<HTMLDivElement>(null);
   const allConsultantsTranscriptRef = useRef<HTMLDivElement>(null);
@@ -631,9 +633,9 @@ const KeyMoments = ({
             {/* Expandable Filter Panel */}
             {showFilterPanel && (
               <div className="border-t border-[#F0F0F0] pt-6 mt-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="flex flex-wrap gap-4">
                   {/* Behaviors Dropdown */}
-                  <div className="relative" ref={behaviorDropdownRef}>
+                  <div className="relative flex-1 min-w-[200px]" ref={behaviorDropdownRef}>
                     <label className="block text-sm font-medium text-[#282828] mb-2">
                       Behaviors
                     </label>
@@ -674,7 +676,7 @@ const KeyMoments = ({
                   </div>
 
                   {/* Week Dropdown */}
-                  <div className="relative" ref={weekDropdownRef}>
+                  <div className="relative flex-1 min-w-[200px]" ref={weekDropdownRef}>
                     <label className="block text-sm font-medium text-[#282828] mb-2">
                       Week
                     </label>
@@ -715,7 +717,7 @@ const KeyMoments = ({
                   </div>
 
                   {/* Consultants Dropdown */}
-                  <div className="relative" ref={consultantDropdownRef}>
+                  <div className="relative flex-1 min-w-[200px]" ref={consultantDropdownRef}>
                     <label className="block text-sm font-medium text-[#282828] mb-2">
                       Consultants
                     </label>
@@ -758,6 +760,39 @@ const KeyMoments = ({
                       </div>
                     )}
                   </div>
+                  
+                  {/* View Toggle - Only show for individual consultants */}
+                  {selectedConsultant !== "all" && (
+                    <div className="min-w-[150px]">
+                      <label className="block text-sm font-medium text-[#282828] mb-2">
+                        View
+                      </label>
+                      <div className="flex bg-[#F5F5F5] rounded-lg p-1">
+                        <button
+                          onClick={() => setViewType("tile")}
+                          className={`flex-1 px-2 py-2 rounded-md transition-all duration-200 flex items-center justify-center gap-1 ${
+                            viewType === "tile"
+                              ? "bg-white text-[#282828] shadow-sm"
+                              : "text-[#797A79] hover:text-[#282828]"
+                          }`}
+                        >
+                          <LayoutList className="w-4 h-4" />
+                          <span className="text-xs font-semibold">Tile</span>
+                        </button>
+                        <button
+                          onClick={() => setViewType("grid")}
+                          className={`flex-1 px-2 py-2 rounded-md transition-all duration-200 flex items-center justify-center gap-1 ${
+                            viewType === "grid"
+                              ? "bg-white text-[#282828] shadow-sm"
+                              : "text-[#797A79] hover:text-[#282828]"
+                          }`}
+                        >
+                          <LayoutGrid className="w-4 h-4" />
+                          <span className="text-xs font-semibold">Grid</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -911,8 +946,103 @@ const KeyMoments = ({
                   {showAllConsultantsTranscript && (
                   <div className={`w-1/2 ${closingAllConsultantsTranscript ? 'animate-fadeOut' : 'animate-slideDown'}`}>
                     <div className="bg-white rounded-xl border border-[#F0F0F0] h-full max-h-[900px] flex flex-col">
-                      <div className="px-5 py-4 border-b border-[#F0F0F0]">
+                      <div className="px-5 py-4 border-b border-[#F0F0F0] flex items-center justify-between">
                         <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => {
+                              if (allConsultantsTranscriptRef.current) {
+                                allConsultantsTranscriptRef.current.scrollTo({
+                                  top: allConsultantsTranscriptRef.current.scrollHeight,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            }}
+                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                            title="Scroll to Bottom"
+                          >
+                            <ArrowDown size={14} />
+                            Bottom
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (allConsultantsTranscriptRef.current) {
+                                const keyMomentElement = allConsultantsTranscriptRef.current.querySelector('[data-key-moment="true"]') as HTMLElement;
+                                if (keyMomentElement) {
+                                  const elementTop = keyMomentElement.offsetTop;
+                                  const scrollPosition = Math.max(0, elementTop - 65);
+                                  
+                                  allConsultantsTranscriptRef.current.scrollTo({
+                                    top: scrollPosition,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              }
+                            }}
+                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                            title="Scroll to Key Moment"
+                          >
+                            <Target size={14} />
+                            Key Moment
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (allConsultantsTranscriptRef.current) {
+                                allConsultantsTranscriptRef.current.scrollTo({
+                                  top: 0,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            }}
+                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                            title="Scroll to Top"
+                          >
+                            <ArrowUp size={14} />
+                            Top
+                          </button>
+                          <div className="relative">
+                            <button
+                              onClick={() => setShowAllConsultantsSummary(!showAllConsultantsSummary)}
+                            className="p-1.5 hover:bg-[#FF8A00]/10 rounded-md transition-colors"
+                            title="Call Summary"
+                          >
+                            <Info size={18} className="text-[#797A79] hover:text-[#FF8A00]" />
+                          </button>
+                          {showAllConsultantsSummary && allConsultantsCallDetail.transcript.summary && (
+                            <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#F0F0F0] p-4 z-20">
+                              <div className="flex items-center justify-between mb-3">
+                                <h5 className="text-sm font-semibold text-[#282828]">Call Summary</h5>
+                                <button
+                                  onClick={() => setShowAllConsultantsSummary(false)}
+                                  className="p-0.5 hover:bg-[#F5F5F5] rounded"
+                                >
+                                  <X size={14} className="text-[#797A79]" />
+                                </button>
+                              </div>
+                              <div className="space-y-2">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-xs text-[#797A79]">Total Messages:</span>
+                                  <span className="text-xs font-semibold text-[#282828]">
+                                    {allConsultantsCallDetail.transcript.summary.total_messages}
+                                  </span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                  <span className="text-xs text-[#797A79]">Customer Messages:</span>
+                                  <span className="text-xs font-semibold text-[#282828]">
+                                    {allConsultantsCallDetail.transcript.summary.customer_messages}
+                                  </span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                  <span className="text-xs text-[#797A79]">Agent Messages:</span>
+                                  <span className="text-xs font-semibold text-[#282828]">
+                                    {allConsultantsCallDetail.transcript.summary.agent_messages}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          </div>
+                        </div>
                       </div>
                       <div ref={allConsultantsTranscriptRef} className="flex-1 overflow-y-auto p-5 bg-[#FAFAFA]">
                         <div className="space-y-4">
@@ -952,60 +1082,6 @@ const KeyMoments = ({
                             </div>
                           ))}
                         </div>
-                      </div>
-                      {/* Navigation Buttons */}
-                      <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
-                        <button
-                          onClick={() => {
-                            if (allConsultantsTranscriptRef.current) {
-                              allConsultantsTranscriptRef.current.scrollTo({
-                                top: allConsultantsTranscriptRef.current.scrollHeight,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                          title="Scroll to Bottom"
-                        >
-                          <ArrowDown size={14} />
-                          Bottom
-                        </button>
-                        <button
-                          onClick={() => {
-                            if (allConsultantsTranscriptRef.current) {
-                              const keyMomentElement = allConsultantsTranscriptRef.current.querySelector('[data-key-moment="true"]') as HTMLElement;
-                              if (keyMomentElement) {
-                                const elementTop = keyMomentElement.offsetTop;
-                                const scrollPosition = Math.max(0, elementTop - 65);
-                                
-                                allConsultantsTranscriptRef.current.scrollTo({
-                                  top: scrollPosition,
-                                  behavior: 'smooth'
-                                });
-                              }
-                            }
-                          }}
-                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                          title="Scroll to Key Moment"
-                        >
-                          <Target size={14} />
-                          Key Moment
-                        </button>
-                        <button
-                          onClick={() => {
-                            if (allConsultantsTranscriptRef.current) {
-                              allConsultantsTranscriptRef.current.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                          className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                          title="Scroll to Top"
-                        >
-                          <ArrowUp size={14} />
-                          Top
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -1055,11 +1131,11 @@ const KeyMoments = ({
                               </div>
                             )}
                             {filteredPositiveCalls.length > 0 ? (
-                              <div className={isDetailView ? "flex gap-4" : "grid gap-4"}>
+                              <div className={isDetailView ? "flex gap-4" : viewType === "grid" ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" : "grid gap-4"}>
                                 {!isDetailView ? (
-                                  <div key={individualFilterKey} className="grid gap-4 w-full animate-stagger animate-quickFade">
+                                  <div key={individualFilterKey} className={viewType === "grid" ? "contents" : "grid gap-4 w-full animate-stagger animate-quickFade"}>
                                 {filteredPositiveCalls.map((callData) => (
-                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp">
+                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -1080,8 +1156,8 @@ const KeyMoments = ({
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {callData.analysis.opportunity.text.length > 150 
-                                    ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
+                                  {callData.analysis.opportunity.text.length > (viewType === "grid" ? 100 : 150)
+                                    ? callData.analysis.opportunity.text.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData.analysis.opportunity.text}
                                 </p>
                               </div>
@@ -1095,8 +1171,8 @@ const KeyMoments = ({
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {callData.analysis.consultant_response.text.length > 150 
-                                    ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
+                                  {callData.analysis.consultant_response.text.length > (viewType === "grid" ? 100 : 150)
+                                    ? callData.analysis.consultant_response.text.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData.analysis.consultant_response.text}
                                 </p>
                               </div>
@@ -1115,8 +1191,8 @@ const KeyMoments = ({
                                   </div>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {(callData?.analysis.why_good?.text?.length || 0) > 150 
-                                    ? callData?.analysis.why_good?.text?.substring(0, 150) + "..." 
+                                  {(callData?.analysis.why_good?.text?.length || 0) > (viewType === "grid" ? 100 : 150)
+                                    ? callData?.analysis.why_good?.text?.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData?.analysis.why_good?.text || ""}
                                 </p>
                               </div>
@@ -1325,14 +1401,39 @@ const KeyMoments = ({
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
                                       <div className="flex items-center justify-between">
                                         <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
-                                        <div className="relative">
+                                        <div className="flex items-center gap-2">
                                           <button
-                                            onClick={() => setShowPositiveSummary(!showPositiveSummary)}
-                                            className="p-1.5 hover:bg-[#8BAF20]/10 rounded-md transition-colors"
-                                            title="Call Summary"
+                                            onClick={scrollToBottom}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Bottom"
                                           >
-                                            <Info size={18} className="text-[#797A79] hover:text-[#8BAF20]" />
+                                            <ArrowDown size={14} />
+                                            Bottom
                                           </button>
+                                          <button
+                                            onClick={scrollToKeyMoment}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Key Moment"
+                                          >
+                                            <Target size={14} />
+                                            Key Moment
+                                          </button>
+                                          <button
+                                            onClick={scrollToTop}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Top"
+                                          >
+                                            <ArrowUp size={14} />
+                                            Top
+                                          </button>
+                                          <div className="relative">
+                                            <button
+                                              onClick={() => setShowPositiveSummary(!showPositiveSummary)}
+                                              className="p-1.5 hover:bg-[#FF8A00]/10 rounded-md transition-colors"
+                                              title="Call Summary"
+                                            >
+                                              <Info size={18} className="text-[#797A79] hover:text-[#FF8A00]" />
+                                            </button>
                                           {showPositiveSummary && transcript.summary && (
                                             <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#F0F0F0] p-4 z-20">
                                               <div className="flex items-center justify-between mb-3">
@@ -1360,6 +1461,7 @@ const KeyMoments = ({
                                               </div>
                                             </div>
                                           )}
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -1401,33 +1503,6 @@ const KeyMoments = ({
                                         </div>
                                       ))}
                                       </div>
-                                    </div>
-                                    {/* Navigation Buttons */}
-                                    <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
-                                      <button
-                                        onClick={scrollToBottom}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Bottom"
-                                      >
-                                        <ArrowDown size={14} />
-                                        Bottom
-                                      </button>
-                                      <button
-                                        onClick={scrollToKeyMoment}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Key Moment"
-                                      >
-                                        <Target size={14} />
-                                        Key Moment
-                                      </button>
-                                      <button
-                                        onClick={scrollToTop}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#8BAF20]/10 text-[#282828] hover:text-[#8BAF20] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Top"
-                                      >
-                                        <ArrowUp size={14} />
-                                        Top
-                                      </button>
                                     </div>
                                     </div>
                                   </div>
@@ -1475,11 +1550,11 @@ const KeyMoments = ({
                               </div>
                             )}
                             {filteredCalls.length > 0 ? (
-                              <div className={isDetailView ? "flex gap-4" : "grid gap-4"}>
+                              <div className={isDetailView ? "flex gap-4" : viewType === "grid" ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" : "grid gap-4"}>
                                 {!isDetailView ? (
-                                  <div key={individualFilterKey} className="grid gap-4 w-full animate-stagger animate-quickFade">
+                                  <div key={individualFilterKey} className={viewType === "grid" ? "contents" : "grid gap-4 w-full animate-stagger animate-quickFade"}>
                                 {filteredCalls.map((callData) => (
-                                <div key={callData.call_id} className="bg-white rounded-xl border border-[#F0F0F0] p-5 hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp">
+                                <div key={callData.call_id} className={`bg-white rounded-xl border border-[#F0F0F0] ${viewType === "grid" ? "p-4" : "p-5"} hover:border-[#B5DAD4] hover:bg-[#FAFAFA] transition-all duration-[250ms] cursor-pointer w-full animate-slideUp`}>
                                 {/* Card Header with Call Info */}
                                 <div className="flex items-center justify-between mb-4">
                                   <div>
@@ -1500,8 +1575,8 @@ const KeyMoments = ({
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {callData.analysis.opportunity.text.length > 150 
-                                    ? callData.analysis.opportunity.text.substring(0, 150) + "..." 
+                                  {callData.analysis.opportunity.text.length > (viewType === "grid" ? 100 : 150)
+                                    ? callData.analysis.opportunity.text.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData.analysis.opportunity.text}
                                 </p>
                               </div>
@@ -1515,8 +1590,8 @@ const KeyMoments = ({
                                   </span>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {callData.analysis.consultant_response.text.length > 150 
-                                    ? callData.analysis.consultant_response.text.substring(0, 150) + "..." 
+                                  {callData.analysis.consultant_response.text.length > (viewType === "grid" ? 100 : 150)
+                                    ? callData.analysis.consultant_response.text.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData.analysis.consultant_response.text}
                                 </p>
                               </div>
@@ -1535,8 +1610,8 @@ const KeyMoments = ({
                                   </div>
                                 </div>
                                 <p className="text-sm text-[#797A79] leading-relaxed">
-                                  {(callData.analysis.recommended_response?.text?.length || 0) > 150 
-                                    ? callData.analysis.recommended_response?.text?.substring(0, 150) + "..." 
+                                  {(callData.analysis.recommended_response?.text?.length || 0) > (viewType === "grid" ? 100 : 150)
+                                    ? callData.analysis.recommended_response?.text?.substring(0, viewType === "grid" ? 100 : 150) + "..." 
                                     : callData.analysis.recommended_response?.text || ""}
                                 </p>
                               </div>
@@ -1697,14 +1772,39 @@ const KeyMoments = ({
                                     <div className="px-5 py-4 border-b border-[#F0F0F0] bg-white rounded-t-xl sticky top-0 z-10">
                                       <div className="flex items-center justify-between">
                                         <h4 className="text-lg font-semibold text-[#282828]">Transcript</h4>
-                                        <div className="relative">
+                                        <div className="flex items-center gap-2">
                                           <button
-                                            onClick={() => setShowMissedSummary(!showMissedSummary)}
-                                            className="p-1.5 hover:bg-[#FF8A00]/10 rounded-md transition-colors"
-                                            title="Call Summary"
+                                            onClick={scrollToBottom}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Bottom"
                                           >
-                                            <Info size={18} className="text-[#797A79] hover:text-[#FF8A00]" />
+                                            <ArrowDown size={14} />
+                                            Bottom
                                           </button>
+                                          <button
+                                            onClick={scrollToKeyMoment}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Key Moment"
+                                          >
+                                            <Target size={14} />
+                                            Key Moment
+                                          </button>
+                                          <button
+                                            onClick={scrollToTop}
+                                            className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
+                                            title="Scroll to Top"
+                                          >
+                                            <ArrowUp size={14} />
+                                            Top
+                                          </button>
+                                          <div className="relative">
+                                            <button
+                                              onClick={() => setShowMissedSummary(!showMissedSummary)}
+                                              className="p-1.5 hover:bg-[#FF8A00]/10 rounded-md transition-colors"
+                                              title="Call Summary"
+                                            >
+                                              <Info size={18} className="text-[#797A79] hover:text-[#FF8A00]" />
+                                            </button>
                                           {showMissedSummary && transcript.summary && (
                                             <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#F0F0F0] p-4 z-20">
                                               <div className="flex items-center justify-between mb-3">
@@ -1732,6 +1832,7 @@ const KeyMoments = ({
                                               </div>
                                             </div>
                                           )}
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -1773,33 +1874,6 @@ const KeyMoments = ({
                                         </div>
                                       ))}
                                       </div>
-                                    </div>
-                                    {/* Navigation Buttons */}
-                                    <div className="flex items-center justify-center gap-2 p-3 border-t border-[#F0F0F0] bg-[#F5F5F5] rounded-b-xl">
-                                      <button
-                                        onClick={scrollToBottom}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Bottom"
-                                      >
-                                        <ArrowDown size={14} />
-                                        Bottom
-                                      </button>
-                                      <button
-                                        onClick={scrollToKeyMoment}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Key Moment"
-                                      >
-                                        <Target size={14} />
-                                        Key Moment
-                                      </button>
-                                      <button
-                                        onClick={scrollToTop}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-[#FF8A00]/10 text-[#282828] hover:text-[#FF8A00] rounded-md transition-colors text-xs font-medium border border-[#F0F0F0]"
-                                        title="Scroll to Top"
-                                      >
-                                        <ArrowUp size={14} />
-                                        Top
-                                      </button>
                                     </div>
                                     </div>
                                   </div>
