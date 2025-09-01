@@ -472,7 +472,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
       {/* Recommendations Modal */}
       {showRecommendationsModal && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-in fade-in duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setShowRecommendationsModal(false)}
         >
           <div 
@@ -555,7 +555,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
       {/* Student IDs Modal */}
       {showStudentIdsModal && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-in fade-in duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setShowStudentIdsModal(false)}
         >
           <div 
@@ -685,7 +685,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
       {/* Features List Modal */}
       {showFeaturesModal && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-in fade-in duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setShowFeaturesModal(false)}
         >
           <div 
@@ -836,7 +836,7 @@ export default function StudentProfile({ params }: StudentProfileProps) {
       {/* Feature Analysis Modal */}
       {showFeatureModal && selectedFeature && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-in fade-in duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setShowFeatureModal(false)}
         >
           <div 
