@@ -36,7 +36,7 @@ export default function StudentsContent() {
         <LeftSidebar />
         <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-14 lg:pt-24 pb-4 overflow-hidden">
           <div className="flex items-center justify-center h-64">
-            <div className="text-lg text-gray-600">Loading student data...</div>
+            <div className="text-lg text-gray-600">Loading customer data...</div>
           </div>
         </main>
       </div>
@@ -73,7 +73,7 @@ export default function StudentsContent() {
                 <ArrowUp color="green" size={28} />
               </span>
             </h2>
-            <p className="font-montserrat text-gray-500 text-base font-normal">Student intelligence</p>
+            <p className="font-montserrat text-gray-500 text-base font-normal">Customer intelligence</p>
           </div>
 
           {/* Center: Change Period */}
@@ -107,7 +107,7 @@ export default function StudentsContent() {
             <svg className="w-5 h-5 text-green-600 bg-(--brand-light)" fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
             </svg>
-            <span className="font-montserrat font-semibold text-gray-800 text-lg">Successful students</span>
+            <span className="font-montserrat font-semibold text-gray-800 text-lg">Successful customers</span>
           </div>
           
           <div className="flex items-center gap-3 opacity-50">
@@ -115,7 +115,7 @@ export default function StudentsContent() {
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
               <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
             </svg>
-            <span className="font-montserrat font-bold text-gray-500 text-lg">High-risk students</span>
+            <span className="font-montserrat font-bold text-gray-500 text-lg">High-risk customers</span>
           </div>
         </div>
 

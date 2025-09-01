@@ -1,0 +1,818 @@
+{
+  "metadata": {
+    "dataset": "sol_tp1",
+    "dataset_group": "sol",
+    "metric_type": "enrolled_only",
+    "is_combined": false,
+    "total_behaviors": 1,
+    "generation_date": "2025-08-26T15:36:07.851035",
+    "validation_status": "PASSED"
+  },
+  "overall_behavioral_effects": {
+    "5.B.iii": {
+      "taxonomy_info": {
+        "title": "Connection Point Clarity",
+        "description": "Consultant provides clear, specific information about who to contact for different types of enrollment challenges.",
+        "identification_guidance": "Look for detailed explanation of different support options, contact methods, and appropriate circumstances for each.",
+        "examples": [
+          "Consultant clearly differentiates: \"For technical issues, contact IT support; for application questions, contact the admissions team\"",
+          "Consultant provides multiple contact methods: \"You can reach them by phone at X, email at Y, or through the live chat on the website\"",
+          "Consultant explains availability: \"The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends\""
+        ]
+      },
+      "effect_analysis_metrics": {
+        "effect_size": -0.09243697478991597,
+        "effect_size_percentage": "-9.2%",
+        "p_value": 0.007102832240803198,
+        "sample_size": {
+          "students_with_behavior": 357,
+          "students_without_behavior": 289,
+          "total_sample_size": 646
+        },
+        "retention_rates": {
+          "retention_with_behavior": 0.7310924369747899,
+          "retention_without_behavior": 0.8235294117647058,
+          "retention_with_behavior_percentage": "73.1%",
+          "retention_without_behavior_percentage": "82.4%"
+        },
+        "statistical_significance": "significant",
+        "confidence_level": "High Confidence",
+        "variant_selected": "present",
+        "total_significant_findings": 1,
+        "datasets_found": 1
+      }
+    }
+  },
+  "individual_consultant_performance": {
+    "consultant_001": {
+      "consultant_name": "Valentina-William",
+      "rank": 1,
+      "is_top_performer": true,
+      "overall_metrics": {
+        "success_rate": 0.9090909090909091,
+        "total_students": 33,
+        "enrolled_students": 33,
+        "retained_students": 30,
+        "potential_increase": 0.004929562657695535,
+        "potential_increase_percentage": "0.49%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.6666666666666666,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "66.7%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0.06572750210260714,
+            "usage_gap_percentage": "6.57%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.004929562657695535,
+            "potential_increase_percentage": "+0.49%",
+            "potential_retention_increase": 0.004929562657695535,
+            "potential_retention_increase_percentage": "+0.49%"
+          }
+        }
+      }
+    },
+    "consultant_002": {
+      "consultant_name": "Dave-McCarthie",
+      "rank": 2,
+      "is_top_performer": true,
+      "overall_metrics": {
+        "success_rate": 0.8620689655172413,
+        "total_students": 29,
+        "enrolled_students": 29,
+        "retained_students": 25,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5517241379310345,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "55.2%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_003": {
+      "consultant_name": "Jake-McKinnis",
+      "rank": 3,
+      "is_top_performer": true,
+      "overall_metrics": {
+        "success_rate": 0.8536585365853658,
+        "total_students": 41,
+        "enrolled_students": 41,
+        "retained_students": 35,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5853658536585366,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "58.5%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_004": {
+      "consultant_name": "Sebastian-Saunders",
+      "rank": 4,
+      "is_top_performer": true,
+      "overall_metrics": {
+        "success_rate": 0.8285714285714286,
+        "total_students": 35,
+        "enrolled_students": 35,
+        "retained_students": 29,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.6,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "60.0%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_005": {
+      "consultant_name": "Sarah-Charlwood",
+      "rank": 5,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.813953488372093,
+        "total_students": 43,
+        "enrolled_students": 43,
+        "retained_students": 35,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.4186046511627907,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "41.9%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_006": {
+      "consultant_name": "Michael-Kiag",
+      "rank": 6,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.8048780487804879,
+        "total_students": 41,
+        "enrolled_students": 41,
+        "retained_students": 33,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5365853658536586,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "53.7%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_007": {
+      "consultant_name": "Robert-Cecere",
+      "rank": 7,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.782608695652174,
+        "total_students": 46,
+        "enrolled_students": 46,
+        "retained_students": 36,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5652173913043478,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "56.5%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_008": {
+      "consultant_name": "Jack-Colleran",
+      "rank": 8,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.7727272727272727,
+        "total_students": 22,
+        "enrolled_students": 22,
+        "retained_students": 17,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.4090909090909091,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "40.9%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_009": {
+      "consultant_name": "Nicholas-Bowers",
+      "rank": 9,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.7631578947368421,
+        "total_students": 38,
+        "enrolled_students": 38,
+        "retained_students": 29,
+        "potential_increase": 0.00032429949980080085,
+        "potential_increase_percentage": "0.03%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.6052631578947368,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "60.5%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0.004323993330677345,
+            "usage_gap_percentage": "0.43%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.00032429949980080085,
+            "potential_increase_percentage": "+0.03%",
+            "potential_retention_increase": 0.00032429949980080085,
+            "potential_retention_increase_percentage": "+0.03%"
+          }
+        }
+      }
+    },
+    "consultant_010": {
+      "consultant_name": "Stephen-Taylor",
+      "rank": 10,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.76,
+        "total_students": 50,
+        "enrolled_students": 50,
+        "retained_students": 38,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.56,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "56.0%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_011": {
+      "consultant_name": "Shelton-Frimpong",
+      "rank": 11,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.75,
+        "total_students": 48,
+        "enrolled_students": 48,
+        "retained_students": 36,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.4375,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "43.8%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_012": {
+      "consultant_name": "Yusuf-Aly",
+      "rank": 12,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.7441860465116279,
+        "total_students": 43,
+        "enrolled_students": 43,
+        "retained_students": 32,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5116279069767442,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "51.2%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_013": {
+      "consultant_name": "Bridgett-Young",
+      "rank": 13,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.7317073170731707,
+        "total_students": 41,
+        "enrolled_students": 41,
+        "retained_students": 30,
+        "potential_increase": 0.0006612699747687078,
+        "potential_increase_percentage": "0.07%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.6097560975609756,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "61.0%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0.008816932996916105,
+            "usage_gap_percentage": "0.88%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0006612699747687078,
+            "potential_increase_percentage": "+0.07%",
+            "potential_retention_increase": 0.0006612699747687078,
+            "potential_retention_increase_percentage": "+0.07%"
+          }
+        }
+      }
+    },
+    "consultant_014": {
+      "consultant_name": "Gabriel-Almeida",
+      "rank": 14,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.7272727272727273,
+        "total_students": 33,
+        "enrolled_students": 33,
+        "retained_students": 24,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.5454545454545454,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "54.5%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    },
+    "consultant_015": {
+      "consultant_name": "Alexandra-Kepas",
+      "rank": 15,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.6896551724137931,
+        "total_students": 58,
+        "enrolled_students": 58,
+        "retained_students": 40,
+        "potential_increase": 0.01053301093355761,
+        "potential_increase_percentage": "1.05%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.7413793103448276,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "74.1%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0.14044014578076813,
+            "usage_gap_percentage": "14.04%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.01053301093355761,
+            "potential_increase_percentage": "+1.05%",
+            "potential_retention_increase": 0.01053301093355761,
+            "potential_retention_increase_percentage": "+1.05%"
+          }
+        }
+      }
+    },
+    "consultant_016": {
+      "consultant_name": "Rochelle-Khaddage",
+      "rank": 16,
+      "is_top_performer": false,
+      "overall_metrics": {
+        "success_rate": 0.6666666666666666,
+        "total_students": 45,
+        "enrolled_students": 45,
+        "retained_students": 30,
+        "potential_increase": 0.0,
+        "potential_increase_percentage": "0.00%"
+      },
+      "behavioral_features": {
+        "5.B.iii": {
+          "consultant_metrics": {
+            "percentage_students_with_behavior": 0.4222222222222222,
+            "average_count_per_student": 1.0,
+            "percentage_students_with_behavior_formatted": "42.2%"
+          },
+          "team_averages": {
+            "team_percentage_students_with_behavior": 0.5479036385076248,
+            "team_average_count_per_student": 1.0,
+            "team_percentage_students_with_behavior_formatted": "54.8%"
+          },
+          "top_performer_benchmarks": {
+            "top_25_percentage_students_with_behavior": 0.6009391645640595,
+            "top_25_average_count_per_student": 1.0,
+            "top_25_percentage_students_with_behavior_formatted": "60.1%"
+          },
+          "potential_improvement": {
+            "usage_gap": 0,
+            "usage_gap_percentage": "0.00%",
+            "optimal_percentage_students_with_behavior": 0.6009391645640595,
+            "optimal_percentage_formatted": "60.1%",
+            "behavior_effect_size": -0.09243697478991597,
+            "potential_increase": 0.0,
+            "potential_increase_percentage": "+0.00%",
+            "potential_retention_increase": 0.0,
+            "potential_retention_increase_percentage": "+0.00%"
+          }
+        }
+      }
+    }
+  },
+  "example_quotes": {
+    "5.B.iii": {
+      "behavioral_feature_title": "Quotes for 5.B.iii",
+      "outcome_categories": {
+        "not_enrolled": [
+          {
+            "quote_id": "5.B.iii_not_enrolled_1",
+            "evidence": "CONSULTANT: If you need anything else, just let us know.",
+            "justification": "The consultant provides a clear connection point for further assistance if needed, encouraging the student to reach out if more help is necessary.",
+            "outcome_category": "not_enrolled"
+          },
+          {
+            "quote_id": "5.B.iii_not_enrolled_2",
+            "evidence": "CONSULTANT: You'll have to enrol again and we'll need to confirm your exemptions again as well.",
+            "justification": "The consultant provides specific procedural guidance about re-enrolling and confirming exemptions, clarifying the next steps the student will need to take once they are ready to proceed with enrollment.",
+            "outcome_category": "not_enrolled"
+          }
+        ],
+        "enrolled_not_retained": [
+          {
+            "quote_id": "5.B.iii_enrolled_not_retained_1",
+            "evidence": "CONSULTANT: For technical issues, you can contact IT support; for application questions, contact the admissions team. The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends.",
+            "justification": "The consultant provides clear information about who to contact for various enrollment challenges, including contact methods and availability, clarifying connection points for support.",
+            "outcome_category": "enrolled_not_retained"
+          },
+          {
+            "quote_id": "5.B.iii_enrolled_not_retained_2",
+            "evidence": "CONSULTANT: I can help you up to this point of completing your enrolment, but after today, your new port of call is going to be the Student Advisor team. So, Student Advisors are available on the number that I'm texting through to you now, and the text will also just outline what to expect from here in a little bit more detail.",
+            "justification": "The consultant provides clear information about whom to contact for future enrollment challenges by introducing the Student Advisor team and sharing contact details via text message for clarity and further instruction.",
+            "outcome_category": "enrolled_not_retained"
+          }
+        ],
+        "enrolled_retained": [
+          {
+            "quote_id": "5.B.iii_enrolled_retained_1",
+            "evidence": "CONSULTANT: So I would contact them first just to make sure that we've got all the forms filled in correctly, because if we miss one minor detail by the end of March, we will actually withdraw you from the course.\nCONSULTANT: But if you've got any other questions like course planning advice, technical issues, logging in, need help deferring, withdrawing, getting a student card, accessing the online library, give them a call.",
+            "justification": "The consultant provides clear information about who to contact for different challenges, such as course planning and technical issues. This explanation establishes connection point clarity, detailing specific support circumstances and contact methods.",
+            "outcome_category": "enrolled_retained"
+          },
+          {
+            "quote_id": "5.B.iii_enrolled_retained_2",
+            "evidence": "CONSULTANT: ...student advisors, they're your first point of contact... student coaches ...if anything changes and you need help or are struggling to get motivated, procrastination, balancing work and study or even actually just creating a study plan, they can do all of those things. So definitely highly recommend booking in a session with them.",
+            "justification": "The consultant provides clear information on different support options and circumstances they're suited for, such as motivation, procrastination, and study planning. This offers precise guidance on what help is offered by each support team, highlighting consulting with student coaches for specific needs.",
+            "outcome_category": "enrolled_retained"
+          }
+        ]
+      }
+    }
+  },
+  "team_performance_summary": {
+    "overall_metrics": {
+      "team_retention_rate": 0.7724458204334366,
+      "team_retention_rate_percentage": "77.2%",
+      "team_enrolled_retention_rate": 0.7724458204334366,
+      "team_enrolled_retention_rate_percentage": "77.2%",
+      "total_team_students": 646,
+      "total_team_enrolled": 646,
+      "total_team_enrolled_retained": 499,
+      "number_of_consultants": 16
+    },
+    "behavioral_features": {
+      "5.B.iii": {
+        "team_metrics": {
+          "average_percentage_students_with_behavior": 0.5479036385076248,
+          "average_percentage_students_with_behavior_formatted": "54.8%",
+          "average_count_per_student": 1.0,
+          "standard_deviation_percentage": 0.08967074498059162,
+          "standard_deviation_count": 0.0,
+          "consultant_range_percentage": {
+            "min": 0.4090909090909091,
+            "max": 0.7413793103448276,
+            "range": 0.3322884012539185
+          },
+          "consultant_range_count": {
+            "min": 1.0,
+            "max": 1.0,
+            "range": 0.0
+          }
+        }
+      }
+    }
+  }
+}
