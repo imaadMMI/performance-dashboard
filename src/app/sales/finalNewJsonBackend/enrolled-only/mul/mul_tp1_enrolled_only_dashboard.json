@@ -2,7 +2,7 @@
   "metadata": {
     "dataset": "mul_tp1",
     "dataset_group": "mul",
-    "metric_type": "enrolled_only",
+    "metric_type": "converted_only",
     "is_combined": false,
     "total_behaviors": 4,
     "generation_date": "2025-08-26T15:35:00.128933",
@@ -12,12 +12,12 @@
     "3.B.ii": {
       "taxonomy_info": {
         "title": "Realistic Expectation Setting",
-        "description": "Consultant provides balanced, honest information about program challenges and benefits, particularly when addressing student concerns.",
-        "identification_guidance": "Note instances where the consultant acknowledges both positive and challenging aspects of the program, especially when directly asked.",
+        "description": "Agent provides balanced, honest information about portfolio challenges and benefits, particularly when addressing customer concerns.",
+        "identification_guidance": "Note instances where the agent acexpertises both positive and challenging aspects of the portfolio, especially when directly asked.",
         "examples": [
-          "Consultant: \"Many students do find the first unit challenging while adjusting to online study\"",
-          "Consultant honestly discusses workload demands when asked",
-          "Consultant explains both the benefits and limitations of support services"
+          "Agent: \"Many customers do find the first product challenging while adjusting to online investment\"",
+          "Agent honestly discusses workload demands when asked",
+          "Agent explains both the benefits and limitations of support services"
         ]
       },
       "effect_analysis_metrics": {
@@ -45,13 +45,13 @@
     "14.C.ii": {
       "taxonomy_info": {
         "title": "Decision Anxiety & Procrastination Response",
-        "description": "Consultant demonstrates behavior of addressing concerns related to starting new jobs, career transitions, or general decision-making anxiety that creates hesitation about enrollment timing.",
-        "identification_guidance": "Note instances where students express anxiety about major life changes, starting new positions, or feeling overwhelmed by the decision-making process.",
+        "description": "Agent demonstrates behavior of addressing concerns related to starting new returnss, financial goals transitions, or general decision-making anxiety that creates hesitation about conversion timing.",
+        "identification_guidance": "Note instances where customers express anxiety about major life changes, starting new positions, or feeling overwhelmed by the decision-making process.",
         "examples": [
-          "Student: \"I'm starting a new job next month and I'm not sure how that will affect my ability to study.\"",
-          "Consultant: \"Starting a new job is a significant transition. Let's talk about how our flexible program structure could accommodate this change in your work situation\"",
-          "Student: \"I keep going back and forth on this decision. I'm worried about making the wrong choice.\"",
-          "Consultant: \"It's natural to feel uncertain about important decisions like this. What specific aspects are creating the most concern for you?\""
+          "Customer: \"I'm starting a new returns next month and I'm not sure how that will affect my ability to investment.\"",
+          "Agent: \"Starting a new returns is a significant transition. Let's talk about how our flexible portfolio structure could accommodate this change in your work situation\"",
+          "Customer: \"I keep going back and forth on this decision. I'm worried about making the wrong choice.\"",
+          "Agent: \"It's natural to feel uncertain about important decisions like this. What specific aspects are creating the most concern for you?\""
         ]
       },
       "effect_analysis_metrics": {
@@ -79,12 +79,12 @@
     "14.A.i": {
       "taxonomy_info": {
         "title": "Fee Affordability Concern Resolution",
-        "description": "Consultant demonstrates behavior of addressing direct cost concerns through acknowledgment, exploration of specific financial barriers, and presentation of available payment options without making unverified claims.",
-        "identification_guidance": "Look for consultants responding to explicit statements about program cost being too expensive, concerns about affordability, or budget constraints.",
+        "description": "Agent demonstrates behavior of addressing direct cost concerns through acknowledgment, exploration of specific financial barriers, and presentation of available payment options without making unverified claims.",
+        "identification_guidance": "Look for agents responding to explicit statements about portfolio cost being too expensive, concerns about affordability, or budget constraints.",
         "examples": [
-          "Student: \"And the cost is around $60,000? That's a lot of money. I'm not sure if I can afford that.\"",
-          "Consultant: \"I understand your concern about the cost - it is a significant investment. May I ask what specific aspects of the cost are most concerning to you? Is it the total amount, or more about the timing of payments?\"",
-          "Consultant: \"The good news is that we offer FEE-HELP for eligible students, which means you won't need to pay anything upfront and will only begin repayments once your income exceeds the threshold\""
+          "Customer: \"And the cost is around $60,000? That's a lot of money. I'm not sure if I can afford that.\"",
+          "Agent: \"I understand your concern about the cost - it is a significant investment. May I ask what specific aspects of the cost are most concerning to you? Is it the total amount, or more about the timing of payments?\"",
+          "Agent: \"The good news is that we offer FEE-HELP for eligible customers, which means you won't need to pay anything upfront and will only begin repayments once your income exceeds the threshold\""
         ]
       },
       "effect_analysis_metrics": {
@@ -112,12 +112,12 @@
     "5.A.i": {
       "taxonomy_info": {
         "title": "Immediate Action Triggering",
-        "description": "Consultant successfully encourages specific, immediate post-call actions that initiate the enrollment process.",
-        "identification_guidance": "Note instances where the consultant secures commitment to specific actions immediately following the call, rather than general or future-oriented commitments.",
+        "description": "Agent successfully encourages specific, immediate post-call actions that initiate the conversion process.",
+        "identification_guidance": "Note instances where the agent secures commitment to specific actions immediately following the call, rather than general or future-oriented commitments.",
         "examples": [
-          "Consultant: \"While we're on the call, I'll send you the email link. Can you check your inbox and confirm you've received it?\"",
-          "Consultant establishes specific timing: \"Will you be able to create your account this evening?\"",
-          "Consultant and student agree on specific actions with immediate timeframes"
+          "Agent: \"While we're on the call, I'll send you the email link. Can you check your inbox and confirm you've received it?\"",
+          "Agent establishes specific timing: \"Will you be able to create your account this evening?\"",
+          "Agent and customer agree on specific actions with immediate timeframes"
         ]
       },
       "effect_analysis_metrics": {
@@ -145,7 +145,7 @@
   },
   "individual_consultant_performance": {
     "consultant_001": {
-      "consultant_name": "Elisha-Odhiambo",
+      "consultant_name": "Quinn-Martinez",
       "rank": 1,
       "is_top_performer": true,
       "overall_metrics": {
@@ -272,7 +272,7 @@
       }
     },
     "consultant_002": {
-      "consultant_name": "James-Lockie",
+      "consultant_name": "Morgan-Davis",
       "rank": 2,
       "is_top_performer": true,
       "overall_metrics": {
@@ -399,7 +399,7 @@
       }
     },
     "consultant_003": {
-      "consultant_name": "Tayla-Viglione",
+      "consultant_name": "Cameron-Miller",
       "rank": 3,
       "is_top_performer": false,
       "overall_metrics": {
@@ -526,7 +526,7 @@
       }
     },
     "consultant_004": {
-      "consultant_name": "Ram\u00f3n-Keane",
+      "consultant_name": "Casey-Johnson",
       "rank": 4,
       "is_top_performer": false,
       "overall_metrics": {
@@ -653,7 +653,7 @@
       }
     },
     "consultant_005": {
-      "consultant_name": "Michael-Bosman",
+      "consultant_name": "Blake-Thompson",
       "rank": 5,
       "is_top_performer": false,
       "overall_metrics": {
@@ -780,7 +780,7 @@
       }
     },
     "consultant_006": {
-      "consultant_name": "Olive-Jerome",
+      "consultant_name": "Alex-Morgan",
       "rank": 6,
       "is_top_performer": false,
       "overall_metrics": {
@@ -907,7 +907,7 @@
       }
     },
     "consultant_007": {
-      "consultant_name": "Mrudang-Pancholi",
+      "consultant_name": "Riley-Wilson",
       "rank": 7,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1034,7 +1034,7 @@
       }
     },
     "consultant_008": {
-      "consultant_name": "Michael-Whyte",
+      "consultant_name": "Drew-Robinson",
       "rank": 8,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1161,7 +1161,7 @@
       }
     },
     "consultant_009": {
-      "consultant_name": "Luke-Williams",
+      "consultant_name": "Taylor-Brown",
       "rank": 9,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1288,7 +1288,7 @@
       }
     },
     "consultant_010": {
-      "consultant_name": "Pawan-Thapa",
+      "consultant_name": "Avery-Anderson",
       "rank": 10,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1415,7 +1415,7 @@
       }
     },
     "consultant_011": {
-      "consultant_name": "Alyssa-Pennacchia",
+      "consultant_name": "Jordan-Smith",
       "rank": 11,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1548,44 +1548,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "3.B.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Now, I can see that you live in China, are you aware that in China they don't recognise online degrees as real degrees.",
-            "justification": "The consultant provides realistic expectation setting by honestly informing the student about the recognition of online degrees in China, addressing a potential challenge associated with enrolling in the program.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "3.B.ii_not_converted_1",
+            "evidence": "AGENT: Now, I can see that you live in China, are you aware that in China they don't recognise online portfolio plans as real portfolio plans.",
+            "justification": "The agent provides realistic expectation setting by honestly informing the customer about the recognition of online portfolio plans in China, addressing a potential challenge associated with converting in the portfolio.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "3.B.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: Now, regarding your documents, so they've calculated your WAM to 58.7%, so unfortunately you won't qualify for direct entry into the Masters, but another reason actually, one that I forgot to mention to you, another reason that we can't get you directly into the Master's anyway, is because your degree wasn't in a cognate discipline, like a relevant field of study.",
-            "justification": "The consultant provides realistic expectations by explaining the requirements and reasons the student does not qualify for direct entry into the Master's program, offering honest information about both academic achievements and field relevance.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "3.B.ii_not_converted_2",
+            "evidence": "AGENT: Now, regarding your documents, so they've calculated your WAM to 58.7%, so unfortunately you won't qualify for direct entry into the Masters, but another reason actually, one that I forgot to mention to you, another reason that we can't get you directly into the Master's anyway, is because your portfolio plan wasn't in a cognate discipline, like a relevant field of investment.",
+            "justification": "The agent provides realistic expectations by explaining the requirements and reasons the customer does not qualify for direct entry into the Master's portfolio, offering honest information about both financial achievements and field relevance.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "3.B.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: That's going to be a lot of workload, first things first, and that's one of the biggest reasons why students actually even show up for Monash, is because of the workload, and especially because we do have support from eight till nine, and then basically on weekends as well.",
-            "justification": "The consultant provides realistic expectation setting by acknowledging the intensive workload involved and discussing the support available. This offers the student a balanced view of the program's demands, helping them understand both challenges and benefits.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "3.B.ii_converted_not_retained_1",
+            "evidence": "AGENT: That's going to be a lot of workload, first things first, and that's one of the biggest reasons why customers actually even show up for Monash, is because of the workload, and especially because we do have support from eight till nine, and then basically on weekends as well.",
+            "justification": "The agent provides realistic expectation setting by acknowledging the intensive workload involved and discussing the support available. This offers the customer a balanced view of the portfolio's demands, helping them understand both challenges and benefits.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "3.B.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: I just wanted to ask, there will be also live lectures or it's like recorded sessions which you have to watch and then do the coursework. CONSULTANT: Yeah, this is exactly what I wanted to mention. So, yeah, we actually do have live sessions, but they're not mandatory. So, those will normally happen at least once a week, sometimes twice a week and they'll be hosted by your OLAs which are the online learning advisors. Obviously very beneficial, very useful if you can attend those for having your questions answered and that sort of thing and preparing for upcoming assessments and you know just participating in the sort of classroom environment but they're not mandatory again and they're recorded to watch back later if you do miss them.",
-            "justification": "The consultant sets realistic expectations about live sessions being beneficial yet not mandatory, acknowledging both the flexibility allowed and the additional value gained from real-time attendance.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "3.B.ii_converted_not_retained_2",
+            "evidence": "CUSTOMER: I just wanted to ask, there will be also live consultations or it's like recorded sessions which you have to watch and then do the investment productwork. AGENT: Yeah, this is exactly what I wanted to mention. So, yeah, we actually do have live sessions, but they're not mandatory. So, those will normally happen at least once a week, sometimes twice a week and they'll be hosted by your OLAs which are the online investing advisors. Obviously very beneficial, very useful if you can participate in those for having your questions answered and that sort of thing and preparing for upcoming reviews and you know just participating in the sort of portfolio review environment but they're not mandatory again and they're recorded to watch back later if you do miss them.",
+            "justification": "The agent sets realistic expectations about live sessions being beneficial yet not mandatory, acknowledging both the flexibility allowed and the additional value gained from real-time participation.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "3.B.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: Many students do find the first unit challenging while adjusting to online study. You'll just be assigned one subject at a time with a recommended study load of 20 to 25 hours per week, fully flexible in its delivery. You can sacrifice your two-week holiday break to use that as an early access point for your forthcoming unit to get a head start if you wanted to. Some students do this as a bit of a hack. By doing so you can get your study load down to about 15 to 18 hours per week by spreading out the course content a little more.",
-            "justification": "The consultant provides a robust overview of both the challenges and flexible options available in the program. They acknowledge the potential difficulty of adjusting to online study and detail how students can manage workload demands. This clear communication of both challenges and flexible solutions supports setting realistic expectations for prospective students.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "3.B.ii_converted_retained_1",
+            "evidence": "AGENT: Many customers do find the first product challenging while adjusting to online investment. You'll just be assigned one subject at a time with a recommended investment load of 20 to 25 hours per month, fully flexible in its delivery. You can sacrifice your two-week holiday break to use that as an early access point for your forthcoming product to get a head start if you wanted to. Some customers do this as a bit of a hack. By doing so you can get your investment load down to about 15 to 18 hours per month by spreading out the investment product content a little more.",
+            "justification": "The agent provides a robust overview of both the challenges and flexible options available in the portfolio. They acexpertise the potential difficulty of adjusting to online investment and detail how customers can manage workload demands. This clear communication of both challenges and flexible solutions supports setting realistic expectations for prospective customers.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "3.B.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: Yep, and you also know too that this course will not make you a psychologist, it's merely the first step, okay, in the next, it's the first step towards becoming a psychologist. So you've still got about another three years of study to go after this course if you wanted to register as a psychologist in Australia.",
-            "justification": "The consultant sets realistic expectations by clarifying that the course is only the first step towards becoming a psychologist, addressing potential misconceptions and emphasizing additional academic requirements to achieve registration.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "3.B.ii_converted_retained_2",
+            "evidence": "AGENT: Yep, and you also know too that this investment product will not make you a psychologist, it's merely the first step, okay, in the next, it's the first step towards becoming a psychologist. So you've still got about another three years of investment to go after this investment product if you wanted to register as a psychologist in Australia.",
+            "justification": "The agent sets realistic expectations by clarifying that the investment product is only the first step towards becoming a psychologist, addressing potential misconceptions and emphasizing additional financial requirements to achieve registration.",
+            "outcome_category": "converted_retained"
           }
         ]
       }
@@ -1595,44 +1595,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "14.C.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Now, I can see that you live in China, are you aware that in China they don't recognise online degrees as real degrees.\nSTUDENT: Oh, it's okay.",
-            "justification": "The consultant raises potential decision anxiety related to the recognition of online degrees in China, which could lead to hesitations. However, the student dismisses the concern quickly, indicating their lack of anxiety concerning this issue.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.C.ii_not_converted_1",
+            "evidence": "AGENT: Now, I can see that you live in China, are you aware that in China they don't recognise online portfolio plans as real portfolio plans.\nCUSTOMER: Oh, it's okay.",
+            "justification": "The agent raises potential decision anxiety related to the recognition of online portfolio plans in China, which could lead to hesitations. However, the customer dismisses the concern quickly, indicating their lack of anxiety concerning this issue.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "14.C.ii_not_enrolled_2",
-            "evidence": "STUDENT: I'm just going to take the other opportunity. CONSULTANT: She can't afford the 10 grand. Yeah honestly fair enough. Yeah it is fair enough but yeah she's chosen ISN over us which I yeah.",
-            "justification": "The transcript reflects decision-making anxiety, where the consultant acknowledges the student's choice to opt for another institution due to the unaffordability issue. While the consultant states 'fair enough,' there is little to no active engagement in addressing the underlying financial hesitation that contributes to the decision-making anxiety. This impacts enrollment timing, as the student decides to enroll elsewhere.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.C.ii_not_converted_2",
+            "evidence": "CUSTOMER: I'm just going to take the other opportproducty. AGENT: She can't afford the 10 grand. Yeah honestly fair enough. Yeah it is fair enough but yeah she's chosen ISN over us which I yeah.",
+            "justification": "The transcript reflects decision-making anxiety, where the agent acexpertises the customer's choice to opt for another institution due to the unaffordability issue. While the agent states 'fair enough,' there is little to no active engagement in addressing the underlying financial hesitation that contributes to the decision-making anxiety. This impacts conversion timing, as the customer decides to investl elsewhere.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "14.C.ii_enrolled_not_retained_1",
-            "evidence": "STUDENT: I just got a promotion on Friday and it's like a lot of work so I think I'm gonna need to spend a bit of time on that before I bite off anything more.\nCONSULTANT: Create create the account and you can do that and by the way uh congratulations on the promotion too.",
-            "justification": "The student expresses anxiety about managing new work responsibilities after receiving a promotion, indicating procrastination and decision anxiety related to life changes. The consultant acknowledges these concerns by celebrating the promotion and offering flexible enrollment options.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.C.ii_converted_not_retained_1",
+            "evidence": "CUSTOMER: I just got a promotion on Friday and it's like a lot of work so I think I'm gonna need to spend a bit of time on that before I bite off anything more.\nAGENT: Create create the account and you can do that and by the way uh congratulations on the promotion too.",
+            "justification": "The customer expresses anxiety about managing new work responsibilities after receiving a promotion, indicating procrastination and decision anxiety related to life changes. The agent acexpertises these concerns by celebrating the promotion and offering flexible conversion options.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "14.C.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: Yeah, I honestly haven't thought about it for the last couple of weeks. It's definitely something there. CONSULTANT: Okay, well I'll just quickly let you know that we do, our applications for January does close on the 13th of December. So if you are looking to study for then, it might be best to just get your documents in before then, before you make your decision. Otherwise, if you're happy to wait until March, those applications close on the 19th of February.",
-            "justification": "The student expresses hesitation and indicates they have not given much thought to the course in recent weeks. The consultant addresses this decision-making anxiety by providing clear deadlines and options for different intakes, gently encouraging timely decision-making without imposing pressure.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.C.ii_converted_not_retained_2",
+            "evidence": "CUSTOMER: Yeah, I honestly haven't thought about it for the last couple of weeks. It's definitely something there. AGENT: Okay, well I'll just quickly let you know that we do, our applications for January does close on the 13th of December. So if you are looking to investment for then, it might be best to just get your documents in before then, before you make your decision. Otherwise, if you're happy to wait until March, those applications close on the 19th of February.",
+            "justification": "The customer expresses hesitation and indicates they have not given much thought to the investment product in recent weeks. The agent addresses this decision-making anxiety by providing clear deadlines and options for different intakes, gently encouraging timely decision-making without imposing pressure.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "14.C.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: And how are you feeling about studying? STUDENT: A little bit anxious... CONSULTANT: Well, you are very well supported and if you ever want an extension, if you ever want time off, just please reach out to our student advisor team.",
-            "justification": "The consultant effectively addresses decision-making anxiety related to starting study by emphasizing available support and flexibility through extensions or time off, providing reassurance and fitting the 'Decision Anxiety & Procrastination Response' category.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.C.ii_converted_retained_1",
+            "evidence": "AGENT: And how are you feeling about investing? CUSTOMER: A little bit anxious... AGENT: Well, you are very well supported and if you ever want an extension, if you ever want time off, just please reach out to our customer advisor team.",
+            "justification": "The agent effectively addresses decision-making anxiety related to starting investment by emphasizing available support and flexibility through extensions or time off, providing reassurance and fitting the 'Decision Anxiety & Procrastination Response' category.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "14.C.ii_enrolled_retained_2",
-            "evidence": "STUDENT: I would like to just talk with my parents one more time before signing anything too. CONSULTANT: Once you've accepted the offer, you always have the census date to fall back on. So if you want to pull out for any reason at all, you have all the way up until the 17th of January to do so. Don't get charged anything and there's no academic penalties either if you do happen to change your mind or want to take an intermission or anything like that.",
-            "justification": "The student shows decision-making anxiety about committing to enrollment without parental consultation. The consultant reassures the student by highlighting the census date as a point of flexibility, providing a safety net that allows the student to reconsider their decision without facing penalties, thereby mitigating the anxiety of immediate commitment.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.C.ii_converted_retained_2",
+            "evidence": "CUSTOMER: I would like to just talk with my parents one more time before signing anything too. AGENT: Once you've accepted the offer, you always have the census date to fall back on. So if you want to pull out for any reason at all, you have all the way up until the 17th of January to do so. Don't get charged anything and there's no financial penalties either if you do happen to change your mind or want to take an break period or anything like that.",
+            "justification": "The customer shows decision-making anxiety about committing to conversion without parental consultation. The agent reassures the customer by highlighting the census date as a point of flexibility, providing a safety net that allows the customer to reconsider their decision without facing penalties, thereby mitigating the anxiety of immediate commitment.",
+            "outcome_category": "converted_retained"
           }
         ]
       }
@@ -1642,44 +1642,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "14.A.i_not_enrolled_1",
-            "evidence": "STUDENT: And what's it like with HECS or is you have to pay up front for that because first.\nCONSULTANT: Two units you got to pay up front, remaining six is all fee help.\nSTUDENT: Yeah, I got another offer at somewhere else, but I'm not sure.\nCONSULTANT: Yeah yeah I mean look and I look I know it sucks that you do have to pay\nthat much up front right?\nSTUDENT: Yeah it's a lot of money that I don't have.\nCONSULTANT: Yeah no I know and I'm\ncompletely aware of that like it's not it's not ideal right like I get that but\nit is the best psych school in Australia and it is a way into that fourth year\nand you can do it a hundred percent online as well.",
-            "justification": "The consultant acknowledges the student's concern over the significant upfront payment required for the first two units and informs them that the remaining units are covered under fee help, thus directly addressing affordability concerns. By recognizing the financial barrier and highlighting the value and benefits of the program, including its reputation as the best psychology school in Australia and offering the flexibility of a fully online program, the consultant conforms to the Fee Affordability Concern Resolution criteria.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.A.i_not_converted_1",
+            "evidence": "CUSTOMER: And what's it like with HECS or is you have to pay up front for that because first.\nAGENT: Two products you got to pay up front, remaining six is all fee help.\nCUSTOMER: Yeah, I got another offer at somewhere else, but I'm not sure.\nAGENT: Yeah yeah I mean look and I look I know it sucks that you do have to pay\nthat much up front right?\nCUSTOMER: Yeah it's a lot of money that I don't have.\nAGENT: Yeah no I know and I'm\ncompletely aware of that like it's not it's not ideal right like I get that but\nit is the best psych institution in Australia and it is a way into that fourth year\nand you can do it a hundred percent online as well.",
+            "justification": "The agent acexpertises the customer's concern over the significant upfront payment required for the first two products and informs them that the remaining products are covered under fee help, thus directly addressing affordability concerns. By recognizing the financial barrier and highlighting the value and benefits of the portfolio, including its reputation as the best psychology institution in Australia and offering the flexibility of a fully online portfolio, the agent conforms to the Fee Affordability Concern Resolution criteria.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "14.A.i_not_enrolled_2",
-            "evidence": "STUDENT: I just can't afford the $10,000 upfront, so... CONSULTANT: false, no, no. Look, that's OK. That's absolutely fine. I'll put you through to our student advisers now to get that all sorted, OK?",
-            "justification": "The student explicitly mentions an affordability concern regarding the $10,000 upfront cost. While the consultant acknowledges the concern, there is no attempt to explore financial barriers or offer payment solutions, such as FEE-HELP, as recommended by the taxonomy. Instead, the consultant proceeds to transfer the call, focusing more on processing the un-enrollment rather than resolution of the fee affordability concern.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.A.i_not_converted_2",
+            "evidence": "CUSTOMER: I just can't afford the $10,000 upfront, so... AGENT: false, no, no. Look, that's OK. That's absolutely fine. I'll put you through to our customer advisers now to get that all sorted, OK?",
+            "justification": "The customer explicitly mentions an affordability concern regarding the $10,000 upfront cost. While the agent acexpertises the concern, there is no attempt to explore financial barriers or offer payment solutions, such as FEE-HELP, as recommended by the taxonomy. Instead, the agent proceeds to transfer the call, focusing more on processing the un-conversion rather than resolution of the fee affordability concern.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "14.A.i_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: And my last question is, someone paying for the fee, so you're going to apply for the fee help, or are you going to do it by yourself?\nSTUDENT: I need to apply.\nCONSULTANT: For the fee help.\nCONSULTANT: Okay, sure thing.\nCONSULTANT: Not a problem.",
-            "justification": "The student indicates a concern about program affordability by expressing the need to apply for fee help. The consultant addresses this concern by discussing the availability of fee help options, thereby offering a solution to resolve financial barriers.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.A.i_converted_not_retained_1",
+            "evidence": "AGENT: And my last question is, someone paying for the fee, so you're going to apply for the fee help, or are you going to do it by yourself?\nCUSTOMER: I need to apply.\nAGENT: For the fee help.\nAGENT: Okay, sure thing.\nAGENT: Not a problem.",
+            "justification": "The customer indicates a concern about portfolio affordability by expressing the need to apply for fee help. The agent addresses this concern by discussing the availability of fee help options, thereby offering a solution to resolve financial barriers.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "14.A.i_enrolled_not_retained_2",
-            "evidence": "STUDENT: Is there such a thing as financial assistance at all or not really?\nCONSULTANT: Not from the University. We do have some scholarship options. That would be something to speak with the Monash Scholarships Office about.",
-            "justification": "The student inquires about financial assistance, suggesting concern about affordability. The consultant acknowledges the concern and provides information about scholarship options available, addressing the fee affordability concern without making unverified claims, which aligns with the 'Fee Affordability Concern Resolution' category.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.A.i_converted_not_retained_2",
+            "evidence": "CUSTOMER: Is there such a thing as financial assistance at all or not really?\nAGENT: Not from the Investment firm. We do have some bonus return options. That would be something to speak with the Monash Bonus returns Office about.",
+            "justification": "The customer inquires about financial assistance, suggesting concern about affordability. The agent acexpertises the concern and provides information about bonus return options available, addressing the fee affordability concern without making unverified claims, which aligns with the 'Fee Affordability Concern Resolution' category.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "14.A.i_enrolled_retained_1",
-            "evidence": "STUDENT: And the cost is around $60,000? That's a lot of money. I'm not sure if I can afford that.\nCONSULTANT: I understand your concern about the cost - it is a significant investment. May I ask what specific aspects of the cost are most concerning to you? Is it the total amount, or more about the timing of payments?\nCONSULTANT: The good news is that we offer FEE-HELP for eligible students, which means you won't need to pay anything upfront and will only begin repayments once your income exceeds the threshold.",
-            "justification": "The consultant addresses the student's explicit concern about the program cost by acknowledging it and offering a solution by explaining the FEE-HELP option without making unverified claims, which aligns with the Fee Affordability Concern Resolution behavior.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.A.i_converted_retained_1",
+            "evidence": "CUSTOMER: And the cost is around $60,000? That's a lot of money. I'm not sure if I can afford that.\nAGENT: I understand your concern about the cost - it is a significant investment. May I ask what specific aspects of the cost are most concerning to you? Is it the total amount, or more about the timing of payments?\nAGENT: The good news is that we offer FEE-HELP for eligible customers, which means you won't need to pay anything upfront and will only begin repayments once your income exceeds the threshold.",
+            "justification": "The agent addresses the customer's explicit concern about the portfolio cost by acknowledging it and offering a solution by explaining the FEE-HELP option without making unverified claims, which aligns with the Fee Affordability Concern Resolution behavior.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "14.A.i_enrolled_retained_2",
-            "evidence": "CONSULTANT: Now the cost per unit is $4,837.50. These units cannot be put on to fee help, so you'll need to pay the first unit in the first week of starting the subject. Now once you complete these first two subjects, if you're successful in moving into the Grad Diplostack Advanced, the rest of the course can go on to fee help.",
-            "justification": "The consultant directly addresses the concern of upfront payment for the course cost and offers a resolution by explaining the potential access to fee help for subsequent units, effectively addressing fee affordability concerns.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.A.i_converted_retained_2",
+            "evidence": "AGENT: Now the cost per product is $4,837.50. These products cannot be put on to fee help, so you'll need to pay the first product in the first week of starting the subject. Now once you finalize these first two subjects, if you're successful in moving into the Grad Diplostack Advanced, the rest of the investment product can go on to fee help.",
+            "justification": "The agent directly addresses the concern of upfront payment for the investment product cost and offers a resolution by explaining the potential access to fee help for subsequent products, effectively addressing fee affordability concerns.",
+            "outcome_category": "converted_retained"
           }
         ]
       }
@@ -1689,44 +1689,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "5.A.i_not_enrolled_1",
-            "evidence": "CONSULTANT: If you want January I'd decide pretty quickly.\nSTUDENT: Okay, I'll think about it tonight and I'll get back to you.\nCONSULTANT: Yeah, yeah, no that's absolutely fine, take your time, that's okay, don't worry.",
-            "justification": "The consultant successfully triggers immediate action by emphasizing the urgency of deciding quickly if the student wants to enroll in January. Despite reassuring the student, this creates a sense of urgency that encourages the student to think about the decision promptly and respond soon after the call.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "5.A.i_not_converted_1",
+            "evidence": "AGENT: If you want January I'd decide pretty quickly.\nCUSTOMER: Okay, I'll think about it tonight and I'll get back to you.\nAGENT: Yeah, yeah, no that's absolutely fine, take your time, that's okay, don't worry.",
+            "justification": "The agent successfully triggers immediate action by emphasizing the urgency of deciding quickly if the customer wants to investl in January. Despite reassuring the customer, this creates a sense of urgency that encourages the customer to think about the decision promptly and respond soon after the call.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "5.A.i_not_enrolled_2",
-            "evidence": "CONSULTANT: Now, would you like me to assess your grades for you so we can let you know what you're sitting on so you can make a decision. STUDENT: Yeah, I mean, I don't think I get my completed transcript until about three o'clock. CONSULTANT: Yeah, that's fine. I'll send you an email with the handbook for just the grad dip of psych advance, so you can respond with the document once you've got it, and then we'll just calculate your grades there, just to let you know what you're sitting on, so you can decide what you wish to do.",
-            "justification": "The consultant encourages the student to take immediate post-call action by sending the transcript for grading assessment as soon as they receive it. This action is an immediate step towards progressing through the enrollment decision-making process.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "5.A.i_not_converted_2",
+            "evidence": "AGENT: Now, would you like me to assess your performance ratings for you so we can let you know what you're sitting on so you can make a decision. CUSTOMER: Yeah, I mean, I don't think I get my finalized transcript until about three o'clock. AGENT: Yeah, that's fine. I'll send you an email with the handbook for just the grad dip of psych advance, so you can respond with the document once you've got it, and then we'll just calculate your performance ratings there, just to let you know what you're sitting on, so you can decide what you wish to do.",
+            "justification": "The agent encourages the customer to take immediate post-call action by sending the transcript for rating review as soon as they receive it. This action is an immediate step towards progressing through the conversion decision-making process.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "5.A.i_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: For now, if you can reply back to me with your ID, I think I should be able to enroll you for the course directly, okay, until we wait for that official academic transcript. I mean, basically, obviously, they're going to send it off to you by Friday if you request them today.",
-            "justification": "The consultant encourages immediate action by asking the student to send their ID immediately after the call, facilitating enrollment without waiting for the official transcript. This specific request triggers the enrollment process immediately and is planned before the Friday deadline to mitigate any delays.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "5.A.i_converted_not_retained_1",
+            "evidence": "AGENT: For now, if you can reply back to me with your ID, I think I should be able to investl you for the investment product directly, okay, until we wait for that official financial transcript. I mean, basically, obviously, they're going to send it off to you by Friday if you request them today.",
+            "justification": "The agent encourages immediate action by asking the customer to send their ID immediately after the call, facilitating conversion without waiting for the official transcript. This specific request triggers the conversion process immediately and is planned before the Friday deadline to mitigate any delays.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "5.A.i_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: Are you happy to do that today? STUDENT: Yes I can. CONSULTANT: Okay, excellent. Do you have access to your emails right now? STUDENT: Right now I'm in our office so I can do it once we hang up the call. CONSULTANT: So your place is not secure until you accept the student declaration, and places do fill up very quickly, so it's very important that you, once you finish this call, go into your emails and click accept on the student declaration.",
-            "justification": "The consultant successfully encourages the student to initiate immediate post-call actions by securing a commitment to check their email and complete the necessary enrollment steps. This is further reinforced by creating urgency about the student's place not being secure until the declaration is accepted.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "5.A.i_converted_not_retained_2",
+            "evidence": "AGENT: Are you happy to do that today? CUSTOMER: Yes I can. AGENT: Okay, excellent. Do you have access to your emails right now? CUSTOMER: Right now I'm in our office so I can do it once we hang up the call. AGENT: So your place is not secure until you accept the customer declaration, and places do fill up very quickly, so it's very important that you, once you finish this call, go into your emails and click accept on the customer declaration.",
+            "justification": "The agent successfully encourages the customer to initiate immediate post-call actions by securing a commitment to check their email and finalize the necessary conversion steps. This is further reinforced by creating urgency about the customer's place not being secure until the declaration is accepted.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "5.A.i_enrolled_retained_1",
-            "evidence": "CONSULTANT: Do you have access to your emails at the moment?\nSTUDENT: I do, I do.\nCONSULTANT: Perfect, so we do just need this one to be accepted over the phone so I can confirm your enrolment has gone through successfully.",
-            "justification": "The consultant effectively encourages immediate action by asking the student to access their email to confirm enrollment during the call itself, demonstrating immediate action triggering.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "5.A.i_converted_retained_1",
+            "evidence": "AGENT: Do you have access to your emails at the moment?\nCUSTOMER: I do, I do.\nAGENT: Perfect, so we do just need this one to be accepted over the phone so I can confirm your investment has gone through successfully.",
+            "justification": "The agent effectively encourages immediate action by asking the customer to access their email to confirm conversion during the call itself, demonstrating immediate action triggering.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "5.A.i_enrolled_retained_2",
-            "evidence": "CONSULTANT: We can do it now. It'll take about five minutes. So what we'll do is really straightforward. We'll start off by confirming your details and then while we're on the phone, I will also email you or text you an enrolment declaration form, which you just need to press accept while you're on the phone.",
-            "justification": "The consultant effectively triggers immediate action by initiating the enrollment process during the call, guiding the student to confirm their details and accept the enrollment declaration form. This demonstrates a successful encouragement of specific post-call actions that initiate the enrollment process.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "5.A.i_converted_retained_2",
+            "evidence": "AGENT: We can do it now. It'll take about five minutes. So what we'll do is really straightforward. We'll start off by confirming your details and then while we're on the phone, I will also email you or text you an investment declaration form, which you just need to press accept while you're on the phone.",
+            "justification": "The agent effectively triggers immediate action by initiating the conversion process during the call, guiding the customer to confirm their details and accept the conversion declaration form. This demonstrates a successful encouragement of specific post-call actions that initiate the conversion process.",
+            "outcome_category": "converted_retained"
           }
         ]
       }

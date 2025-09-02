@@ -1,14 +1,16 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import DashboardEnhanced from "./DashboardComponent";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowLeft } from "lucide-react";
 import { LeftSidebar } from "@/components/LeftSidebar";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dataView, setDataView] = useState<"enrolled-only" | "all-students">("all-students");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   
   // Derive selected university from selected schema
   const selectedUniversity = selectedSchema === "sol-tp1" ? "sol" : "monash";
@@ -43,6 +45,16 @@ export default function Home() {
       <LeftSidebar />
       
       <main className="flex-1 pl-16 lg:pl-32 pr-4 lg:pr-8 pt-6 lg:pt-10 pb-4 overflow-y-auto">
+
+        {/* Back Button */}
+                <button
+                  onClick={() => router.push('/sales/placeholder')}
+                  className="mb-6 flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <ArrowLeft size={20} />
+                  <span className="font-medium">Back to Sales Center</span>
+                </button>
+                
         {/* Header with Dropdown Filter - matching original page.tsx */}
         <div className="mb-6 flex items-center justify-between">
           <h1 className="font-montserrat font-bold text-3xl lg:text-4xl text-[#58595b]">
@@ -61,7 +73,7 @@ export default function Home() {
                       : "text-[#797A79] hover:text-[#282828]"
                   }`}
                 >
-                  All Students
+                  All Customers
                 </button>
                 <button
                   onClick={() => setDataView("enrolled-only")}
@@ -71,7 +83,7 @@ export default function Home() {
                       : "text-[#797A79] hover:text-[#282828]"
                   }`}
                 >
-                  Enrolled Only
+                  Converted Only
                 </button>
               </div>
               
@@ -79,13 +91,13 @@ export default function Home() {
               <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="px-4 py-2 bg-white border border-[#CD853F] rounded-lg font-montserrat font-medium text-[#CD853F] hover:bg-[#FFE5D0] transition-all duration-200 flex items-center gap-2"
+                className="px-4 py-2 bg-white border border-[#FF8A00] rounded-lg font-montserrat font-medium text-[#FF8A00] hover:bg-[#FFE5D0] transition-all duration-200 flex items-center gap-2"
               >
                 <span>
-                  {selectedSchema === "tp1" ? "Monash - TP1" : 
-                   selectedSchema === "tp2" ? "Monash - TP2" : 
-                   selectedSchema === "combined" ? "Monash - Combined" : 
-                   "SOL - TP1"}
+                  {selectedSchema === "tp1" ? "Wayne Corp. - Q1" : 
+                   selectedSchema === "tp2" ? "Wayne Corp. - Q2" : 
+                   selectedSchema === "combined" ? "Wayne Corp. - Combined" : 
+                   "Stark Inc. - Q1"}
                 </span>
                 <ChevronDown 
                   size={16} 
@@ -98,34 +110,34 @@ export default function Home() {
                 <div className="absolute top-full right-0 mt-2 w-[320px] bg-white border border-[#F0F0F0] rounded-lg shadow-lg z-10 overflow-hidden">
                   {/* University Toggle */}
                   <div className="p-4 border-b border-[#F0F0F0]">
-                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select University</p>
+                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select Company</p>
                     <div className="flex gap-2">
                       <button
                         onClick={() => setActiveUniversity("monash")}
                         className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
                           activeUniversity === "monash"
-                            ? "bg-[#CD853F] text-white shadow-sm"
+                            ? "bg-[#FF8A00] text-white shadow-sm"
                             : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
                         }`}
                       >
-                        Monash
+                        Wayne
                       </button>
                       <button
                         onClick={() => setActiveUniversity("sol")}
                         className={`flex-1 px-4 py-2 rounded-lg font-montserrat font-medium transition-all duration-200 ${
                           activeUniversity === "sol"
-                            ? "bg-[#CD853F] text-white shadow-sm"
+                            ? "bg-[#FF8A00] text-white shadow-sm"
                             : "bg-[#F5F5F5] text-[#58595b] hover:bg-[#ECECEC]"
                         }`}
                       >
-                        SOL
+                        Stark
                       </button>
                     </div>
                   </div>
                   
                   {/* Teaching Period Selection */}
                   <div className="p-4">
-                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select Teaching Period</p>
+                    <p className="text-xs font-montserrat font-semibold text-[#797A79] uppercase tracking-wide mb-3">Select Yearly Quarter</p>
                     <div className="space-y-2">
                       {activeUniversity === "monash" ? (
                         <>
@@ -136,11 +148,11 @@ export default function Home() {
                             }}
                             className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
                               selectedSchema === "tp1" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#CD853F]" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
                                 : "hover:bg-[#F5F5F5] text-[#58595b]"
                             }`}
                           >
-                            Teaching Period 1
+                            Quarter 1 (Jan - Mar)
                           </button>
                           <button
                             onClick={() => {
@@ -149,11 +161,11 @@ export default function Home() {
                             }}
                             className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
                               selectedSchema === "tp2" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#CD853F]" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
                                 : "hover:bg-[#F5F5F5] text-[#58595b]"
                             }`}
                           >
-                            Teaching Period 2
+                            Quarter 2 (Apr - Jun)
                           </button>
                           <button
                             onClick={() => {
@@ -162,11 +174,11 @@ export default function Home() {
                             }}
                             className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
                               selectedSchema === "combined" 
-                                ? "bg-[#FFE5D0] font-semibold text-[#CD853F]" 
+                                ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
                                 : "hover:bg-[#F5F5F5] text-[#58595b]"
                             }`}
                           >
-                            TP1-TP2 Combined
+                            Q1-Q2 Combined
                           </button>
                         </>
                       ) : (
@@ -177,11 +189,11 @@ export default function Home() {
                           }}
                           className={`w-full px-4 py-2 text-left font-montserrat rounded-lg transition-colors ${
                             selectedSchema === "sol-tp1" 
-                              ? "bg-[#FFE5D0] font-semibold text-[#CD853F]" 
+                              ? "bg-[#FFE5D0] font-semibold text-[#FF8A00]" 
                               : "hover:bg-[#F5F5F5] text-[#58595b]"
                           }`}
                         >
-                          Teaching Period 1
+                          Quarter 1 (Jan - Mar)
                         </button>
                       )}
                     </div>

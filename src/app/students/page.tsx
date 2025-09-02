@@ -67,7 +67,7 @@ export default function StudentsContent() {
           {/* Left: Stats */}
           <div className="w-full">
             <h2 className="font-montserrat font-semibold text-2xl lg:text-3xl flex flex-wrap items-center gap-6 lg:gap-24 mb-2">
-              <span>MOL TP1 2025:</span>
+              <span>WAYNE Q1 2025:</span>
               <span className="flex items-center gap-2 text-black">
                 <span className="text-3xl lg:text-4xl font-semibold">{totalStudents}</span>
                 <ArrowUp color="green" size={28} />
@@ -81,7 +81,7 @@ export default function StudentsContent() {
             <div>
               <button className="font-montserrat inline-flex items-center gap-2 text-gray-600 font-medium text-base relative group">
                 <span className="relative">
-                  Change teaching period
+                  Change yearly quarter
                   <span className="absolute -bottom-1 left-0 w-full h-1 bg-gray-300 transition-all duration-200 group-hover:bg-gradient-to-r group-hover:from-[#ff8a00] group-hover:via-[#ff8a00]/50 group-hover:to-white"></span>
                 </span>
                 <ChevronDown size={16} />
@@ -115,7 +115,7 @@ export default function StudentsContent() {
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
               <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
             </svg>
-            <span className="font-montserrat font-bold text-gray-500 text-lg">High-risk customers</span>
+            <span className="font-montserrat font-semibold text-gray-500 text-lg">High-risk customers</span>
           </div>
         </div>
 

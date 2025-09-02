@@ -2,7 +2,7 @@
   "metadata": {
     "dataset": "sol_tp1",
     "dataset_group": "sol",
-    "metric_type": "enrolled_only",
+    "metric_type": "converted_only",
     "is_combined": false,
     "total_behaviors": 1,
     "generation_date": "2025-08-26T15:36:07.851035",
@@ -12,12 +12,12 @@
     "5.B.iii": {
       "taxonomy_info": {
         "title": "Connection Point Clarity",
-        "description": "Consultant provides clear, specific information about who to contact for different types of enrollment challenges.",
+        "description": "Agent provides clear, specific information about who to contact for different types of investment challenges.",
         "identification_guidance": "Look for detailed explanation of different support options, contact methods, and appropriate circumstances for each.",
         "examples": [
-          "Consultant clearly differentiates: \"For technical issues, contact IT support; for application questions, contact the admissions team\"",
-          "Consultant provides multiple contact methods: \"You can reach them by phone at X, email at Y, or through the live chat on the website\"",
-          "Consultant explains availability: \"The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends\""
+          "Agent clearly differentiates: \"For technical issues, contact technology services support; for application questions, contact the admissions team\"",
+          "Agent provides multiple contact methods: \"You can reach them by phone at X, email at Y, or through the live chat on the website\"",
+          "Agent explains availability: \"The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends\""
         ]
       },
       "effect_analysis_metrics": {
@@ -45,7 +45,7 @@
   },
   "individual_consultant_performance": {
     "consultant_001": {
-      "consultant_name": "Valentina-William",
+      "consultant_name": "Jamie-Evans",
       "rank": 1,
       "is_top_performer": true,
       "overall_metrics": {
@@ -88,7 +88,7 @@
       }
     },
     "consultant_002": {
-      "consultant_name": "Dave-McCarthie",
+      "consultant_name": "Chris-Turner",
       "rank": 2,
       "is_top_performer": true,
       "overall_metrics": {
@@ -131,7 +131,7 @@
       }
     },
     "consultant_003": {
-      "consultant_name": "Jake-McKinnis",
+      "consultant_name": "Avery-Peterson",
       "rank": 3,
       "is_top_performer": true,
       "overall_metrics": {
@@ -174,7 +174,7 @@
       }
     },
     "consultant_004": {
-      "consultant_name": "Sebastian-Saunders",
+      "consultant_name": "Drew-James",
       "rank": 4,
       "is_top_performer": true,
       "overall_metrics": {
@@ -217,7 +217,7 @@
       }
     },
     "consultant_005": {
-      "consultant_name": "Sarah-Charlwood",
+      "consultant_name": "Alex-Murphy",
       "rank": 5,
       "is_top_performer": false,
       "overall_metrics": {
@@ -260,7 +260,7 @@
       }
     },
     "consultant_006": {
-      "consultant_name": "Michael-Kiag",
+      "consultant_name": "Quinn-Ramirez",
       "rank": 6,
       "is_top_performer": false,
       "overall_metrics": {
@@ -303,7 +303,7 @@
       }
     },
     "consultant_007": {
-      "consultant_name": "Robert-Cecere",
+      "consultant_name": "Robin-Stewart",
       "rank": 7,
       "is_top_performer": false,
       "overall_metrics": {
@@ -346,7 +346,7 @@
       }
     },
     "consultant_008": {
-      "consultant_name": "Jack-Colleran",
+      "consultant_name": "Taylor-Bailey",
       "rank": 8,
       "is_top_performer": false,
       "overall_metrics": {
@@ -389,7 +389,7 @@
       }
     },
     "consultant_009": {
-      "consultant_name": "Nicholas-Bowers",
+      "consultant_name": "Casey-Reed",
       "rank": 9,
       "is_top_performer": false,
       "overall_metrics": {
@@ -432,7 +432,7 @@
       }
     },
     "consultant_010": {
-      "consultant_name": "Stephen-Taylor",
+      "consultant_name": "Blake-Gray",
       "rank": 10,
       "is_top_performer": false,
       "overall_metrics": {
@@ -475,7 +475,7 @@
       }
     },
     "consultant_011": {
-      "consultant_name": "Shelton-Frimpong",
+      "consultant_name": "Riley-Ward",
       "rank": 11,
       "is_top_performer": false,
       "overall_metrics": {
@@ -518,7 +518,7 @@
       }
     },
     "consultant_012": {
-      "consultant_name": "Yusuf-Aly",
+      "consultant_name": "Cameron-Torres",
       "rank": 12,
       "is_top_performer": false,
       "overall_metrics": {
@@ -561,7 +561,7 @@
       }
     },
     "consultant_013": {
-      "consultant_name": "Bridgett-Young",
+      "consultant_name": "Pat-Collins",
       "rank": 13,
       "is_top_performer": false,
       "overall_metrics": {
@@ -604,7 +604,7 @@
       }
     },
     "consultant_014": {
-      "consultant_name": "Gabriel-Almeida",
+      "consultant_name": "Morgan-Rivera",
       "rank": 14,
       "is_top_performer": false,
       "overall_metrics": {
@@ -647,7 +647,7 @@
       }
     },
     "consultant_015": {
-      "consultant_name": "Alexandra-Kepas",
+      "consultant_name": "Sam-Parker",
       "rank": 15,
       "is_top_performer": false,
       "overall_metrics": {
@@ -690,7 +690,7 @@
       }
     },
     "consultant_016": {
-      "consultant_name": "Rochelle-Khaddage",
+      "consultant_name": "Jordan-Cooper",
       "rank": 16,
       "is_top_performer": false,
       "overall_metrics": {
@@ -739,44 +739,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "5.B.iii_not_enrolled_1",
-            "evidence": "CONSULTANT: If you need anything else, just let us know.",
-            "justification": "The consultant provides a clear connection point for further assistance if needed, encouraging the student to reach out if more help is necessary.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "5.B.iii_not_converted_1",
+            "evidence": "AGENT: If you need anything else, just let us know.",
+            "justification": "The agent provides a clear connection point for further assistance if needed, encouraging the customer to reach out if more help is necessary.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "5.B.iii_not_enrolled_2",
-            "evidence": "CONSULTANT: You'll have to enrol again and we'll need to confirm your exemptions again as well.",
-            "justification": "The consultant provides specific procedural guidance about re-enrolling and confirming exemptions, clarifying the next steps the student will need to take once they are ready to proceed with enrollment.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "5.B.iii_not_converted_2",
+            "evidence": "AGENT: You'll have to invest again and we'll need to confirm your exemptions again as well.",
+            "justification": "The agent provides specific procedural guidance about re-converting and confirming exemptions, clarifying the next steps the customer will need to take once they are ready to proceed with conversion.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "5.B.iii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: For technical issues, you can contact IT support; for application questions, contact the admissions team. The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends.",
-            "justification": "The consultant provides clear information about who to contact for various enrollment challenges, including contact methods and availability, clarifying connection points for support.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "5.B.iii_converted_not_retained_1",
+            "evidence": "AGENT: For technical issues, you can contact technology services support; for application questions, contact the admissions team. The support team is available from 9am to 7pm weekdays, and 10am to 2pm on weekends.",
+            "justification": "The agent provides clear information about who to contact for various investment challenges, including contact methods and availability, clarifying connection points for support.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "5.B.iii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: I can help you up to this point of completing your enrolment, but after today, your new port of call is going to be the Student Advisor team. So, Student Advisors are available on the number that I'm texting through to you now, and the text will also just outline what to expect from here in a little bit more detail.",
-            "justification": "The consultant provides clear information about whom to contact for future enrollment challenges by introducing the Student Advisor team and sharing contact details via text message for clarity and further instruction.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "5.B.iii_converted_not_retained_2",
+            "evidence": "AGENT: I can help you up to this point of completing your investment, but after today, your new port of call is going to be the Customer Advisor team. So, Customer Advisors are available on the number that I'm texting through to you now, and the text will also just outline what to expect from here in a little bit more detail.",
+            "justification": "The agent provides clear information about whom to contact for future investment challenges by introducing the Customer Advisor team and sharing contact details via text message for clarity and further instruction.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "5.B.iii_enrolled_retained_1",
-            "evidence": "CONSULTANT: So I would contact them first just to make sure that we've got all the forms filled in correctly, because if we miss one minor detail by the end of March, we will actually withdraw you from the course.\nCONSULTANT: But if you've got any other questions like course planning advice, technical issues, logging in, need help deferring, withdrawing, getting a student card, accessing the online library, give them a call.",
-            "justification": "The consultant provides clear information about who to contact for different challenges, such as course planning and technical issues. This explanation establishes connection point clarity, detailing specific support circumstances and contact methods.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "5.B.iii_converted_retained_1",
+            "evidence": "AGENT: So I would contact them first just to make sure that we've got all the forms filled in correctly, because if we miss one minor detail by the end of March, we will actually withdraw you from the investment product.\nAGENT: But if you've got any other questions like investment product planning advice, technical issues, logging in, need help deferring, withdrawing, getting a customer card, accessing the online resource center, give them a call.",
+            "justification": "The agent provides clear information about who to contact for different challenges, such as investment product planning and technical issues. This explanation establishes connection point clarity, detailing specific support circumstances and contact methods.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "5.B.iii_enrolled_retained_2",
-            "evidence": "CONSULTANT: ...student advisors, they're your first point of contact... student coaches ...if anything changes and you need help or are struggling to get motivated, procrastination, balancing work and study or even actually just creating a study plan, they can do all of those things. So definitely highly recommend booking in a session with them.",
-            "justification": "The consultant provides clear information on different support options and circumstances they're suited for, such as motivation, procrastination, and study planning. This offers precise guidance on what help is offered by each support team, highlighting consulting with student coaches for specific needs.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "5.B.iii_converted_retained_2",
+            "evidence": "AGENT: ...customer advisors, they're your first point of contact... customer coaches ...if anything changes and you need help or are struggling to get motivated, procrastination, balancing work and investment or even actually just creating a investment plan, they can do all of those things. So definitely highly recommend booking in a session with them.",
+            "justification": "The agent provides clear information on different support options and circumstances they're suited for, such as motivation, procrastination, and investment planning. This offers precise guidance on what help is offered by each support team, highlighting consulting with customer coaches for specific needs.",
+            "outcome_category": "converted_retained"
           }
         ]
       }

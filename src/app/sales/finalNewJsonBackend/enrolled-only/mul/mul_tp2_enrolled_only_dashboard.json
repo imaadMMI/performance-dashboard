@@ -2,7 +2,7 @@
   "metadata": {
     "dataset": "mul_tp2",
     "dataset_group": "mul",
-    "metric_type": "enrolled_only",
+    "metric_type": "converted_only",
     "is_combined": false,
     "total_behaviors": 3,
     "generation_date": "2025-08-26T15:35:27.928615",
@@ -12,12 +12,12 @@
     "15.C.i": {
       "taxonomy_info": {
         "title": "Strategic Verification Technique",
-        "description": "Consultant demonstrates behavior of using focused questions to verify understanding of key points and confirming important details without excessive checking.",
-        "identification_guidance": "Look for consultants who employ strategic verification that maintains momentum while ensuring sufficient mutual understanding.",
+        "description": "Agent demonstrates behavior of using focused questions to verify understanding of key points and confirming important details without excessive checking.",
+        "identification_guidance": "Look for agents who employ strategic verification that maintains momentum while ensuring sufficient mutual understanding.",
         "examples": [
-          "Consultant: \"Is there a particular reason you're thinking about pushing that back?\"",
-          "Consultant: \"Just to confirm, when you say flexible, you're mainly referring to scheduling rather than content, correct?\"",
-          "Consultant: \"Let me make sure I understand - your main concern is about the time commitment rather than the subject matter itself?\""
+          "Agent: \"Is there a particular reason you're thinking about pushing that back?\"",
+          "Agent: \"Just to confirm, when you say flexible, you're mainly referring to scheduling rather than content, correct?\"",
+          "Agent: \"Let me make sure I understand - your main concern is about the investment commitment rather than the subject matter itself?\""
         ]
       },
       "effect_analysis_metrics": {
@@ -45,13 +45,13 @@
     "14.C.ii": {
       "taxonomy_info": {
         "title": "Decision Anxiety & Procrastination Response",
-        "description": "Consultant demonstrates behavior of addressing concerns related to starting new jobs, career transitions, or general decision-making anxiety that creates hesitation about enrollment timing.",
-        "identification_guidance": "Note instances where students express anxiety about major life changes, starting new positions, or feeling overwhelmed by the decision-making process.",
+        "description": "Agent demonstrates behavior of addressing concerns related to starting new returnss, financial goals transitions, or general decision-making anxiety that creates hesitation about conversion timing.",
+        "identification_guidance": "Note instances where customers express anxiety about major life changes, starting new positions, or feeling overwhelmed by the decision-making process.",
         "examples": [
-          "Student: \"I'm starting a new job next month and I'm not sure how that will affect my ability to study.\"",
-          "Consultant: \"Starting a new job is a significant transition. Let's talk about how our flexible program structure could accommodate this change in your work situation\"",
-          "Student: \"I keep going back and forth on this decision. I'm worried about making the wrong choice.\"",
-          "Consultant: \"It's natural to feel uncertain about important decisions like this. What specific aspects are creating the most concern for you?\""
+          "Customer: \"I'm starting a new returns next month and I'm not sure how that will affect my ability to investment.\"",
+          "Agent: \"Starting a new returns is a significant transition. Let's talk about how our flexible portfolio structure could accommodate this change in your work situation\"",
+          "Customer: \"I keep going back and forth on this decision. I'm worried about making the wrong choice.\"",
+          "Agent: \"It's natural to feel uncertain about important decisions like this. What specific aspects are creating the most concern for you?\""
         ]
       },
       "effect_analysis_metrics": {
@@ -79,12 +79,12 @@
     "13.C.ii": {
       "taxonomy_info": {
         "title": "Flexibility & Option Communication",
-        "description": "Consultant demonstrates behavior of explaining program flexibility and customization options in ways that empower student choice.",
-        "identification_guidance": "Note instances where consultants present options and flexibility as advantages while maintaining clear program structure.",
+        "description": "Agent demonstrates behavior of explaining portfolio flexibility and customization options in ways that empower customer choice.",
+        "identification_guidance": "Note instances where agents present options and flexibility as advantages while maintaining clear portfolio structure.",
         "examples": [
-          "Consultant: \"You have the flexibility to choose between 1 and 4 units per trimester, depending on your other commitments\"",
-          "Consultant: \"In terms of study, we estimate about 16 hours per week per unit. So it's quite flexible \u2013 you can do your study whenever suits you\"",
-          "Consultant: \"You can choose psychology units as part of your elective units, which gives you that interdisciplinary approach you're looking for\""
+          "Agent: \"You have the flexibility to choose between 1 and 4 products per quarterly period, depending on your other commitments\"",
+          "Agent: \"In investment periods of investment, we estimate about 16 hours per month per product. So it's quite flexible – you can do your investment whenever suits you\"",
+          "Agent: \"You can choose psychology products as part of your elective products, which gives you that interdisciplinary approach you're looking for\""
         ]
       },
       "effect_analysis_metrics": {
@@ -112,7 +112,7 @@
   },
   "individual_consultant_performance": {
     "consultant_001": {
-      "consultant_name": "Tayla-Viglione",
+      "consultant_name": "Cameron-Miller",
       "rank": 1,
       "is_top_performer": true,
       "overall_metrics": {
@@ -211,7 +211,7 @@
       }
     },
     "consultant_002": {
-      "consultant_name": "Michael-Bosman",
+      "consultant_name": "Blake-Thompson",
       "rank": 2,
       "is_top_performer": true,
       "overall_metrics": {
@@ -310,7 +310,7 @@
       }
     },
     "consultant_003": {
-      "consultant_name": "James-Lockie",
+      "consultant_name": "Morgan-Davis",
       "rank": 3,
       "is_top_performer": false,
       "overall_metrics": {
@@ -409,7 +409,7 @@
       }
     },
     "consultant_004": {
-      "consultant_name": "Alyssa-Pennacchia",
+      "consultant_name": "Jordan-Smith",
       "rank": 4,
       "is_top_performer": false,
       "overall_metrics": {
@@ -508,7 +508,7 @@
       }
     },
     "consultant_005": {
-      "consultant_name": "Pawan-Thapa",
+      "consultant_name": "Avery-Anderson",
       "rank": 5,
       "is_top_performer": false,
       "overall_metrics": {
@@ -607,7 +607,7 @@
       }
     },
     "consultant_006": {
-      "consultant_name": "Luke-Williams",
+      "consultant_name": "Taylor-Brown",
       "rank": 6,
       "is_top_performer": false,
       "overall_metrics": {
@@ -706,7 +706,7 @@
       }
     },
     "consultant_007": {
-      "consultant_name": "Olive-Jerome",
+      "consultant_name": "Alex-Morgan",
       "rank": 7,
       "is_top_performer": false,
       "overall_metrics": {
@@ -805,7 +805,7 @@
       }
     },
     "consultant_008": {
-      "consultant_name": "Mrudang-Pancholi",
+      "consultant_name": "Riley-Wilson",
       "rank": 8,
       "is_top_performer": false,
       "overall_metrics": {
@@ -904,7 +904,7 @@
       }
     },
     "consultant_009": {
-      "consultant_name": "Elisha-Odhiambo",
+      "consultant_name": "Quinn-Martinez",
       "rank": 9,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1003,7 +1003,7 @@
       }
     },
     "consultant_010": {
-      "consultant_name": "Ram\u00f3n-Keane",
+      "consultant_name": "Casey-Johnson",
       "rank": 10,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1102,7 +1102,7 @@
       }
     },
     "consultant_011": {
-      "consultant_name": "Michael-Whyte",
+      "consultant_name": "Drew-Robinson",
       "rank": 11,
       "is_top_performer": false,
       "overall_metrics": {
@@ -1207,44 +1207,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "15.C.i_not_enrolled_1",
-            "evidence": "CONSULTANT: So you're looking at applying for our Master of Business Management course and I can see you've sent through some documentation.\nSTUDENT: false, I don't.\nCONSULTANT: You have not completed it yet?\nSTUDENT: true, I just graduated.\nCONSULTANT: Because on the document you've sent through, it doesn't say that you've completed the award.",
-            "justification": "The consultant uses strategic verification techniques to confirm the student's completion status of their Bachelor's degree. This maintains the conversation momentum while ensuring mutual understanding of the enrollment requirements, facilitating progress in the application process.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "15.C.i_not_converted_1",
+            "evidence": "AGENT: So you're looking at applying for our Master of Business Management investment product and I can see you've sent through some documentation.\nCUSTOMER: false, I don't.\nAGENT: You have not finalized it yet?\nCUSTOMER: true, I just matured.\nAGENT: Because on the document you've sent through, it doesn't say that you've finalized the award.",
+            "justification": "The agent uses strategic verification techniques to confirm the customer's maturity status of their Bachelor's portfolio plan. This maintains the conversation momentum while ensuring mutual understanding of the conversion requirements, facilitating progress in the application process.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "15.C.i_not_enrolled_2",
-            "evidence": "STUDENT: So I was just wondering, is that a definite, if you don't have those, that you can't apply? CONSULTANT: Well, let me see what we can do with the work experience, and what was your kind of, what was your job role now?",
-            "justification": "The consultant uses focused questioning to verify understanding of the student's main concern regarding application eligibility with current experience. This strategic verification ensures mutual understanding while maintaining conversation flow.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "15.C.i_not_converted_2",
+            "evidence": "CUSTOMER: So I was just wondering, is that a definite, if you don't have those, that you can't apply? AGENT: Well, let me see what we can do with the work experience, and what was your kind of, what was your returns role now?",
+            "justification": "The agent uses focused questioning to verify understanding of the customer's main concern regarding application eligibility with current experience. This strategic verification ensures mutual understanding while maintaining conversation flow.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "15.C.i_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: Let me just confirm your email address is paul.sparks at thewesternedgeoftheworld.com. Is that right? STUDENT: Yep, that's right.",
-            "justification": "The consultant employs a strategic verification technique by confirming the student\u2019s email address, ensuring accuracy in further communication, and maintaining the momentum of the conversation without excessive checking.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "15.C.i_converted_not_retained_1",
+            "evidence": "AGENT: Let me just confirm your email address is paul.sparks at thewesternedgeoftheworld.com. Is that right? CUSTOMER: Yep, that's right.",
+            "justification": "The agent employs a strategic verification technique by confirming the customer’s email address, ensuring accuracy in further communication, and maintaining the momentum of the conversation without excessive checking.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "15.C.i_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: If it is not finalised by that date, your enrolment may be cancelled.\nSTUDENT: Gotcha.",
-            "justification": "The consultant uses strategic verification by highlighting the importance of finalizing the setup of the student's account by a specific date to avoid enrollment cancellation. This precise verification ensures mutual understanding of critical enrollment steps without excessive checking.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "15.C.i_converted_not_retained_2",
+            "evidence": "AGENT: If it is not finalised by that date, your investment may be cancelled.\nCUSTOMER: Gotcha.",
+            "justification": "The agent uses strategic verification by highlighting the importance of finalizing the setup of the customer's account by a specific date to avoid conversion cancellation. This precise verification ensures mutual understanding of critical conversion steps without excessive checking.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "15.C.i_enrolled_retained_1",
-            "evidence": "CONSULTANT: You mentioned that the first semester, like all the units in first semester overlaps with what you've done. Just to confirm, these are the units Introduction to Database Systems and Architecture and Networking, correct?",
-            "justification": "The consultant uses strategic verification by confirming the specific units mentioned by the student, ensuring clarity and mutual understanding without excessive checking.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "15.C.i_converted_retained_1",
+            "evidence": "AGENT: You mentioned that the first investment period, like all the products in first investment period overlaps with what you've done. Just to confirm, these are the products Introduction to Database Systems and Architecture and Networking, correct?",
+            "justification": "The agent uses strategic verification by confirming the specific products mentioned by the customer, ensuring clarity and mutual understanding without excessive checking.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "15.C.i_enrolled_retained_2",
-            "evidence": "STUDENT: How realistic is getting into honours from this course.\nCONSULTANT: Well so for entry into the honours course you do need to score a weighted average mark of 70 across your GDP. Now we do have quite a lot, no, we do have quite a lot of students that do make that transition nice and smoothly. We do also have a bridging course...",
-            "justification": "The consultant uses strategic verification to confirm details about entry into the honours course, ensuring mutual understanding of course transition possibilities, thus maintaining conversation momentum without excessive checking.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "15.C.i_converted_retained_2",
+            "evidence": "CUSTOMER: How realistic is getting into honours from this investment product.\nAGENT: Well so for entry into the honours investment product you do need to score a weighted average mark of 70 across your GDP. Now we do have quite a lot, no, we do have quite a lot of customers that do make that transition nice and smoothly. We do also have a bridging investment product...",
+            "justification": "The agent uses strategic verification to confirm details about entry into the honours investment product, ensuring mutual understanding of investment product transition possibilities, thus maintaining conversation momentum without excessive checking.",
+            "outcome_category": "converted_retained"
           }
         ]
       }
@@ -1254,44 +1254,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "14.C.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Now, I can see that you live in China, are you aware that in China they don't recognise online degrees as real degrees.\nSTUDENT: Oh, it's okay.",
-            "justification": "The consultant raises potential decision anxiety related to the recognition of online degrees in China, which could lead to hesitations. However, the student dismisses the concern quickly, indicating their lack of anxiety concerning this issue.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.C.ii_not_converted_1",
+            "evidence": "AGENT: Now, I can see that you live in China, are you aware that in China they don't recognise online portfolio plans as real portfolio plans.\nCUSTOMER: Oh, it's okay.",
+            "justification": "The agent raises potential decision anxiety related to the recognition of online portfolio plans in China, which could lead to hesitations. However, the customer dismisses the concern quickly, indicating their lack of anxiety concerning this issue.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "14.C.ii_not_enrolled_2",
-            "evidence": "STUDENT: I'm just going to take the other opportunity. CONSULTANT: She can't afford the 10 grand. Yeah honestly fair enough. Yeah it is fair enough but yeah she's chosen ISN over us which I yeah.",
-            "justification": "The transcript reflects decision-making anxiety, where the consultant acknowledges the student's choice to opt for another institution due to the unaffordability issue. While the consultant states 'fair enough,' there is little to no active engagement in addressing the underlying financial hesitation that contributes to the decision-making anxiety. This impacts enrollment timing, as the student decides to enroll elsewhere.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "14.C.ii_not_converted_2",
+            "evidence": "CUSTOMER: I'm just going to take the other opportproducty. AGENT: She can't afford the 10 grand. Yeah honestly fair enough. Yeah it is fair enough but yeah she's chosen ISN over us which I yeah.",
+            "justification": "The transcript reflects decision-making anxiety, where the agent acexpertises the customer's choice to opt for another institution due to the unaffordability issue. While the agent states 'fair enough,' there is little to no active engagement in addressing the underlying financial hesitation that contributes to the decision-making anxiety. This impacts conversion timing, as the customer decides to investl elsewhere.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "14.C.ii_enrolled_not_retained_1",
-            "evidence": "STUDENT: I just got a promotion on Friday and it's like a lot of work so I think I'm gonna need to spend a bit of time on that before I bite off anything more.\nCONSULTANT: Create create the account and you can do that and by the way uh congratulations on the promotion too.",
-            "justification": "The student expresses anxiety about managing new work responsibilities after receiving a promotion, indicating procrastination and decision anxiety related to life changes. The consultant acknowledges these concerns by celebrating the promotion and offering flexible enrollment options.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.C.ii_converted_not_retained_1",
+            "evidence": "CUSTOMER: I just got a promotion on Friday and it's like a lot of work so I think I'm gonna need to spend a bit of time on that before I bite off anything more.\nAGENT: Create create the account and you can do that and by the way uh congratulations on the promotion too.",
+            "justification": "The customer expresses anxiety about managing new work responsibilities after receiving a promotion, indicating procrastination and decision anxiety related to life changes. The agent acexpertises these concerns by celebrating the promotion and offering flexible conversion options.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "14.C.ii_enrolled_not_retained_2",
-            "evidence": "STUDENT: Yeah, I honestly haven't thought about it for the last couple of weeks. It's definitely something there. CONSULTANT: Okay, well I'll just quickly let you know that we do, our applications for January does close on the 13th of December. So if you are looking to study for then, it might be best to just get your documents in before then, before you make your decision. Otherwise, if you're happy to wait until March, those applications close on the 19th of February.",
-            "justification": "The student expresses hesitation and indicates they have not given much thought to the course in recent weeks. The consultant addresses this decision-making anxiety by providing clear deadlines and options for different intakes, gently encouraging timely decision-making without imposing pressure.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "14.C.ii_converted_not_retained_2",
+            "evidence": "CUSTOMER: Yeah, I honestly haven't thought about it for the last couple of weeks. It's definitely something there. AGENT: Okay, well I'll just quickly let you know that we do, our applications for January does close on the 13th of December. So if you are looking to investment for then, it might be best to just get your documents in before then, before you make your decision. Otherwise, if you're happy to wait until March, those applications close on the 19th of February.",
+            "justification": "The customer expresses hesitation and indicates they have not given much thought to the investment product in recent weeks. The agent addresses this decision-making anxiety by providing clear deadlines and options for different intakes, gently encouraging timely decision-making without imposing pressure.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "14.C.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: And how are you feeling about studying? STUDENT: A little bit anxious... CONSULTANT: Well, you are very well supported and if you ever want an extension, if you ever want time off, just please reach out to our student advisor team.",
-            "justification": "The consultant effectively addresses decision-making anxiety related to starting study by emphasizing available support and flexibility through extensions or time off, providing reassurance and fitting the 'Decision Anxiety & Procrastination Response' category.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.C.ii_converted_retained_1",
+            "evidence": "AGENT: And how are you feeling about investing? CUSTOMER: A little bit anxious... AGENT: Well, you are very well supported and if you ever want an extension, if you ever want time off, just please reach out to our customer advisor team.",
+            "justification": "The agent effectively addresses decision-making anxiety related to starting investment by emphasizing available support and flexibility through extensions or time off, providing reassurance and fitting the 'Decision Anxiety & Procrastination Response' category.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "14.C.ii_enrolled_retained_2",
-            "evidence": "STUDENT: I would like to just talk with my parents one more time before signing anything too. CONSULTANT: Once you've accepted the offer, you always have the census date to fall back on. So if you want to pull out for any reason at all, you have all the way up until the 17th of January to do so. Don't get charged anything and there's no academic penalties either if you do happen to change your mind or want to take an intermission or anything like that.",
-            "justification": "The student shows decision-making anxiety about committing to enrollment without parental consultation. The consultant reassures the student by highlighting the census date as a point of flexibility, providing a safety net that allows the student to reconsider their decision without facing penalties, thereby mitigating the anxiety of immediate commitment.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "14.C.ii_converted_retained_2",
+            "evidence": "CUSTOMER: I would like to just talk with my parents one more time before signing anything too. AGENT: Once you've accepted the offer, you always have the census date to fall back on. So if you want to pull out for any reason at all, you have all the way up until the 17th of January to do so. Don't get charged anything and there's no financial penalties either if you do happen to change your mind or want to take an break period or anything like that.",
+            "justification": "The customer shows decision-making anxiety about committing to conversion without parental consultation. The agent reassures the customer by highlighting the census date as a point of flexibility, providing a safety net that allows the customer to reconsider their decision without facing penalties, thereby mitigating the anxiety of immediate commitment.",
+            "outcome_category": "converted_retained"
           }
         ]
       }
@@ -1301,44 +1301,44 @@
       "outcome_categories": {
         "not_enrolled": [
           {
-            "quote_id": "13.C.ii_not_enrolled_1",
-            "evidence": "CONSULTANT: Yeah, I mean we do technically offer like single unit enrolments. That is a possibility. It depends obviously what unit you're after because they don't all run in every teaching period. So I mean if you had a particular one in mind I can I could quickly check now.",
-            "justification": "The consultant explains the flexibility of single unit enrollments, highlighting options available to the student, thereby empowering student choice and showcasing program flexibility.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "13.C.ii_not_converted_1",
+            "evidence": "AGENT: Yeah, I mean we do technically offer like single product investments. That is a possibility. It depends obviously what product you're after because they don't all run in every advising period. So I mean if you had a particular one in mind I can I could quickly check now.",
+            "justification": "The agent explains the flexibility of single product conversions, highlighting options available to the customer, thereby empowering customer choice and showcasing portfolio flexibility.",
+            "outcome_category": "not_converted"
           },
           {
-            "quote_id": "13.C.ii_not_enrolled_2",
-            "evidence": "CONSULTANT: I just prefer to get everyone in as quick as possible because then you've got to like set up your account and everything. But that shouldn't take too long, just about 10 minutes of your time.",
-            "justification": "The consultant explains the flexibility and ease of the enrollment setup process, indicating it won't take much of the student's time. This empowers Bridget's choice by presenting the program setup as quick and efficient, thereby reducing anxiety regarding time commitment.",
-            "outcome_category": "not_enrolled"
+            "quote_id": "13.C.ii_not_converted_2",
+            "evidence": "AGENT: I just prefer to get everyone in as quick as possible because then you've got to like set up your account and everything. But that shouldn't take too long, just about 10 minutes of your time.",
+            "justification": "The agent explains the flexibility and ease of the account setup process, indicating it won't take much of the customer's time. This empowers Bridget's choice by presenting the portfolio setup as quick and efficient, thereby reducing anxiety regarding investment commitment.",
+            "outcome_category": "not_converted"
           }
         ],
         "enrolled_not_retained": [
           {
-            "quote_id": "13.C.ii_enrolled_not_retained_1",
-            "evidence": "CONSULTANT: The teaching periods we have six a year six intakes so you can join us to start in January March May July August or October every year so yeah quite a bit of flexibility there in terms of when you can come into the program.",
-            "justification": "The consultant provides detailed information about multiple intake dates, emphasizing the flexibility and options for the student to choose when to start the program, thereby empowering student choice.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "13.C.ii_converted_not_retained_1",
+            "evidence": "AGENT: The advising periods we have six a year six intakes so you can join us to start in January March May July August or October every year so yeah quite a bit of flexibility there in investment periods of when you can come into the portfolio.",
+            "justification": "The agent provides detailed information about multiple intake dates, emphasizing the flexibility and options for the customer to choose when to start the portfolio, thereby empowering customer choice.",
+            "outcome_category": "converted_not_retained"
           },
           {
-            "quote_id": "13.C.ii_enrolled_not_retained_2",
-            "evidence": "CONSULTANT: So like our online courses are obviously designed to be as flexible and convenient as possible. STUDENT: Yeah, I just. Was trying to understand yeah getting it in around work so as long as it's not a high load on face-to-face because I'd like to go to those. CONSULTANT: Yeah right right right um no it's it's all yeah completely online obviously and there as for those live sessions there's at least one a week sometimes twice a week yeah in the evenings typically like maybe 7 or 7.30 p.m. Yeah, we try to schedule it when most students will be available. And then, yeah, if you do miss them though, they're also recorded obviously to watch.",
-            "justification": "The consultant emphasizes the flexibility and convenience of the online courses, explaining the option to attend live sessions or review recordings, thus accommodating the student's work schedule. This communication of program flexibility empowers student choice, fitting the '13.C.ii' category.",
-            "outcome_category": "enrolled_not_retained"
+            "quote_id": "13.C.ii_converted_not_retained_2",
+            "evidence": "AGENT: So like our online investment products are obviously designed to be as flexible and convenient as possible. CUSTOMER: Yeah, I just. Was trying to understand yeah getting it in around work so as long as it's not a high load on face-to-face because I'd like to go to those. AGENT: Yeah right right right um no it's it's all yeah completely online obviously and there as for those live sessions there's at least one a week sometimes twice a week yeah in the evenings typically like maybe 7 or 7.30 p.m. Yeah, we try to schedule it when most customers will be available. And then, yeah, if you do miss them though, they're also recorded obviously to watch.",
+            "justification": "The agent emphasizes the flexibility and convenience of the online investment products, explaining the option to participate in live sessions or review recordings, thus accommodating the customer's work schedule. This communication of portfolio flexibility empowers customer choice, fitting the '13.C.ii' category.",
+            "outcome_category": "converted_not_retained"
           }
         ],
         "enrolled_retained": [
           {
-            "quote_id": "13.C.ii_enrolled_retained_1",
-            "evidence": "CONSULTANT: You can sacrifice your two-week holiday break to use that as an early access point for your forthcoming unit to get a head start if you wanted to. Some students do this as a bit of a hack. By doing so you can get your study load down to about 15 to 18 hours per week by spreading out the course content a little more.",
-            "justification": "The consultant describes flexible options related to study loads and schedules, empowering the student with choices to manage their time effectively, which aligns with Flexibility & Option Communication.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "13.C.ii_converted_retained_1",
+            "evidence": "AGENT: You can sacrifice your two-week holiday break to use that as an early access point for your forthcoming product to get a head start if you wanted to. Some customers do this as a bit of a hack. By doing so you can get your investment load down to about 15 to 18 hours per month by spreading out the investment product content a little more.",
+            "justification": "The agent describes flexible options related to investment loads and schedules, empowering the customer with choices to manage their time effectively, which aligns with Flexibility & Option Communication.",
+            "outcome_category": "converted_retained"
           },
           {
-            "quote_id": "13.C.ii_enrolled_retained_2",
-            "evidence": "CONSULTANT: So you're working full-time or part-time? STUDENT: So the hours are quite irregular so I will work 8.30 to 8.30. CONSULTANT: Well that's good to know because this program is completely self-paced. You never have to be logged on at a specific time and live sessions can be watched later.",
-            "justification": "The consultant acknowledges the student's irregular work hours and highlights the flexibility of the program, emphasizing its self-paced nature and the option to access recorded sessions, accommodating the student's busy schedule.",
-            "outcome_category": "enrolled_retained"
+            "quote_id": "13.C.ii_converted_retained_2",
+            "evidence": "AGENT: So you're working full-time or part-time? CUSTOMER: So the hours are quite irregular so I will work 8.30 to 8.30. AGENT: Well that's good to know because this portfolio is completely self-paced. You never have to be logged on at a specific time and live sessions can be watched later.",
+            "justification": "The agent acexpertises the customer's irregular work hours and highlights the flexibility of the portfolio, emphasizing its self-paced nature and the option to access recorded sessions, accommodating the customer's busy schedule.",
+            "outcome_category": "converted_retained"
           }
         ]
       }

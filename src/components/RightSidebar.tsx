@@ -35,15 +35,15 @@ export function RightSidebar({ showSidebar, setShowSidebar }: RightSidebarProps)
       <div className="mb-12">
         <div className="flex items-baseline gap-15 mb-6">
           <h2 className="text-2xl font-semibold">Retention stats</h2>
-          <span className="text-gray-500 text-sm font-semibold">Monash TP5 2025</span>
+          <span className="text-gray-500 text-sm font-semibold">Wayne Q1 2025</span>
         </div>
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-white p-6 rounded text-left">
-            <p className="text-gray-500 text-sm mb-2 font-semibold">Students</p>
+            <p className="text-gray-500 text-sm mb-2 font-semibold">Customers</p>
             <p className="text-3xl font-semibold">103</p>
           </div>
           <div className="bg-white p-6 rounded text-left">
-            <p className="text-gray-500 text-sm mb-2 font-semibold">Enrolled</p>
+            <p className="text-gray-500 text-sm mb-2 font-semibold">Converted</p>
             <p className="text-3xl font-semibold">56</p>
           </div>
           <div className="bg-white p-6 rounded text-left">
@@ -85,7 +85,7 @@ export function RightSidebar({ showSidebar, setShowSidebar }: RightSidebarProps)
       <div>
         <div className="flex items-baseline gap-15 mb-6">
           <h2 className="text-2xl font-semibold">Archetype stats</h2>
-          <span className="text-gray-500 text-sm font-semibold">Monash TP5 2025</span>
+          <span className="text-gray-500 text-sm font-semibold">Wayne Q1 2025</span>
         </div>
         
         <div className="grid grid-cols-3 gap-4">

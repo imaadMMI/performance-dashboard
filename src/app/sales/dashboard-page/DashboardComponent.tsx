@@ -5,16 +5,16 @@ import { X, ArrowUp, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Info, Ca
 
 // Import all data files
 // Enrolled-only files
-import mulTp1EnrolledOnly from "../newJsonBackend/enrolled-only/mul/mul_tp1_enrolled_only_dashboard.json";
-import mulTp2EnrolledOnly from "../newJsonBackend/enrolled-only/mul/mul_tp2_enrolled_only_dashboard.json";
-import mulOverallEnrolledOnly from "../newJsonBackend/enrolled-only/mul/mul_overall_enrolled_only_dashboard.json";
-import solTp1EnrolledOnly from "../newJsonBackend/enrolled-only/sol/sol_tp1_enrolled_only_dashboard.json";
+import mulTp1EnrolledOnly from "../finalNewJsonBackend/enrolled-only/mul/mul_tp1_enrolled_only_dashboard.json";
+import mulTp2EnrolledOnly from "../finalNewJsonBackend/enrolled-only/mul/mul_tp2_enrolled_only_dashboard.json";
+import mulOverallEnrolledOnly from "../finalNewJsonBackend/enrolled-only/mul/mul_overall_enrolled_only_dashboard.json";
+import solTp1EnrolledOnly from "../finalNewJsonBackend/enrolled-only/sol/sol_tp1_enrolled_only_dashboard.json";
 
 // All-students files
-import mulTp1AllStudents from "../newJsonBackend/all-students/mul/mul_tp1_all_students_dashboard.json";
-import mulTp2AllStudents from "../newJsonBackend/all-students/mul/mul_tp2_all_students_dashboard.json";
-import mulOverallAllStudents from "../newJsonBackend/all-students/mul/mul_overall_all_students_dashboard.json";
-import solTp1AllStudents from "../newJsonBackend/all-students/sol/sol_tp1_all_students_dashboard.json";
+import mulTp1AllStudents from "../finalNewJsonBackend/all-students/mul/mul_tp1_all_students_dashboard.json";
+import mulTp2AllStudents from "../finalNewJsonBackend/all-students/mul/mul_tp2_all_students_dashboard.json";
+import mulOverallAllStudents from "../finalNewJsonBackend/all-students/mul/mul_overall_all_students_dashboard.json";
+import solTp1AllStudents from "../finalNewJsonBackend/all-students/sol/sol_tp1_all_students_dashboard.json";
 
 interface ArchetypeChartProps {
   value: number;
@@ -186,19 +186,19 @@ interface DashboardProps {
 const getDataSource = (schema: string, view: string) => {
   if (view === "enrolled-only") {
     switch (schema) {
-      case "tp1": return { data: mulTp1EnrolledOnly, university: "Monash" };
-      case "tp2": return { data: mulTp2EnrolledOnly, university: "Monash" };
-      case "combined": return { data: mulOverallEnrolledOnly, university: "Monash" };
-      case "sol-tp1": return { data: solTp1EnrolledOnly, university: "SOL" };
-      default: return { data: mulTp1EnrolledOnly, university: "Monash" };
+      case "tp1": return { data: mulTp1EnrolledOnly, university: "Wayne Corp." };
+      case "tp2": return { data: mulTp2EnrolledOnly, university: "Wayne Corp." };
+      case "combined": return { data: mulOverallEnrolledOnly, university: "Wayne Corp." };
+      case "sol-tp1": return { data: solTp1EnrolledOnly, university: "Stark Inc." };
+      default: return { data: mulTp1EnrolledOnly, university: "Wayne Corp." };
     }
   } else { // all-students
     switch (schema) {
-      case "tp1": return { data: mulTp1AllStudents, university: "Monash" };
-      case "tp2": return { data: mulTp2AllStudents, university: "Monash" };
-      case "combined": return { data: mulOverallAllStudents, university: "Monash" };
-      case "sol-tp1": return { data: solTp1AllStudents, university: "SOL" };
-      default: return { data: mulTp1AllStudents, university: "Monash" };
+      case "tp1": return { data: mulTp1AllStudents, university: "Wayne Corp." };
+      case "tp2": return { data: mulTp2AllStudents, university: "Wayne Corp." };
+      case "combined": return { data: mulOverallAllStudents, university: "Wayne Corp." };
+      case "sol-tp1": return { data: solTp1AllStudents, university: "Stark Inc." };
+      default: return { data: mulTp1AllStudents, university: "Wayne Corp." };
     }
   }
 };
@@ -286,10 +286,10 @@ export default function DashboardEnhanced({
   // Helper function to render quotes with formatted CONSULTANT: and STUDENT: prefixes
   const renderFormattedQuote = (text: string) => {
     // Split the text by both CONSULTANT: and STUDENT: patterns
-    const parts = text.split(/(CONSULTANT:|STUDENT:)/g);
+    const parts = text.split(/(AGENT:|CUSTOMER:)/g);
     
     return parts.map((part, index) => {
-      if (part === 'CONSULTANT:' || part === 'STUDENT:') {
+      if (part === 'AGENT:' || part === 'CUSTOMER:') {
         return <span key={index} className="font-semibold not-italic">{part}</span>;
       }
       // For non-label parts, wrap in quotes and make italic
@@ -304,7 +304,7 @@ export default function DashboardEnhanced({
   // Helper function to render quotes with formatted CONSULTANT: and STUDENT: prefixes
   const renderFormatQuotes = (text: string) => {
     // Split text by Consultant: or Student: patterns (case-insensitive)
-    const parts = text.split(/((?:Consultant|Student):\s*)/gi);
+    const parts = text.split(/((?:Agent|Customer):\s*)/gi);
     
     if (parts.length === 1) {
       // No matches found, return as italic
@@ -315,7 +315,7 @@ export default function DashboardEnhanced({
       <>
         {parts.map((part, index) => {
           // Check if this part matches Consultant: or Student:
-          if (/^(?:Consultant|Student):\s*$/i.test(part)) {
+          if (/^(?:Agent|Customer):\s*$/i.test(part)) {
             return <span key={index} className="font-semibold not-italic">{part}</span>;
           }
           // Otherwise render as italic
@@ -637,7 +637,7 @@ export default function DashboardEnhanced({
           </div>
           <div className="text-right">
             <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Team Average</p>
-            <p className="text-2xl font-bold text-[#CD853F]">
+            <p className="text-2xl font-bold text-[#FF8A00]">
               {dynamicTeamAverage}%
             </p>
           </div>
@@ -693,7 +693,7 @@ export default function DashboardEnhanced({
                   if (consultant.rank <= topThird) {
                     colorClass = "text-[#8BAF20]"; // Green for top third
                   } else if (consultant.rank <= middleThird) {
-                    colorClass = "text-[#CD853F]"; // Orange for middle third
+                    colorClass = "text-[#FF8A00]"; // Orange for middle third
                   }
                   
                   return (
@@ -853,7 +853,7 @@ export default function DashboardEnhanced({
                 {/* Enrolled Not Retained Examples */}
                 {exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_not_retained && 
                  exampleQuotes[selectedBehaviourFilter].outcome_categories.enrolled_not_retained.length > 0 && (
-                  <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#CD853F]`}>
+                  <div className={`bg-white rounded-lg border border-[#F0F0F0] overflow-hidden border-l-4 border-l-[#FF8A00]`}>
                     <div className="px-6 py-4 bg-white border-b border-[#F0F0F0]">
                       <h4 className="text-lg font-semibold text-[#282828]">
                         Customers Not Retained
@@ -1162,7 +1162,7 @@ export default function DashboardEnhanced({
                   </h2>
                   <div className="flex items-center gap-4">
                     <span className="text-lg font-semibold text-[#797A79]">
-                      {selectedSchema === "tp1" ? "Monash TP1" : selectedSchema === "tp2" ? "Monash TP2" : selectedSchema === "combined" ? "Monash TP1-TP2 Combined" : "SOL TP1"} • {currentDataView === "all-students" ? "All Customers" : "Converted Only"}
+                      {selectedSchema === "tp1" ? "Wayne Corp. Q1" : selectedSchema === "tp2" ? "Wayne Corp. Q2" : selectedSchema === "combined" ? "Wayne Corp. Q1-Q2 Combined" : "Stark Inc. Q1"} • {currentDataView === "all-students" ? "All Customers" : "Converted Only"}
                     </span>
                     <button
                       onClick={() => setSelectedConsultant(null)}

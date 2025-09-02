@@ -105,13 +105,13 @@ export function StudentCard({
           />
         </div>
         <div className="flex flex-col gap-2 flex-1 items-center">
-          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
+          <div className="border rounded px-3 py-2 flex items-center justify-start font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
             <span className="mr-2">{successRate}</span>
             <span className="text-[#444]">of success</span>
           </div>
-          <div className="border rounded px-3 py-2 flex items-center justify-center font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
+          <div className="border rounded px-3 py-2 flex items-center justify-start font-semibold border-[#f1f1f1] w-[145px] text-[0.85rem]">
             <span className="mr-2">{studentRate}</span>
-            <span className="text-[#444]">of students</span>
+            <span className="text-[#444]">of clients</span>
           </div>
         </div>
       </div>
