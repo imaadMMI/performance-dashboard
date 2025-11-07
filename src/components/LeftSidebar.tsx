@@ -10,7 +10,7 @@ const navigationItems = [
   { href: "/", icon: Home, label: "Home" },
   { href: "/history", icon: RotateCcw, label: "Session History" },
   { href: "/settings", icon: User, label: "Settings" },
-  { href: "/students", icon: Users, label: "LeaderBoard" },
+  // { href: "/students", icon: Users, label: "LeaderBoard" },
 ];
 
 export function LeftSidebar() {
@@ -21,11 +21,11 @@ export function LeftSidebar() {
       {/* Logo */}
       <div className="flex items-center justify-center mt-8">
         <div className="w-1/2">
-          <ImageWithFallback
+          {/* <ImageWithFallback
             src="/logo.png"
             alt="OES Logo"
             className="w-full h-full object-contain"
-          />
+          /> */}
         </div>
       </div>
 
@@ -42,12 +42,7 @@ export function LeftSidebar() {
         ))}
       </nav>
 
-      {/* Bottom gold circle */}
-      <div className="flex justify-center">
-        <Link href="/conversation?scene=No preference. Let's just talk.">
-          <div className="w-12 h-12 rounded-full bg-brand-gold shadow-lg cursor-pointer flex items-center justify-center transition-colors hover:bg-opacity-90 duration-200" />
-        </Link>
-      </div>
+      
     </div>
   );
 }

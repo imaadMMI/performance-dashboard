@@ -1,5 +1,0 @@
-/* Students page specific styles to ensure Montserrat font is applied */
-.font-montserrat,
-.font-montserrat * {
-  font-family: 'Montserrat', sans-serif !important;
-}

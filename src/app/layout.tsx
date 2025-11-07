@@ -26,7 +26,7 @@ const strangewaysBold = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OES",
+  title: "Sentiment",
   description: "OES Sales Dashboard",
 };
 
