@@ -26,8 +26,8 @@ const strangewaysBold = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Sentiment",
-  description: "OES Sales Dashboard",
+  title: "Performance Dashboard",
+  description: "Agent Performance Dashboard",
 };
 
 export default function RootLayout({
