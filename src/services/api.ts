@@ -84,8 +84,12 @@ export interface ServicesResponse {
   };
 }
 
+export interface HealthCheckResponse {
+  status: string;
+}
+
 export const apiService = {
-  async getHealth(): Promise<ApiResponse<any>> {
+  async getHealth(): Promise<ApiResponse<HealthCheckResponse>> {
     const response = await fetch(`${API_BASE_URL}/health`);
     return response.json();
   },

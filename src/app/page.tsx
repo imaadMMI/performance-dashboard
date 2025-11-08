@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import DashboardEnhanced from "@/app/sales/dashboard-page/DashboardComponent";
-import { ChevronDown, ArrowLeft } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { LeftSidebar } from "@/components/LeftSidebar";
-import { useRouter } from "next/navigation";
+
 
 
 
@@ -13,7 +13,6 @@ export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dataView, setDataView] = useState<"enrolled-only" | "all-students">("all-students");
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
   
   // Derive selected university from selected schema
   const selectedUniversity = selectedSchema === "sol-tp1" ? "sol" : "monash";

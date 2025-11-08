@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { LeftSidebar } from "@/components/LeftSidebar";
 import { TrendingUp, Phone, Clock, AlertTriangle, TrendingDown, Gauge, MessageSquare, ChevronDown } from "lucide-react";
 import Dashboard from "./dashboard";
-import KeyMoments from "./keyMoments";
 import tpCombinedData from './dashboardJson/tp-combined.json';
 
 interface Emotion {
@@ -412,8 +411,8 @@ function LLMInsights() {
                   {currentAgent.peakMoment.timestamp}
                 </span>
                 <blockquote className="flex-1 font-raleway font-semibold text-base">
-                  <span className="text-[#cc9900]">"{currentAgent.peakMoment.quote.substring(0, 30)}</span>
-                  {currentAgent.peakMoment.quote.substring(30)}<span className="text-[#ffc107]">"</span>
+                  <span className="text-[#cc9900]">&quot;{currentAgent.peakMoment.quote.substring(0, 30)}</span>
+                  {currentAgent.peakMoment.quote.substring(30)}<span className="text-[#ffc107]">&quot;</span>
                 </blockquote>
               </div>
               <div className="flex flex-wrap gap-2 mt-3">
@@ -459,7 +458,7 @@ export default function SalesPage() {
   const [activeView, setActiveView] = useState<"llm" | "dashboard" | "keyMoments">("llm");
   const [selectedSchema, setSelectedSchema] = useState<"tp1" | "tp2" | "combined" | "sol-tp1">("tp1");
   const [isSchemaDropdownOpen, setIsSchemaDropdownOpen] = useState(false);
-  const [isKeyMomentsDetailView, setIsKeyMomentsDetailView] = useState(false);
+  const [isKeyMomentsDetailView] = useState(false);
   
   // Set view based on URL params on mount
   useEffect(() => {
@@ -493,7 +492,7 @@ export default function SalesPage() {
   
   // Extract consultant and behavior data from JSON
   useEffect(() => {
-    const individualPerformance = tpCombinedData.individual_consultant_performance as Record<string, any>;
+    const individualPerformance = tpCombinedData.individual_consultant_performance as Record<string, { consultant_name: string }>;
     const consultantList = Object.entries(individualPerformance).map(([id, data]) => ({
       id,
       name: data.consultant_name.replace(/-/g, ' '),
@@ -502,7 +501,7 @@ export default function SalesPage() {
     setConsultants(consultantList);
     
     // Extract behaviors from overall_behavioral_effects
-    const behavioralEffects = tpCombinedData.overall_behavioral_effects as Record<string, any>;
+    const behavioralEffects = tpCombinedData.overall_behavioral_effects as Record<string, { taxonomy_info: { title: string } }>;
     const behaviorList = Object.entries(behavioralEffects)
       .map(([id, data]) => ({
         id,
@@ -839,17 +838,7 @@ export default function SalesPage() {
           {activeView === "llm" ? (
             <LLMInsights />
           ) : activeView === "keyMoments" ? (
-            <KeyMoments 
-              onDetailViewChange={setIsKeyMomentsDetailView}
-              selectedConsultant={selectedConsultant}
-              setSelectedConsultant={setSelectedConsultant}
-              consultants={consultants}
-              selectedWeek={selectedWeek}
-              setSelectedWeek={setSelectedWeek}
-              selectedBehavior={selectedBehavior}
-              setSelectedBehavior={setSelectedBehavior}
-              behaviors={behaviors}
-            />
+            <LLMInsights />
           ) : (
             <Dashboard selectedSchema={selectedSchema} />
           )}

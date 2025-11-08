@@ -130,8 +130,6 @@ interface BehavioralFeature {
       retention_with_behavior_percentage: string;
       retention_without_behavior_percentage: string;
     };
-    retention_with_behavior_percentage?: string;
-    retention_without_behavior_percentage?: string;
     evidence_strength: {
       total_significant_findings: number;
       datasets_found: number;
@@ -147,9 +145,48 @@ interface QuoteExample {
   outcome_category: string;
 }
 
+interface BehaviorData {
+  consultant_metrics?: {
+    percentage_students_with_behavior: number;
+  };
+  improvement_potential?: {
+    optimal_percentage_students_with_behavior?: number;
+    potential_retention_increase_percentage?: string;
+  };
+  optimal_conditions?: {
+    optimal_percentage_students_with_behavior?: number;
+    potential_retention_increase_percentage?: string;
+  };
+  team_averages?: {
+    team_percentage_students_with_behavior?: number;
+  };
+}
+
+interface ConsultantPerformance {
+  consultant_name: string;
+  overall_metrics: {
+    average_retention_rate: number;
+    potential_retention_increase_percentage: string;
+    total_students: number;
+    average_retention_rate_percentage: string;
+  };
+  behavioral_features: {
+    [key: string]: BehaviorData;
+  };
+}
+
 interface DashboardProps {
   selectedSchema?: "tp1" | "tp2" | "combined" | "sol-tp1";
 }
+
+// interface Consultant {
+//   id: string;
+//   name: string;
+//   retention_rate: string;
+//   potential_increase: string;
+//   rate_value: number;
+//   rank?: number;
+// }
 
 export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   
@@ -157,7 +194,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   const behavioralData = selectedSchema === "tp1" ? tp1Data : selectedSchema === "tp2" ? tp2Data : selectedSchema === "combined" ? tpCombinedData : solTp1Data;
   const behavioralFeatures = behavioralData.overall_behavioral_effects as Record<string, BehavioralFeature>;
   const exampleQuotes = behavioralData.example_quotes as Record<string, { behavioral_feature_title: string; outcome_categories: Record<string, QuoteExample[]> }>;
-  const individualPerformance = behavioralData.individual_consultant_performance as Record<string, any>;
+  const individualPerformance = behavioralData.individual_consultant_performance as Record<string, ConsultantPerformance>;
   
   const [selectedBehaviour, setSelectedBehaviour] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
@@ -168,12 +205,12 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   
   // Create consultant data from selected schema
   const consultantsFromSchema = Object.entries(individualPerformance)
-    .map(([consultantId, data]: [string, any]) => ({
+    .map(([consultantId, data]: [string, ConsultantPerformance]) => ({
       id: consultantId,
-      name: data.consultant_name,
-      retention_rate: (data.overall_metrics.average_retention_rate * 100).toFixed(1) + "%",
-      potential_increase: data.overall_metrics.potential_retention_increase_percentage
-    }))
+                name: data.consultant_name,
+                retention_rate: (data.overall_metrics.average_retention_rate * 100).toFixed(1) + "%",
+                potential_increase: data.overall_metrics.potential_retention_increase_percentage,
+                rate_value: data.overall_metrics.average_retention_rate * 100    }))
     .sort((a, b) => parseFloat(b.retention_rate) - parseFloat(a.retention_rate))
     .map((consultant, index) => ({
       ...consultant,
@@ -182,7 +219,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
   
   // Calculate dynamic team average from all consultants
   const dynamicTeamAverage = (
-    consultantsFromSchema.reduce((sum: number, consultant: any) => 
+    consultantsFromSchema.reduce((sum: number, consultant: { retention_rate: string }) => 
       sum + parseFloat(consultant.retention_rate), 0) / consultantsFromSchema.length
   ).toFixed(1);
   
@@ -333,12 +370,12 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
             </thead>
             <tbody>
               {consultantsFromSchema
-                .sort((a: any, b: any) => {
+                .sort((a: { retention_rate: string }, b: { retention_rate: string }) => {
                   const aRate = parseFloat(a.retention_rate);
                   const bRate = parseFloat(b.retention_rate);
                   return sortOrder === "desc" ? bRate - aRate : aRate - bRate;
                 })
-                .map((consultant: any, index: number) => {
+                .map((consultant: { id: string; name: string; retention_rate: string; rank: number }, index: number) => {
                   // Determine color based on position in sorted list
                   const totalConsultants = consultantsFromSchema.length;
                   const topThird = Math.ceil(totalConsultants / 3);
@@ -769,7 +806,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
       )}
       
       {/* Consultant Performance Modal */}
-      {selectedConsultant && individualPerformance[selectedConsultant] && (
+      {selectedConsultant && (individualPerformance[selectedConsultant] as ConsultantPerformance) && (
         <>
           {/* Backdrop with blur */}
           <div 
@@ -787,7 +824,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
               <div className="border-b border-[#F0F0F0] p-6">
                 <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-bold text-[#282828]">
-                    {individualPerformance[selectedConsultant].consultant_name}
+                    {(individualPerformance[selectedConsultant] as ConsultantPerformance).consultant_name}
                   </h2>
                   <div className="flex items-center gap-4">
                     <span className="text-lg font-semibold text-[#797A79]">
@@ -807,7 +844,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                   <div className="bg-[#F5F5F5] rounded-lg p-3">
                     <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Retention Rate</p>
                     <p className="text-xl font-bold text-[#282828]">
-                      {individualPerformance[selectedConsultant].overall_metrics.average_retention_rate_percentage}
+                      {(individualPerformance[selectedConsultant] as ConsultantPerformance).overall_metrics.average_retention_rate_percentage}
                     </p>
                   </div>
                   <div className="bg-[#F5F5F5] rounded-lg p-3">
@@ -815,8 +852,8 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                     <p className="text-xl font-bold text-[#8BAF20]">
                       {(() => {
                         // Calculate sum of all behavior potential improvements
-                        const totalPotential = Object.values(individualPerformance[selectedConsultant].behavioral_features || {})
-                          .reduce((sum: number, behavior: any) => {
+                        const totalPotential = Object.values((individualPerformance[selectedConsultant] as ConsultantPerformance).behavioral_features || {})
+                          .reduce((sum: number, behavior: { improvement_potential?: { potential_retention_increase_percentage?: string }; optimal_conditions?: { potential_retention_increase_percentage?: string } }) => {
                             const potentialStr = behavior.improvement_potential?.potential_retention_increase_percentage || 
                                                behavior.optimal_conditions?.potential_retention_increase_percentage || "0%";
                             const potential = parseFloat(potentialStr.replace('%', '').replace('+', ''));
@@ -829,7 +866,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                   <div className="bg-[#F5F5F5] rounded-lg p-3">
                     <p className="text-xs text-[#797A79] uppercase tracking-wide mb-1">Total Students</p>
                     <p className="text-xl font-bold text-[#282828]">
-                      {individualPerformance[selectedConsultant].overall_metrics.total_students}
+                      {(individualPerformance[selectedConsultant] as ConsultantPerformance).overall_metrics.total_students}
                     </p>
                   </div>
                 </div>
@@ -852,7 +889,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
                                 <p className="mb-2 font-semibold">Actual Score:</p>
-                                <p>Percentage of this consultant's students who experienced this specific behaviour during their enrollment or consultation conversations.</p>
+                                <p>Percentage of this consultant&apos;s students who experienced this specific behaviour during their enrollment or consultation conversations.</p>
                               </div>
                             </div>
                           </div>
@@ -863,7 +900,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                             <div className="absolute z-[100] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-[#282828] text-white text-xs rounded-lg p-3 w-64 right-0 top-full mt-2 shadow-xl">
                               <div className="font-normal normal-case text-left">
                                 <p className="mb-2 font-semibold">Ideal Score:</p>
-                                <p>The optimal percentage of students, for each consultant, who should experience this sales behaviour. This 'optimal percentage' is defined using the top 25% of consultants (based on retention rate).</p>
+                                <p>The optimal percentage of students, for each consultant, who should experience this sales behaviour. This &apos;optimal percentage&apos; is defined using the top 25% of consultants (based on retention rate).</p>
                               </div>
                             </div>
                           </div>
@@ -882,14 +919,14 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                       </tr>
                     </thead>
                     <tbody>
-                      {Object.entries(individualPerformance[selectedConsultant].behavioral_features || {}).map(([behaviorKey, behaviorData]: [string, any], idx: number) => {
+                      {Object.entries((individualPerformance[selectedConsultant] as ConsultantPerformance).behavioral_features || {}).map(([behaviorKey, behaviorData]: [string, BehaviorData], idx) => {
                         // Use the correct field names from the JSON schemas
-                        const actualScore = behaviorData.consultant_metrics?.percentage_students_with_behavior * 100 || 0;
+                        const actualScore = (behaviorData.consultant_metrics?.percentage_students_with_behavior || 0) * 100 || 0;
                         
                         // Check for improvement_potential (tp1/tp2) or optimal_conditions (combined)
-                        const idealScore = (behaviorData.improvement_potential?.optimal_percentage_students_with_behavior * 100) || 
-                                          (behaviorData.optimal_conditions?.optimal_percentage_students_with_behavior * 100) || 
-                                          (behaviorData.team_averages?.team_percentage_students_with_behavior * 100 || 50);
+                        const idealScore = ((behaviorData.improvement_potential?.optimal_percentage_students_with_behavior || 0) * 100) || 
+                                          ((behaviorData.optimal_conditions?.optimal_percentage_students_with_behavior || 0) * 100) || 
+                                          ((behaviorData.team_averages?.team_percentage_students_with_behavior || 0) * 100 || 50);
                         
                         const potentialImprovementStr = behaviorData.improvement_potential?.potential_retention_increase_percentage || 
                                                         behaviorData.optimal_conditions?.potential_retention_increase_percentage || "0%";
@@ -936,7 +973,7 @@ export default function Dashboard({ selectedSchema = "tp1" }: DashboardProps) {
                   </table>
                 </div>
                 
-                {Object.keys(individualPerformance[selectedConsultant].behavioral_features || {}).length === 0 && (
+                {Object.keys((individualPerformance[selectedConsultant] as ConsultantPerformance).behavioral_features || {}).length === 0 && (
                   <div className="text-center py-8">
                     <p className="text-[#797A79] text-base">
                       No behavioral data available for this consultant

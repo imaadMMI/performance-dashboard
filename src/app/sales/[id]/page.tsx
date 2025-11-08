@@ -5,7 +5,6 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import { ArrowLeft, TrendingUp } from "lucide-react";
 import Image from "next/image";
-import ArchetypeCharts from "@/components/ArchetypeCharts";
 import { PieChart, Pie, Cell } from "recharts";
 
 export default function StudentProfile() {
@@ -178,7 +177,7 @@ export default function StudentProfile() {
               <div className="relative pl-4 mb-6 ml-6">
                 <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full" style={{background: 'linear-gradient(to bottom, #efefef, #dbcca7, #d0ad5b, #caa03c, #c49525, #ba8e29)'}}></div>
                 <p className="font-raleway text-gray-600 text-base leading-relaxed font-semibold">
-                  "I did my Certificate IV in training and assessment as well... <span className='text-[#C58E02]'>I have a diploma in leadership and management and a diploma in outdoor leadership...</span> I do have 25 years of industry experience, and I have a graduate certificate in adult education"
+                  &quot;I did my Certificate IV in training and assessment as well... <span className='text-[#C58E02]'>I have a diploma in leadership and management and a diploma in outdoor leadership...</span> I do have 25 years of industry experience, and I have a graduate certificate in adult education&quot;
                 </p>
               </div>
 

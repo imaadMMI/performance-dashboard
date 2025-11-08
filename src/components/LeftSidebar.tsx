@@ -1,9 +1,7 @@
 "use client";
 
-import { Home, RotateCcw, User, Users } from "lucide-react";
-import Link from "next/link";
+import { Home, RotateCcw, User } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { IconButton } from "./atoms";
 
 const navigationItems = [

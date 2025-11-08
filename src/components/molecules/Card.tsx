@@ -25,11 +25,9 @@ interface StudentCardProps {
   tier: number;
   rank: string;
   heading: string;
-  profileImage: string;
   successRate: string;
   studentRate: string;
   progressionRate: number;
-  quote: string;
   isActive?: boolean;
   onClick?: () => void;
   studentId?: string;
@@ -45,11 +43,9 @@ export function StudentCard({
   tier,
   rank,
   heading,
-  profileImage,
   successRate,
   studentRate,
   progressionRate,
-  quote,
   isActive = false,
   onClick,
   studentId = "0439",
@@ -154,8 +150,8 @@ export function StudentCard({
       {/* Quote */}
       <div className="bg-white border border-[#f0f0f0] rounded p-5">
         <p className="font-raleway text-sm font-medium">
-          <span className="text-[#ff8a00]">"My wife is really encouraging me to do this</span>
-          {' '}and said she'll take on more of the household responsibilities<span className="text-[#ff8a00]">."</span>
+          <span className="text-[#ff8a00]">&quot;My wife is really encouraging me to do this</span>
+          {' '}and said she&apos;ll take on more of the household responsibilities<span className="text-[#ff8a00]">&quot;.</span>
         </p>
       </div>
       </div>
